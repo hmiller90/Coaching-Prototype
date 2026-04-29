@@ -288,14 +288,14 @@ section{padding:72px 32px;}
   display:flex;gap:6px;
   margin-top:36px;
   overflow-x:auto;
-  align-items:flex-end;
+  align-items:stretch;
   padding-bottom:0;
 }
 .track-tab{
   position:relative;
-  padding:10px 20px 11px;
-  font-size:13.5px;font-weight:500;
-  color:var(--text-muted);cursor:pointer;
+  flex:1;
+  padding:9px 14px 10px;
+  cursor:pointer;
   background:#e8edf3;
   border:1px solid #d0d8e4;
   border-bottom:none;
@@ -303,19 +303,30 @@ section{padding:72px 32px;}
   transition:all .15s;
   white-space:nowrap;
   box-shadow:inset 0 -2px 4px rgba(0,0,0,.04);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
 }
-.track-tab:hover{color:var(--text);background:#eef1f6;}
+.track-tab:hover{background:#eef1f6;}
+.track-tab:hover .tab-eyebrow{color:#7a9ab8;}
+.track-tab:hover .tab-desc{color:var(--text);}
 .track-tab.active{
-  color:var(--wsp-blue);font-weight:600;
   background:#ffffff;
   border-color:#dde3ec;
   border-bottom:1px solid #ffffff;
   box-shadow:0 -2px 6px rgba(0,0,0,.06);
-  padding-bottom:12px;
+  padding-bottom:11px;
   z-index:1;
 }
-.track-tab.not-sure-tab{color:var(--wsp-blue);background:#eaf3fb;border-color:#c5dff2;}
-.track-tab.not-sure-tab.active{color:var(--wsp-blue);background:#ffffff;border-color:#dde3ec;border-bottom:1px solid #ffffff;}
+.track-tab.active .tab-eyebrow{color:#72a8d4;}
+.track-tab.active .tab-desc{color:#1a2535;}
+.tab-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#aab4c0;line-height:1;transition:color .15s;}
+.tab-desc{font-size:13px;font-weight:700;color:#3a4a5c;line-height:1.2;transition:color .15s;white-space:normal;}
+.track-tab.not-sure-tab{background:#eaf3fb;border-color:#c5dff2;}
+.track-tab.not-sure-tab .tab-eyebrow{color:#7ab0d4;}
+.track-tab.not-sure-tab .tab-desc{color:#1a7fc1;}
+.track-tab.not-sure-tab.active{background:#ffffff;border-color:#dde3ec;border-bottom:1px solid #ffffff;}
 .track-content{
   display:none;
   padding:32px 28px;
@@ -867,11 +878,11 @@ footer {
     <p class="section-sub">Select the coaching program that best aligns with your goals, background, and where you are in your career journey.</p>
     <div style="border-bottom:1px solid #dde3ec;">
     <div class="track-tabs">
-      <div class="track-tab active" onclick="switchTab(0)">The Polisher</div>
-      <div class="track-tab" onclick="switchTab(1)">The (Wall Street) Prepper <span style="display:inline-block;margin-left:7px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#1a7fc1;color:white;border-radius:100px;vertical-align:middle;position:relative;top:-1px;">Popular</span></div>
-      <div class="track-tab" onclick="switchTab(2)">The Upskiller</div>
-      <div class="track-tab" onclick="switchTab(3)">The Customizer</div>
-      <div class="track-tab not-sure-tab" onclick="switchTab(4)">Not sure? Let's talk ›</div>
+      <div class="track-tab active" onclick="switchTab(0)"><span class="tab-eyebrow">The Polisher</span><span class="tab-desc">Resume &amp; Mock Interview</span></div>
+      <div class="track-tab" onclick="switchTab(1)"><span class="tab-eyebrow">The (Wall Street) Prepper</span><span class="tab-desc">In-Depth Interview Prep <span style="display:inline-block;vertical-align:middle;margin-left:4px;padding:1px 5px;font-size:7px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:#1a7fc1;color:white;border-radius:100px;position:relative;top:-1px;">Popular</span></span></div>
+      <div class="track-tab" onclick="switchTab(2)"><span class="tab-eyebrow">The Upskiller</span><span class="tab-desc">Technical &amp; On-the-Job</span></div>
+      <div class="track-tab" onclick="switchTab(3)"><span class="tab-eyebrow">The Customizer</span><span class="tab-desc">Fully Custom Coaching</span></div>
+      <div class="track-tab not-sure-tab" onclick="switchTab(4)"><span class="tab-eyebrow">Not Sure?</span><span class="tab-desc">Let's Talk ›</span></div>
     </div>
     </div>
 
@@ -1226,7 +1237,7 @@ footer {
           <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Free &amp; no commitment</div>
           <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>15 minutes · fully virtual</div>
           <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalized track recommendation</div>
-          <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Available slots within 24–48 hours</div>
+          <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Available slots as soon as same-day</div>
         </div>
         <button class="consult-btn" onclick="openConsult()">
           <svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12" stroke-linecap="round"/></svg>
@@ -1304,7 +1315,7 @@ footer {
       <div class="form-step" id="fstep-6">
         <div class="form-q" id="q6-text">When would you like to start coaching sessions?</div>
         <div class="form-hint">Helps us prioritize your match. We guarantee a coach introduction within 48 hours.</div>
-        <select class="form-select" onchange="toggleDatePicker(this)">
+        <select class="form-select" onchange="toggleDatePicker(this);toggleUrgentNotice(this)">
           <option value="">Select timing...</option>
           <option value="urgent">Urgent: I need coaching immediately</option>
           <option value="soon">Very Soon: 1–2 days</option>
@@ -1312,6 +1323,10 @@ footer {
           <option value="month">No Rush: 1–2 months</option>
           <option value="date">Specific date</option>
         </select>
+        <div id="urgent-notice" style="display:none;margin-top:12px;padding:12px 14px;background:#fffbe6;border:1.5px solid #f5c842;border-radius:8px;gap:10px;align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px;stroke:#c97d00;stroke-width:2;"><circle cx="10" cy="10" r="8"/><path d="M10 6v4M10 14h.01" stroke-linecap="round"/></svg>
+          <span style="font-size:13px;color:#7a5200;line-height:1.55;">To be considered for same-day coach matching, requests must be submitted by <strong>3:00 PM ET on business days</strong>. While we make every effort to accommodate urgent requests, same-day matching cannot be guaranteed and is subject to coach availability.</span>
+        </div>
         <div class="date-picker" id="date-picker">
           <label class="form-label" style="margin-top:12px;display:block;">Select your preferred start date</label>
           <input class="form-input" type="date" style="max-width:240px;margin-top:6px;"/>
@@ -1585,6 +1600,8 @@ footer {
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are sessions conducted live or asynchronously?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">Most coaching is conducted live via video call (Zoom or similar platforms). The Resume &amp; Mock Interview track also includes asynchronous email-based feedback.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you offer refunds?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">We offer a satisfaction guarantee on unused hours. If you've completed your intro call but haven't yet started your first full session, you may request a full refund on unused hours. After coaching begins, refunds are prorated based on unused hours.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How experienced are WSP coaches?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">All Wall Street Prep coaches are vetted practitioners with real-world experience at leading firms including bulge bracket investment banks, mega-fund private equity firms, and top hedge funds.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to be paired with a coach?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">You can typically expect a coach introduction within 24–48 hours after purchase, with most matches completed in under 24 hours.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I be matched with a coach faster than 24 hours? What's the fastest turnaround?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">During checkout, you'll be asked how quickly you'd like to begin — select the "urgent" option if you need expedited matching.<br/><br/>In many cases, we can introduce you to a coach in as little as 4 hours. <strong>For same-day matching, requests must be submitted by 3:00 PM ET on business days.</strong> While we do our best to accommodate urgent requests, same-day matching is not guaranteed and depends on coach availability.</div></div>
     </div>
   </div>
 </section>
@@ -1729,6 +1746,7 @@ function showStep(n){document.querySelectorAll('.form-step').forEach(s=>s.classL
 function formNext(){if(currentStep<totalSteps){currentStep++;showStep(currentStep);}else{if(consultMode){openCal();}else{unlockPackages();}}}
 function formBack(){if(currentStep>1){currentStep--;showStep(currentStep);}}
 showStep(1);
+function toggleUrgentNotice(sel){const n=document.getElementById('urgent-notice');if(n)n.style.display=sel.value==='urgent'?'flex':'none';}
 function toggleDatePicker(sel){document.getElementById('date-picker').classList.toggle('visible',sel.value==='date');}
 const tzData={US:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Alaska Time (AKT) — UTC-9/8','Hawaii Time (HST) — UTC-10'],GB:['Greenwich Mean Time (GMT) — UTC+0','British Summer Time (BST) — UTC+1'],CA:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Atlantic Time (AT) — UTC-4/3','Newfoundland Time — UTC-3:30/2:30'],AU:['Australian Eastern Time (AEST) — UTC+10','Australian Central Time (ACST) — UTC+9:30','Australian Western Time (AWST) — UTC+8'],DE:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],FR:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],SG:['Singapore Time (SGT) — UTC+8'],HK:['Hong Kong Time (HKT) — UTC+8'],JP:['Japan Standard Time (JST) — UTC+9'],IN:['India Standard Time (IST) — UTC+5:30'],UAE:['Gulf Standard Time (GST) — UTC+4'],CH:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],NL:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],BR:['Brasilia Time (BRT) — UTC-3','Amazon Time (AMT) — UTC-4'],MX:['Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7'],ZA:['South Africa Standard Time (SAST) — UTC+2'],KR:['Korea Standard Time (KST) — UTC+9'],CN:['China Standard Time (CST) — UTC+8'],IT:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],ES:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],OTHER:['UTC-12','UTC-11','UTC-10','UTC-9','UTC-8','UTC-7','UTC-6','UTC-5','UTC-4','UTC-3','UTC-2','UTC-1','UTC+0','UTC+1','UTC+2','UTC+3','UTC+4','UTC+5','UTC+5:30','UTC+6','UTC+7','UTC+8','UTC+9','UTC+10','UTC+11','UTC+12']};
 function updateTimezones(){const country=document.getElementById('country-select').value;const tzSelect=document.getElementById('timezone-select');tzSelect.innerHTML='<option value="">Select timezone...</option>';if(tzData[country]){tzData[country].forEach(tz=>{const o=document.createElement('option');o.textContent=tz;tzSelect.appendChild(o);});}}
@@ -1786,11 +1804,11 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
   const floatingNav = document.getElementById('floating-nav');
 
   const tabConfig = [
-    { name: 'The Polisher',               label: 'Book Now →', tabIdx: 0 },
-    { name: 'The (Wall Street) Prepper',  label: 'Book Now →',        tabIdx: 1 },
-    { name: 'The Upskiller',              label: 'Book Now →',        tabIdx: 2 },
-    { name: 'The Customizer',             label: 'Book Now →',        tabIdx: 3 },
-    { name: 'Private Coaching',           label: 'Book Now →',        tabIdx: 4 },
+    { name: 'Resume &amp; Mock Interview',    label: 'Book Now →', tabIdx: 0 },
+    { name: 'In-Depth Interview Prep',        label: 'Book Now →', tabIdx: 1 },
+    { name: 'Technical &amp; On-the-Job',     label: 'Book Now →', tabIdx: 2 },
+    { name: 'Fully Custom Coaching',          label: 'Book Now →', tabIdx: 3 },
+    { name: 'Not Sure? Let\'s Talk',          label: 'Book a Free Consult →', tabIdx: 4 },
   ];
 
   let currentTabIdx = 0;
