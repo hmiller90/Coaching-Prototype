@@ -654,6 +654,22 @@ footer {
 .pp-step.active .pp-label{color:var(--navy-dark);}
 .pp-step.done .pp-label{color:rgba(13,27,46,.65);}
 
+/* ─── MASTERY DISCLAIMER MODAL ─── */
+.mastery-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,46,.7);z-index:250;align-items:center;justify-content:center;padding:20px;}
+.mastery-overlay.open{display:flex;}
+.mastery-modal{background:white;border-radius:14px;padding:36px 32px 28px;width:90%;max-width:480px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.mastery-icon{width:48px;height:48px;border-radius:50%;background:#fff8e6;border:1.5px solid #f5c842;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.mastery-icon svg{width:22px;height:22px;stroke:#c97d00;}
+.mastery-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:14px;letter-spacing:-.3px;}
+.mastery-body{font-size:14px;color:var(--text-muted);line-height:1.75;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.mastery-body strong{color:var(--text);font-weight:700;}
+.mastery-actions{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border);padding-top:20px;}
+.mastery-btn-primary{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wsp-blue);color:white;padding:13px 24px;border-radius:7px;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;}
+.mastery-btn-primary:hover{background:var(--wsp-blue-dark);transform:translateY(-1px);}
+.mastery-btn-primary svg{width:15px;height:15px;stroke:white;flex-shrink:0;}
+.mastery-btn-secondary{background:none;border:1.5px solid var(--border);color:var(--text-muted);padding:11px 24px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s,color .2s;width:100%;}
+.mastery-btn-secondary:hover{border-color:var(--text-muted);color:var(--text);}
+
 .section-hidden{display:none;}
 .section-reveal{animation:revealSection .5s ease forwards;}
 @keyframes revealSection{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -815,7 +831,7 @@ footer {
     <a href="https://www.wallstreetprep.com/corporate/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:20px;max-width:740px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);border-radius:10px;padding:18px 22px;text-decoration:none;transition:border-color .2s,background .2s;margin-top:4px;" onmouseover="this.style.borderColor='rgba(114,255,171,.45)';this.style.background='rgba(255,255,255,.09)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.background='rgba(255,255,255,.06)'">
       <span style="flex-shrink:0;display:inline-block;border:1.5px solid rgba(114,255,171,.6);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(114,255,171,.9);white-space:nowrap;">For Teams</span>
       <span style="flex:1;min-width:0;">
-        <span style="display:block;font-size:14px;font-weight:700;color:white;line-height:1.35;margin-bottom:3px;"><span style="color:white;">Training a group?</span> WSP corporate programs serve 5 to 500+ professionals.</span>
+        <span style="display:block;font-size:14px;line-height:1.35;margin-bottom:3px;"><span style="font-weight:700;color:white;">Training a group?</span> <span style="font-weight:400;color:rgba(255,255,255,.85);">WSP corporate programs serve 5 to 500+ professionals.</span></span>
         <span style="display:block;font-size:12px;color:rgba(255,255,255,.5);line-height:1.5;">Custom curricula · Dedicated instructors · Volume pricing</span>
       </span>
       <span style="flex-shrink:0;font-size:14px;font-weight:700;color:#72ffab;white-space:nowrap;">Explore Corporate →</span>
@@ -1438,7 +1454,7 @@ footer {
         <div class="pkg-price">$330<span style="font-size:16px;font-weight:400;">/hr</span></div>
         <div class="pkg-price-sub">20+ hours</div>
         <div class="pkg-desc">For professionals committed to a transformational outcome. This level of engagement gives your coach the time and depth to truly understand your goals and drive lasting results.</div>
-        <button class="pkg-btn" onclick="openCart('Mastery Track','$330/hr','330',20,null)">Select this package</button>
+        <button class="pkg-btn" onclick="openMasteryDisclaimer()">Select this package</button>
       </div>
     </div>
   </div>
@@ -1498,6 +1514,30 @@ footer {
       <span style="font-size:12px;color:var(--text-muted);">Your payment is encrypted and secure. We never store your card details.</span>
     </div>
     <button class="complete-btn" onclick="completePurchase()">Complete purchase</button>
+  </div>
+</div>
+
+<!-- MASTERY TRACK DISCLAIMER MODAL -->
+<div class="mastery-overlay" id="mastery-overlay" onclick="if(event.target===this)closeMasteryDisclaimer()">
+  <div class="mastery-modal">
+    <div class="mastery-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+    <div class="mastery-title">A note before you book</div>
+    <div class="mastery-body">
+      <p>The <strong>Mastery Track</strong> is our most immersive coaching engagement — 20+ hours designed to drive a real, lasting transformation in your skills and career.</p>
+      <p>Because of that depth, we strongly recommend scheduling a <strong>free consultation with a Coaching Concierge</strong> before purchasing. A brief call helps us understand your goals and build a more intentional curriculum and coaching path — so every hour is spent where it matters most.</p>
+      <p style="margin-bottom:0;">You're welcome to skip the call and proceed directly to purchase, but we find that clients who consult first get significantly more out of the engagement.</p>
+    </div>
+    <div class="mastery-actions">
+      <button class="mastery-btn-primary" onclick="closeMasteryDisclaimerAndConsult()">
+        <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 3V2M11 3V2M2 7h12"/></svg>
+        Book a free consultation
+      </button>
+      <button class="mastery-btn-secondary" onclick="closeMasteryDisclaimerAndPurchase()">
+        Skip — continue to purchase →
+      </button>
+    </div>
   </div>
 </div>
 
@@ -2045,6 +2085,10 @@ function toggleDatePicker(sel){document.getElementById('date-picker').classList.
 const tzData={US:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Alaska Time (AKT) — UTC-9/8','Hawaii Time (HST) — UTC-10'],GB:['Greenwich Mean Time (GMT) — UTC+0','British Summer Time (BST) — UTC+1'],CA:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Atlantic Time (AT) — UTC-4/3','Newfoundland Time — UTC-3:30/2:30'],AU:['Australian Eastern Time (AEST) — UTC+10','Australian Central Time (ACST) — UTC+9:30','Australian Western Time (AWST) — UTC+8'],DE:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],FR:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],SG:['Singapore Time (SGT) — UTC+8'],HK:['Hong Kong Time (HKT) — UTC+8'],JP:['Japan Standard Time (JST) — UTC+9'],IN:['India Standard Time (IST) — UTC+5:30'],UAE:['Gulf Standard Time (GST) — UTC+4'],CH:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],NL:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],BR:['Brasilia Time (BRT) — UTC-3','Amazon Time (AMT) — UTC-4'],MX:['Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7'],ZA:['South Africa Standard Time (SAST) — UTC+2'],KR:['Korea Standard Time (KST) — UTC+9'],CN:['China Standard Time (CST) — UTC+8'],IT:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],ES:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],OTHER:['UTC-12','UTC-11','UTC-10','UTC-9','UTC-8','UTC-7','UTC-6','UTC-5','UTC-4','UTC-3','UTC-2','UTC-1','UTC+0','UTC+1','UTC+2','UTC+3','UTC+4','UTC+5','UTC+5:30','UTC+6','UTC+7','UTC+8','UTC+9','UTC+10','UTC+11','UTC+12']};
 function updateTimezones(){const country=document.getElementById('country-select').value;const tzSelect=document.getElementById('timezone-select');tzSelect.innerHTML='<option value="">Select timezone...</option>';if(tzData[country]){tzData[country].forEach(tz=>{const o=document.createElement('option');o.textContent=tz;tzSelect.appendChild(o);});}}
 let cartRate=400,cartMin=1,cartMax=null,cartNextTier='';
+function openMasteryDisclaimer(){document.getElementById('mastery-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeMasteryDisclaimer(){document.getElementById('mastery-overlay').classList.remove('open');document.body.style.overflow='';}
+function closeMasteryDisclaimerAndConsult(){closeMasteryDisclaimer();openCal();}
+function closeMasteryDisclaimerAndPurchase(){closeMasteryDisclaimer();openCart('Mastery Track','$330/hr','330',20,null);}
 function openCart(name,priceLabel,rate,minHours,maxHours){cartRate=parseInt(rate);cartMin=minHours;cartMax=maxHours;const isFlat=minHours===1&&maxHours===1;const nextTierMap={'Quick Support':'Skill Building (4–9 hrs)','Skill Building':'Performance Accelerator (10–19 hrs)','Performance Accelerator':'Mastery Track (20+ hrs)'};cartNextTier=nextTierMap[name]||null;document.getElementById('cart-pkg-name').textContent=name+' — '+priceLabel;document.getElementById('qty-val').value=minHours;document.getElementById('qty-val').min=minHours;if(maxHours)document.getElementById('qty-val').max=maxHours;else document.getElementById('qty-val').removeAttribute('max');document.getElementById('cart-qty-row').style.display=isFlat?'none':'flex';document.getElementById('cart-flat-label').style.display=isFlat?'block':'none';hideMaxTooltip();updateCartTotal();document.getElementById('cart-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeCart(){document.getElementById('cart-overlay').classList.remove('open');document.body.style.overflow='';hideMaxTooltip();}
 function showMaxTooltip(){const tooltip=document.getElementById('max-tooltip');const msg=cartNextTier?`Want more hours? Consider upgrading to the <strong>${cartNextTier}</strong> package for a lower per-hour rate.`:`You've reached the maximum for this package.`;tooltip.querySelector('.tooltip-msg').innerHTML=msg;tooltip.style.display='flex';}
