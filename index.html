@@ -923,7 +923,7 @@ footer {
       </div>
       <div class="concierge-nudge">
         <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="concierge-nudge-text">Not sure this is the right track? <a onclick="openCal()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the best fit.</span>
+        <span class="concierge-nudge-text">Not sure this is the right track? <a onclick="openConsult()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the best fit.</span>
       </div>
     </div>
 
@@ -1029,6 +1029,7 @@ footer {
           </div>
         </div>
       </div>
+      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure this is the right track? <a onclick="openConsult()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the best fit.</span></div>
     </div>
 
     <!-- Tab 2: Upskiller -->
@@ -1129,7 +1130,7 @@ footer {
             </a>
         </div>
       </div>
-      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure this is the right track? <a onclick="openCal()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the best fit.</span></div>
+      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure this is the right track? <a onclick="openConsult()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the best fit.</span></div>
     </div>
 
     <!-- Tab 3: Customizer -->
@@ -1212,7 +1213,7 @@ footer {
             </a>
         </div>
       </div>
-      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure which track to choose? <a onclick="openCal()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the right fit.</span></div>
+      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure which track to choose? <a onclick="openConsult()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the right fit.</span></div>
     </div>
 
     <!-- Tab 4: Not Sure -->
@@ -1227,7 +1228,7 @@ footer {
           <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalized track recommendation</div>
           <div class="not-sure-perk"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5 6.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Available slots within 24–48 hours</div>
         </div>
-        <button class="consult-btn" onclick="openCal()">
+        <button class="consult-btn" onclick="openConsult()">
           <svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12" stroke-linecap="round"/></svg>
           Book a free consultation
         </button>
@@ -1696,10 +1697,22 @@ function heroScroll(e,id){e.preventDefault();const el=document.getElementById(id
 const unlockedSteps=new Set([1]);
 let selectedTrack=0;
 function revealSection(id){const el=document.getElementById(id);if(!el||!el.classList.contains('section-hidden'))return;el.classList.remove('section-hidden');el.classList.add('section-reveal');setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'});},80);}
-function scrollToForm(trackIdx){selectedTrack=trackIdx;if(!unlockedSteps.has(2)){unlockedSteps.add(2);revealSection('customizations');}else{document.getElementById('customizations').scrollIntoView({behavior:'smooth',block:'start'});}}
+function scrollToForm(trackIdx){consultMode=false;selectedTrack=trackIdx;if(!unlockedSteps.has(2)){unlockedSteps.add(2);revealSection('customizations');}else{document.getElementById('customizations').scrollIntoView({behavior:'smooth',block:'start'});}}
 function unlockPackages(){if(selectedTrack===0){openCart('The Polisher — Resume & Mock Interview','$500 flat','500',1,1);return;}if(!unlockedSteps.has(3)){unlockedSteps.add(3);revealSection('packages');}else{document.getElementById('packages').scrollIntoView({behavior:'smooth',block:'start'});}}
 function unlockWhatToExpect(){if(!unlockedSteps.has(4)){unlockedSteps.add(4);revealSection('what-to-expect');}else{document.getElementById('what-to-expect').scrollIntoView({behavior:'smooth',block:'start'});}}
 const CAL_URL='https://calendly.com/d/cq6c-fs8-vc3/coaching-strategy-call';
+let consultMode = false;
+function openConsult(){
+  consultMode = true;
+  selectedTrack = 4;
+  if(!unlockedSteps.has(2)){
+    unlockedSteps.add(2);
+    revealSection('customizations');
+  } else {
+    const el = document.getElementById('customizations');
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
 function openCal(){document.getElementById('cal-iframe').src=CAL_URL;document.getElementById('cal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeCal(){document.getElementById('cal-overlay').classList.remove('open');document.getElementById('cal-iframe').src='';document.body.style.overflow='';}
 function switchTab(idx){document.querySelectorAll('.track-tab').forEach((t,i)=>{t.classList.toggle('active',i===idx);});document.querySelectorAll('.track-content').forEach((c,i)=>{c.classList.toggle('active',i===idx);});selectedTrack=idx;}
@@ -1713,7 +1726,7 @@ function buildProgress(){const p=document.getElementById('form-progress');if(!p)
 const nextQuestions=[null,'What is your current career level?','Tell us about yourself.','What does success look like for you?','Where are you located?','When would you like to start?','What is your availability for coaching?','Almost done — review your answers.',null];
 function buildSummary(){const forWho=document.querySelector('#fstep-1 .choice-btn.selected');const forWhoVal=forWho?forWho.textContent.trim():null;let learnerDetails='';if(forWhoVal==='Someone else'){const fn=document.querySelector('#learner-fields input[placeholder="First name"]')?.value.trim();const ln=document.querySelector('#learner-fields input[placeholder="Last name"]')?.value.trim();const em=document.querySelector('#learner-fields input[type="email"]')?.value.trim();if(fn||ln||em)learnerDetails=[fn,ln].filter(Boolean).join(' ')+(em?' · '+em:'');}const careerEl=document.querySelector('#fstep-2 .form-select');const career=careerEl?.value||null;const background=document.getElementById('q3-input')?.value.trim()||null;const goal=document.getElementById('q4-input')?.value.trim()||null;const countryEl=document.getElementById('country-select');const tzEl=document.getElementById('timezone-select');const country=countryEl?.options[countryEl.selectedIndex]?.text||null;const tz=tzEl?.value||null;const locationVal=[country!=='Select country...'?country:null,tz].filter(Boolean).join(' · ')||null;const timingEl=document.querySelector('#fstep-6 .form-select');const timingVal=timingEl?.value?timingEl.options[timingEl.selectedIndex].text:null;const specificDate=document.querySelector('#date-picker input[type="date"]')?.value||null;const startVal=timingVal?(specificDate?timingVal+' · '+specificDate:timingVal):null;const days=[...document.querySelectorAll('#fstep-7 input[type="checkbox"]')].filter(cb=>cb.checked).map(cb=>document.querySelector('label[for="'+cb.id+'"]')?.textContent.trim()).filter(Boolean);const availVal=days.length?days.join(', '):null;const rows=[{label:'Coaching for',value:forWhoVal+(learnerDetails?' · '+learnerDetails:'')},{label:'Career level',value:career&&career!=='Select career level...'?career:null},{label:'About you',value:background},{label:'Goal',value:goal},{label:'Location & timezone',value:locationVal},{label:'Start timing',value:startVal},{label:'Availability',value:availVal}];const container=document.getElementById('summary-list');let html=rows.map(r=>`<div class="summary-item"><div class="summary-label">${r.label}</div>${r.value?`<div class="summary-value">${r.value}</div>`:`<div class="summary-empty">Not provided</div>`}</div>`).join('');if(selectedTrack===3){const selected=[...document.querySelectorAll('#tab-3 .prem-card input[type="checkbox"]')].filter(cb=>cb.checked).map(cb=>cb.closest('.prem-card')?.querySelector('.prem-label')?.textContent.trim()).filter(Boolean);if(selected.length){const items=selected.map(t=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:2px 0;"><span style="color:var(--wsp-blue);margin-top:1px;">›</span><span>${t}</span></div>`).join('');html+=`<div class="summary-item"><div class="summary-label">Selected topics</div><div class="summary-value" style="display:flex;flex-direction:column;gap:2px;">${items}</div></div>`;}else{html+=`<div class="summary-item"><div class="summary-label">Selected topics</div><div class="summary-empty">No topics selected</div></div>`;}}container.innerHTML=html;}
 function showStep(n){document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));const fs=document.getElementById('fstep-'+n);if(fs)fs.classList.add('active');const sc=document.getElementById('step-counter');if(sc)sc.textContent='Step '+n+' of '+totalSteps;const bb=document.getElementById('btn-back');if(bb)bb.style.display=n>1?'block':'none';const bn=document.getElementById('btn-next');if(bn)bn.textContent=n===totalSteps?'Complete':'Next';const preview=document.getElementById('next-preview');const next=nextQuestions[n];if(preview){if(next&&n<totalSteps){preview.innerHTML='Up next: <span>'+next+'</span>';}else{preview.innerHTML='';}}if(n===totalSteps)buildSummary();buildProgress();}
-function formNext(){if(currentStep<totalSteps){currentStep++;showStep(currentStep);}else{unlockPackages();}}
+function formNext(){if(currentStep<totalSteps){currentStep++;showStep(currentStep);}else{if(consultMode){openCal();}else{unlockPackages();}}}
 function formBack(){if(currentStep>1){currentStep--;showStep(currentStep);}}
 showStep(1);
 function toggleDatePicker(sel){document.getElementById('date-picker').classList.toggle('visible',sel.value==='date');}
