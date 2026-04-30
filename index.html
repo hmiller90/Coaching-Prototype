@@ -369,8 +369,8 @@ section{padding:72px 32px;}
 .consult-note{font-size:12px;color:var(--text-muted);margin-top:12px;}
 
 /* ─── FORM SECTION ─── */
-.form-section{background:#ffffff;border-top:1px solid #dde3ec;}
-.form-wrap{background:white;border:1px solid var(--border);border-radius:10px;padding:40px;max-width:700px;margin:36px auto 0;}
+.form-section{background:#0d1b2e;border-top:none;}
+.form-wrap{background:white;border:none;box-shadow:0 8px 40px rgba(0,0,0,.35);border-radius:12px;padding:40px;max-width:700px;margin:36px auto 0;}
 .form-progress{display:flex;gap:5px;margin-bottom:28px;}
 .prog-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s;}
 .prog-dot.active{background:var(--wsp-blue);}
@@ -585,15 +585,21 @@ footer {
 .tcar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}
 
 /* ─── PREMIUM SELECTION CARDS (Customizer) ─── */
-.prem-card{display:flex;flex-direction:column;gap:10px;padding:14px 14px 13px;border:1.5px solid #a8d0ef;border-radius:10px;cursor:pointer;background:white;transition:all .2s;}
+.prem-card{display:flex;flex-direction:column;gap:6px;padding:10px 14px 10px;border:1.5px solid #a8d0ef;border-radius:10px;cursor:pointer;background:white;transition:all .2s;text-align:center;justify-content:center;}
+.prem-card.has-subs{border-color:#1a2535;border-width:2px;background:rgba(26,37,53,0.07);}
+.prem-card.has-subs .prem-label{color:#1a2535;}
+.prem-card.has-subs .sub-count{display:inline;font-size:9px;font-weight:700;background:#1a2535;color:#fff;padding:1px 6px;border-radius:100px;margin-left:6px;vertical-align:middle;}
+.prem-card.selected.has-subs{background:var(--navy-dark);border-color:#1a2535;border-width:2px;}
+.prem-card.selected.has-subs .sub-count{background:#72ffab;color:#0d1b2e;}
+.prem-card.selected.has-subs .prem-label{color:white;}
+.sub-chip{background:#fff;border:0.5px solid #b5d4f4;border-radius:8px;padding:4px 12px;font-size:12px;color:#185FA5;cursor:pointer;transition:all .15s;user-select:none;}
+.sub-chip:hover{border-color:#185FA5;background:#d4e9f7;}
+.sub-chip.sel{background:#185FA5;color:#fff;border-color:#185FA5;}
+.prem-label .sub-count{display:none;}
 .prem-card:hover{border-color:var(--navy-dark);background:#f8f9fb;transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.08);}
 .prem-card.selected{background:var(--navy-dark);border-color:var(--navy-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.2);}
-.prem-top{display:flex;justify-content:space-between;align-items:center;}
-.prem-pip{width:10px;height:10px;border-radius:50%;background:var(--border);transition:background .2s;}
-.prem-card.selected .prem-pip{background:var(--wsp-green);}
-.prem-badge{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-green);opacity:0;transition:opacity .2s;}
-.prem-card.selected .prem-badge{opacity:1;}
-.prem-label{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;transition:color .2s;}
+.prem-top{display:none;}
+.prem-label{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;transition:color .2s;text-align:center;}
 .prem-card.selected .prem-label{color:white;}
 
 
@@ -1153,18 +1159,24 @@ footer {
         </div>
       </div>
       <div style="padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #dde3ec;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a2535;line-height:1;">Topics:</div>
-      <div style="font-size:11px;font-style:italic;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">The options below represent high-level focus areas — select what resonates most with you.<br/>Don't worry about being too broad or specific. This is a starting point, not a commitment.<br/><strong style="font-style:italic;">In the next step, you'll be able to add context, set priorities, and define your goals.</strong></div>
+      <div style="font-size:11px;font-style:italic;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">The options below span many topics — don't worry about being too broad or specific. This is a starting point, not a commitment.<br/><strong style="font-style:italic;">In the next step, you'll be able to add context, set priorities, and define your goals.</strong></div>
+
       <div class="track-body single" style="display:block;">
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:6px;">
-          <label class="prem-card" for="c1"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Resume &amp; Cover Letter</span><input type="checkbox" id="c1" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c2"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Career Strategy &amp; Targeting</span><input type="checkbox" id="c2" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c3"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Interview Prep</span><input type="checkbox" id="c3" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c4"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Core Finance &amp; Accounting</span><input type="checkbox" id="c4" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c5"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Case Studies &amp; Practical Application</span><input type="checkbox" id="c5" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c6"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Excel &amp; Productivity Tools</span><input type="checkbox" id="c6" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c7"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Modeling &amp; Technical Skills</span><input type="checkbox" id="c7" style="display:none;" onchange="premToggle(this)"></label>
-          <label class="prem-card" for="c8"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">On-the-Job Readiness</span><input type="checkbox" id="c8" style="display:none;" onchange="premToggle(this)"></label>
+        <div id="customizer-topic-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:6px;">
+          <div class="prem-card" onclick="topicClick(event,'dd1',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Core Modeling &amp; Valuation<span class="sub-count" id="sc1"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd2',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Accounting &amp; Financials<span class="sub-count" id="sc2"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd3',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Excel &amp; Technical Skills<span class="sub-count" id="sc3"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd4',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Corporate Finance &amp; FP&amp;A<span class="sub-count" id="sc4"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd5',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Investment Banking &amp; Deal Skills<span class="sub-count" id="sc5"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd6',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Private Equity &amp; Investing<span class="sub-count" id="sc6"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd7',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Equity Research &amp; Markets<span class="sub-count" id="sc7"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd8',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Real Estate &amp; Project Finance<span class="sub-count" id="sc8"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd9',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Industry-Specific Modeling<span class="sub-count" id="sc9"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd10',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">AI &amp; Data<span class="sub-count" id="sc10"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd11',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Career &amp; Interview Prep<span class="sub-count" id="sc11"></span></span></div>
+          <div class="prem-card" onclick="topicClick(event,'dd12',this)"><div class="prem-top"><div class="prem-pip"></div><span class="prem-badge">Selected</span></div><span class="prem-label">Advanced / Niche Topics<span class="sub-count" id="sc12"></span></span></div>
         </div>
+        <div id="subtopic-panel-container"></div>
       </div>
       <div class="topic-group" style="margin-top:28px;">
         <div class="topic-group-title">Included Bonus Content</div>
@@ -1251,9 +1263,9 @@ footer {
 <!-- STEP 2: CUSTOMIZATIONS -->
 <section class="form-section section-hidden" id="customizations" data-step="2">
   <div class="section-inner">
-    <div class="section-eyebrow">Step 2</div>
-    <h2 class="section-title">Add Customizations</h2>
-    <p class="section-sub">Help us match you with the ideal coach by telling us a bit more about your needs and availability.</p>
+    <div class="section-eyebrow" style="color:#72ffab;">Step 2</div>
+    <h2 class="section-title" style="color:#ffffff;">Add Customizations</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.6);">Help us match you with the ideal coach by telling us a bit more about your needs and availability.</p>
     <div class="form-wrap">
       <div class="form-progress" id="form-progress"></div>
       <div class="form-step active" id="fstep-1">
@@ -1285,14 +1297,16 @@ footer {
         </select>
       </div>
       <div class="form-step" id="fstep-3">
-        <div class="form-q" id="q3-text">Tell us about yourself.</div>
-        <div class="form-hint">A few sentences goes a long way. Share your current role or program, where you're trying to go, and anything else that helps us understand your situation. (500 word max)</div>
+        <div class="form-q" id="q3-text"><strong>Your Background &amp; Starting Point:</strong></div>
+        <div style="font-size:14px;font-weight:700;font-style:italic;color:var(--text);margin-bottom:6px;">What are you ultimately working toward?</div>
+        <div class="form-hint">Share a brief overview of your current role, academic program, or career stage, along with any relevant experience in finance, accounting, or Excel. If you've already worked through any Wall Street Prep courses or similar training, feel free to include that as well.</div>
         <textarea class="form-input" id="q3-input" maxlength="3000" placeholder="e.g. I'm a junior at a non-target school targeting IB summer analyst roles at bulge bracket banks..."></textarea>
         <div style="text-align:right;font-size:12px;color:var(--text-muted);margin-top:6px;" id="q3-count">0 / 500 words</div>
       </div>
       <div class="form-step" id="fstep-4">
-        <div class="form-q" id="q4-text">What does success look like for you?</div>
-        <div class="form-hint">Tell us what you're hoping to walk away with. (500 word max)</div>
+        <div class="form-q" id="q4-text"><strong>Your Goals &amp; Target Outcome:</strong></div>
+        <div style="font-size:14px;font-weight:700;font-style:italic;color:var(--text);margin-bottom:6px;">What are you ultimately working toward?</div>
+        <div class="form-hint">Tell us what success looks like for you. Whether you're preparing for interviews, aiming to sharpen on-the-job performance, building technical confidence, or transitioning into a new role, the more context you provide, the more precisely we can tailor your coaching plan.</div>
         <textarea class="form-input" id="q4-input" maxlength="3000" placeholder="e.g. I want to land a summer analyst offer at a bulge bracket bank..."></textarea>
         <div style="text-align:right;font-size:12px;color:var(--text-muted);margin-top:6px;" id="q4-count">0 / 500 words</div>
       </div>
@@ -1958,6 +1972,65 @@ window.closeCoachModal = function(){
 function premToggle(cb){
   const card = cb.closest('.prem-card');
   if(card) card.classList.toggle('selected', cb.checked);
+}
+
+var _subTopics = {
+  dd1:{label:'Core Modeling & Valuation',sc:'sc1',chips:['3-Statement Modeling','DCF Modeling','LBO Modeling','M&A Modeling','Accretion Dilution','Trading Comps','Transaction Comps','Valuation Fundamentals','Financial Forecasting','Sensitivity Analysis','Scenario Analysis','Model Auditing','Circularity Fixes','Model Structuring']},
+  dd2:{label:'Accounting & Financials',sc:'sc2',chips:['Accounting Fundamentals','Financial Statements','Revenue Modeling','Expense Modeling','Working Capital','Cash Flow Analysis','Balance Sheet Linking','Purchase Accounting','Deferred Taxes','Equity Modeling']},
+  dd3:{label:'Excel & Technical Skills',sc:'sc3',chips:['Excel Fundamentals','Excel Shortcuts','Excel for Modeling','Financial Functions','Data Tables','Scenario Tools','Model Formatting','Error Checking','VBA Basics','Automation Workflows']},
+  dd4:{label:'Corporate Finance & FP&A',sc:'sc4',chips:['Budgeting Modeling','Forecasting Models','Variance Analysis','KPI Dashboards','Financial Reporting','Business Partnering','Strategic Finance','Cash Flow Planning']},
+  dd5:{label:'Investment Banking & Deal Skills',sc:'sc5',chips:['Pitchbook Modeling','Deal Structuring','Buyer Lists','Transaction Process','Due Diligence','Synergy Modeling','Merger Integration','Deal Analysis']},
+  dd6:{label:'Private Equity & Investing',sc:'sc6',chips:['PE Deal Modeling','Investment Memos','Return Analysis','IRR Calculations','Capital Structures','Fund Modeling','Portfolio Monitoring','Exit Analysis']},
+  dd7:{label:'Equity Research & Markets',sc:'sc7',chips:['Equity Research Models','Earnings Modeling','Valuation Multiples','Investment Thesis','Financial Ratios','Market Analysis','Industry Research']},
+  dd8:{label:'Real Estate & Project Finance',sc:'sc8',chips:['Real Estate Modeling','Development Modeling','REIT Analysis','Waterfall Models','Debt Sizing','Project Finance','Infrastructure Models']},
+  dd9:{label:'Industry-Specific Modeling',sc:'sc9',chips:['Bank Modeling','FIG Analysis','Oil & Gas Modeling','NAV Modeling','Commodity Forecasting']},
+  dd10:{label:'AI & Data',sc:'sc10',chips:['AI in Finance','Data Analysis','Financial Automation','Prompt Engineering','AI Use Cases']},
+  dd11:{label:'Career & Interview Prep',sc:'sc11',chips:['Technical Interviews','Behavioral Interviews','Case Studies','Modeling Tests','Resume Review','Networking Strategy','Career Positioning']},
+  dd12:{label:'Advanced / Niche Topics',sc:'sc12',chips:['Capital Allocation','Cost of Capital','WACC Analysis','Dividend Modeling','Residual Income','Discount Models','Leveraged Recaps']}
+};
+var _activeCard = null;
+var _activeDd = null;
+var _subSelections = {};
+
+function topicClick(e, ddId, card){
+  if(e.target.closest('.sub-chip')) return;
+  var container = document.getElementById('subtopic-panel-container');
+  if(!container) return;
+  var data = _subTopics[ddId];
+  if(!data) return;
+  if(_activeDd === ddId){
+    container.innerHTML = '';
+    card.classList.remove('selected');
+    _activeDd = null; _activeCard = null;
+    return;
+  }
+  if(_activeCard) _activeCard.classList.remove('selected');
+  card.classList.add('selected');
+  _activeCard = card; _activeDd = ddId;
+  var saved = _subSelections[ddId] || [];
+  var chips = data.chips.map(function(c){
+    var sel = saved.indexOf(c) > -1 ? ' sel' : '';
+    return '<span class="sub-chip'+sel+'" onclick="subChipClick(this,\''+ddId+'\')">'+c+'</span>';
+  }).join('');
+  container.innerHTML = '<div class="subtopic-panel" style="display:block;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:8px;padding:14px 16px;margin-bottom:10px;">'
+    +'<div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#185FA5;margin-bottom:10px;">'+data.label+' — subtopics</div>'
+    +'<div class="sub-chip-wrap" style="display:flex;flex-wrap:wrap;gap:7px;">'+chips+'</div>'
+    +'</div>';
+}
+
+function subChipClick(chip, ddId){
+  chip.classList.toggle('sel');
+  var data = _subTopics[ddId];
+  if(!data) return;
+  var panel = chip.closest('.subtopic-panel');
+  var selected = panel ? Array.from(panel.querySelectorAll('.sub-chip.sel')).map(function(c){return c.textContent;}) : [];
+  _subSelections[ddId] = selected;
+  var countEl = document.getElementById(data.sc);
+  if(countEl){
+    countEl.textContent = selected.length > 0 ? selected.length : '';
+    countEl.style.display = selected.length > 0 ? 'inline' : 'none';
+  }
+  if(_activeCard) _activeCard.classList.toggle('has-subs', selected.length > 0);
 }
 
 function heroScroll(e,id){e.preventDefault();const el=document.getElementById(id);if(!el)return;if(el.classList.contains('section-hidden')){el.classList.remove('section-hidden');el.classList.add('section-reveal');}setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'});},50);}
