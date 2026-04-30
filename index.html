@@ -667,6 +667,75 @@ footer {
   .packages-grid{grid-template-columns:1fr;}
   .drop-announcer { font-size: 11px; padding: 8px 32px; }
 }
+@media(max-width:480px){
+  /* ── General layout ── */
+  section{padding:36px 16px;}
+  .hero{padding:28px 16px 24px;}
+  .section-inner{padding:0;}
+
+  /* ── Typography ── */
+  .section-title{font-size:22px;}
+  .section-sub{font-size:14px;}
+  .hero-title{font-size:clamp(22px,6vw,32px);}
+  .hero-sub{font-size:14px;}
+
+  /* ── Hero stats bar ── */
+  .hero-stats{flex-wrap:wrap;gap:12px;}
+  .hero-stat{min-width:calc(50% - 12px);}
+
+  /* ── Track tabs ── */
+  .track-tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:none;margin-bottom:12px;}
+  .track-tab{flex:1 1 calc(50% - 6px);border-radius:8px;border:1px solid #dde3ec;border-bottom:1px solid #dde3ec;min-width:0;}
+  .track-tab.active{border-bottom:1px solid #dde3ec;background:#0d1b2e;}
+  .track-tab.active .tab-eyebrow{color:#72ffab;}
+  .track-tab.active .tab-desc{color:#fff;}
+
+  /* ── Track header (title + book btn) ── */
+  .track-header{flex-direction:column;gap:16px;}
+  .book-btn-wrap{align-self:flex-start;}
+
+  /* ── Track body grids ── */
+  .track-body{grid-template-columns:1fr;gap:16px;}
+
+  /* ── Topic group bonus content cards ── */
+  .topic-group [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr) !important;}
+  .topic-group [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr !important;}
+
+  /* ── Customizer topic grid ── */
+  #customizer-topic-grid{grid-template-columns:repeat(2,1fr) !important;}
+
+  /* ── Coach carousel ── */
+  .icar-grid{grid-template-columns:repeat(2,1fr) !important;}
+
+  /* ── Testimonials carousel ── */
+  .tcar-card{flex:0 0 calc(100% - 0px);}
+
+  /* ── Form ── */
+  .form-wrap{padding:24px 18px;margin:20px auto 0;border-radius:10px;}
+  .form-row,.cart-row,.cc-row{grid-template-columns:1fr;}
+  .btn-group{flex-direction:column;}
+  .choice-btn{width:100%;}
+
+  /* ── Packages grid ── */
+  .packages-grid{grid-template-columns:1fr;}
+
+  /* ── Steps flow ── */
+  .steps-flow{flex-direction:column;}
+  .step-arrow{display:none;}
+  .step-item{border-right:none;border-bottom:1px solid var(--border);}
+  .step-item:last-child{border-bottom:none;}
+
+  /* ── Sticky bottom bar ── */
+  .sticky-cta-inner{flex-direction:column;gap:8px;text-align:center;}
+  .sticky-tabs{display:none;}
+
+  /* ── Cart/modal ── */
+  .cart-modal{width:calc(100vw - 32px);padding:24px 18px;}
+
+  /* ── Footer ── */
+  .footer-contain{padding:20px 16px 0;}
+  .footer-cols{grid-template-columns:1fr !important;}
+}
 </style>
 </head>
 <body>
