@@ -149,16 +149,7 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);}
   pointer-events:none;
 }
 .hero-inner{max-width:1200px;margin:0 auto;text-align:left;position:relative;}
-.hero-eyebrow{
-  display:inline-block;
-  background:rgba(62,207,142,.15);
-  border:1px solid rgba(62,207,142,.35);
-  color:var(--wsp-green);
-  font-size:11px;font-weight:600;
-  letter-spacing:1.8px;text-transform:uppercase;
-  padding:5px 14px;border-radius:100px;
-  margin-bottom:24px;
-}
+
 .hero h1{
   font-size:clamp(28px,3.6vw,48px);
   color:white;
@@ -175,24 +166,8 @@ body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);}
   margin:0 0 28px;font-weight:400;
 }
 .hero-btns{display:flex;gap:12px;justify-content:flex-start;align-items:center;flex-wrap:wrap;margin-bottom:16px;}
-.hero-btn-primary{
-  background:var(--wsp-green);color:var(--navy-dark);
-  padding:11px 28px;border-radius:100px;
-  font-size:14px;font-weight:700;
-  text-decoration:none;display:inline-block;
-  transition:all .2s;
-}
+
 .hero-btn-primary:hover{background:var(--wsp-green-dark);transform:translateY(-1px);}
-.hero-btn-secondary{
-  background:rgba(255,255,255,.1);
-  border:1.5px solid rgba(255,255,255,.25);
-  color:rgba(255,255,255,.9);
-  padding:11px 22px;border-radius:100px;
-  font-size:14px;font-weight:500;
-  text-decoration:none;display:inline-block;
-  transition:all .2s;
-}
-.hero-btn-secondary:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5);}
 
 /* ─── SECTION UTILS ─── */
 section{padding:72px 32px;}
@@ -295,7 +270,7 @@ section{padding:72px 32px;}
   border-radius:0 0 8px 8px;
 }
 .track-content.active{display:block !important;}
-.track-header{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-bottom:24px;}
+
 .track-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px;}
 .track-subtitle{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--wsp-green-dark);margin-bottom:8px;}
 .track-tagline{font-size:15px;color:var(--text-muted);line-height:1.65;max-width:680px;margin-bottom:20px;}
@@ -314,9 +289,7 @@ section{padding:72px 32px;}
 .book-btn-hint svg{width:11px;height:11px;stroke:var(--text-muted);fill:none;stroke-width:1.8;flex-shrink:0;}
 .book-btn-hint-left{display:flex;align-items:center;gap:4px;}
 .book-btn-hint-right{font-style:italic;}
-.track-body{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-.track-body.single{grid-template-columns:1fr;}
-.track-blurb{font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+
 .topic-group{margin-bottom:24px;}
 .topic-group-title{
   font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
@@ -325,51 +298,27 @@ section{padding:72px 32px;}
 .topic-list{list-style:none;}
 .topic-list li{font-size:14px;color:var(--text);padding:5px 0;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
 .topic-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--wsp-blue);flex-shrink:0;margin-top:7px;}
-.custom-section-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text);margin:10px 0 6px;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:7px;}
-.custom-section-title span.cst-icon{font-size:13px;}
-.custom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;margin-top:0;}
+
 .custom-check{display:flex;align-items:center;gap:10px;padding:7px 12px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:all .15s;background:white;}
 .custom-check:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.08);}
 .custom-check input{width:14px;height:14px;flex-shrink:0;cursor:pointer;}
 .custom-check label{font-size:13px;color:var(--text);cursor:pointer;line-height:1.35;}
 /* Category color themes */
 .cst-resume{background:#eaf3fb;color:#1a5f91;border-bottom:2px solid #a8d0ef;}
-.cst-resume + .custom-grid .custom-check{border-color:#c5dff2;accent-color:#1a7fc1;}
-.cst-resume + .custom-grid .custom-check:hover{border-color:#1a7fc1;background:#eaf3fb;}
-.cst-resume + .custom-grid .custom-check input{accent-color:#1a7fc1;}
+
 .cst-interview{background:#edf7f0;color:#1a6b3a;border-bottom:2px solid #9ed4b0;}
-.cst-interview + .custom-grid .custom-check{border-color:#b8e0c7;accent-color:#27a85a;}
-.cst-interview + .custom-grid .custom-check:hover{border-color:#27a85a;background:#edf7f0;}
-.cst-interview + .custom-grid .custom-check input{accent-color:#27a85a;}
+
 .cst-excel{background:#fdf4e3;color:#8a5a00;border-bottom:2px solid #f5cc7a;}
-.cst-excel + .custom-grid .custom-check{border-color:#f5d88a;accent-color:#c97d00;}
-.cst-excel + .custom-grid .custom-check:hover{border-color:#c97d00;background:#fdf4e3;}
-.cst-excel + .custom-grid .custom-check input{accent-color:#c97d00;}
+
 .cst-finance{background:#f2eefb;color:#5b3a9e;border-bottom:2px solid #c4aef0;}
-.cst-finance + .custom-grid .custom-check{border-color:#d4c2f5;accent-color:#7b52c8;}
-.cst-finance + .custom-grid .custom-check:hover{border-color:#7b52c8;background:#f2eefb;}
-.cst-finance + .custom-grid .custom-check input{accent-color:#7b52c8;}
+
 .cst-career{background:#fdeef0;color:#9e2a38;border-bottom:2px solid #f0a8b0;}
-.cst-career + .custom-grid .custom-check{border-color:#f5c0c7;accent-color:#c73547;}
-.cst-career + .custom-grid .custom-check:hover{border-color:#c73547;background:#fdeef0;}
-.cst-career + .custom-grid .custom-check input{accent-color:#c73547;}
+
 .concierge-nudge{display:flex;align-items:center;gap:10px;margin-top:24px;padding:12px 16px;background:rgba(26,127,193,.05);border:1px solid rgba(26,127,193,.18);border-radius:6px;}
 .concierge-nudge svg{width:15px;height:15px;stroke:var(--wsp-blue);fill:none;stroke-width:2;flex-shrink:0;}
 .concierge-nudge-text{font-size:13px;color:var(--text-muted);line-height:1.5;}
 .concierge-nudge-text a{color:var(--wsp-blue);font-weight:600;text-decoration:none;cursor:pointer;}
 .concierge-nudge-text a:hover{text-decoration:underline;}
-.not-sure-content{text-align:center;padding:56px 24px;}
-.not-sure-icon{width:64px;height:64px;background:rgba(26,127,193,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
-.not-sure-icon svg{width:30px;height:30px;stroke:var(--wsp-blue);fill:none;stroke-width:1.5;}
-.not-sure-title{font-size:26px;font-weight:800;color:var(--text);margin-bottom:12px;}
-.not-sure-desc{font-size:15px;color:var(--text-muted);line-height:1.75;max-width:520px;margin:0 auto 32px;}
-.not-sure-perks{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
-.not-sure-perk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--text-muted);}
-.not-sure-perk svg{width:14px;height:14px;stroke:var(--wsp-green-dark);fill:none;stroke-width:2.5;flex-shrink:0;}
-.consult-btn{background:var(--wsp-blue);color:white;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:10px;}
-.consult-btn:hover{background:var(--wsp-blue-dark);transform:translateY(-1px);}
-.consult-btn svg{width:16px;height:16px;stroke:white;fill:none;stroke-width:2;}
-.consult-note{font-size:12px;color:var(--text-muted);margin-top:12px;}
 
 /* ─── FORM SECTION ─── */
 .form-section{background:#0d1b2e;border-top:none;}
@@ -377,9 +326,7 @@ section{padding:72px 32px;}
 .form-step-body{height:310px;overflow-y:auto;}
 .form-progress{height:4px;background:#eef1f5;border-radius:100px;margin-bottom:24px;overflow:hidden;}
 .form-progress-bar{height:100%;background:linear-gradient(90deg,#1a7fc1,#3ecf8e);border-radius:100px;transition:width .3s ease;}
-.prog-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s;}
-.prog-dot.active{background:var(--wsp-blue);}
-.prog-dot.done{background:var(--wsp-green-dark);}
+
 .form-step{display:none;}
 .form-step.active{display:block;}
 .form-q{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.3;}
@@ -398,7 +345,6 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .learner-fields{display:none;margin-top:18px;padding:18px;background:var(--off-white);border-radius:8px;border:1px solid var(--border);}
 .learner-fields.visible{display:block;}
 
-.avail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;}
 .avail-col-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:10px;}
 .avail-check{display:flex;align-items:center;gap:8px;padding:6px 0;}
 .avail-check input{accent-color:var(--wsp-blue);}
@@ -632,7 +578,6 @@ footer {
 .cal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);line-height:1;}
 .cal-iframe{flex:1;border:none;width:100%;}
 
-
 /* ─── INSTRUCTOR CAROUSEL ─── */
 .icar-card{flex:0 0 calc(20% - 13px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:20px 14px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px;backdrop-filter:blur(8px);}
 .icar-card:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
@@ -645,7 +590,7 @@ footer {
 .icar-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);}
 .icar-btn:hover{background:#1a7fc1;color:white;border-color:#1a7fc1;}
 .icar-btn:disabled{opacity:.35;cursor:default;}
-.icar-dot{width:6px;height:6px;border-radius:50%;background:#dde3ec;cursor:pointer;transition:all .2s;border:none;padding:0;}
+
 .icar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}
 
 /* ─── TESTIMONIAL CAROUSEL ─── */
@@ -657,27 +602,25 @@ footer {
 .tcar-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #dde3ec;background:white;cursor:pointer;font-size:18px;color:#1a7fc1;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
 .tcar-btn:hover{background:#1a7fc1;color:white;border-color:#1a7fc1;}
 .tcar-btn:disabled{opacity:.35;cursor:default;}
-.tcar-dot{width:6px;height:6px;border-radius:50%;background:#dde3ec;cursor:pointer;transition:all .2s;border:none;padding:0;}
+
 .tcar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}
 
 /* ─── PREMIUM SELECTION CARDS (Customizer) ─── */
-.prem-card{display:flex;flex-direction:column;gap:6px;padding:10px 14px 10px;border:1.5px solid #a8d0ef;border-radius:10px;cursor:pointer;background:white;transition:all .2s;text-align:center;justify-content:center;}
+
 .prem-card.has-subs{border-color:#1a2535;border-width:2px;background:rgba(26,37,53,0.07);}
-.prem-card.has-subs .prem-label{color:#1a2535;}
+.prem-card.has-subs 
 .prem-card.has-subs .sub-count{display:inline;font-size:9px;font-weight:700;background:#1a2535;color:#fff;padding:1px 6px;border-radius:100px;margin-left:6px;vertical-align:middle;}
 .prem-card.selected.has-subs{background:var(--navy-dark);border-color:#1a2535;border-width:2px;}
 .prem-card.selected.has-subs .sub-count{background:#72ffab;color:#0d1b2e;}
-.prem-card.selected.has-subs .prem-label{color:white;}
+.prem-card.selected.has-subs 
 .sub-chip{background:#fff;border:0.5px solid #b5d4f4;border-radius:6px;padding:3px 9px;font-size:11px;color:#185FA5;cursor:pointer;transition:all .15s;user-select:none;}
 .sub-chip:hover{border-color:#185FA5;background:#d4e9f7;}
 .sub-chip.sel{background:#185FA5;color:#fff;border-color:#185FA5;}
 .prem-label .sub-count{display:none;}
 .prem-card:hover{border-color:var(--navy-dark);background:#f8f9fb;transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.08);}
 .prem-card.selected{background:var(--navy-dark);border-color:var(--navy-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.2);}
-.prem-top{display:none;}
-.prem-label{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;transition:color .2s;text-align:center;}
-.prem-card.selected .prem-label{color:white;}
 
+.prem-card.selected 
 
 /* ─── MASTERY DISCLAIMER MODAL ─── */
 .mastery-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,46,.7);z-index:250;align-items:center;justify-content:center;padding:20px;}
@@ -729,7 +672,7 @@ footer {
   .packages-split{grid-template-columns:1fr;}
   .packages-split-divider{display:none;}
   .packages-hourly{grid-template-columns:1fr 1fr;}
-  .track-body{grid-template-columns:1fr;}
+  
   .steps-flow{grid-template-columns:1fr 1fr;}.steps-flow-rule{display:none;}
   
   .step-item:last-child{border-bottom:none;}
@@ -754,12 +697,12 @@ footer {
   /* ── Typography ── */
   .section-title{font-size:22px;}
   .section-sub{font-size:14px;}
-  .hero-title{font-size:clamp(22px,6vw,32px);}
+  
   .hero-sub{font-size:14px;}
 
   /* ── Hero stats bar ── */
-  .hero-stats{flex-wrap:wrap;gap:12px;}
-  .hero-stat{min-width:calc(50% - 12px);}
+  
+  
 
   /* ── Track tabs ── */
   .track-tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:none;margin-bottom:12px;}
@@ -769,11 +712,11 @@ footer {
   .track-tab.active .tab-desc{color:#fff;}
 
   /* ── Track header (title + book btn) ── */
-  .track-header{flex-direction:column;gap:16px;}
+  
   .book-btn-wrap{align-self:flex-start;}
 
   /* ── Track body grids ── */
-  .track-body{grid-template-columns:1fr;gap:16px;}
+  
 
   /* ── Topic group bonus content cards ── */
   .topic-group [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr) !important;}
@@ -836,7 +779,6 @@ footer {
 </div>
 
 <!-- REAL WSP NAV -->
-
 
 <nav class="sitenav" role="navigation" aria-label="Main navigation">
     <div class="nav-contain">
@@ -943,7 +885,6 @@ footer {
     </div>
   </div>
 </section>
-
 
 <!-- WSP TRUST STATS BAR -->
 <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);">
@@ -1120,7 +1061,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>2 bonus guides included — The Red Book &amp; Blue Book</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(0)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">2</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">3</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">4</span></span></button>
+            <button class="book-btn" onclick="scrollToForm(0)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
           </div>
           <div style="display:inline-flex;align-items:center;gap:10px;margin-top:14px;border:1px dashed #b5d4f4;border-radius:8px;padding:9px 14px;background:#eaf3fb;flex-wrap:wrap;">
@@ -1207,7 +1148,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Build confidence to execute when it matters most</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(1)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">2</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">3</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">4</span></span></button>
+            <button class="book-btn" onclick="scrollToForm(1)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
           </div>
         </div>
@@ -1399,7 +1340,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Build confidence for high-stakes, on-the-job scenarios</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(2)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">2</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">3</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">4</span></span></button>
+            <button class="book-btn" onclick="scrollToForm(2)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
           </div>
         </div>
@@ -1598,7 +1539,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Every session focused on delivering what you need</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">2</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">3</span><span style="width:16px;height:1px;background:rgba(13,27,46,.25);flex-shrink:0;"></span><span style="width:16px;height:16px;border-radius:50%;background:rgba(13,27,46,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(13,27,46,.5);flex-shrink:0;">4</span></span></button>
+            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
             <div id="cust-selection-status" style="margin-top:8px;font-size:12px;color:#8a9bb0;font-style:italic;">Select at least 3 subtopics to continue</div>
           </div>
@@ -1918,7 +1859,6 @@ footer {
   </div>
 </section>
 
-
 <!-- CONSULT FORM -->
 <section class="form-section section-hidden" id="consult-form" data-step="consult">
   <div class="section-inner">
@@ -2071,7 +2011,6 @@ footer {
     </div>
   </div>
 </section>
-
 
 <!-- STEP 3: PACKAGES -->
 <section class="packages-section section-hidden" id="packages" data-step="3">
@@ -2358,7 +2297,6 @@ footer {
   </div>
 </div>
 
-
 <!-- PRICING OVERVIEW -->
 <section class="pricing-overview-section" id="pricing-overview">
   <div class="section-inner">
@@ -2396,7 +2334,6 @@ footer {
   </div>
 </section>
 
-
 <!-- WSP DARK BREAK (matches live site mid-page navy callout) -->
 <section style="background:radial-gradient(ellipse 110% 50% at 50% 72%, #2a5a8c 0%, #1e4470 30%, #112d55 55%, #0d1b2e 80%);padding:72px 32px;border-top:none;border-bottom:none;">
   <div style="max-width:960px;margin:0 auto;">
@@ -2408,7 +2345,7 @@ footer {
       <div style="display:flex;flex-direction:column;gap:16px;">
         <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">Wall Street Prep is the finance industry's most trusted training provider. Our private coaching is a direct extension of that same practitioner-led standard, adapted for your exact goals and delivered by coaches who've done the job.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-          <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
+          <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 1–4</span></button>
           <a href="#pricing-overview" onclick="event.preventDefault();document.getElementById('pricing-overview').scrollIntoView({behavior:'smooth'})" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:13px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">View pricing</a>
         </div>
       </div>
@@ -2604,7 +2541,7 @@ footer {
     <h2 style="font-size:clamp(26px,3vw,42px);font-weight:800;color:white;line-height:1.2;letter-spacing:-.4px;margin-bottom:16px;">Your next career move starts with the right coach.</h2>
     <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;max-width:540px;margin:0 auto 36px;">Join the thousands of finance professionals who've accelerated their careers with Wall Street Prep private coaching.</p>
     <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;">
-      <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;font-size:15px;padding:14px 32px;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
+      <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;font-size:15px;padding:14px 32px;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 1–4</span></button>
       <div style="width:1px;height:40px;background:rgba(255,255,255,.2);flex-shrink:0;"></div>
       <a onclick="openConsult()" style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:14px 24px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
         <svg viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>
@@ -2790,11 +2727,6 @@ window.closeCoachModal = function(){
   goTo(0);
 })();
 
-function premToggle(cb){
-  const card = cb.closest('.prem-card');
-  if(card) card.classList.toggle('selected', cb.checked);
-}
-
 var _subTopics = {
   dd1:{label:'Core Modeling & Valuation',sc:'sc1',chips:['3-Statement Modeling','DCF Modeling','LBO Modeling','M&A Modeling','Accretion Dilution','Trading Comps','Transaction Comps','Valuation Fundamentals','Financial Forecasting','Sensitivity Analysis','Scenario Analysis','Model Auditing','Circularity Fixes','Model Structuring']},
   dd2:{label:'Accounting & Financials',sc:'sc2',chips:['Accounting Fundamentals','Financial Statements','Revenue Modeling','Expense Modeling','Working Capital','Cash Flow Analysis','Balance Sheet Linking','Purchase Accounting','Deferred Taxes','Equity Modeling']},
@@ -2841,14 +2773,7 @@ var _stepData = {
   3:{num:'3',title:'Select Your Package',desc:'Choose the number of hours that fits your timeline and budget — from a quick support session to a full mastery track.'},
   4:{num:'4',title:'Submit Your Payment',desc:'Complete secure checkout and receive instant confirmation. Our Coaching Concierge will introduce you to your coach within 48 hours.'}
 };
-function selectStep(row, num){
-  document.querySelectorAll('.step-row').forEach(function(r){r.classList.remove('active');});
-  row.classList.add('active');
-  var d = _stepData[num];
-  document.getElementById('step-detail-num').textContent = d.num;
-  document.getElementById('step-detail-title').textContent = d.title;
-  document.getElementById('step-detail-desc').textContent = d.desc;
-}
+
 function custUpdateBookBtn(){
   var total = Object.values(_subSelections).reduce(function(sum,arr){return sum+(arr?arr.length:0);},0);
   var btn = document.getElementById('cust-book-btn');
@@ -2947,14 +2872,7 @@ function hideDownstreamSections(){
   unlockedSteps.add(1);
 }
 function revealSection(id){const el=document.getElementById(id);if(!el||!el.classList.contains('section-hidden'))return;el.classList.remove('section-hidden');el.classList.add('section-reveal');setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'});},80);}
-function updateTrackProgress(step){
-  var bar=document.getElementById('track-progress-bar');
-  var pcts=[0,33,66,100];
-  if(bar) bar.style.width=pcts[step-1]+'%';
-  document.querySelectorAll('#track-progress-tracker .step-circle').forEach(function(el,i){
-    el.setAttribute('data-state', i+1<step?'done':i+1===step?'active':'pending');
-  });
-}
+
 function scrollToForm(trackIdx){consultMode=false;selectedTrack=trackIdx;if(!unlockedSteps.has(2)){unlockedSteps.add(2);revealSection('customizations');}else{document.getElementById('customizations').scrollIntoView({behavior:'smooth',block:'start'});}}
 function unlockPackages(){if(selectedTrack===0){openCart('The Polisher — Resume & Mock Interview','$500 flat','500',1,1);return;}if(!unlockedSteps.has(3)){unlockedSteps.add(3);revealSection('packages');}else{document.getElementById('packages').scrollIntoView({behavior:'smooth',block:'start'});}}
 function unlockWhatToExpect(){if(!unlockedSteps.has(4)){unlockedSteps.add(4);revealSection('what-to-expect');}else{document.getElementById('what-to-expect').scrollIntoView({behavior:'smooth',block:'start'});}}
@@ -3042,10 +2960,7 @@ function consultToggleUrgentNotice(sel){
   if(n) n.style.display=(sel.value==='urgent')?'flex':'none';
 }
 document.addEventListener('DOMContentLoaded', function(){
-  consultShowStep(1);
-  var chipContent=document.getElementById('consult-chip-content');
-  if(chipContent) chipContent.innerHTML='<span style="font-size:11px;font-style:italic;color:rgba(13,27,46,.3);">Select a topic to see its subtopics</span>';
-});
+  consultShowStep(1); });
 function openCal(){document.getElementById('cal-iframe').src=CAL_URL;document.getElementById('cal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeCal(){document.getElementById('cal-overlay').classList.remove('open');document.getElementById('cal-iframe').src='';document.body.style.overflow='';}
 function toggleLearnerFields(who){
@@ -3115,9 +3030,7 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var chipContent = document.getElementById('cust-chip-content');
-    if(chipContent) chipContent.innerHTML='<span style="font-size:11px;font-style:italic;color:rgba(13,27,46,.3);">Select a topic to see its subtopics</span>';
-  });
+    var chipContent = document.getElementById('cust-chip-content'); });
 
   var floatingNav = document.getElementById('floating-nav');
   window.addEventListener('scroll', function() {
