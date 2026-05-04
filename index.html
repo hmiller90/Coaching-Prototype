@@ -2111,29 +2111,7 @@ footer {
   </div>
 </div>
 
-<!-- MASTERY TRACK DISCLAIMER MODAL -->
-<div class="mastery-overlay" id="mastery-overlay" onclick="if(event.target===this)closeMasteryDisclaimer()">
-  <div class="mastery-modal">
-    <div class="mastery-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-    </div>
-    <div class="mastery-title">A note before you book</div>
-    <div class="mastery-body">
-      <p>The <strong>Mastery Track</strong> is our most immersive coaching engagement — 20+ hours designed to drive a real, lasting transformation in your skills and career.</p>
-      <p>Because of that depth, we strongly recommend scheduling a <strong>free consultation with a Coaching Concierge</strong> before purchasing. A brief call helps us understand your goals and build a more intentional curriculum and coaching path — so every hour is spent where it matters most.</p>
-      <p style="margin-bottom:0;">You're welcome to skip the call and proceed directly to purchase, but we find that clients who consult first get significantly more out of the engagement.</p>
-    </div>
-    <div class="mastery-actions">
-      <button class="mastery-btn-primary" onclick="closeMasteryDisclaimerAndConsult()">
-        <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 3V2M11 3V2M2 7h12"/></svg>
-        Book a free consultation
-      </button>
-      <button class="mastery-btn-secondary" onclick="closeMasteryDisclaimerAndPurchase()">
-        Skip — continue to purchase →
-      </button>
-    </div>
-  </div>
-</div>
+
 
 <!-- STEP 4: WHAT TO EXPECT -->
 <section class="step4-section section-hidden" id="what-to-expect" data-step="4">
@@ -3038,6 +3016,30 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
   });
 })();
 </script>
+
+<!-- MASTERY TRACK DISCLAIMER MODAL -->
+<div class="mastery-overlay" id="mastery-overlay" onclick="if(event.target===this)closeMasteryDisclaimer()">
+  <div class="mastery-modal">
+    <div class="mastery-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+    <div class="mastery-title">A note before you book</div>
+    <div class="mastery-body">
+      <p>The <strong>Mastery Track</strong> is our most immersive coaching engagement — 20+ hours designed to drive a real, lasting transformation in your skills and career.</p>
+      <p>Because of that depth, we strongly recommend scheduling a <strong>free consultation with a Coaching Concierge</strong> before purchasing. A brief call helps us understand your goals and build a more intentional curriculum and coaching path — so every hour is spent where it matters most.</p>
+      <p style="margin-bottom:0;">You're welcome to skip the call and proceed directly to purchase, but we find that clients who consult first get significantly more out of the engagement.</p>
+    </div>
+    <div class="mastery-actions">
+      <button class="mastery-btn-primary" onclick="closeMasteryDisclaimerAndConsult()">
+        <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 3V2M11 3V2M2 7h12"/></svg>
+        Book a free consultation
+      </button>
+      <button class="mastery-btn-secondary" onclick="closeMasteryDisclaimerAndPurchase()">
+        Skip — continue to purchase →
+      </button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
