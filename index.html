@@ -207,10 +207,12 @@ section{padding:72px 32px;}
 .tracks-section{background:#f5f7fa;border-top:1px solid #dde3ec;}
 .track-tabs{
   display:flex;gap:6px;
-  margin-top:36px;
+  margin-top:14px;
   overflow-x:auto;
+  overflow-y:visible;
   align-items:stretch;
   padding-bottom:0;
+  padding-top:0;
 }
 .track-tab{
   position:relative;
@@ -254,9 +256,11 @@ section{padding:72px 32px;}
 .track-tab.active .tab-desc{color:#1a2535;font-weight:800;}
 .track-tab.polisher-tab.active::after{background:#7c3aed;}
 .track-tab.polisher-tab.active .tab-eyebrow{color:#7c3aed;}
+.tab-eyebrow-row{display:flex;align-items:center;gap:5px;}
 .tab-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#aab4c0;line-height:1;transition:color .15s;}
+.tab-badge{display:inline-flex;align-items:center;font-size:7px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:1px 5px;border-radius:100px;white-space:nowrap;line-height:1.4;}
 .tab-desc{font-size:13px;font-weight:700;color:#3a4a5c;line-height:1.2;transition:color .15s;white-space:normal;}
-.track-tab.not-sure-tab{background:#eaf3fb;border-color:#c5dff2;}
+.track-tab.not-sure-tab{background:#eaf3fb;border-color:#c5dff2;flex:0 0 auto;border-left:2px solid #c5dff2;}
 .track-tab.not-sure-tab .tab-eyebrow{color:#7ab0d4;}
 .track-tab.not-sure-tab .tab-desc{color:#1a7fc1;}
 .track-tab.not-sure-tab.active{background:#ffffff;border-color:#dde3ec;border-bottom:1px solid #ffffff;}
@@ -265,15 +269,16 @@ section{padding:72px 32px;}
   display:none;
   padding:32px 28px;
   background:#ffffff;
-  border:1px solid #dde3ec;
+  border:1px solid #e8edf3;
   border-top:none;
   border-radius:0 0 8px 8px;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 .track-content.active{display:block !important;}
 
 .track-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px;}
 .track-subtitle{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--wsp-green-dark);margin-bottom:8px;}
-.track-tagline{font-size:15px;color:var(--text-muted);line-height:1.65;max-width:680px;margin-bottom:20px;}
+.track-tagline{font-size:15px;color:var(--text-muted);line-height:1.65;margin-bottom:20px;}
 .tagline-lead{border-left:3px solid #185FA5;padding-left:12px;display:inline;}
 .book-btn-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:8px;}
 
@@ -296,7 +301,7 @@ section{padding:72px 32px;}
   color:var(--text);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);
 }
 .topic-list{list-style:none;}
-.topic-list li{font-size:14px;color:var(--text);padding:5px 0;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+.topic-list li{font-size:13px;color:var(--text);padding:3px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.4;}
 .topic-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--wsp-blue);flex-shrink:0;margin-top:7px;}
 
 .custom-check{display:flex;align-items:center;gap:10px;padding:7px 12px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:all .15s;background:white;}
@@ -372,14 +377,14 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 
 /* ─── TOPIC SPLIT PANEL ─── */
 .topic-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch;}
-.topic-split-left{display:flex;flex-direction:column;gap:6px;}
-.topic-row{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid rgba(13,27,46,.18);border-radius:8px;cursor:pointer;background:white;transition:all .15s;user-select:none;flex:1;}
+.topic-split-left{display:flex;flex-direction:column;gap:4px;}
+.topic-row{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;border:1px solid rgba(13,27,46,.18);border-radius:8px;cursor:pointer;background:white;transition:all .15s;user-select:none;flex:1;}
 .topic-row:hover{border-color:rgba(13,27,46,.4);background:rgba(255,255,255,.9);}
 .topic-row.active{background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-color:#0d1b2e;}
 .topic-row-left{display:flex;align-items:center;gap:10px;}
 .topic-row-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:#1a7fc1;transition:background .15s;}
 .topic-row.active .topic-row-dot{background:#72ffab;}
-.topic-row-name{font-size:13px;font-weight:700;color:var(--text);transition:color .15s;}
+.topic-row-name{font-size:12px;font-weight:700;color:var(--text);transition:color .15s;white-space:nowrap;}
 .topic-row.active .topic-row-name{color:white;}
 .topic-row-count{font-size:11px;color:var(--text-muted);transition:color .15s;}
 .topic-row.active .topic-row-count{color:rgba(255,255,255,.6);}
@@ -613,9 +618,9 @@ footer {
 .prem-card.selected.has-subs{background:var(--navy-dark);border-color:#1a2535;border-width:2px;}
 .prem-card.selected.has-subs .sub-count{background:#72ffab;color:#0d1b2e;}
 .prem-card.selected.has-subs 
-.sub-chip{background:#fff;border:0.5px solid #b5d4f4;border-radius:6px;padding:3px 9px;font-size:11px;color:#185FA5;cursor:pointer;transition:all .15s;user-select:none;}
-.sub-chip:hover{border-color:#185FA5;background:#d4e9f7;}
-.sub-chip.sel{background:#185FA5;color:#fff;border-color:#185FA5;}
+.sub-chip{display:inline-flex !important;align-items:center;background:#eaf3fb !important;border:1.5px solid #b5d4f4 !important;border-radius:100px !important;padding:4px 12px !important;margin:0 !important;font-size:11px !important;font-weight:600;color:#185FA5 !important;cursor:pointer;transition:all .15s;user-select:none;white-space:nowrap;box-sizing:border-box;}
+.sub-chip:hover{border-color:#1a7fc1 !important;background:#d4e9f7 !important;}
+.sub-chip.sel{background:#1a7fc1 !important;color:#fff !important;border-color:#1a7fc1 !important;}
 .prem-label .sub-count{display:none;}
 .prem-card:hover{border-color:var(--navy-dark);background:#f8f9fb;transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.08);}
 .prem-card.selected{background:var(--navy-dark);border-color:var(--navy-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,27,46,.2);}
@@ -623,7 +628,7 @@ footer {
 .prem-card.selected 
 
 /* ─── MASTERY DISCLAIMER MODAL ─── */
-.mastery-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,46,.7);z-index:250;align-items:center;justify-content:center;padding:20px;}
+.mastery-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(13,27,46,.7);z-index:99999;align-items:center;justify-content:center;padding:20px;}
 .mastery-overlay.open{display:flex;}
 .mastery-modal{background:white;border-radius:14px;padding:36px 32px 28px;width:90%;max-width:480px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.25);}
 .mastery-icon{width:48px;height:48px;border-radius:50%;background:#fff8e6;border:1.5px solid #f5c842;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
@@ -1036,20 +1041,34 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Step 1</div>
     <h2 class="section-title">Choose Your Track</h2>
-    <p class="section-sub">Select the coaching program that best aligns with your goals, background, and where you are in your career journey.</p>
     <div style="border-bottom:1px solid #dde3ec;margin-top:14px;">
     <div class="track-tabs">
-      <div class="track-tab polisher-tab active" onclick="switchTab(0)"><span class="tab-eyebrow">The Polisher</span><span class="tab-desc">Resume &amp; Mock Interview <span style="display:inline-block;vertical-align:middle;margin-left:4px;padding:1px 5px;font-size:7px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:#7c3aed;color:white;border-radius:100px;position:relative;top:-1px;">Flat fee</span></span></div>
-      <div class="track-tab" onclick="switchTab(1)"><span class="tab-eyebrow">The (Wall Street) Prepper</span><span class="tab-desc">In-Depth Interview Prep <span style="display:inline-block;vertical-align:middle;margin-left:4px;padding:1px 5px;font-size:7px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:#1a7fc1;color:white;border-radius:100px;position:relative;top:-1px;">Popular</span></span></div>
-      <div class="track-tab" onclick="switchTab(2)"><span class="tab-eyebrow">The Upskiller</span><span class="tab-desc">Technical &amp; On-the-Job</span></div>
-      <div class="track-tab" onclick="switchTab(3)"><span class="tab-eyebrow">The Customizer</span><span class="tab-desc">Fully Custom Coaching</span></div>
-      <div class="track-tab not-sure-tab" onclick="switchTab(4)"><span class="tab-eyebrow">Not Sure?</span><span class="tab-desc">Let's Talk ›</span></div>
+      <div class="track-tab polisher-tab active" onclick="switchTab(0)">
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The Polisher</span><span class="tab-badge" style="background:rgba(124,58,237,.12);color:#7c3aed;">Flat rate</span></div>
+        <span class="tab-desc">Resume &amp; Mock Interview</span>
+      </div>
+      <div class="track-tab" onclick="switchTab(1)">
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The (Wall Street) Prepper</span><span class="tab-badge" style="background:rgba(26,127,193,.12);color:#185FA5;">Most Popular</span></div>
+        <span class="tab-desc">In-Depth Interview Prep</span>
+      </div>
+      <div class="track-tab" onclick="switchTab(2)">
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The Upskiller</span></div>
+        <span class="tab-desc">Technical &amp; On-the-Job</span>
+      </div>
+      <div class="track-tab" onclick="switchTab(3)">
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The Customizer</span></div>
+        <span class="tab-desc">Fully Custom Coaching</span>
+      </div>
+      <div class="track-tab not-sure-tab" onclick="switchTab(4)">
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">Not Sure?</span></div>
+        <span class="tab-desc">Let's Talk ›</span>
+      </div>
     </div>
     </div>
 
     <!-- Tab 0: Polisher -->
     <div class="track-content active" id="tab-0">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;">
 
         <div>
           <div class="track-subtitle">Resume &amp; Mock Interview</div>
@@ -1064,73 +1083,40 @@ footer {
             <button class="book-btn" onclick="scrollToForm(0)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
           </div>
-          <div style="display:inline-flex;align-items:center;gap:10px;margin-top:14px;border:1px dashed #b5d4f4;border-radius:8px;padding:9px 14px;background:#eaf3fb;flex-wrap:wrap;">
-            <span style="font-size:15px;font-weight:700;color:#0C447C;">$500</span>
-            <span style="width:1px;height:16px;background:#85B7EB;flex-shrink:0;"></span>
-            <span style="font-size:13px;color:#185FA5;text-decoration:line-through;">$998 value</span>
-            <span style="font-size:11px;font-weight:600;background:#B5D4F4;color:#0C447C;padding:2px 8px;border-radius:100px;white-space:nowrap;">Save $498</span>
-            <span style="width:1px;height:16px;background:#85B7EB;flex-shrink:0;"></span>
-            <span style="font-size:12px;color:#185FA5;white-space:nowrap;">Equiv. to 2 hrs coaching · 2 guides included free</span>
-          </div>
         </div>
 
-        <div style="border:2px solid #0d1b2e;border-radius:12px;overflow:hidden;">
-          <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);padding:10px 20px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#72ffab;line-height:1;">What's included:</div>
-          </div>
-          <div style="background:rgba(13,27,46,.06);padding:16px 16px 14px;">
-            <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
-              <div style="display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:11px 14px;">
-                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;margin-top:1px;">1</span>
-                <span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Intro call (10 min)</strong> — Kick off with a quick alignment call to share your goals and target roles.</span>
+        <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">What's included:</div></div>
+        <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;">
+          <div style="background:#f8fafc;padding:16px 16px 14px;">
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;gap:10px;align-items:center;background:white;border:1px solid #e8edf3;border-radius:8px;padding:7px 12px;">
+                <span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1a3a5c;font-size:10px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">1</span>
+                <span style="font-size:12px;color:#1a2535;line-height:1.4;"><strong>Intro call (10 min)</strong> — Quick alignment call to share your goals and target roles.</span>
               </div>
-              <div style="display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:11px 14px;">
-                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;margin-top:1px;">2</span>
-                <span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Resume submission</strong> — Send your resume to your instructor ahead of the live session.</span>
+              <div style="display:flex;gap:10px;align-items:center;background:white;border:1px solid #e8edf3;border-radius:8px;padding:7px 12px;">
+                <span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1a3a5c;font-size:10px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">2</span>
+                <span style="font-size:12px;color:#1a2535;line-height:1.4;"><strong>Resume submission</strong> — Submit your resume to your instructor before the session.</span>
               </div>
-              <div style="display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:11px 14px;">
-                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;margin-top:1px;">3</span>
-                <span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Written feedback (within 72 hrs)</strong> — In-depth notes with suggested edits and rewrites.</span>
+              <div style="display:flex;gap:10px;align-items:center;background:white;border:1px solid #e8edf3;border-radius:8px;padding:7px 12px;">
+                <span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1a3a5c;font-size:10px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">3</span>
+                <span style="font-size:12px;color:#1a2535;line-height:1.4;"><strong>Written feedback (within 72 hrs)</strong> — In-depth notes with suggested edits and rewrites.</span>
               </div>
-              <div style="display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:11px 14px;">
-                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;margin-top:1px;">4</span>
-                <span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Implement &amp; schedule</strong> — Apply the feedback, then book your live session with your instructor.</span>
+              <div style="display:flex;gap:10px;align-items:center;background:white;border:1px solid #e8edf3;border-radius:8px;padding:7px 12px;">
+                <span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1a3a5c;font-size:10px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">4</span>
+                <span style="font-size:12px;color:#1a2535;line-height:1.4;"><strong>Implement &amp; schedule</strong> — Apply the feedback and book your live session.</span>
               </div>
-              <div style="display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:11px 14px;">
-                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;margin-top:1px;">5</span>
-                <span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Live coaching session (1 hr)</strong> — Full mock interview with real-time feedback and a targeted walkthrough of your key development areas.</span>
+              <div style="display:flex;gap:10px;align-items:center;background:white;border:1px solid #e8edf3;border-radius:8px;padding:7px 12px;">
+                <span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1a3a5c;font-size:10px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">5</span>
+                <span style="font-size:12px;color:#1a2535;line-height:1.4;"><strong>Live coaching session (1 hr)</strong> — Mock interview with real-time feedback and development walkthrough.</span>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-
-      <div class="topic-group" style="margin-top:28px;">
-        <div class="topic-group-title">Included Bonus Content</div>
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,180px));gap:14px;margin-top:14px;">
-          <a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:block;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='#1a7fc1'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
-            <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:12px 14px 10px;border-bottom:1px solid var(--border);">
-              <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Interview Prep</div>
-              <div style="font-size:14px;font-weight:800;color:#1a7fc1;">The Red Book</div>
-            </div>
-            <div style="padding:10px 14px;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span style="background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$99</span></div>
-              <span style="font-size:11px;color:#5a6a7e;line-height:1.5;">1,000+ IB interview Q&amp;As from real candidates</span>
-            </div>
-          </a>
-          <a href="https://www.wallstreetprep.com/self-study-programs/the-blue-book/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:block;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='#1a7fc1'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
-            <div style="background:linear-gradient(135deg,#dff0fa,#bfdbf2);padding:12px 14px 10px;border-bottom:1px solid var(--border);">
-              <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Networking</div>
-              <div style="font-size:14px;font-weight:800;color:#1a7fc1;">The Blue Book</div>
-            </div>
-            <div style="padding:10px 14px;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span style="background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$99</span></div>
-              <span style="font-size:11px;color:#5a6a7e;line-height:1.5;">Behavioral interview &amp; networking strategy guide</span>
-            </div>
-          </a>
         </div>
-      </div>
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 10px 10px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-blue-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Blue Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span></div>
 
     </div>
 
@@ -1141,7 +1127,7 @@ footer {
         <div>
           <div class="track-subtitle">In Depth Interview Prep</div>
           <div class="track-title">The (Wall Street) Prepper</div>
-          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for students and early-career professionals who need to perform under pressure—fast.</strong></span> Whether you're preparing for a critical interview, a superday, or your first day on the job, this coaching is designed to get you fully ready in a short period of time.<br/><br/>Work 1:1 with an experienced instructor to sharpen your technical skills, refine your answers, and build the confidence to execute when it matters most. Common use cases include interview prep for IB and PE recruiting, and pre-internship ramp-up.</div>
+          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for students and early-career professionals who need to perform under pressure—fast.</strong></span> Whether you're preparing for a critical interview, a superday, or your first day on the job, this coaching is designed to get you fully ready in a short period of time.</div>
           <div class="outcome-list">
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Sharpen technical skills &amp; financial modeling</div>
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Refine your answers &amp; behavioral stories</div>
@@ -1153,21 +1139,16 @@ footer {
           </div>
         </div>
 
-        <div style="border:2px solid #0d1b2e;border-radius:12px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);padding:10px 20px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#72ffab;line-height:1;">Popular topics:</div>
-        </div>
-        <div style="background:rgba(13,27,46,.06);padding:16px 16px 14px;">
-          <div style="display:flex;align-items:flex-start;gap:10px;background:rgba(13,27,46,.08);border:1px solid rgba(13,27,46,.15);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-            <svg style="width:14px;height:14px;flex-shrink:0;margin-top:2px;stroke:#1a3a5c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 7v4M8 5.5v.5"/></svg>
-            <div style="font-size:11px;font-style:italic;color:#1a3a5c;line-height:1.6;">These are the topics most frequently requested by candidates preparing for finance interviews — but your coach will tailor every session to what you actually need. <strong style="font-style:italic;font-weight:700;color:#0d1b2e;">In the next step, you'll be able to add context, set priorities, and define your goals.</strong></div>
-          </div>
+        <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Tailored to your needs in step 2.</div></div>
+        <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;">
+        <div style="background:#f8fafc;padding:16px 16px 14px;">
           <div class="topic-split" style="gap:10px;">
             <div class="topic-split-left">
               <div class="topic-row active" onclick="selectTopicRow(this,'tp-0')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Core Modeling &amp; Valuation</span>
+                  <span class="topic-row-name">Modeling &amp; Valuation</span>
                   <span class="topic-row-count">6 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1183,7 +1164,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'tp-2')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Investment Banking &amp; Deal Process</span>
+                  <span class="topic-row-name">IB &amp; Deal Process</span>
                   <span class="topic-row-count">3 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1191,7 +1172,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'tp-3')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Private Equity &amp; Investing</span>
+                  <span class="topic-row-name">PE &amp; Investing</span>
                   <span class="topic-row-count">5 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1208,7 +1189,7 @@ footer {
             <div class="topic-split-right">
               <div class="topic-panel-inner">
               <div class="topic-panel active" id="tp-0">
-                <div class="topic-panel-title">Core Modeling &amp; Valuation</div>
+                <div class="topic-panel-title">Modeling &amp; Valuation</div>
                 <ul class="topic-list">
                   <li>Financial Statements</li>
                   <li>Valuation Fundamentals</li>
@@ -1227,7 +1208,7 @@ footer {
                 </ul>
               </div>
               <div class="topic-panel" id="tp-2">
-                <div class="topic-panel-title">Investment Banking &amp; Deal Process</div>
+                <div class="topic-panel-title">IB &amp; Deal Process</div>
                 <ul class="topic-list">
                   <li>Transaction Process</li>
                   <li>Due Diligence</li>
@@ -1235,7 +1216,7 @@ footer {
                 </ul>
               </div>
               <div class="topic-panel" id="tp-3">
-                <div class="topic-panel-title">Private Equity &amp; Investing</div>
+                <div class="topic-panel-title">PE &amp; Investing</div>
                 <ul class="topic-list">
                   <li>PE Deal Modeling</li>
                   <li>Return Analysis</li>
@@ -1258,82 +1239,23 @@ footer {
               </div>
               </div>
             </div>
-          </div>
         </div>
         </div>
+      </div>
+        </div>
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;grid-column:1/-1;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
 
       </div>
-        <div class="topic-group" style="margin-top:28px;">
-          <div class="topic-group-title">Included Bonus Content</div>
-          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,180px));gap:14px;margin-top:14px;align-items:stretch;padding-top:8px;">
-            <a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Interview Prep</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">The Red Book</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$99</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">1,000+ IB interview Q&amp;As from real candidates</div>
-                <div style="flex:1;"></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 1+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Excel</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">Excel Crash Course</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$39</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">100+ shortcuts &amp; best practices used on the job</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;">
-                  <div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Red Book</span></div></div>
-                </div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 4+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Financial Modeling</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">The Basic Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$199</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Build a 3-statement model from scratch, step-by-step</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;">
-                  <div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Red Book</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div></div>
-                </div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 10+ hrs</div>
-              </div>
-            </a>
-<div style="position:relative;padding-top:14px;"><div style="position:absolute;top:3px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;"><span style="background:var(--wsp-green);color:var(--navy-dark);font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:100px;">★ Best value</span></div><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:2px solid var(--wsp-blue);box-shadow:0 4px 16px rgba(26,127,193,.1);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(26,127,193,.1)'">
-              <div style="background:linear-gradient(135deg,#1a7fc1,#0f5a8e);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:2px;">Full Program</div>
-                <div style="font-size:15px;font-weight:800;color:white;letter-spacing:-.3px;line-height:1.25;">Premium Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$499</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Complete financial &amp; valuation modeling certification</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;">
-                  <div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Red Book</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Basic Package</span></div></div>
-                </div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 20+ hrs</div>
-              </div>
-            </a></div>
-          </div>
-        </div>
+
     </div>
+
     <div class="track-content" id="tab-2">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
         <div>
           <div class="track-subtitle">Technical Skills &amp; On-the-job Prep</div>
           <div class="track-title">The Upskiller</div>
-          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for finance professionals who want to stay competitive, expand their technical capabilities, and continue progressing in their careers.</strong></span> Whether you're stepping into a more demanding role, transitioning into a new function, or simply looking to sharpen your edge, this coaching is designed to accelerate your development.<br/><br/>Work 1:1 with experienced instructors to deepen your modeling expertise, improve efficiency, and gain practical skills you can immediately apply on the job. Common use cases include advancing technical proficiency, expanding into new areas, and building confidence in high-stakes, real-world scenarios.</div>
+          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for professionals who want to stay competitive, expand their technical skills, and continue progressing in their careers.</strong></span> Whether you're stepping into a more demanding role, transitioning into a new function, or simply looking to sharpen your edge, this coaching is designed to accelerate your development.</div>
           <div class="outcome-list">
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Deepen modeling expertise &amp; technical skills</div>
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Improve efficiency &amp; real-world execution</div>
@@ -1345,15 +1267,10 @@ footer {
           </div>
         </div>
 
-        <div style="border:2px solid #0d1b2e;border-radius:12px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);padding:10px 20px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#72ffab;line-height:1;">Popular topics:</div>
-        </div>
-        <div style="background:rgba(13,27,46,.06);padding:16px 16px 14px;">
-          <div style="display:flex;align-items:flex-start;gap:10px;background:rgba(13,27,46,.08);border:1px solid rgba(13,27,46,.15);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-            <svg style="width:14px;height:14px;flex-shrink:0;margin-top:2px;stroke:#1a3a5c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 7v4M8 5.5v.5"/></svg>
-            <div style="font-size:11px;font-style:italic;color:#1a3a5c;line-height:1.6;">These are the topics most frequently requested by professionals looking to upskill — but your coach will tailor every session to what you actually need. <strong style="font-style:italic;font-weight:700;color:#0d1b2e;">In the next step, you'll be able to add context, set priorities, and define your goals.</strong></div>
-          </div>
+        <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Tailored to your needs in step 2.</div></div>
+        <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;">
+        <div style="background:#f8fafc;padding:16px 16px 14px;">
           <div class="topic-split" style="gap:10px;">
             <div class="topic-split-left">
               <div class="topic-row active" onclick="selectTopicRow(this,'up-0')">
@@ -1367,7 +1284,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'up-1')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Technical Skill Development</span>
+                  <span class="topic-row-name">Technical Skills</span>
                   <span class="topic-row-count">7 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1375,7 +1292,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'up-2')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Modeling &amp; Valuation Mastery</span>
+                  <span class="topic-row-name">Modeling &amp; Valuation</span>
                   <span class="topic-row-count">7 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1383,7 +1300,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'up-3')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Financial Analysis &amp; Strategic Finance</span>
+                  <span class="topic-row-name">FP&amp;A / Strategic Finance</span>
                   <span class="topic-row-count">7 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1391,7 +1308,7 @@ footer {
               <div class="topic-row" onclick="selectTopicRow(this,'up-4')">
                 <div class="topic-row-left">
                   <span class="topic-row-dot"></span>
-                  <span class="topic-row-name">Deals, Investing &amp; Advanced Applications</span>
+                  <span class="topic-row-name">Adv. Deals &amp; Investing</span>
                   <span class="topic-row-count">7 topics</span>
                 </div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1406,13 +1323,13 @@ footer {
                   <li>Model review &amp; optimization</li>
                   <li>Workflow optimization</li>
                   <li>Stakeholder-focused analysis</li>
-                  <li>Presentation &amp; output formatting</li>
-                  <li>Managing deadlines &amp; deliverables</li>
-                  <li>"What good looks like" (top benchmarks)</li>
+                  <li>Presentation &amp; Formatting</li>
+                  <li>Deadlines &amp; Deliverables</li>
+                  <li>"What good looks like"</li>
                 </ul>
               </div>
               <div class="topic-panel" id="up-1">
-                <div class="topic-panel-title">Technical Skill Development</div>
+                <div class="topic-panel-title">Technical Skills</div>
                 <ul class="topic-list">
                   <li>Advanced modeling</li>
                   <li>Scenario &amp; sensitivity analysis</li>
@@ -1424,31 +1341,31 @@ footer {
                 </ul>
               </div>
               <div class="topic-panel" id="up-2">
-                <div class="topic-panel-title">Modeling &amp; Valuation Mastery</div>
+                <div class="topic-panel-title">Modeling &amp; Valuation</div>
                 <ul class="topic-list">
                   <li>Modeling deep dive</li>
                   <li>Accretion / dilution analysis</li>
                   <li>Financial forecasting</li>
                   <li>Scenario &amp; sensitivity analysis</li>
-                  <li>Model structuring best practices</li>
-                  <li>Model auditing &amp; quality control</li>
-                  <li>Valuation fundamentals &amp; applications</li>
+                  <li>Modeling Best Practices</li>
+                  <li>Model Auditing &amp; QC</li>
+                  <li>Valuation Fundamentals</li>
                 </ul>
               </div>
               <div class="topic-panel" id="up-3">
-                <div class="topic-panel-title">Financial Analysis &amp; Strategic Finance</div>
+                <div class="topic-panel-title">FP&amp;A / Strategic Finance</div>
                 <ul class="topic-list">
                   <li>Financial statement analysis</li>
                   <li>Working capital management</li>
                   <li>Revenue &amp; expense modeling</li>
-                  <li>Budgeting &amp; forecasting models</li>
+                  <li>Budgeting &amp; forecasting</li>
                   <li>Variance analysis</li>
                   <li>KPI dashboards &amp; reporting</li>
                   <li>Strategic decision support</li>
                 </ul>
               </div>
               <div class="topic-panel" id="up-4">
-                <div class="topic-panel-title">Deals, Investing &amp; Advanced Applications</div>
+                <div class="topic-panel-title">Adv. Deals &amp; Investing</div>
                 <ul class="topic-list">
                   <li>Deal analysis &amp; evaluation</li>
                   <li>Due diligence support</li>
@@ -1456,83 +1373,29 @@ footer {
                   <li>Return analysis &amp; IRR</li>
                   <li>Portfolio monitoring</li>
                   <li>Exit analysis</li>
-                  <li>Real-world investment case work</li>
+                  <li>Real-world Case Studies</li>
                 </ul>
               </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
 
       </div>
-      <div class="topic-group" style="margin-top:28px;">
-        <div class="topic-group-title">Included Bonus Content</div>
-        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,180px));gap:14px;margin-top:14px;align-items:stretch;padding-top:8px;">
-          <a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Excel</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">Excel Crash Course</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$39</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">100+ shortcuts &amp; best practices used on the job</div>
-                <div style="flex:1;"></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 1+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Accounting</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">Accounting Crash Course</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$39</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Core accounting concepts explained step-by-step</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 4+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Financial Modeling</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">The Basic Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$199</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Build a complete 3-statement model from scratch</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Accounting Crash Course</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 10+ hrs</div>
-              </div>
-            </a>
-<div style="position:relative;padding-top:14px;"><div style="position:absolute;top:3px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;"><span style="background:var(--wsp-green);color:var(--navy-dark);font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:100px;">★ Best value</span></div><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:2px solid var(--wsp-blue);box-shadow:0 4px 16px rgba(26,127,193,.1);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(26,127,193,.1)'">
-              <div style="background:linear-gradient(135deg,#1a7fc1,#0f5a8e);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:2px;">Full Program</div>
-                <div style="font-size:15px;font-weight:800;color:white;letter-spacing:-.3px;line-height:1.25;">Premium Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$499</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Complete financial &amp; valuation modeling certification</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Accounting Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Basic Package</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 20+ hrs</div>
-              </div>
-            </a></div>
         </div>
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;grid-column:1/-1;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
+
       </div>
+
     </div>
 
-    <!-- Tab 3: Customizer -->
     <div class="track-content" id="tab-3">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
         <div>
           <div class="track-subtitle">Fully Customized Coaching Experience</div>
           <div class="track-title">The Customizer</div>
-          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for professionals who don't fit into a single box—and don't want a one-size-fits-all solution.</strong></span> Select the topics you want to focus on, and we'll match you with the right coach for your exact needs. Whether you're balancing interview prep with technical upskilling, targeting a niche role, or tackling a mix of concepts, this coaching is designed entirely around your goals.<br/><br/>Work 1:1 with an experienced instructor to build a fully tailored learning plan aligned to your priorities, timeline, and experience level. From modeling and technical concepts to case prep and career strategy, every session is focused on delivering exactly what you need, when you need it.</div>
+          <div class="track-tagline"><span class="tagline-lead"><strong style="color:#0C447C;font-style:italic;font-weight:500;">Built for professionals who don't fit into a single box—and don't want a one-size-fits-all solution.</strong></span> Pick the topics you want to focus on and we'll match you with a coach who builds every session around your exact goals, timeline, and experience level.</div>
           <div class="outcome-list">
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Pick your own topics — no fixed curriculum</div>
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Matched with the right coach for your exact needs</div>
@@ -1545,18 +1408,13 @@ footer {
           </div>
         </div>
 
-        <div style="border:2px solid #0d1b2e;border-radius:12px;overflow:hidden;">
-          <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);padding:10px 20px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#72ffab;line-height:1;">Select your topics:</div>
-          </div>
-          <div style="background:rgba(13,27,46,.06);padding:16px 16px 14px;">
-            <div style="display:flex;align-items:flex-start;gap:10px;background:rgba(13,27,46,.08);border:1px solid rgba(13,27,46,.15);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-              <svg style="width:14px;height:14px;flex-shrink:0;margin-top:2px;stroke:#1a3a5c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 7v4M8 5.5v.5"/></svg>
-              <div style="font-size:11px;font-style:italic;color:#1a3a5c;line-height:1.6;">Click a topic to expand its subtopics, then select the ones you want to focus on. This is a starting point — your coach will tailor the plan from there. <strong style="font-style:italic;font-weight:700;color:#0d1b2e;">In the next step, you'll be able to add context, set priorities, and define your goals.</strong></div>
-            </div>
+        <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Select your topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Click to expand and choose your focus areas.</div></div>
+        <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:visible;background:white;">
+          <div style="background:#f8fafc;padding:16px 16px 14px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;" id="cust-topic-grid">
               <div class="topic-row" onclick="custTopicClick(this,'dd1')" data-dd="dd1">
-                <div class="topic-row-left"><span class="topic-row-dot"></span><span class="topic-row-name">Core Modeling &amp; Valuation</span><span class="topic-row-count" id="sc1"></span></div>
+                <div class="topic-row-left"><span class="topic-row-dot"></span><span class="topic-row-name">Modeling &amp; Valuation</span><span class="topic-row-count" id="sc1"></span></div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
               </div>
               <div class="topic-row" onclick="custTopicClick(this,'dd2')" data-dd="dd2">
@@ -1576,7 +1434,7 @@ footer {
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
               </div>
               <div class="topic-row" onclick="custTopicClick(this,'dd6')" data-dd="dd6">
-                <div class="topic-row-left"><span class="topic-row-dot"></span><span class="topic-row-name">Private Equity &amp; Investing</span><span class="topic-row-count" id="sc6"></span></div>
+                <div class="topic-row-left"><span class="topic-row-dot"></span><span class="topic-row-name">PE &amp; Investing</span><span class="topic-row-count" id="sc6"></span></div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
               </div>
               <div class="topic-row" onclick="custTopicClick(this,'dd7')" data-dd="dd7">
@@ -1604,72 +1462,16 @@ footer {
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
               </div>
             </div>
-            <div id="cust-chip-panel" style="margin-top:10px;background:white;border:1px solid rgba(13,27,46,.18);border-radius:8px;padding:14px 16px;min-height:148px;">
+            <div id="cust-chip-panel" style="margin-top:10px;background:white;border:1px solid #e8edf3;border-radius:8px;padding:14px 16px;min-height:80px;">
               <div id="cust-chip-label" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0d1b2e;margin-bottom:10px;min-height:16px;"></div>
-              <div id="cust-chip-content" style="display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;"></div>
+              <div id="cust-chip-content" style="display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;min-height:30px;"></div>
             </div>
           </div>
         </div>
 
       </div>
-      <div class="topic-group" style="margin-top:28px;">
-        <div class="topic-group-title">Included Bonus Content</div>
-        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,180px));gap:14px;margin-top:14px;align-items:stretch;padding-top:8px;">
-          <a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Excel</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">Excel Crash Course</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$39</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">100+ shortcuts &amp; best practices used on the job</div>
-                <div style="flex:1;"></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 1+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Accounting</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">Accounting Crash Course</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$39</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Core accounting concepts explained step-by-step</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 4+ hrs</div>
-              </div>
-            </a>
-<a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.12)';this.style.borderColor='var(--wsp-blue)'" onmouseout="this.style.transform='';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
-              <div style="background:linear-gradient(135deg,#eaf3fb,#d4e9f7);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f91;margin-bottom:2px;">Financial Modeling</div>
-                <div style="font-size:15px;font-weight:800;color:#1a7fc1;letter-spacing:-.3px;line-height:1.25;">The Basic Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$199</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Build a complete 3-statement model from scratch</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Accounting Crash Course</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 10+ hrs</div>
-              </div>
-            </a>
-<div style="position:relative;padding-top:14px;"><div style="position:absolute;top:3px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;"><span style="background:var(--wsp-green);color:var(--navy-dark);font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:100px;">★ Best value</span></div><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" rel="noopener noreferrer" style="background:#ffffff;border:2px solid var(--wsp-blue);box-shadow:0 4px 16px rgba(26,127,193,.1);border-radius:10px;overflow:hidden;transition:all .2s;text-decoration:none;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,127,193,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(26,127,193,.1)'">
-              <div style="background:linear-gradient(135deg,#1a7fc1,#0f5a8e);padding:14px 16px 12px;border-bottom:1px solid rgba(0,0,0,.06);position:relative;">
-                
-                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:2px;">Full Program</div>
-                <div style="font-size:15px;font-weight:800;color:white;letter-spacing:-.3px;line-height:1.25;">Premium Package</div>
-              </div>
-              <div style="padding:12px 16px;display:flex;flex-direction:column;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;"><span style="display:inline-block;background:#72ffab;color:#0d1b2e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">FREE</span><span style="font-size:11px;color:#8a9bb0;text-decoration:line-through;">$499</span></div>
-                <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;">Complete financial &amp; valuation modeling certification</div>
-                <div style="padding-top:8px;border-top:1px solid rgba(0,0,0,.07);margin-bottom:8px;flex:1;"><div style="margin-bottom:0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Excel Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">Accounting Crash Course</span></div><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-size:11px;font-weight:700;color:var(--text-muted);">+</span><span style="font-size:11px;color:var(--text-muted);">The Basic Package</span></div></div></div>
-                <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--wsp-blue);margin-top:auto;padding-top:8px;">Included with 20+ hrs</div>
-              </div>
-            </a></div>
         </div>
-      </div>
-      <div class="concierge-nudge"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="concierge-nudge-text">Not sure which track to choose? <a onclick="openConsult()">Book a free 15-minute consultation with our Coaching Concierge</a> — we'll help you find the right fit.</span></div>
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 10px 10px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
     <!-- Tab 4: Not Sure -->
@@ -2480,34 +2282,17 @@ footer {
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
-  <div class="faq-split">
-    <div class="faq-left">
-      <div class="section-eyebrow">Questions?</div>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-sub" style="margin-top:10px;">Everything you need to know about WSP private coaching.</p>
-      <div class="faq-consult-card">
-        <div style="font-size:13px;font-weight:700;color:#72ffab;margin-bottom:6px;">Still have questions?</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:16px;">Our team is happy to help — whether you're ready to book or just want to talk through your options first.</div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;font-size:13px;padding:9px 18px;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 1–4</span></button>
-          <div style="width:1px;height:34px;background:rgba(255,255,255,.2);flex-shrink:0;"></div>
-          <a onclick="openConsult()" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>
-            Book a free consult
-          </a>
+  <div class="section-inner">
+    <div class="section-eyebrow">Got questions?</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;margin-top:28px;">
+      <div style="background:rgba(13,27,46,.04);padding:14px;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:start;">
+        <div id="faq-question-list" style="display:flex;flex-direction:column;gap:5px;"></div>
+        <div id="faq-answer-panel" style="background:white;border:1px solid #dde3ec;border-radius:10px;padding:18px 16px;min-height:120px;">
+          <div id="faq-answer-title" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0d1b2e;margin-bottom:10px;"></div>
+          <div id="faq-answer-body" style="font-size:13px;color:#3a4a5c;line-height:1.7;"></div>
         </div>
       </div>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does the coach matching process work?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">After you complete your purchase, our Coaching Concierge team reviews your profile, selected track, and customization notes to identify the best-fit coach from our network. You'll receive an email introduction to your coach within 48 hours — often sooner.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I switch coaches if it's not a good fit?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">Absolutely. We want you to feel confident in your match. If after your intro call you'd prefer a different coach, simply reach out to our team at coaching@wallstreetprep.com and we'll work to find a better fit at no additional cost.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I access the online learning portal?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">After your purchase, you'll receive an email with account setup instructions. Once logged in, you'll have access to curated learning journeys and bonus courses relevant to your coaching track.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's the difference between the coaching packages?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">The packages differ in total hours and price per hour. Quick Support (1–3 hrs at $400/hr) is best for targeted, one-off questions. Skill Building (4–9 hrs at $350/hr) is ideal for focused skill development. Performance Accelerator (10–19 hrs at $340/hr) is for more intensive preparation. The Mastery Track (20+ hrs at $330/hr) provides the deepest engagement. The Polisher ($500 flat) is a single 1-hour mock interview session with immediate, actionable feedback — ideal if you have an interview coming up and want a sharp final tune-up.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are sessions conducted live or asynchronously?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">Most coaching is conducted live via video call (Zoom or similar platforms). The Resume &amp; Mock Interview track also includes asynchronous email-based feedback.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you offer refunds?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">We offer a satisfaction guarantee on unused hours. If you've completed your intro call but haven't yet started your first full session, you may request a full refund on unused hours. After coaching begins, refunds are prorated based on unused hours.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How experienced are WSP coaches?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">All Wall Street Prep coaches are vetted practitioners with real-world experience at leading firms including bulge bracket investment banks, mega-fund private equity firms, and top hedge funds.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to be paired with a coach?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">You can typically expect a coach introduction within 24–48 hours after purchase, with most matches completed in under 24 hours.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I be matched with a coach faster than 24 hours? What's the fastest turnaround?</span><svg class="faq-icon" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke-linecap="round"/></svg></div><div class="faq-a">During checkout, you'll be asked how quickly you'd like to begin — select the "urgent" option if you need expedited matching.<br/><br/>In many cases, we can introduce you to a coach in as little as 4 hours. <strong>For same-day matching, requests must be submitted by 3:00 PM ET on business days.</strong> While we do our best to accommodate urgent requests, same-day matching is not guaranteed and depends on coach availability.</div></div>
     </div>
   </div>
 </section>
@@ -2738,9 +2523,12 @@ function custTopicClick(row, ddId){
   allRows.forEach(function(r){r.classList.remove('active');});
   row.classList.add('active');
   var saved = _subSelections[ddId]||[];
+  var chipStyle = 'display:inline-flex;align-items:center;background:#eaf3fb;border:1.5px solid #b5d4f4;border-radius:100px;padding:4px 12px;margin:0;font-size:11px;font-weight:600;color:#185FA5;cursor:pointer;white-space:nowrap;box-sizing:border-box;';
+  var chipStyleSel = 'display:inline-flex;align-items:center;background:#1a7fc1;border:1.5px solid #1a7fc1;border-radius:100px;padding:4px 12px;margin:0;font-size:11px;font-weight:600;color:white;cursor:pointer;white-space:nowrap;box-sizing:border-box;';
   var chips = data.chips.map(function(c){
-    var sel = saved.indexOf(c)>-1?' sel':'';
-    return '<span class="sub-chip'+sel+'" onclick="custChipClick(this,\''+ddId+'\')">'+c+'</span>';
+    var isSel = saved.indexOf(c)>-1;
+    var s = isSel ? chipStyleSel : chipStyle;
+    return '<span class="sub-chip'+(isSel?' sel':'')+'" style="'+s+'" onmouseover="if(!this.classList.contains(\'sel\')){this.style.background=\'#d4e9f7\';this.style.borderColor=\'#1a7fc1\';}" onmouseout="if(!this.classList.contains(\'sel\')){this.style.background=\'#eaf3fb\';this.style.borderColor=\'#b5d4f4\';}" onclick="custChipClick(this,\''+ddId+'\')">'+c+'</span>';
   }).join('');
   if(label) label.textContent = data.label;
   if(content) content.innerHTML = chips;
@@ -2778,9 +2566,59 @@ function custUpdateBookBtn(){
 }
 function showNavDropdown(li){var m=li.querySelector('.nav-dropdown-menu');if(m)m.classList.add('open');}
 function hideNavDropdown(li){var m=li.querySelector('.nav-dropdown-menu');if(m)m.classList.remove('open');}
-function custBookNow(){scrollToForm(3);}
+var _faqData = [
+  {q:'How does the coach matching process work?', a:'After you complete your purchase, our Coaching Concierge team reviews your profile, selected track, and customization notes to identify the best-fit coach from our network. You\'ll receive an email introduction to your coach within 48 hours — often sooner.'},
+  {q:'Can I switch coaches if it\'s not a good fit?', a:'Absolutely. We want you to feel confident in your match. If after your intro call you\'d prefer a different coach, simply reach out to our team at coaching@wallstreetprep.com and we\'ll work to find a better fit at no additional cost.'},
+  {q:'How do I access the online learning portal?', a:'After your purchase, you\'ll receive an email with account setup instructions. Once logged in, you\'ll have access to curated learning journeys and bonus courses relevant to your coaching track.'},
+  {q:'What\'s the difference between the coaching packages?', a:'The packages differ in total hours and price per hour. Quick Support (1–3 hrs at $400/hr) is best for targeted questions. Skill Building (4–9 hrs at $350/hr) is ideal for focused skill development. Performance Accelerator (10–19 hrs at $340/hr) is for intensive preparation. The Mastery Track (20+ hrs at $330/hr) provides the deepest engagement. The Polisher ($500 flat) is a 1-hour mock interview session with immediate feedback — ideal for a final tune-up.'},
+  {q:'Are sessions conducted live or asynchronously?', a:'Most coaching is conducted live via video call (Zoom or similar platforms). The Resume & Mock Interview track also includes asynchronous email-based feedback.'},
+  {q:'Do you offer refunds?', a:'We offer a satisfaction guarantee on unused hours. If you\'ve completed your intro call but haven\'t yet started your first full session, you may request a full refund on unused hours. After coaching begins, refunds are prorated based on unused hours.'},
+  {q:'How experienced are WSP coaches?', a:'All Wall Street Prep coaches are vetted practitioners with real-world experience at leading firms including bulge bracket investment banks, mega-fund private equity firms, and top hedge funds.'},
+  {q:'How long does it take to be paired with a coach?', a:'You can typically expect a coach introduction within 24–48 hours after purchase, with most matches completed in under 24 hours.'},
+  {q:'Can I be matched faster than 24 hours?', a:'During checkout, you\'ll be asked how quickly you\'d like to begin — select "urgent" if you need expedited matching. In many cases we can introduce you to a coach in as little as 4 hours. <strong>For same-day matching, requests must be submitted by 3:00 PM ET on business days.</strong> Same-day matching is not guaranteed and depends on coach availability.'}
+];
+var _activeFaq = 0;
+function faqSelectRow(idx){
+  _activeFaq = idx;
+  var list = document.getElementById('faq-question-list');
+  if(!list) return;
+  list.querySelectorAll('.faq-row').forEach(function(r,i){
+    var isActive = i===idx;
+    r.style.background = isActive ? '#0d1b2e' : 'white';
+    r.style.borderColor = isActive ? '#0d1b2e' : '#dde3ec';
+    r.querySelector('span').style.color = isActive ? 'white' : '#3a4a5c';
+    r.querySelector('span').style.fontWeight = isActive ? '700' : '600';
+    r.querySelector('svg').style.stroke = isActive ? '#72ffab' : '#aab4c0';
+  });
+  document.getElementById('faq-answer-title').textContent = _faqData[idx].q;
+  document.getElementById('faq-answer-body').innerHTML = _faqData[idx].a;
+}
+function initFaqPanel(){
+  var list = document.getElementById('faq-question-list');
+  if(!list) return;
+  list.innerHTML = '';
+  _faqData.forEach(function(item,i){
+    var row = document.createElement('div');
+    row.className = 'faq-row';
+    row.style.cssText = 'background:white;border:1px solid #dde3ec;border-radius:8px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer;transition:all .15s;';
+    row.innerHTML = '<span style="font-size:12px;font-weight:600;color:#3a4a5c;line-height:1.3;">'+item.q+'</span><svg style="width:12px;height:12px;stroke:#aab4c0;fill:none;stroke-width:2.5;flex-shrink:0;" viewBox="0 0 14 14"><path d="M5 3l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    row.onclick = function(){ faqSelectRow(i); };
+    list.appendChild(row);
+  });
+  faqSelectRow(0);
+}
+document.addEventListener('DOMContentLoaded', function(){ initFaqPanel(); });
 function custChipClick(chip, ddId){
-  chip.classList.toggle('sel');
+  var isSel = chip.classList.toggle('sel');
+  if(isSel){
+    chip.style.background='#1a7fc1';
+    chip.style.borderColor='#1a7fc1';
+    chip.style.color='white';
+  } else {
+    chip.style.background='#eaf3fb';
+    chip.style.borderColor='#b5d4f4';
+    chip.style.color='#185FA5';
+  }
   var data = _subTopics[ddId];
   if(!data) return;
   var panel = document.getElementById('cust-chip-content');
@@ -2816,7 +2654,7 @@ function topicClick(e, ddId, card){
   }).join('');
   container.innerHTML = '<div class="subtopic-panel" style="display:block;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:8px;padding:14px 16px;margin-bottom:10px;">'
     +'<div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#185FA5;margin-bottom:10px;">'+data.label+' — subtopics</div>'
-    +'<div class="sub-chip-wrap" style="display:flex;flex-wrap:wrap;gap:7px;">'+chips+'</div>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:7px;">'+chips+'</div>'
     +'</div>';
 }
 
@@ -2852,6 +2690,7 @@ function hideDownstreamSections(){
 function revealSection(id){const el=document.getElementById(id);if(!el||!el.classList.contains('section-hidden'))return;el.classList.remove('section-hidden');el.classList.add('section-reveal');setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'});},80);}
 
 function scrollToForm(trackIdx){consultMode=false;selectedTrack=trackIdx;if(!unlockedSteps.has(2)){unlockedSteps.add(2);revealSection('customizations');}else{document.getElementById('customizations').scrollIntoView({behavior:'smooth',block:'start'});}}
+function custBookNow(){scrollToForm(3);}
 function unlockPackages(){if(selectedTrack===0){openCart('The Polisher — Resume & Mock Interview','$500 flat','500',1,1);return;}if(!unlockedSteps.has(3)){unlockedSteps.add(3);revealSection('packages');}else{document.getElementById('packages').scrollIntoView({behavior:'smooth',block:'start'});}}
 function unlockWhatToExpect(){if(!unlockedSteps.has(4)){unlockedSteps.add(4);revealSection('what-to-expect');}else{document.getElementById('what-to-expect').scrollIntoView({behavior:'smooth',block:'start'});}}
 const CAL_URL='https://calendly.com/d/cq6c-fs8-vc3/coaching-strategy-call';
@@ -2971,8 +2810,8 @@ function toggleDatePicker(sel){document.getElementById('date-picker').classList.
 const tzData={US:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Alaska Time (AKT) — UTC-9/8','Hawaii Time (HST) — UTC-10'],GB:['Greenwich Mean Time (GMT) — UTC+0','British Summer Time (BST) — UTC+1'],CA:['Eastern Time (ET) — UTC-5/4','Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7','Atlantic Time (AT) — UTC-4/3','Newfoundland Time — UTC-3:30/2:30'],AU:['Australian Eastern Time (AEST) — UTC+10','Australian Central Time (ACST) — UTC+9:30','Australian Western Time (AWST) — UTC+8'],DE:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],FR:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],SG:['Singapore Time (SGT) — UTC+8'],HK:['Hong Kong Time (HKT) — UTC+8'],JP:['Japan Standard Time (JST) — UTC+9'],IN:['India Standard Time (IST) — UTC+5:30'],UAE:['Gulf Standard Time (GST) — UTC+4'],CH:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],NL:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],BR:['Brasilia Time (BRT) — UTC-3','Amazon Time (AMT) — UTC-4'],MX:['Central Time (CT) — UTC-6/5','Mountain Time (MT) — UTC-7/6','Pacific Time (PT) — UTC-8/7'],ZA:['South Africa Standard Time (SAST) — UTC+2'],KR:['Korea Standard Time (KST) — UTC+9'],CN:['China Standard Time (CST) — UTC+8'],IT:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],ES:['Central European Time (CET) — UTC+1','Central European Summer Time (CEST) — UTC+2'],OTHER:['UTC-12','UTC-11','UTC-10','UTC-9','UTC-8','UTC-7','UTC-6','UTC-5','UTC-4','UTC-3','UTC-2','UTC-1','UTC+0','UTC+1','UTC+2','UTC+3','UTC+4','UTC+5','UTC+5:30','UTC+6','UTC+7','UTC+8','UTC+9','UTC+10','UTC+11','UTC+12']};
 function updateTimezones(){const country=document.getElementById('country-select').value;const tzSelect=document.getElementById('timezone-select');tzSelect.innerHTML='<option value="">Select timezone...</option>';if(tzData[country]){tzData[country].forEach(tz=>{const o=document.createElement('option');o.textContent=tz;tzSelect.appendChild(o);});}}
 let cartRate=400,cartMin=1,cartMax=null,cartNextTier='';
-function openMasteryDisclaimer(){document.getElementById('mastery-overlay').classList.add('open');document.body.style.overflow='hidden';}
-function closeMasteryDisclaimer(){document.getElementById('mastery-overlay').classList.remove('open');document.body.style.overflow='';}
+function openMasteryDisclaimer(){var el=document.getElementById('mastery-overlay');if(el){el.style.display='flex';document.body.style.overflow='hidden';}}
+function closeMasteryDisclaimer(){var el=document.getElementById('mastery-overlay');if(el){el.style.display='none';document.body.style.overflow='';}}
 function closeMasteryDisclaimerAndConsult(){closeMasteryDisclaimer();openCal();}
 function closeMasteryDisclaimerAndPurchase(){closeMasteryDisclaimer();openCart('Mastery Track','$330/hr','330',20,null);}
 function openCart(name,priceLabel,rate,minHours,maxHours){cartRate=parseInt(rate);cartMin=minHours;cartMax=maxHours;const isFlat=minHours===1&&maxHours===1;const nextTierMap={'Quick Support':'Skill Building (4–9 hrs)','Skill Building':'Performance Accelerator (10–19 hrs)','Performance Accelerator':'Mastery Track (20+ hrs)'};cartNextTier=nextTierMap[name]||null;document.getElementById('cart-pkg-name').textContent=name+' — '+priceLabel;document.getElementById('qty-val').value=minHours;document.getElementById('qty-val').min=minHours;if(maxHours)document.getElementById('qty-val').max=maxHours;else document.getElementById('qty-val').removeAttribute('max');document.getElementById('cart-qty-row').style.display=isFlat?'none':'flex';document.getElementById('cart-flat-label').style.display=isFlat?'block':'none';hideMaxTooltip();updateCartTotal();document.getElementById('cart-overlay').classList.add('open');document.body.style.overflow='hidden';}
@@ -3008,7 +2847,11 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var chipContent = document.getElementById('cust-chip-content'); });
+    var chipContent = document.getElementById('cust-chip-content');
+    if(chipContent) chipContent.innerHTML='<span style="font-size:11px;font-style:italic;color:rgba(13,27,46,.3);">Select a topic to see its subtopics</span>';
+    showStep(1);
+    consultShowStep(1);
+  });
 
   var floatingNav = document.getElementById('floating-nav');
   window.addEventListener('scroll', function() {
@@ -3018,7 +2861,7 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
 </script>
 
 <!-- MASTERY TRACK DISCLAIMER MODAL -->
-<div class="mastery-overlay" id="mastery-overlay" onclick="if(event.target===this)closeMasteryDisclaimer()">
+<div class="mastery-overlay" id="mastery-overlay" style="display:none;" onclick="if(event.target===this)closeMasteryDisclaimer()">
   <div class="mastery-modal">
     <div class="mastery-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
