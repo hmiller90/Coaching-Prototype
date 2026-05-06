@@ -267,20 +267,26 @@ section{padding:72px 32px;}
 .track-tab.not-sure-tab.active::after{background:#1a7fc1;}
 .track-content{
   display:none;
-  padding:32px 28px;
+  padding:0;
   background:#ffffff;
   border:1px solid #e8edf3;
   border-top:none;
   border-radius:0 0 8px 8px;
-  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  box-shadow:0 4px 28px rgba(0,0,0,.12);
 }
-.track-content.active{display:block !important;}
+.track-content.active{
+  display:flex !important;
+  flex-direction:column;
+  justify-content:space-between;
+  max-height:620px !important;
+  overflow:hidden !important;
+}
 
 .track-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px;}
 .track-subtitle{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--wsp-green-dark);margin-bottom:8px;}
-.track-tagline{font-size:15px;color:var(--text-muted);line-height:1.65;margin-bottom:20px;}
+.track-tagline{font-size:14px;color:var(--text-muted);line-height:1.55;margin-bottom:12px;}
 .tagline-lead{border-left:3px solid #185FA5;padding-left:12px;display:inline;}
-.book-btn-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:8px;}
+.book-btn-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:6px;}
 
 .book-btn{
   background:var(--wsp-green);color:var(--navy-dark);
@@ -370,7 +376,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .date-picker{display:none;margin-top:12px;}
 .date-picker.visible{display:block;}
 
-.outcome-list{display:flex;flex-direction:column;gap:8px;margin:16px 0 20px;}
+.outcome-list{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px;}
 .outcome-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-muted);line-height:1.45;}
 .outcome-check{width:18px;height:18px;border-radius:50%;background:var(--wsp-green);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .outcome-check svg{width:10px;height:10px;stroke:var(--navy-dark);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
@@ -378,7 +384,10 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 /* ─── TOPIC SPLIT PANEL ─── */
 .topic-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch;}
 .topic-split-left{display:flex;flex-direction:column;gap:4px;}
-.topic-row{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;border:1px solid rgba(13,27,46,.18);border-radius:8px;cursor:pointer;background:white;transition:all .15s;user-select:none;flex:1;}
+.topic-row{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border:1px solid rgba(13,27,46,.18);border-radius:8px;cursor:pointer;background:white;transition:all .15s;user-select:none;flex:1;}
+#cust-topic-grid .topic-row{padding:5px 8px;border-radius:6px;font-size:11px;}
+#cust-topic-grid .topic-row-name{font-size:11px;}
+#cust-topic-grid .topic-row-arrow{width:10px;height:10px;flex-shrink:0;}
 .topic-row:hover{border-color:rgba(13,27,46,.4);background:rgba(255,255,255,.9);}
 .topic-row.active{background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-color:#0d1b2e;}
 .topic-row-left{display:flex;align-items:center;gap:10px;}
@@ -389,10 +398,13 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .topic-row-count{font-size:11px;color:var(--text-muted);transition:color .15s;}
 .topic-row.active .topic-row-count{color:rgba(255,255,255,.6);}
 .topic-row.has-subs .topic-row-dot{background:#72ffab;}
+#tab-3 .topic-row-dot{background:transparent;border:1.5px solid #a0b4cc;}
+#tab-3 .topic-row.active .topic-row-dot{background:#72ffab;border-color:#72ffab;}
+#tab-3 .topic-row.has-subs .topic-row-dot{background:#1a7fc1;border-color:#1a7fc1;}
 .topic-row.has-subs .topic-row-count{color:#72ffab;font-weight:700;}
 .topic-row-arrow{width:14px;height:14px;flex-shrink:0;fill:none;stroke:var(--text-muted);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s;}
 .topic-row.active .topic-row-arrow{stroke:rgba(255,255,255,.6);}
-.topic-split-right{border:1px solid rgba(13,27,46,.18);border-radius:8px;background:white;padding:16px 18px;align-self:start;}
+.topic-split-right{border:1px solid rgba(13,27,46,.18);border-radius:8px;background:white;padding:12px 14px;align-self:start;}
 .topic-panel-inner{display:grid;}
 .topic-panel{grid-area:1/1;visibility:hidden;pointer-events:none;}
 .topic-panel.active{visibility:visible;pointer-events:auto;}
@@ -1067,7 +1079,8 @@ footer {
     </div>
 
     <!-- Tab 0: Polisher -->
-    <div class="track-content active" id="tab-0">
+    <div class="track-content active" id="tab-0" >
+      <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;">
 
         <div>
@@ -1116,12 +1129,14 @@ footer {
 
       </div>
         </div>
+      </div>
       <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 10px 10px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-blue-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Blue Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span></div>
 
     </div>
 
     <!-- Tab 1: Prepper -->
-    <div class="track-content" id="tab-1">
+    <div class="track-content" id="tab-1" >
+      <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
         <div>
@@ -1140,7 +1155,7 @@ footer {
         </div>
 
         <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Tailored to your needs in step 2.</div></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Topics listed are provided as a guide—sessions are tailored to your needs in step 2.</div></div>
         <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;">
         <div style="background:#f8fafc;padding:16px 16px 14px;">
           <div class="topic-split" style="gap:10px;">
@@ -1194,9 +1209,9 @@ footer {
                   <li>Financial Statements</li>
                   <li>Valuation Fundamentals</li>
                   <li>3-Statement Modeling</li>
-                  <li>LBO Modeling</li>
-                  <li>DCF Modeling</li>
-                  <li>Financial Forecasting</li>
+                  <li>LBO</li>
+                  <li>DCF</li>
+                  <li>Forecasting</li>
                 </ul>
               </div>
               <div class="topic-panel" id="tp-1">
@@ -1243,13 +1258,18 @@ footer {
         </div>
       </div>
         </div>
-      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;grid-column:1/-1;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
+      </div>
 
       </div>
 
+    
+
+  
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
-    <div class="track-content" id="tab-2">
+    <div class="track-content" id="tab-2" >
+      <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
         <div>
@@ -1268,7 +1288,7 @@ footer {
         </div>
 
         <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Tailored to your needs in step 2.</div></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Popular topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Topics listed are provided as a guide—sessions are tailored to your needs in step 2.</div></div>
         <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;">
         <div style="background:#f8fafc;padding:16px 16px 14px;">
           <div class="topic-split" style="gap:10px;">
@@ -1383,13 +1403,18 @@ footer {
 
       </div>
         </div>
-      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;grid-column:1/-1;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
+      </div>
 
       </div>
 
+    
+
+  
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
-    <div class="track-content" id="tab-3">
+    <div class="track-content" id="tab-3" >
+      <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
         <div>
@@ -1402,17 +1427,17 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Every session focused on delivering what you need</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
+            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Select 3+ topics<span class="book-btn-sub">to continue to steps 2–4</span></button>
             <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
-            <div id="cust-selection-status" style="margin-top:8px;font-size:12px;color:#8a9bb0;font-style:italic;">Select at least 3 subtopics to continue</div>
+
           </div>
         </div>
 
         <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Select your topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Click to expand and choose your focus areas.</div></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a3a5c;">Select your topics:</div><div style="font-size:10px;font-style:italic;color:#aab4c0;white-space:nowrap;">Click to expand and choose your focus areas — sessions are tailored to you in step 2.</div></div>
         <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:visible;background:white;">
-          <div style="background:#f8fafc;padding:16px 16px 14px;">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;" id="cust-topic-grid">
+          <div style="background:#f8fafc;padding:10px 12px;display:flex;flex-direction:column;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;" id="cust-topic-grid">
               <div class="topic-row" onclick="custTopicClick(this,'dd1')" data-dd="dd1">
                 <div class="topic-row-left"><span class="topic-row-dot"></span><span class="topic-row-name">Modeling &amp; Valuation</span><span class="topic-row-count" id="sc1"></span></div>
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
@@ -1462,7 +1487,7 @@ footer {
                 <svg class="topic-row-arrow" viewBox="0 0 16 16"><polyline points="6,4 10,8 6,12"/></svg>
               </div>
             </div>
-            <div id="cust-chip-panel" style="margin-top:10px;background:white;border:1px solid #e8edf3;border-radius:8px;padding:14px 16px;min-height:80px;">
+            <div id="cust-chip-panel" style="margin-top:8px;background:white;border:1px solid #e8edf3;border-radius:8px;padding:10px 12px;min-height:160px;flex-shrink:0;overflow:visible;">
               <div id="cust-chip-label" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0d1b2e;margin-bottom:10px;min-height:16px;"></div>
               <div id="cust-chip-content" style="display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;min-height:30px;"></div>
             </div>
@@ -1471,11 +1496,12 @@ footer {
 
       </div>
         </div>
+      </div>
       <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 10px 10px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
     <!-- Tab 4: Not Sure -->
-    <div class="track-content" id="tab-4">
+    <div class="track-content" id="tab-4" >
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;">
         <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-radius:12px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
           <div style="width:48px;height:48px;background:rgba(114,255,171,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -2491,9 +2517,9 @@ window.closeCoachModal = function(){
 })();
 
 var _subTopics = {
-  dd1:{label:'Core Modeling & Valuation',sc:'sc1',chips:['3-Statement Modeling','DCF Modeling','LBO Modeling','M&A Modeling','Accretion Dilution','Trading Comps','Transaction Comps','Valuation Fundamentals','Financial Forecasting','Sensitivity Analysis','Scenario Analysis','Model Auditing','Circularity Fixes','Model Structuring']},
+  dd1:{label:'Core Modeling & Valuation',sc:'sc1',chips:['3-Statement Modeling','DCF','LBO','M&A','Accretion Dilution','Trading Comps','Transaction Comps','Valuation Fundamentals','Forecasting','Sensitivity Analysis','Scenario Analysis','Model Auditing','Circularity Fixes','Model Structuring']},
   dd2:{label:'Accounting & Financials',sc:'sc2',chips:['Accounting Fundamentals','Financial Statements','Revenue Modeling','Expense Modeling','Working Capital','Cash Flow Analysis','Balance Sheet Linking','Purchase Accounting','Deferred Taxes','Equity Modeling']},
-  dd3:{label:'Excel & Technical Skills',sc:'sc3',chips:['Excel Fundamentals','Excel Shortcuts','Excel for Modeling','Financial Functions','Data Tables','Scenario Tools','Model Formatting','Error Checking','VBA Basics','Automation Workflows']},
+  dd3:{label:'Excel & Technical Skills',sc:'sc3',chips:['Excel Shortcuts','Excel for Modeling','Financial Functions','Data Tables','Scenario Tools','Model Formatting','Error Checking','VBA Basics','Automation Workflows']},
   dd4:{label:'Corporate Finance & FP&A',sc:'sc4',chips:['Budgeting Modeling','Forecasting Models','Variance Analysis','KPI Dashboards','Financial Reporting','Business Partnering','Strategic Finance','Cash Flow Planning']},
   dd5:{label:'Investment Banking & Deal Skills',sc:'sc5',chips:['Pitchbook Modeling','Deal Structuring','Buyer Lists','Transaction Process','Due Diligence','Synergy Modeling','Merger Integration','Deal Analysis']},
   dd6:{label:'Private Equity & Investing',sc:'sc6',chips:['PE Deal Modeling','Investment Memos','Return Analysis','IRR Calculations','Capital Structures','Fund Modeling','Portfolio Monitoring','Exit Analysis']},
@@ -2550,15 +2576,21 @@ function custUpdateBookBtn(){
     btn.style.opacity='1';
     btn.style.cursor='pointer';
     btn.style.filter='none';
-    if(status) status.textContent=total+' subtopic'+(total===1?'':'s')+' selected — you\'re good to go!';
+    btn.childNodes[0].textContent='Book Now \u2192';
+    var sub = btn.querySelector('.book-btn-sub');
+    if(sub) sub.textContent='Continues to steps 2\u20134';
+    if(status) status.textContent=total+' subtopic'+(total===1?'':'s')+' selected \u2014 you\'re good to go!';
     if(status) status.style.color='#0a5c38';
   } else {
     btn.disabled=true;
     btn.style.opacity='.45';
     btn.style.cursor='not-allowed';
     btn.style.filter='grayscale(.3)';
+    var remaining=3-total;
+    btn.childNodes[0].textContent=total>0?'Select '+remaining+' more topic'+(remaining===1?'':'s'):'Select 3+ topics';
+    var sub = btn.querySelector('.book-btn-sub');
+    if(sub) sub.textContent='to continue to steps 2\u20134';
     if(status){
-      var remaining=3-total;
       status.textContent=total>0?'Select '+(remaining)+' more subtopic'+(remaining===1?'':'s')+' to continue':'Select at least 3 subtopics to continue';
       status.style.color='#8a9bb0';
     }
@@ -2884,5 +2916,8 @@ window.addEventListener('scroll',function(){const nav=document.getElementById('f
   </div>
 </div>
 
+</body>
+</htmlTYPE html>
+<!-- rebuilt: 1776882256 -->
 </body>
 </html>
