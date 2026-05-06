@@ -187,7 +187,7 @@ section{padding:72px 32px;}
 /* ─── STEPS ─── */
 .steps-section{background:#ffffff;border-top:1px solid #dde3ec;}
 .steps-wrap{margin-top:48px;}
-.steps-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.steps-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;align-items:stretch;}
 .steps-flow-rule{position:absolute;top:22px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);height:1px;background:linear-gradient(90deg,#0d1b2e,#0f4e7a);z-index:0;}
 .step-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;}
 .step-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:white;margin-bottom:16px;position:relative;z-index:1;flex-shrink:0;background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);}
@@ -294,7 +294,7 @@ section{padding:72px 32px;}
   border:none;cursor:pointer;transition:all .2s;white-space:nowrap;
   display:inline-flex;flex-direction:column;align-items:center;gap:2px;
 }
-.book-btn-sub{font-size:10px;font-weight:400;opacity:.7;font-style:italic;}
+.book-btn-sub{font-size:10px;font-weight:400;opacity:.7;font-style:italic;display:block;text-align:left;}
 .book-btn:hover{background:var(--wsp-green-dark);transform:translateY(-1px);}
 .book-btn-hint{font-size:11px;color:var(--text-muted);display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .book-btn-hint svg{width:11px;height:11px;stroke:var(--text-muted);fill:none;stroke-width:1.8;flex-shrink:0;}
@@ -416,15 +416,21 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 /* ─── PACKAGES ─── */
 .packages-section{background:#f5f7fa;border-top:1px solid #dde3ec;}
 .packages-grid{margin-top:40px;}
-.packages-split{display:grid;grid-template-columns:1fr 28px 4fr;gap:0;align-items:start;}
+.packages-split{display:grid;grid-template-columns:4fr 28px 1fr;gap:0;align-items:stretch;}
+.packages-split > div{display:flex;flex-direction:column;}
 .packages-split-divider{display:flex;flex-direction:column;align-items:center;align-self:stretch;padding:0 4px;}
 .packages-split-divider-line{width:1px;flex:1;background:#dde3ec;}
 .packages-split-divider-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#b0b8c4;writing-mode:vertical-rl;padding:8px 0;white-space:nowrap;}
 .packages-col-label{display:block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;text-align:center;padding:5px 8px;border-radius:100px;margin-bottom:10px;}
-.packages-hourly{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.pkg-card{background:white;border:1.5px solid var(--border);border-radius:10px;padding:26px 22px;display:flex;flex-direction:column;transition:all .2s;}
+.packages-hourly{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1;}
+.pkg-card{background:white;border:1.5px solid var(--border);border-radius:10px;padding:18px 22px 5px;display:flex;flex-direction:column;transition:all .2s;height:100%;box-sizing:border-box;justify-content:space-between;}
 .pkg-card:hover{border-color:var(--wsp-blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,127,193,.12);}
-.pkg-card.featured{border-color:var(--wsp-blue);border-width:2px;box-shadow:0 4px 16px rgba(26,127,193,.1);}
+.pkg-card.featured{border-color:var(--wsp-blue);border-width:2px;transform:translateY(-10px);animation:pkgGlow 3s ease-in-out infinite;}
+@keyframes pkgGlow{
+  0%{box-shadow:0 10px 28px rgba(26,127,193,.25),0 0 0 3px rgba(26,127,193,.12);}
+  50%{box-shadow:0 10px 28px rgba(62,207,142,.25),0 0 0 3px rgba(62,207,142,.12);}
+  100%{box-shadow:0 10px 28px rgba(26,127,193,.25),0 0 0 3px rgba(26,127,193,.12);}
+}
 .pkg-badge{display:inline-block;background:rgba(26,127,193,.1);color:var(--wsp-blue);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:12px;}
 .pkg-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px;}
 .pkg-price{font-size:26px;font-weight:800;color:var(--wsp-blue);margin-bottom:2px;}
@@ -596,12 +602,12 @@ footer {
 .cal-iframe{flex:1;border:none;width:100%;}
 
 /* ─── INSTRUCTOR CAROUSEL ─── */
-.icar-card{flex:0 0 calc(20% - 13px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:20px 14px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px;backdrop-filter:blur(8px);}
+.icar-card{background:rgba(255,255,255,.32);border:1px solid rgba(255,255,255,.4);border-radius:10px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:6px;backdrop-filter:blur(8px);}
 .icar-card:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
 .icar-avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:white;flex-shrink:0;background-size:cover;background-position:center top;border:2px solid rgba(255,255,255,.25);}
 .icar-name{font-size:13px;font-weight:700;color:white;line-height:1.2;}
 .icar-firm{font-size:11px;color:rgba(255,255,255,.55);line-height:1.3;}
-.icar-tag{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#72ffab;background:rgba(114,255,171,.12);padding:2px 8px;border-radius:100px;}
+.icar-tag{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#72ffab;}
 .icar-cta{font-size:11px;font-weight:600;color:rgba(255,255,255,.6);margin-top:2px;}
 .icar-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);cursor:pointer;font-size:18px;color:white;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
 .icar-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);}
@@ -893,7 +899,7 @@ footer {
     <h1>Get Private Coaching from<br/><em>Wall Street's Top Trainers</em></h1>
     <p class="hero-sub">Whether you want to sharpen your modeling skills or ace an upcoming interview, private coaching is the fastest path to success.</p>
     <div class="hero-btns">
-      <button class="book-btn" onclick="heroScroll(event,'tracks')" style="cursor:pointer;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 1–4</span></button>
+      <button class="book-btn" onclick="heroScroll(event,'tracks')" style="cursor:pointer;">Book a Coach &rarr;<span class="book-btn-sub">Takes ~2 min</span></button>
       <div style="width:1px;height:40px;background:rgba(255,255,255,.2);flex-shrink:0;align-self:center;"></div>
       <a href="https://www.wallstreetprep.com/corporate/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:6px;font-size:14px;font-weight:700;color:white;border:1.5px solid rgba(255,255,255,.25);text-decoration:none;transition:border-color .2s,background .2s;white-space:nowrap;" onmouseover="this.style.borderColor='rgba(114,255,171,.5)';this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)';this.style.background='transparent'">
         <svg viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M2 4h12M2 8h8M2 12h5"/><circle cx="13" cy="11" r="3"/><path d="M12 11h2M13 10v2"/></svg>
@@ -907,27 +913,27 @@ footer {
 <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);">
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;">
     <div style="flex:1;min-width:140px;text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;">
-      <div style="width:32px;height:32px;border-radius:8px;background:rgba(114,255,171,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg></div>
+      <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><img src="https://media.wallstreetprep.com/wspimage/wsp-icon22-instruction.svg" width="22" height="22" alt="" style="display:block;"/></div>
       <div style="font-size:24px;font-weight:800;color:white;letter-spacing:-.4px;line-height:1;">100+</div>
       <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;line-height:1.3;">Coaches Available</div>
     </div>
     <div style="flex:1;min-width:140px;text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;">
-      <div style="width:32px;height:32px;border-radius:8px;background:rgba(114,255,171,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2 2"/></svg></div>
+      <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><img src="https://wspicon.s3.amazonaws.com/icon21-cal.svg" width="22" height="22" alt="" style="display:block;"/></div>
       <div style="font-size:24px;font-weight:800;color:white;letter-spacing:-.4px;line-height:1;">~48hrs</div>
       <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;line-height:1.3;">Purchase to Coach Intro</div>
     </div>
     <div style="flex:1;min-width:140px;text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;">
-      <div style="width:32px;height:32px;border-radius:8px;background:rgba(114,255,171,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.8 3.6L14 6.3l-3 2.9.7 4.1L8 11.4l-3.7 1.9.7-4.1-3-2.9 4.2-.7z"/></svg></div>
+      <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><img src="https://media.wallstreetprep.com/wspimage/wsp-icon-22-journey.svg" width="22" height="22" alt="" style="display:block;"/></div>
       <div style="font-size:24px;font-weight:800;color:white;letter-spacing:-.4px;line-height:1;">4.83★</div>
       <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;line-height:1.3;">Avg. Rating · 27,000+ Reviews</div>
     </div>
     <div style="flex:1;min-width:140px;text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;">
-      <div style="width:32px;height:32px;border-radius:8px;background:rgba(114,255,171,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l4-4 3 3 5-6"/></svg></div>
+      <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><img src="https://wspicon.s3.amazonaws.com/icon21-teach-board.svg" width="22" height="22" alt="" style="display:block;"/></div>
       <div style="font-size:24px;font-weight:800;color:white;letter-spacing:-.4px;line-height:1;">50K+</div>
       <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;line-height:1.3;">Professionals Trained Annually</div>
     </div>
     <div style="flex:1;min-width:140px;text-align:center;padding:24px 16px;display:flex;flex-direction:column;align-items:center;">
-      <div style="width:32px;height:32px;border-radius:8px;background:rgba(114,255,171,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 4"/></svg></div>
+      <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><img src="https://wspicon.s3.amazonaws.com/icon21-path.svg" width="22" height="22" alt="" style="display:block;"/></div>
       <div style="font-size:24px;font-weight:800;color:white;letter-spacing:-.4px;line-height:1;">100%</div>
       <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;line-height:1.3;">Personalized</div>
     </div>
@@ -935,58 +941,63 @@ footer {
 </div>
 
 <!-- WHO IS THIS FOR -->
-<section id="who-is-this-for" style="background:#f5f7fa;border-top:1px solid #dde3ec;">
+<section id="who-is-this-for" style="background:#f5f7fa;border-top:1px solid #dde3ec;padding:60px 32px;">
   <div class="section-inner">
     <div class="section-eyebrow">Who is this for?</div>
     <h2 class="section-title">Private Coaching for Every Stage of Your Finance Career</h2>
-    <p class="section-sub">Whether you're breaking in, moving up, or sharpening your edge — there's a coaching track built for where you are right now.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;">
+    <p class="section-sub" style="margin-top:10px;">Whether you're breaking in, moving up, or sharpening your edge — there's a coaching track built for where you are right now.</p>
+    <div style="display:grid;grid-template-columns:65fr 35fr;gap:20px;align-items:stretch;margin-top:28px;">
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:28px 24px;border-top:3px solid #1a7fc1;">
-        <div style="width:40px;height:40px;border-radius:10px;background:#eaf3fb;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1a7fc1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <div style="background:white;border:1px solid #dde3ec;border-radius:10px;padding:16px 14px;border-top:3px solid #1a7fc1;">
+          <div style="width:40px;height:40px;border-radius:10px;background:#eaf3fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><img src="https://media.wallstreetprep.com/wspimage/wsp-icon22_classroom.svg" width="24" height="24" alt=""/></div>
+          <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:12px;">Students &amp; Career Changers</div>
+          
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>IB/PE interview prep</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Resume &amp; cover letter polish</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Financial modeling fundamentals</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Superday &amp; case prep</div>
+          </div>
         </div>
-        <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:8px;">Students &amp; Career Changers</div>
-        <div style="font-size:13px;color:#5a6a7e;line-height:1.65;margin-bottom:16px;">You're targeting investment banking, private equity, or a finance role and need to sharpen your technical skills, crack interviews, and stand out against stronger candidates.</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>IB/PE interview prep</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Resume &amp; cover letter polish</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Financial modeling fundamentals</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Superday &amp; case prep</div>
+
+        <div style="background:white;border:1px solid #dde3ec;border-radius:10px;padding:16px 14px;border-top:3px solid #0f6e56;">
+          <div style="width:40px;height:40px;border-radius:10px;background:#e1f5ee;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><img src="https://wspicon.s3.amazonaws.com/icon21-teach-board.svg" width="24" height="24" alt=""/></div>
+          <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:12px;">Early-Career Professionals</div>
+          
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Pre-start &amp; pre-internship ramp-up</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Advanced financial modeling</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Deal &amp; transaction support</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Lateral move preparation</div>
+          </div>
+        </div>
+
+        <div style="background:white;border:1px solid #dde3ec;border-radius:10px;padding:16px 14px;border-top:3px solid #0f4e7a;">
+          <div style="width:40px;height:40px;border-radius:10px;background:#e3eef7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><img src="https://wspicon.s3.amazonaws.com/icon21-path.svg" width="24" height="24" alt=""/></div>
+          <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:12px;">Mid-Career &amp; Senior Professionals</div>
+          
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Cross-functional upskilling</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>PE/HF/VC transition prep</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Niche modeling &amp; sector expertise</div>
+            <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#3a4a5c;white-space:nowrap;"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Executive interview coaching</div>
+          </div>
         </div>
       </div>
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:28px 24px;border-top:3px solid #0f6e56;">
-        <div style="width:40px;height:40px;border-radius:10px;background:#e1f5ee;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0f6e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l5-5 4 4 5-7"/></svg>
-        </div>
-        <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:8px;">Early-Career Professionals</div>
-        <div style="font-size:13px;color:#5a6a7e;line-height:1.65;margin-bottom:16px;">You're in your first or second year on the job and need to build technical confidence fast — whether it's modeling, deal execution, or stepping up in a more demanding role.</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Pre-start &amp; pre-internship ramp-up</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Advanced financial modeling</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Deal &amp; transaction support</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Lateral move preparation</div>
-        </div>
-      </div>
-
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:28px 24px;border-top:3px solid #7c3aed;">
-        <div style="width:40px;height:40px;border-radius:10px;background:#f3f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 3"/></svg>
-        </div>
-        <div style="font-size:15px;font-weight:800;color:#1a2535;margin-bottom:8px;">Mid-Career &amp; Senior Professionals</div>
-        <div style="font-size:13px;color:#5a6a7e;line-height:1.65;margin-bottom:16px;">You're an established finance professional looking to expand into new areas, transition functions, or accelerate your path to the next level — on your timeline, with expert guidance.</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Cross-functional upskilling</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>PE/HF/VC transition prep</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Niche modeling &amp; sector expertise</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#3a4a5c;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3 3 7-7"/></svg>Executive interview coaching</div>
+      <div style="position:relative;border-radius:10px;overflow:hidden;min-height:0;">
+        <img src="https://media.wallstreetprep.com/wspimage/wsp_privatetutoring_1400.jpg" alt="WSP private coaching session" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,46,.97) 0%,rgba(13,27,46,.75) 45%,rgba(13,27,46,.2) 75%,transparent 100%);display:flex;align-items:flex-end;">
+          <div style="padding:16px 14px;">
+            <div style="font-size:11px;line-height:1.7;color:rgba(255,255,255,.92);">
+              <strong style="color:#72ffab;display:block;margin-bottom:4px;">You will be paired with the finance expert</strong>that best matches your individualized learning goals. Together, you will determine the perfect learning plan to gain the technical skills you'll need to succeed in interviews and on the job.
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-    <div style="text-align:center;margin-top:28px;">
-</div>
   </div>
 </section>
 
@@ -994,56 +1005,49 @@ footer {
 <section class="steps-section" id="how-it-works">
   <div class="section-inner">
     <div class="section-eyebrow">How it works</div>
-    <h2 class="section-title">Book Your Coach in 4 Steps</h2>
+    <h2 class="section-title">Our 4-Step Coaching Approach</h2>
     <div class="steps-wrap">
-      <div class="steps-flow">
+      <div class="steps-flow" style="align-items:stretch;">
         <div class="steps-flow-rule"></div>
-        <div class="step-item">
+        <div class="step-item" style="height:100%;">
           <div class="step-num">1</div>
           <div class="step-body">
-            <div class="step-title">Choose Your Track</div>
-            <div class="step-desc">Pick the program that fits your situation — from interview prep to technical upskilling to a fully custom plan</div>
+            <div class="step-title">Book a Coach</div>
+            <div class="step-desc">Choose your track, share your goals, select your package, and complete checkout — the whole process takes about 2 minutes</div>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item" style="height:100%;">
           <div class="step-num">2</div>
           <div class="step-body">
-            <div class="step-title">Add Customizations</div>
-            <div class="step-desc">Share your background, goals, and timeline so we can match you with the right coach for your exact needs</div>
+            <div class="step-title">Get Matched</div>
+            <div class="step-desc">Our Coaching Concierge reviews your profile and personally introduces you to the best-fit coach — typically within 24–48 hours</div>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item" style="height:100%;">
           <div class="step-num">3</div>
           <div class="step-body">
-            <div class="step-title">Select Your Package</div>
-            <div class="step-desc">Choose the number of hours that fits your goals — from a single focused session to a full multi-week engagement</div>
+            <div class="step-title">Start Coaching</div>
+            <div class="step-desc">Meet your coach, align on a learning plan, and begin working through your goals — sessions are live, focused, and built around you</div>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item" style="height:100%;">
           <div class="step-num">4</div>
           <div class="step-body">
-            <div class="step-title">Submit Your Payment</div>
-            <div class="step-desc">Complete checkout and receive instant confirmation — your coach introduction arrives within 48 hours</div>
+            <div class="step-title">Achieve Your Goals</div>
+            <div class="step-desc">Land the offer, ace the interview, level up on the job — with your coach in your corner every step of the way</div>
           </div>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;align-items:center;margin-top:0;">
-        <div style="width:1px;height:28px;background:linear-gradient(180deg,#0f4e7a,#3ecf8e);"></div>
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--wsp-green);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:0;">
-          <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M4 10l4.5 4.5 7.5-8"/></svg>
-        </div>
-        <div style="width:1px;height:20px;background:#3ecf8e;"></div>
-        <div style="width:100%;background:white;border:1px solid #b6ecd4;border-radius:10px;box-shadow:0 4px 16px rgba(62,207,142,.1);padding:20px 28px;">
-          <div style="font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#0a5c38;margin-bottom:12px;">What to expect after booking</div>
-          <div style="display:flex;gap:20px;flex-wrap:wrap;">
-            <div class="bc-item" style="flex:1;min-width:180px;"><div class="bc-dot"></div><span>Log in to your online learning portal and access your free materials right away while you wait</span></div>
-            <div class="bc-item" style="flex:1;min-width:180px;"><div class="bc-dot"></div><span>Our Coaching Concierge team gets to work selecting the best coach for your goals</span></div>
-            <div class="bc-item" style="flex:1;min-width:180px;"><div class="bc-dot"></div><span>Expect an email introduction to your coach within 48 hours of purchase</span></div>
-          </div>
-        </div>
+      <div style="margin-top:16px;margin-left:12px;margin-right:12px;background:white;border:1px solid #b6ecd4;border-radius:10px;padding:14px 24px;box-shadow:0 2px 10px rgba(62,207,142,.1);display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-sizing:border-box;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0a5c38;white-space:nowrap;flex-shrink:0;">After booking:</div>
+        <div style="width:1px;height:28px;background:#b6ecd4;flex-shrink:0;"></div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#3a4a5c;flex:1;min-width:200px;"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M2 7l3 3 7-7"/></svg>Set up your learning portal &amp; access your bonus materials right away</div>
+        <div style="width:1px;height:28px;background:#b6ecd4;flex-shrink:0;"></div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#3a4a5c;flex:1;min-width:200px;"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M2 7l3 3 7-7"/></svg>Explore curated mini learning journeys built for coaching clients</div>
+        <div style="width:1px;height:28px;background:#b6ecd4;flex-shrink:0;"></div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#3a4a5c;flex:1;min-width:200px;"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M2 7l3 3 7-7"/></svg>Get started immediately while you wait for your coach introduction</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1051,12 +1055,12 @@ footer {
 <!-- TRACK TABS -->
 <section class="tracks-section" id="tracks">
   <div class="section-inner">
-    <div class="section-eyebrow">Step 1</div>
+    <div class="section-eyebrow">Book a Coach</div>
     <h2 class="section-title">Choose Your Track</h2>
     <div style="border-bottom:1px solid #dde3ec;margin-top:14px;">
     <div class="track-tabs">
       <div class="track-tab polisher-tab active" onclick="switchTab(0)">
-        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The Polisher</span><span class="tab-badge" style="background:rgba(124,58,237,.12);color:#7c3aed;">Flat rate</span></div>
+        <div class="tab-eyebrow-row"><span class="tab-eyebrow">The Polisher</span><span class="tab-badge" style="background:rgba(124,58,237,.12);color:#7c3aed;">One-time</span></div>
         <span class="tab-desc">Resume &amp; Mock Interview</span>
       </div>
       <div class="track-tab" onclick="switchTab(1)">
@@ -1079,7 +1083,7 @@ footer {
     </div>
 
     <!-- Tab 0: Polisher -->
-    <div class="track-content active" id="tab-0" >
+    <div class="track-content active" id="tab-0">
       <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;">
 
@@ -1093,8 +1097,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>2 bonus guides included — The Red Book &amp; Blue Book</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(0)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
-            <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
+            <button class="book-btn" onclick="scrollToForm(0)">Book Now &rarr;<span class="book-btn-sub">Takes ~2 min</span></button>
           </div>
         </div>
 
@@ -1135,7 +1138,7 @@ footer {
     </div>
 
     <!-- Tab 1: Prepper -->
-    <div class="track-content" id="tab-1" >
+    <div class="track-content" id="tab-1">
       <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
@@ -1149,8 +1152,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Build confidence to execute when it matters most</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(1)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
-            <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
+            <button class="book-btn" onclick="scrollToForm(1)">Book Now &rarr;<span class="book-btn-sub">Takes ~2 min</span></button>
           </div>
         </div>
 
@@ -1268,7 +1270,7 @@ footer {
       <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/the-red-book/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Red Book</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
-    <div class="track-content" id="tab-2" >
+    <div class="track-content" id="tab-2">
       <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
@@ -1282,8 +1284,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Build confidence for high-stakes, on-the-job scenarios</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" onclick="scrollToForm(2)">Book Now &rarr;<span class="book-btn-sub">Continues to steps 2–4</span></button>
-            <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
+            <button class="book-btn" onclick="scrollToForm(2)">Book Now &rarr;<span class="book-btn-sub">Takes ~2 min</span></button>
           </div>
         </div>
 
@@ -1413,7 +1414,7 @@ footer {
       <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#aab4c0;margin-right:8px;">Free with purchase:</span><span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/excel-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Excel Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (1+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/accounting-crash-course/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Accounting Crash Course</a></span><span style="font-size:10px;color:#aab4c0;"> (4+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/basic-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">The Basic Package</a></span><span style="font-size:10px;color:#aab4c0;"> (10+ hrs)</span> <span style="color:#b5d4f4;margin:0 5px;">·</span> <span style="font-size:11px;"><a href="https://www.wallstreetprep.com/self-study-programs/premium-package/" target="_blank" style="color:#185FA5;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(26,95,165,.3);" onmouseover="this.style.borderBottomColor='#185FA5'" onmouseout="this.style.borderBottomColor='rgba(26,95,165,.3)'">Premium Package</a></span><span style="font-size:10px;color:#aab4c0;"> (20+ hrs)</span></div>
     </div>
 
-    <div class="track-content" id="tab-3" >
+    <div class="track-content" id="tab-3">
       <div style="padding:20px 28px 16px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
 
@@ -1427,8 +1428,7 @@ footer {
             <div class="outcome-item"><div class="outcome-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></div>Every session focused on delivering what you need</div>
           </div>
           <div class="book-btn-wrap">
-            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Select 3+ topics<span class="book-btn-sub">to continue to steps 2–4</span></button>
-            <span class="book-btn-hint"><span class="book-btn-hint-left"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Takes ~2 min</span></span>
+            <button class="book-btn" id="cust-book-btn" onclick="custBookNow()" disabled style="opacity:.45;cursor:not-allowed;filter:grayscale(.3);">Select 3+ topics<span class="book-btn-sub">Takes ~2 min</span></button>
 
           </div>
         </div>
@@ -1501,35 +1501,37 @@ footer {
     </div>
 
     <!-- Tab 4: Not Sure -->
-    <div class="track-content" id="tab-4" >
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;">
-        <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-radius:12px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;">
-          <div style="width:48px;height:48px;background:rgba(114,255,171,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.5-1.2 2.5-2.3 2.9C11.8 12.3 12 13 12 13"/><circle cx="12" cy="17" r=".8" fill="#72ffab" stroke="none"/></svg>
+    <div class="track-content" id="tab-4">
+      <div style="padding:56px 28px 56px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;width:100%;">          <div style="background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;">
+            <div style="width:44px;height:44px;background:rgba(114,255,171,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.5-1.2 2.5-2.3 2.9C11.8 12.3 12 13 12 13"/><circle cx="12" cy="17" r=".8" fill="#72ffab" stroke="none"/></svg>
+            </div>
+            <div style="font-size:20px;font-weight:800;color:white;line-height:1.25;letter-spacing:-.3px;">Not sure which track is right for you?</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.7;">Every coaching journey is different. Our Coaching Concierge team will walk you through your options and recommend the best track for your goals, background, and timeline.</div>
+            <button class="consult-btn" onclick="openConsult()" style="align-self:flex-start;background:#72ffab;color:#0d1b2e;border:none;cursor:pointer;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;transition:all .2s;">
+              <span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#0d1b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>Book a free consultation</span>
+              <span style="font-size:10px;font-weight:500;opacity:.65;font-style:italic;padding-left:23px;">Available as soon as today</span>
+            </button>
           </div>
-          <div style="font-size:22px;font-weight:800;color:white;line-height:1.25;letter-spacing:-.3px;">Not sure which track is right for you?</div>
-          <div style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;">Every coaching journey is different. Our Coaching Concierge team will walk you through your options and recommend the best track for your goals, background, and timeline.</div>
-          <button class="consult-btn" onclick="openConsult()" style="align-self:flex-start;background:#72ffab;color:#0d1b2e;border:none;cursor:pointer;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:700;display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;transition:all .2s;">
-            <span style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0d1b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>Book a free consultation</span>
-            <span style="font-size:11px;font-weight:500;opacity:.65;font-style:italic;padding-left:24px;">Available as soon as today</span>
-          </button>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a7fc1;margin-bottom:4px;">What to expect</div>
-          <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:16px 18px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v3l1.5 1.5"/></svg></div>
-            <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:2px;">15 minutes · fully virtual</div><div style="font-size:12px;color:#5a6a7e;line-height:1.5;">A quick, no-pressure call to understand your background and goals.</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:16px 18px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2.5"/><path d="M2.5 12c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5"/></svg></div>
-            <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:2px;">Personalized track recommendation</div><div style="font-size:12px;color:#5a6a7e;line-height:1.5;">We'll match you to the coaching track that fits your exact situation.</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:16px 18px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3.5 3.5 6.5-7"/></svg></div>
-            <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:2px;">Free &amp; no commitment</div><div style="font-size:12px;color:#5a6a7e;line-height:1.5;">No obligation to purchase — just honest, helpful guidance.</div></div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1a7fc1;margin-bottom:2px;">What to expect</div>
+            <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:14px 16px;">
+              <div style="width:30px;height:30px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v3l1.5 1.5"/></svg></div>
+              <div><div style="font-size:12px;font-weight:700;color:#1a2535;margin-bottom:2px;">15 minutes · fully virtual</div><div style="font-size:11px;color:#5a6a7e;line-height:1.5;">A quick, no-pressure call to understand your background and goals.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:14px 16px;">
+              <div style="width:30px;height:30px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2.5"/><path d="M2.5 12c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5"/></svg></div>
+              <div><div style="font-size:12px;font-weight:700;color:#1a2535;margin-bottom:2px;">Personalized track recommendation</div><div style="font-size:11px;color:#5a6a7e;line-height:1.5;">We'll match you to the coaching track that fits your exact situation.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;background:#eaf3fb;border:1px solid #b5d4f4;border-radius:10px;padding:14px 16px;">
+              <div style="width:30px;height:30px;border-radius:8px;background:#1a7fc1;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3.5 3.5 6.5-7"/></svg></div>
+              <div><div style="font-size:12px;font-weight:700;color:#1a2535;margin-bottom:2px;">Free &amp; no commitment</div><div style="font-size:11px;color:#5a6a7e;line-height:1.5;">No obligation to purchase — just honest, helpful guidance.</div></div>
+            </div>
           </div>
         </div>
       </div>
+      <div style="background:rgba(13,27,46,.04);border-top:1px solid rgba(13,27,46,.1);padding:7px 16px;text-align:center;border-radius:0 0 8px 8px;"></div>
     </div>
   </div>
 </section>
@@ -1537,9 +1539,8 @@ footer {
 <!-- STEP 2: CUSTOMIZATIONS -->
 <section class="form-section section-hidden" id="customizations" data-step="2">
   <div class="section-inner">
-    <div class="section-eyebrow" style="color:#72ffab;">Step 2</div>
-    <h2 class="section-title" style="color:#ffffff;">Add Customizations</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.6);">Help us match you with the ideal coach by telling us a bit more about your needs and availability.</p>
+    <div class="section-eyebrow" style="color:#72ffab;">Book a Coach</div>
+    <h2 class="section-title" style="color:#ffffff;">Tell Us About You</h2>
     <div style="position:relative;max-width:700px;margin:36px auto 0;">
       <div style="position:absolute;inset:-2px;border-radius:13px;box-shadow:0 0 20px rgba(114,255,171,.25), 0 0 50px rgba(114,255,171,.15), 0 0 90px rgba(114,255,171,.08);pointer-events:none;z-index:0;"></div>
       <div class="form-wrap" style="position:relative;z-index:1;margin:0;">
@@ -1843,8 +1844,8 @@ footer {
 <!-- STEP 3: PACKAGES -->
 <section class="packages-section section-hidden" id="packages" data-step="3">
   <div class="section-inner">
-    <div class="section-eyebrow">Step 3</div>
-    <h2 class="section-title">Select Your Package</h2>
+    <div class="section-eyebrow">Book a Coach</div>
+    <h2 class="section-title">Choose Your Hours</h2>
     <p class="section-sub">Choose the number of hours that best fits your timeline, goals, and budget. All packages include 1:1 sessions with a dedicated WSP coach. Whatever package you choose, you'll get an unrivaled personalized experience built around your individual learning goals.</p>
     <div class="packages-grid">
       <div class="packages-hourly" style="grid-template-columns:repeat(4,1fr);">
@@ -1944,8 +1945,8 @@ footer {
 <!-- STEP 4: WHAT TO EXPECT -->
 <section class="step4-section section-hidden" id="what-to-expect" data-step="4">
   <div class="section-inner">
-    <div class="section-eyebrow">Step 4</div>
-    <h2 class="section-title">What to Expect Next</h2>
+    <div class="section-eyebrow">Book a Coach</div>
+    <h2 class="section-title">What Happens Next</h2>
     <div class="step4-card">
       <div class="step4-icon"><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="10"/><path d="M9 13l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="step4-intro">Thank you for your purchase! We've officially kicked off the instructor pairing process and our Coaching Concierge team is already working to match you with the best coach for your goals.</div>
@@ -1967,119 +1968,102 @@ footer {
 <section class="instructors-section" id="instructors">
   <div class="section-inner">
     <div class="section-eyebrow" style="color:#72ffab;">Our coaches</div>
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:20px;flex-wrap:wrap;">
-      <div>
-        <h2 class="section-title" style="margin-bottom:8px;color:white;">Learn From Wall Street's Best</h2>
-        <p class="section-sub" style="margin:0;color:rgba(255,255,255,.6);">Our coaches are experienced investment bankers, private equity and investment professionals with an insider's perspective of what it takes to break into and succeed in a career in finance. You will be paired with the finance expert that best matches your individualized learning goals.</p>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-        <button class="icar-btn" id="icar-prev" onclick="icarSlide(-1)" aria-label="Previous">&#8249;</button>
-        <div id="icar-dots" style="display:flex;gap:5px;align-items:center;"></div>
-        <button class="icar-btn" id="icar-next" onclick="icarSlide(1)" aria-label="Next">&#8250;</button>
-      </div>
+    <div style="margin-bottom:24px;">
+        <h2 class="section-title" style="margin-bottom:8px;color:white;">Learn from Wall Street's Most Sought After Instructors</h2>
+        <p class="section-sub" style="margin:0;color:rgba(255,255,255,.6);max-width:100%;">Our coaches are experienced investment bankers, private equity and investment professionals with an insider's perspective of what it takes to break into and succeed in a career in finance. You will be paired with the finance expert that best matches your individualized learning goals.</p>
     </div>
-    <div style="overflow:hidden;">
-      <div id="icar-track" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.4,0,.2,1);">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;">
 
         <div class="icar-card" onclick="openCoachModal(0)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2023/07/31082534/Headshot-Aaliyah-Ameer.jpg');"></div>
           <div class="icar-name">Aaliyah Ameer</div>
-          <div class="icar-firm">Macquarie · Ernst &amp; Young</div>
-          <div class="icar-tag">IB · PE · Real Estate · Infrastructure</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/12210412/macquarie.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2023/10/28154154/ernst-young-ey-logo.png" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(1)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132711/Amit_Vyas.jpg');"></div>
           <div class="icar-name">Amit Vyas</div>
-          <div class="icar-firm">Carlyle · Varagon · Capital One</div>
-          <div class="icar-tag">Private Credit · M&amp;A · Healthcare</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13162905/carlyle-1.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+Cjxzdmcgc3R5bGU9ImJhY2tncm91bmQ6dHJhbnNwYXJlbnQ7IiB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSIyMTk4LjAwMDAwMHB0IiBoZWlnaHQ9IjExMTMuMDAwMDAwcHQiIHZpZXdCb3g9IjAgMCAyMTk4LjAwMDAwMCAxMTEzLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgo8bWV0YWRhdGE+CkNyZWF0ZWQgYnkgcG90cmFjZSAxLjE2LCB3cml0dGVuIGJ5IFBldGVyIFNlbGluZ2VyIDIwMDEtMjAxOQo8L21ldGFkYXRhPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwxMTEzLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIKZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTE2MjcwIDg5MTAgYy00MDUgLTcgLTY2OSAtMjEgLTExOTAgLTYwIC0xNDAgLTEwIC0zNTIgLTI2IC00NzAgLTM1Ci0zNTEgLTI2IC02NjggLTU1IC05NDUgLTg2IC0xNDMgLTE2IC0yODIgLTI5IC0zMTAgLTI5IC0yNyAwIC0yMTAgLTIwIC00MDUKLTQ1IC0xOTUgLTI1IC00MDIgLTUwIC00NjAgLTU2IC01OCAtNSAtMjg1IC0zNCAtNTA1IC02NCAtMjIwIC0zMSAtNDE1IC01NQotNDMzIC01NSAtMTggMCAtMTc3IC0yMyAtMzUyIC01MCAtMTc2IC0yOCAtMzYwIC01NCAtNDEwIC02MCAtMTA2IC0xMCAtOTY0Ci0xNDYgLTEyMDUgLTE5MSAtNjAgLTExIC0xNDYgLTI0IC0xOTAgLTI5IC00NCAtNCAtMTI3IC0xOCAtMTg1IC0yOSAtMTQyIC0yNwotMzY3IC02NyAtNDY1IC04MSAtNDQgLTcgLTE3MCAtMzAgLTI4MCAtNTIgLTExMCAtMjIgLTIzMCAtNDMgLTI2OCAtNDggLTM3Ci00IC0xODMgLTMxIC0zMjUgLTU5IC0xNDEgLTI4IC0zMDYgLTYxIC0zNjcgLTczIC02MCAtMTEgLTE1OSAtMzIgLTIyMCAtNDUKLTYwIC0xMyAtMTM5IC0yOSAtMTc1IC0zNSAtODggLTE0IC0yMTUgLTQxIC0zOTUgLTgzIC04MiAtMTkgLTE2MyAtMzUgLTE4MAotMzYgLTE2IDAgLTU5IC04IC05NSAtMTcgLTU4IC0xNiAtNjUgLTIwIC02OCAtNDUgLTIgLTE3IDIgLTI5IDEyIC0zMyA5IC0zCjEzOCAxNiAyODggNDQgMTUwIDI4IDMwOSA1NSAzNTMgNjAgNDQgNiAxODQgMjkgMzEwIDUxIDEyNyAyMyAyNzEgNDYgMzIwIDUxCjUwIDUgMTMzIDE2IDE4NSAyNCA1MiA4IDE5NyAzMSAzMjEgNTAgMTI1IDIwIDI0MyAzNiAyNjIgMzYgMjAgMCAxMTYgMTIgMjE0CjI2IDI1MyAzNiAzNTkgNTEgNTEzIDY4IDc0IDkgMzA4IDM2IDUyMCA2MSAyMTIgMjUgNDQxIDUwIDUxMCA1NiA2OSA2IDI2NSAyNAo0MzUgNDAgMTcxIDE2IDM4NCAzNiA0NzUgNDQgOTEgOSAyNTcgMjAgMzcwIDI1IDExMyA1IDMwMCAxNiA0MTUgMjUgMTA1OCA3NgoyMjUxIDc4IDMwMzAgNCAxMTYgLTExIDI2NiAtMjQgMzM1IC0yOSA2OSAtNSAyMTcgLTI1IDMzMCAtNDQgMTEzIC0yMCAyMzcKLTQxIDI3NSAtNDcgMTE4IC0xOCAxNzUgLTMxIDMwNSAtNjcgNjkgLTE5IDE0OCAtMzkgMTc1IC00NCAyOCAtNiAxMDQgLTMxCjE3MCAtNTUgNjYgLTI1IDEzOCAtNTAgMTYwIC01NiAyMiAtNyA4NiAtMzUgMTQzIC02NCA1NyAtMjkgMTA3IC01MyAxMTIgLTUzCjEyIDAgMTE4IC02OCAxNDQgLTkyIDExIC0xMCAyNiAtMTggMzMgLTE4IDMzIDAgMjUzIC0yMTUgMjg0IC0yNzcgMTEgLTI0IDI0Ci00MyAyOCAtNDMgMTAgMCA2NiAtMTI2IDg0IC0xOTAgMzkgLTEzNyA0MCAtMzE0IDIgLTQ0NyAtOCAtMjggLTE1IC02MCAtMTUKLTcxIDAgLTM0IC0xNDggLTM1NyAtMTcwIC0zNzIgLTQgLTMgLTIxIC0yOCAtMzYgLTU2IC0xNiAtMjggLTYxIC05OCAtMTAxCi0xNTUgbC03MiAtMTA0IDI2IC0xMyBjNTkgLTMyIDIwMSAtMTY5IDI3NyAtMjY3IDU4IC03NiAxODYgLTMxMSAxODYgLTM0MiAwCi0xOSAzMSAtMTE2IDQxIC0xMjcgNCAtNSAzNCAxMiA2NiAzOCAzMyAyNSA2NiA0NiA3NSA0NiA4IDAgMjMgOSAzMyAyMCAxMCAxMQozOCAzMyA2MiA0OCAyMyAxNSA0MyAzMCA0MyAzNSAwIDQgNiA3IDEzIDcgNiAwIDQ1IDI1IDg0IDU1IDQwIDMwIDc3IDU1IDgyCjU1IDYgMCAyNSAxMyA0MyAyOCAxOCAxNiA3MSA1NSAxMTggODcgNDcgMzIgOTYgNjkgMTA5IDgyIDEzIDEzIDI5IDIzIDM2IDIzCjYgMCAzMSAxOCA1NiA0MCAyNCAyMiA1OCA0NyA3NiA1NSAxNyA4IDMzIDE5IDM1IDIzIDIgNCA1MCA0MyAxMDggODcgNTggNDMKMTA3IDgyIDEwOCA4NyAyIDUgMTcgMTUgMzMgMjQgMTcgOCA1NCAzNyA4NSA2NCAzMCAyOCA1OCA1MCA2MyA1MCA1IDAgMjIgMTMKMzcgMjggMTYgMTYgNzAgNjIgMTE5IDEwMyAyMTAgMTczIDI4OCAyNDQgNDk5IDQ1NCAxODcgMTg2IDMwMiAzMTMgMzc5IDQxNwozMCA0MCA2MiA3OSA3MSA4NyA5IDcgMTYgMTkgMTYgMjYgMCA4IDE3IDM1IDM3IDYyIDY1IDg1IDE1MiAyNjkgMTg0IDM4OCAzOQoxNDcgMzkgMzA0IDAgMzkwIC01IDExIC0xMiAzMiAtMTUgNDcgLTMgMTUgLTEyIDMzIC0xOSA0MCAtNiA3IC0yNyAzNSAtNDYgNjIKLTE5IDI2IC01NCA2NyAtNzkgOTAgLTI1IDIyIC01MiA0OCAtNjEgNTcgLTkgOCAtMzIgMjUgLTUxIDM3IC0yMCAxMiAtNDUgMjkKLTU3IDQwIC0xMiAxMCAtMzkgMjYgLTYwIDM2IC0yMSAxMSAtNDUgMjIgLTU0IDI3IC05IDQgLTUzIDI2IC05OSA1MCAtNDUgMjMKLTk3IDQ1IC0xMTQgNTAgLTE3IDQgLTk2IDMwIC0xNzYgNTggLTgwIDI4IC0xNTUgNTEgLTE2OCA1MSAtMTIgMCAtNzMgMTMKLTEzNSAyOSAtMjU3IDY2IC03MzUgMTMxIC0xMjEyIDE2NSAtMjYwIDE4IC0xMTA0IDI2IC0xNjc1IDE2eiIvPgo8cGF0aCBkPSJNMjc2NSA1OTUwIGMtMTQxIC05IC0yNTUgLTI0IC0zODAgLTUxIC00OSAtMTAgLTEwMSAtMTkgLTExNSAtMTkKLTI3IDAgLTIyMSAtNjAgLTI3NyAtODYgLTE3IC04IC00NiAtMTcgLTY0IC0yMSAtMTkgLTMgLTc1IC0yOCAtMTI2IC01NSAtNTEKLTI2IC05OCAtNDggLTEwNCAtNDggLTUgMCAtMTUgLTUgLTIyIC0xMCAtMTUgLTEzIC05MSAtNjMgLTE2NCAtMTA4IC0yOSAtMTgKLTUzIC0zNiAtNTMgLTQwIDAgLTUgLTI0IC0yNiAtNTIgLTQ3IC0yOSAtMjIgLTY2IC01NSAtODMgLTc0IC0xNiAtMTkgLTQyCi00NiAtNTcgLTYwIC0xNiAtMTMgLTI4IC0yOSAtMjggLTM1IDAgLTcgLTE2IC0yOCAtMzUgLTQ4IC02MiAtNjMgLTE1MyAtMjM5Ci0xOTAgLTM2OCAtNDYgLTE1OSAtNTQgLTIxMCAtNTUgLTM0NCAwIC0xMzQgMTMgLTIxMyA1MSAtMjkzIDEwIC0yNCAxOSAtNDgKMTkgLTU1IDAgLTE3IDkwIC0xNDggMTAxIC0xNDggNSAwIDkgLTYgOSAtMTQgMCAtMjAgMjAyIC0xOTYgMjI0IC0xOTYgMyAwIDQ0Ci0yMiA5MCAtNDggNDcgLTI3IDExNSAtNTkgMTUzIC03MiAzNyAtMTIgNzMgLTI2IDc4IC0zMCAxNyAtMTMgMTgzIC02MSAyNDMKLTcwIDMyIC01IDEwMCAtMTcgMTUyIC0yNyA4MSAtMTUgMTQ3IC0xOCA0NTUgLTE3IDMyMCAxIDY3NCAyMCA2OTEgMzYgMiAzIDIwCjg4IDM4IDE4OSAzMSAxNjMgNDUgMjQ4IDYzIDM3MCBsNSAzNiAtMTEzIC0yMiBjLTIyMCAtNDMgLTU4NiAtNTUgLTc4NCAtMjYKLTY2IDkgLTE3MSA1MCAtMjE5IDg1IC0xNyAxMiAtNDMgMjggLTU5IDM2IC0xNSA3IC0zOCAyNyAtNTEgNDQgLTEzIDE3IC0zNAo0MiAtNDYgNTYgLTc1IDg1IC0xMDEgMjYxIC02MiA0MTcgNDEgMTY0IDIwMSAzNTkgMzgyIDQ2NiA5OSA1OCAxMjggNzAgMjQ1CjEwNSAxMjkgMzcgMjA1IDQ3IDM3MCA0NiAxMzEgLTEgMTc1IC01IDI0MCAtMjIgNDQgLTEyIDEwNSAtMjggMTM1IC0zNyAzMCAtOAo5OSAtMzcgMTUzIC02NSBsOTcgLTUwIDAgMjkgYzAgMTUgMjIgMTQzIDUwIDI4MiAyNyAxNDAgNTAgMjU5IDUwIDI2NSAwIDE0Ci0xMTcgNTkgLTIwNSA3OSAtMjEwIDQ2IC0yNjAgNTUgLTM2NSA2NCAtMTI0IDEyIC0xOTggMTIgLTM4NSAxeiIvPgo8cGF0aCBkPSJNMTYxOTYgNTkyOSBjLTIzOCAtMjUgLTUxNyAtMTE3IC02NjggLTIyMCAtMzIgLTIxIC02MiAtMzkgLTY4IC0zOQotNSAwIC0xOCAtOCAtMjggLTE3IC0xMCAtMTAgLTQ3IC00MCAtODMgLTY3IC0xMjcgLTk3IC0zMjggLTMxNSAtMzc1IC00MDggLTkKLTE4IC0yNCAtNDIgLTM0IC01MyAtMzYgLTQwIC0xNTQgLTI5MiAtMTc4IC0zODAgLTYgLTIyIC0yMiAtNzkgLTM2IC0xMjggLTQxCi0xNDMgLTU3IC0yNjQgLTU3IC00MjAgMSAtMTk5IDI1IC0zNDUgODEgLTQ4NyAxMSAtMjggMjAgLTU2IDIwIC02MyAwIC03IDE3Ci00MyAzOCAtODAgMjAgLTM3IDQ1IC04MiA1NCAtMTAwIDE3IC0zMCA4OSAtMTE4IDEzNCAtMTYyIDY2IC02NCAxMzUgLTEyNQoxNDQgLTEyNSA2IDAgMzIgLTE1IDU4IC0zMiA4NCAtNTggMjM1IC0xMTIgMzk3IC0xNDQgMTE3IC0yMyAzNTMgLTIzIDQ4NSAwCjE2NyAyOSAzNDYgODAgNDQwIDEyNyAzMCAxNCA4MCAzOCAxMTEgNTMgMzEgMTQgNjkgMzcgODQgNTAgMTYgMTQgNDUgMzMgNjQKNDMgMjAgMTAgMzggMjEgNDEgMjQgMyAzIDM3IDMyIDc1IDY0IDkzIDc5IDEyMSAxMDYgMTk2IDE5NyA4NiAxMDMgMTI5IDE2MgoxNjAgMjIzIDUxIDk3IDc5IDE0NyA4OCAxNTkgNSA2IDE0IDI3IDE5IDQ2IDYgMTkgMzIgOTQgNTcgMTY1IDI4IDgyIDQ5IDE2Mgo1NSAyMTUgNiA0NyAxNSAxMTcgMjAgMTU1IDUgMzkgOSA5MSAxMCAxMTcgbDAgNDYgOTcgNyBjNTMgNCAxMTcgNCAxNDIgLTEgNzQKLTE0IDc0IC0yNSA3IC0yOTEgLTMxIC0xMjUgLTU2IC0yMzYgLTU2IC0yNDYgMCAtMTAgLTI1IC0xMTcgLTU1IC0yMzggLTMwCi0xMjEgLTU1IC0yMzAgLTU1IC0yNDIgMCAtMTIgLTIxIC0xMDMgLTQ2IC0yMDIgLTI1IC05OSAtNTAgLTIwMCAtNTUgLTIyNQotMTQgLTY5IC0zMCAtMTQzIC0zNiAtMTYyIC00IC0xNyA4IC0xOCAxNjEgLTE4IGwxNjYgMCA2IDI4IGMzIDE1IDEwIDQzIDE1CjYyIDUgMTkgOSA0OSA5IDY1IDAgMTcgOSA2OCAyMCAxMTUgMTEgNDcgMzEgMTM0IDQ1IDE5NCAxNCA2MSAzMCAxNDIgMzUgMTgwCjUgMzkgMTYgOTggMjQgMTMxIDggMzMgMTcgNzEgMjAgODUgNSAyMiA0NDEgNDY4IDU4NCA1OTcgMTczIDE1NyAyOTEgMjE4IDM2OAoxOTMgMTggLTYgNDEgLTIxIDQ5IC0zMyAyOSAtNDIgMTYgLTE3MSAtMzcgLTM1MiAtMTEgLTM4IC0yNiAtOTUgLTMzIC0xMjUgLTcKLTMwIC0yOSAtMTA3IC01MCAtMTcwIC0yMSAtNjMgLTQ0IC0xNDIgLTUxIC0xNzYgLTggLTM0IC0zNCAtMTI2IC02MCAtMjA1Ci0yNSAtNzkgLTQ5IC0xNjYgLTU0IC0xOTQgLTQgLTI3IC0xNSAtODYgLTI1IC0xMzAgLTQ3IC0yMTUgMzAgLTMzOSAyMTEgLTMzOQo2NCAwIDgxIDQgMTUwIDM5IDY1IDMyIDE1MSA5OSAxOTUgMTUwIDUxIDU5IDExOSAxNTAgMTE5IDE1OSAxIDE3IDcwIDkxIDcwCjc1IDAgLTkgOSAtMzQgMjAgLTU3IDExIC0yMiAyMCAtNDYgMjAgLTUyIDAgLTMzIDEyMCAtMTc0IDE4NSAtMjE3IDQ5IC0zMgoxNzUgLTgwIDI0OSAtOTMgMTcyIC0zMiA0MTQgMzEgNTk2IDE1NCA4MSA1NSAyNzAgMjMwIDI3MCAyNTAgMCAzIDIyIDM3IDQ5Cjc0IDI3IDM3IDUxIDgxIDU1IDk3IDUgMjYgMiAzMiAtMjMgNDcgLTI4IDE2IC0zMCAxNSAtNTUgLTExIC0xNCAtMTUgLTI2IC0zMgotMjYgLTM5IDAgLTE1IC0xNzAgLTE4MiAtMTg1IC0xODIgLTcgMCAtMTkgLTcgLTI2IC0xNiAtMjAgLTI0IC0xMTQgLTc1IC0xODgKLTEwMiAtODcgLTMxIC0yNTUgLTQxIC0zMjEgLTE4IC0xMTMgMzcgLTEzNiA1MCAtMTkxIDEwMyAtNTcgNTUgLTcxIDgxIC0xMDUKMTk4IC0xNiA1NSAtMjAgMjQxIC02IDI5MCBsOCAzMCAxMTUgNyBjNjMgNSAxNjggMTcgMjM0IDI5IDY2IDExIDEzOCAyMyAxNjAKMjUgNjYgOCAyMzYgNjAgMjk1IDkxIDE0IDcgMzMgMTMgNDMgMTMgMTAgMCA1MCAxOSA4OCA0MyAzOCAyMyA4NiA1MiAxMDUgNjMKNDggMjggMTcyIDE1MSAxODAgMTc4IDQgMTEgMTUgMzEgMjUgNDQgMjMgMjkgNTYgMTMyIDY0IDIwMCAxMSA4NCAtMTAgMTcyCi01OSAyNDUgLTQ1IDY5IC01NSA3NyAtMTMxIDExOCAtODkgNDggLTE1OCA2MyAtMjgwIDYyIC04OCAtMSAtMTI2IC02IC0xOTAKLTI2IC0xNDIgLTQ0IC0yMTcgLTc2IC0yODUgLTEyMCAtMzYgLTI1IC03NiAtNDcgLTg4IC01MSAtMTIgLTQgLTIyIC0xMSAtMjIKLTE1IDAgLTUgLTI0IC0yNyAtNTIgLTQ5IC05OCAtNzQgLTI0NCAtMjI2IC0yOTMgLTMwNSAtMTQgLTIzIC0zOSAtNjAgLTU1Ci04MiAtMTYgLTIyIC0yOSAtNDggLTMwIC01NyAwIC05IC01IC0yMCAtMTEgLTIzIC0xOCAtMTIgLTg4IC0xNjggLTExMCAtMjQ2Ci00MiAtMTUyIC01MCAtMTk3IC01NSAtMzI0IC03IC0xNjUgLTE0IC0xODEgLTE0OSAtMzMwIC0xMDEgLTExMiAtMjAzIC0xMzUKLTIxOSAtNTAgLTkgNDUgOSAxODggMzIgMjYwIDM3IDExMiA2MiAyMDAgNjggMjM1IDMgMTkgMjkgMTE4IDU5IDIyMCAyOSAxMDIKNjMgMjIzIDc1IDI3MCAxMiA0NyAzNiAxNDEgNTUgMjEwIDMxIDExOCA0MCAxOTggMzYgMzIyIC0xIDU0IC0yOSA5NCAtOTUgMTM2Ci03NSA0OCAtMjM3IDMwIC0zNTEgLTQwIC0xNiAtMTAgLTM2IC0xOCAtNDQgLTE4IC0xNSAwIC0xOTEgLTEyNiAtMjYwIC0xODcKLTEwNiAtOTMgLTQ3NiAtNDcwIC01NTggLTU3MSAtMTQgLTE2IC0xNCAtMTYgLTggMyAzIDEwIDggNDAgMTIgNjUgMyAyNSAyOQoxNDUgNTkgMjY4IDMwIDEyMyA1NCAyMzMgNTQgMjQ1IDAgMTIgMTQgNzMgMzEgMTM2IDE2IDYyIDI4IDExNiAyNSAxMTggLTMgMwotNTYgLTEyIC0xMTggLTM0IC02MiAtMjIgLTE0MCAtNDcgLTE3MyAtNTUgLTMzIC04IC0xMjcgLTM0IC0yMTAgLTU3IC04MiAtMjIKLTE1NSAtNDEgLTE2MiAtNDEgLTcgMCAtMTMgMTIgLTEzIDI4IC0xIDQ3IC0zOSAyODUgLTUzIDMzMiAtMjYgODIgLTExMyAyNjQKLTE1MyAzMTkgLTYwIDgzIC0xNTMgMTgyIC0yMTUgMjI4IC0zMSAyMyAtNjAgNDYgLTYzIDUyIC00IDYgLTE0IDExIC0yMSAxMQotOCAwIC0zNCAxMyAtNTggMjggLTEyMyA3OCAtNDA3IDE0NSAtNTk3IDE0MSAtMzYgLTEgLTEwMSAtNSAtMTQ0IC0xMHogbTI4MgotMTUyIGM1MiAtMTYgMTA2IC00MSAxNDIgLTY2IDMyIC0yMyA2MCAtNDEgNjMgLTQxIDYgMCAxMzcgLTEzMCAxMzcgLTEzNiAwCi0zIDIyIC0zNCA0OSAtNjkgMjcgLTM1IDUyIC03NCA1NiAtODcgNCAtMTMgMTggLTQ4IDMyIC03OCAzOSAtODUgNDEgLTkwIDY1Ci0xNzAgMjIgLTcxIDIzIC05MCAyMiAtMzYwIC0xIC0zMTYgLTggLTM2NiAtNzkgLTYwMCAtNTQgLTE3NSAtNTUgLTE3OSAtMTAwCi0yNzUgLTIzIC00OSAtNDUgLTk4IC00OCAtMTA3IC0xMyAtMzYgLTE1MyAtMjM2IC0yMTMgLTMwNCAtMTUxIC0xNzAgLTM1MgotMjgyIC01NTQgLTMwOSAtMTMxIC0xOCAtMTgyIC0xOCAtMjkyIDAgLTg0IDEzIC0xNzYgNTMgLTIyOSA5OCAtMTAgOSAtMjQgMTcKLTMwIDE3IC02IDAgLTQ2IDM2IC04OCA3OSAtNzQgNzYgLTE4MCAyMzMgLTIwMiAyOTkgLTUgMTUgLTIwIDU5IC0zMyA5NyAtNDcKMTM5IC02MSAyMjkgLTYwIDQwMCAwIDE2NyAxMiAyNTMgNjEgNDYwIDM5IDE2NyAxMjcgMzk3IDIwMSA1MjQgMjEgMzYgNDQgNzgKNTEgOTIgNyAxNCAzMCA0OSA1MiA3OCAyMSAyOCAzOSA1NSAzOSA2MCAwIDUgMjUgMzQgNTUgNjUgMzAgMzAgNTUgNTkgNTUgNjUKMCA1IDE0IDIwIDMxIDMzIDE2IDEzIDUzIDQzIDgwIDY4IDI3IDI1IDYzIDUyIDc5IDYwIDE1IDggNTkgMzIgOTcgNTMgMzcgMjEKODYgNDIgMTA4IDQ4IDIyIDYgNjUgMTcgOTUgMjQgODUgMjIgMjU1IDEzIDM1OCAtMTh6IG00MTA2IC04OTkgYzM5IC0yMCA5NAotODkgMTA1IC0xMzQgNTQgLTIxMyAtOTYgLTQ3NCAtMzU0IC02MTcgLTg4IC00OSAtMTU4IC03OSAtMjE1IC05MiAtMzAgLTcKLTgyIC0yMCAtMTE1IC0yOSAtMzMgLTkgLTEwNiAtMTkgLTE2MiAtMjMgLTk5IC02IC0xMDMgLTUgLTEwMyAxNCAwIDIyIDE2IDY0CjU3IDE1MyAxNCAzMCAzOCA4MiA1MyAxMTUgMTUgMzMgNDYgODkgNjkgMTI0IDIyIDM1IDQxIDcwIDQxIDc3IDAgNyAzIDE0IDgKMTYgNCAyIDMwIDM0IDU3IDcyIDU2IDc2IDIxNiAyNDYgMjMyIDI0NiA2IDAgMTYgNyAyNCAxNiAxNSAxOSA1NyA0MSAxMjQgNjYKNTMgMjAgMTM3IDE4IDE3OSAtNHoiLz4KPHBhdGggZD0iTTEzNzA3IDU3OTMgYy0xNSAtNzYgLTI3IC0xNTIgLTI3IC0xNjcgMCAtMTYgLTIyIC0xNDIgLTQ5IC0yODAgLTI3Ci0xMzggLTUyIC0yNzYgLTU1IC0zMDYgLTMgLTMwIC0yOCAtMTY5IC01NiAtMzA4IC0yNyAtMTQwIC01MCAtMjY2IC01MCAtMjgwCjAgLTE1IC0yNSAtMTUyIC01NSAtMzA2IC0zMCAtMTUzIC01NSAtMjkxIC01NSAtMzA2IDAgLTE2IC02IC01OSAtMTQgLTk3IC04Ci0zNyAtMTcgLTg1IC0yMCAtMTA2IGwtNyAtMzcgNDE3IDIgNDE4IDMgMzcgMjAwIGMyMSAxMTAgMzggMjE2IDM4IDIzNSAxIDE5CjI0IDE1MiA1MSAyOTUgMjcgMTQzIDUwIDI3NCA1MCAyOTAgMCAxNyAyNSAxNjAgNTUgMzE5IDMwIDE1OSA1NSAzMDIgNTUgMzE4CjAgMTcgOSA3NiAxOSAxMzIgMTEgNTUgMzMgMTczIDUwIDI2MSAxNyA4OCAzNCAxODEgMzcgMjA2IGw2IDQ2IC0yNTggNyBjLTE0MwozIC0zMjcgOSAtNDA5IDEzIGwtMTUwIDYgLTI4IC0xNDB6Ii8+CjxwYXRoIGQ9Ik05MDczIDU4ODUgYy0xNzUgLTMyIC0zMTMgLTE0NSAtMzEzIC0yNTUgMCAtMzggNiAtNTUgMzYgLTkzIDQ4IC02MQo3MiAtNzYgMTczIC0xMDMgMTIwIC0zNCAyNTAgLTMzIDM5MCAyIDExMiAyNyAxNjIgNTUgMjMwIDEyNSA3NiA3OSA3NCAxNjAgLTMKMjM1IC01NCA1MSAtMTA2IDc3IC0xOTIgOTMgLTc4IDE0IC0yMjkgMTIgLTMyMSAtNHoiLz4KPHBhdGggZD0iTTEwNzkwIDU3ODMgYy0xMDIgLTIwIC00MTggLTkyIC00NTQgLTEwNCAtMTYgLTUgLTQzIC05IC02MCAtOSAtMzAKLTEgLTIyNCAtNDQgLTIzMiAtNTMgLTggLTggLTM0IC0xNDEgLTM0IC0xNzUgMCAtMTggLTYgLTYyIC0xMiAtOTcgbC0xMiAtNjUKLTE2MSAtMiAtMTYwIC0zIC0zMiAtMTU1IGMtMTcgLTg1IC0zMiAtMTYzIC0zMiAtMTcyIC0xIC0xNiAxMyAtMTggMTQ5IC0xOApsMTUwIDAgMCAtMzIgYzEgLTE4IC0yNCAtMTYzIC01NCAtMzIzIC0xMDUgLTU1MyAtMTY1IC04ODAgLTE3MCAtOTI3IGwtNiAtNDgKNDE0IDAgNDE0IDAgMjYgMTQ4IGMxNSA4MSA1MSAyNzUgODEgNDMyIDMwIDE1NyA1NSAyOTkgNTUgMzE1IDEgMTcgMjAgMTIyIDQzCjIzNSBsNDIgMjA1IDIwMiAzIDIwMiAyIDE1IDUzIGM4IDI4IDIwIDgxIDI2IDExNyA3IDM2IDE2IDgxIDIxIDEwMSAxOCA3NCAzMgo2OSAtMTk3IDY5IGwtMjA2IDAgNSAyMyBjMTIgNTIgNTYgMzA4IDY1IDM4MiA2IDQ0IDE0IDg4IDE3IDk4IDggMjAgMSAyMAotMTA1IDB6Ii8+CjxwYXRoIGQ9Ik00NzQwIDUzMTAgYy0xNjYgLTEzIC0zMTAgLTI5IC01MTAgLTU1IC0xMDIgLTE0IC0xOTggLTI2IC0yMTUgLTI3Ci0yOCAtMyAtMzIgLTggLTUzIC03MyAtMTIgLTM4IC00MyAtMTIxIC02OSAtMTgzIC0yNSAtNjIgLTQ5IC0xMjggLTUzIC0xNDcKbC04IC0zMyAzNyA0IGMyMCAzIDU0IDkgNzYgMTUgOTEgMjEgMzQ4IDY5IDQ1MyA4MyA3NiAxMSAxODkgMTYgMzUxIDE2IDI3MCAwCjMyMiAtOSAzNjggLTY0IDIyIC0yNiAyNSAtMzcgMjEgLTg0IC02IC02NSAtMjcgLTg2IC0xMzEgLTEyNiAtOTQgLTM3IC0xMzgKLTQ1IC0zMTIgLTU2IC0xNTQgLTkgLTQwOCAtNDAgLTU1MCAtNjUgLTI4MCAtNTEgLTI0NSAtNDEgLTM5MCAtMTExIC0xNjcgLTgwCi0yNTggLTE4NSAtMzAxIC0zNDQgLTIzIC04NiAxIC0xOTggNTAgLTIzOSA5IC04IDE2IC0xOSAxNiAtMjYgMCAtMTEgMjQgLTM1CjEwNSAtMTAzIDc5IC02NiAxNDYgLTg0IDM4NSAtMTAyIDE4MCAtMTQgNDU5IDkgNTc1IDQ2IDEwNCAzNCAzMzUgMTMzIDMzNQoxNDQgMCA0IDExIDEyIDI1IDE4IGwyNCAxMSAzIC0xMDIgMyAtMTAyIDQyNCAtMyBjMjY4IC0xIDQyOCAxIDQzNSA4IDYgNiAxCjE2IC0xNiAyOSAtMTQgMTIgLTM2IDQyIC00OCA2OCBsLTIyIDQ3IDIxIDExMCBjMTEgNjEgMjMgMTM1IDI2IDE2NCAzIDMwIDI2CjE1NiA1MSAyODAgMjUgMTI1IDQ5IDI2MSA1NCAzMDIgNSA0MSAxNiAxMTcgMjUgMTY5IDM0IDE5MSA1IDMwNiAtMTAyIDM5MAotMzAgMjQgLTY5IDQ4IC04NiA1NCAtMTggNSAtMzkgMTMgLTQ3IDE3IC0yNyAxMyAtMTMyIDQxIC0yMTAgNTcgLTg5IDE3IC01NzUKMjYgLTc0MCAxM3ogbTI5NiAtMTA0OSBjLTIxIC0xMzAgLTY1IC0xOTAgLTE4MSAtMjQ2IC05OSAtNDggLTE1NyAtNjUgLTI1NQotNzEgLTE5MyAtMTQgLTMwNyA0OSAtMjg2IDE1OCAxMyA3MyAxMzcgMTU4IDIzMCAxNTggNjIgMCA0NzggODggNDk0IDEwNSAxMwoxMyAxMiAtMTQgLTIgLTEwNHoiLz4KPHBhdGggZD0iTTEyMjY1IDUzMTQgYy0xODggLTExIC0zODMgLTI4IC01NTUgLTUxIC0xMDcgLTEzIC0yMjggLTI4IC0yNjggLTMxCmwtNzMgLTcgLTM0IC04NSBjLTE5IC00NiAtMzUgLTg5IC0zNSAtOTYgMCAtNiAtMjIgLTY2IC00OSAtMTMzIGwtNDkgLTEyMiA0Nwo2IGMyNSA0IDEyMyAyMiAyMTcgNDEgMjk3IDU5IDQyNSA3NCA2NjQgNzQgMzE4IDAgMzgwIC0yMyAzODAgLTE0MCAwIC02NiAtMjEKLTk0IC05MiAtMTI0IC0xMDIgLTQzIC0xNjQgLTU2IC0zMTggLTY2IC0yMzkgLTE2IC02NzEgLTc2IC04MDUgLTExMiAtODkgLTI0Ci0yNjggLTEyMCAtMzIzIC0xNzIgLTcyIC02OCAtODkgLTkzIC0xMTggLTE3OCAtNTUgLTE1NyAtMjYgLTI2OCA5OSAtMzgzIDk1Ci04NyAxNDggLTExMyAyNjUgLTEzMiAxMjUgLTIwIDQyNCAtMjIgNTYyIC01IDEwMiAxNCAyMTMgNDEgMjc1IDY3IDEwMSA0NAoxMjkgNTUgMTM5IDU1IDcgMCA0MiAxOCA3OSA0MCAzNiAyMiA2OCA0MCA3MSA0MCA0IDAgNiAtMzcgNiAtODIgMCAtNDYgMyAtOTQKNyAtMTA2IGw2IC0yNCA0MjYgNyBjMjM0IDQgNDI4IDkgNDMwIDExIDMgMyAtMTQgMjIgLTM3IDQ1IC00NCA0MiAtNDUgNDYgLTQyCjE1OSAxIDMwIDI1IDE4MSA1NCAzMzUgMzAgMTU0IDU4IDMxNCA2NCAzNTUgNiA0MSAyMiAxMzggMzcgMjE0IDM3IDE5MiAzNAoyODAgLTE0IDM1OSAtMzMgNTQgLTExOCAxMjkgLTE2NiAxNDcgLTE5MSA3MSAtMzExIDkxIC01ODAgOTQgLTExNSAyIC0yMzcgMgotMjcwIDB6IG0xNjUgLTk3MiBjMCAtMjggLTQxIC0xODQgLTU1IC0yMTMgLTM2IC02OCAtMTYyIC0xNDUgLTI5MiAtMTc1IC03NgotMTggLTI1NiAtMTUgLTMwOCA1IC00MSAxNiAtODUgNzYgLTg1IDExNiAwIDE4IDEzIDUwIDMwIDc3IDM5IDU4IDExNSA5NCAyMzIKMTA5IDEwOSAxNCAzNjIgNjQgNDEzIDgyIDU1IDIwIDY1IDIwIDY1IC0xeiIvPgo8cGF0aCBkPSJNNzU1MyA1Mjc5IGMtMjI0IC0yOSAtNDYyIC0xMjUgLTU3NSAtMjMxIC0zNCAtMzIgLTYyIC01NyAtNjQgLTU1Ci0xIDEgMTEgNTggMjYgMTI3IDE2IDY5IDI5IDEyOCAzMCAxMzMgMCA0IC0xNjQgNyAtMzY0IDcgbC0zNjUgMCAtOSAtNTIgYy01Ci0yOSAtMTUgLTg5IC0yMSAtMTMzIC02IC00NCAtMjQgLTE0NyAtNDEgLTIzMCAtMTYgLTgyIC0zNyAtMTk1IC00NiAtMjUwIC0xOAotMTE2IC02NSAtMzc2IC0xMDAgLTU1MyAtMTMgLTY4IC0yNCAtMTM2IC0yNCAtMTUxIDAgLTE1IC0yMiAtMTQyIC01MCAtMjgyCi0yNyAtMTQwIC01MCAtMjY2IC01MCAtMjgxIDAgLTE0IC0xMSAtODQgLTI1IC0xNTQgLTE0IC03MCAtMjUgLTEzNCAtMjUgLTE0MQowIC0xMCA3NyAtMTMgMzk5IC0xMyAzNzIgMCA0MDAgMSA0MDUgMTggMTMgNDQgOTYgNTA0IDExNiA2NDcgNyA0NCAxNCA4MiAxNgo4NCAyIDMgMTcgLTggMzIgLTIyIDE2IC0xNSAzMSAtMjcgMzQgLTI3IDMgMCAyMSAtMTQgMzkgLTMxIDYzIC01OCAxMDEgLTcyCjI5OSAtMTA1IDE1NCAtMjYgMzk2IC04IDU2OCA0MiA2OCAyMCAyMjcgMTA1IDI5MyAxNTggNzEgNTYgMjE4IDIwNyAyMjUgMjMxCjQgMTEgMTAgMjIgMTQgMjUgMTYgMTIgODMgMTM5IDk1IDE4MCA2OSAyMzcgNjggMjMwIDY5IDM3NSAxIDE0NCAtOSAxOTcgLTUzCjI5OSAtMTAgMjMgLTIzIDUyIC0yOCA2NiAtMTUgMzYgLTExOCAxNTUgLTE1NiAxNzkgLTE4IDEyIC01MiAzNCAtNzUgNTAgLTExMwo3NyAtMzgxIDExOCAtNTg5IDkweiBtLTkyIC00MjUgYzI2IC04IDU1IC0yNCA2NCAtMzQgMTAgLTExIDI0IC0yMCAzMSAtMjAgMjkKMCA3MSAtNzcgODQgLTE1MiAyMiAtMTMxIC0yMSAtMzExIC05NSAtMzk1IC05IC0xMCAtMjcgLTMyIC00MCAtNDkgLTUwIC02NAotMjA5IC0xMjQgLTMyNSAtMTI0IC01MSAwIC0xNzEgMzMgLTE5MiA1MyAtOCA2IC0yMyAxNyAtMzMgMjMgLTExIDUgLTM1IDM5Ci01MiA3NCAtMzkgNzQgLTQzIDE0MyAtMTcgMjY3IDE2IDc4IDY2IDE5MyA4NCAxOTMgNiAwIDEwIDYgMTAgMTQgMCAyNCA4MSA4OAoxNTYgMTIyIDExNyA1NSAyMTggNjMgMzI1IDI4eiIvPgo8cGF0aCBkPSJNODcwMiA1MTkzIGMtNyAtNDMgLTI1IC0xNDUgLTQyIC0yMjggLTE2IC04MiAtMzYgLTE5MyAtNDUgLTI0NSAtMzkKLTIzNyAtNTAgLTI5NyAtODYgLTQ4MyAtMjIgLTEwOSAtMzkgLTIxMSAtMzkgLTIyNiAwIC0xNSAtMTYgLTEwOCAtMzUgLTIwNwotMTkgLTk4IC0zNSAtMTg1IC0zNSAtMTkyIDAgLTEwIDg2IC0xMiA0MTMgLTEwIGw0MTIgMyAzIDQwIGMzIDM1IDUyIDMwMyA5OAo1MzIgOCA0MCAxNCA4NSAxNCAxMDAgMCAxNSAyNSAxNTQgNTUgMzA4IDMwIDE1NCA1NSAyOTQgNTUgMzEyIDAgMTggMTQgMTAwCjMwIDE4MyAxNyA4MyAzMCAxNjAgMzAgMTcxIDAgMTkgLTEwIDE5IC00MDggMTkgbC00MDggMCAtMTIgLTc3eiIvPgo8cGF0aCBkPSJNMTQ0OTUgMzY2NCBjLTM4IC0yOSAtNzQgLTUzIC03OCAtNTMgLTggLTEgLTYwIC0zOCAtMTAwIC03MSAtOSAtOAotMzMgLTI0IC01MSAtMzUgLTE5IC0xMSAtNjQgLTQxIC0xMDAgLTY3IC0zNyAtMjcgLTcwIC00OCAtNzQgLTQ4IC00IDAgLTM2Ci0yMyAtNzEgLTUwIC0zNiAtMjggLTY5IC01MCAtNzUgLTUwIC02IDAgLTI0IC0xMiAtNDEgLTI2IC0xNiAtMTQgLTc0IC01MwotMTI3IC04NiAtNTQgLTM0IC05OCAtNjQgLTk4IC02OCAwIC0zIC0yMSAtMTcgLTQ3IC0zMCAtMjcgLTEzIC01MCAtMjYgLTUzCi0zMCAtMyAtMyAtMjcgLTIyIC01NSAtNDAgLTI3IC0xOSAtNTEgLTM3IC01MyAtNDIgLTIgLTQgLTExIC04IC0yMCAtOCAtOSAwCi01MCAtMjUgLTkxIC01NSAtNDEgLTMwIC03NyAtNTUgLTgyIC01NSAtNyAwIC05MiAtNTYgLTEzNCAtODcgLTYgLTUgLTI4IC0xNwotNDkgLTI3IC0yMCAtMTEgLTUwIC0zMCAtNjQgLTQzIC0xNSAtMTMgLTQ1IC0zMiAtNjcgLTQ0IC0yMiAtMTEgLTY1IC0zOCAtOTUKLTU5IC0zMCAtMjIgLTcxIC00NyAtOTAgLTU2IC0xOSAtOSAtNTUgLTMxIC04MCAtNDkgLTI1IC0xNyAtNzcgLTUxIC0xMTcgLTc0Ci0zOSAtMjIgLTc4IC00OCAtODYgLTU2IC04IC04IC0zNCAtMjQgLTU4IC0zNyAtMjQgLTEyIC03MSAtNDAgLTEwNCAtNjMgLTMzCi0yMiAtODAgLTUxIC0xMDUgLTY0IC0yNSAtMTIgLTU0IC0zMSAtNjUgLTQwIC0zMiAtMjcgLTczIC01MSAtODkgLTUxIC04IDAKLTE2IC0zIC0xOCAtNyAtNCAtMTAgLTE0MiAtMTAzIC0xNTIgLTEwMyAtNSAwIC00NSAtMjUgLTkxIC01NSAtNDUgLTMwIC04NQotNTUgLTg5IC01NSAtNyAwIC04NyAtNTEgLTk2IC02MCAtMyAtNCAtMjIgLTE2IC00MiAtMjkgLTIxIC0xMiAtMzggLTI2IC0zOAotMzEgMCAtOSAyOCAtNDAgMzYgLTQwIDQgMCA4MiAzOSAxMzQgNjcgNDkgMjYgMTM1IDczIDE1MCA4MSA4IDUgNTMgMjggMTAwCjUyIDQ3IDI0IDkxIDUwIDk4IDU3IDcgNyAyMSAxMyAyOSAxMyA5IDAgNTkgMjUgMTEwIDU1IDUyIDMwIDEwMCA1NSAxMDcgNTUgNwowIDMwIDExIDUxIDI2IDIwIDE0IDgxIDQ3IDEzNCA3NCA1MyAyOCAxNDYgNzcgMjA2IDExMCA2MSAzMyAxNTkgODUgMjE5IDExNQo1OSAzMSAxMTQgNjIgMTIxIDY5IDcgNyAyOCAxOCA0NyAyNSAxOCA3IDQwIDE3IDQ4IDIxIDEwMSA1OSAxNjkgOTYgMTg1IDEwMQoxMSA0IDU3IDI5IDEwMyA1OCA0NiAyOCA4OSA1MSA5NiA1MSA3IDAgMzMgMTMgNTggMjkgNDQgMjggMTI4IDc0IDMyOCAxNzkgNDcKMjQgOTYgNTIgMTEwIDYyIDE0IDkgNjMgMzYgMTEwIDYwIDQ3IDIzIDkyIDQ4IDEwMCA1NSA4IDcgNTMgMzEgMTAwIDU1IDQ3IDIzCjkyIDQ4IDEwMCA1NiA5IDcgMzggMjMgNjUgMzUgMjggMTIgODIgNDIgMTIyIDY1IDM5IDI0IDc3IDQ0IDgzIDQ0IDYgMCAwIDIwCi0xNCA0OCAtMzIgNTkgLTczIDE1MCAtMTAwIDIyMyBsLTIxIDU2IC03MCAtNTN6Ii8+CjwvZz4KPC9zdmc+Cg==" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(2)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132713/Graham_Smith.jpg');"></div>
           <div class="icar-name">Graham Smith</div>
-          <div class="icar-firm">Ares Management · Lehman Brothers</div>
-          <div class="icar-tag">IB · Private Credit · Entrepreneurship</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/11/16221849/ares.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/13104140/Lehman_Brothers_logo.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(3)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2023/06/02111808/Headshot-Hadi-Harake-scaled.jpg');"></div>
           <div class="icar-name">Hadi Harake</div>
-          <div class="icar-firm">Moelis &amp; Company · Morgan Stanley</div>
-          <div class="icar-tag">IB · M&amp;A · TMT · MENA</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13162345/moelis2-1.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/13162348/morgan-stanley-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(4)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132716/Heather_Wachtler.jpg');"></div>
           <div class="icar-name">Heather Wachtler</div>
-          <div class="icar-firm">Macquarie · Bank of America · Wells Fargo</div>
-          <div class="icar-tag">IB · Leveraged Finance · Industrials</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/12210412/macquarie.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/12211551/bank-of-america.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(5)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2023/07/31095425/Headshot_Jen-Liang-scaled.jpg');"></div>
           <div class="icar-name">Jen Liang</div>
-          <div class="icar-firm">AIG Investments · Fosun · AllianceBernstein</div>
-          <div class="icar-tag">Portfolio Mgmt · Asset Mgmt · ESG</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+Cjxzdmcgc3R5bGU9ImJhY2tncm91bmQ6dHJhbnNwYXJlbnQ7IiB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSI4MDAuMDAwMDAwcHQiIGhlaWdodD0iNDU0LjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgODAwLjAwMDAwMCA0NTQuMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+CjxtZXRhZGF0YT4KQ3JlYXRlZCBieSBwb3RyYWNlIDEuMTYsIHdyaXR0ZW4gYnkgUGV0ZXIgU2VsaW5nZXIgMjAwMS0yMDE5CjwvbWV0YWRhdGE+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLDQ1NC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiNmZmZmZmYiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0yOTcgNDI0NSBjLTIgLTExIC00IC05MTEgLTMgLTIwMDAgbDEgLTE5ODAgMzcwNSAwIDM3MDUgMCAwIDE5ODgKYzAgMTA5NCAtMyAxOTk0IC03IDIwMDAgLTYgOSAtODY1IDEyIC0zNzAyIDEyIC0zNjkyIDAgLTM2OTUgMCAtMzY5OSAtMjB6Cm03MTI3IC0xOTMzIGMtMSAtOTE3IC0yIC0xNjkwIC0zIC0xNzE5IGwtMSAtNTEgLTM0MjUgMCAtMzQyNSAwIDAgMTcxOSAwCjE3MTkgMzQyOCAwIDM0MjcgMCAtMSAtMTY2OHoiLz4KPHBhdGggZD0iTTU2NzUgMzQyMyBjLTI1OCAtMzAgLTQ0MyAtOTYgLTYwMCAtMjE0IC0yMzggLTE3NyAtNDEzIC00NzAgLTQ1NQotNzU5IC0xMyAtODcgLTEyIC0zMjkgMCAtNDEwIDMzIC0yMDYgMTI0IC00MDYgMjUzIC01NTUgMjU3IC0yOTcgNTU4IC00MjkKOTQyIC00MTEgMzk1IDE4IDY2NSAxODMgODc3IDUzNiAzMSA1MyA4MSAyMDAgMTAzIDMwNSAxNiA3OSAyMyAxNDggMjQgMjQ1IGwyCjEzNSAtNDY1IDAgYy0zMDMgMCAtNDY3IC0zIC00NjggLTEwIC0yIC01IC0zIC03NyAtMyAtMTYwIGwwIC0xNTAgMjcwIC0zCmMxNDkgLTEgMjc1IC00IDI4MiAtNyA5IC0zIDcgLTIyIC04IC03NiAtNjYgLTIzOCAtMjY0IC00MjcgLTQ5OCAtNDc0IC0xMTgKLTI0IC0yODYgLTE2IC0zOTYgMTkgLTkwIDI4IC0yMzAgMTA4IC0yODggMTY0IC02NiA2NCAtMTQyIDE2NCAtMTgwIDIzOCAtMTIxCjIzOCAtMTI0IDU2MSAtOCA4MDkgMTA5IDIzMiAzMTAgMzg3IDU2NiA0NDAgNjYgMTQgMjk1IDE1IDMzNSAxIDIzOSAtNzggMzM0Ci0xNDEgNDg4IC0zMjAgbDM0IC0zOSA2MSA1OSBjMTg2IDE4MCAxODEgMTc0IDE2NiAyMDIgLTE5IDM0IC0xMzIgMTQ3IC0yMDAKMTk4IC0xMTkgOTEgLTI2NiAxNjIgLTQyOSAyMDggLTkwIDI1IC0zMDkgNDEgLTQwNSAyOXoiLz4KPHBhdGggZD0iTTIyNDEgMzMwOCBjLTE2IC0zNSAtNjcgLTE0MyAtMTE1IC0yNDIgLTQ3IC05OCAtODYgLTE4MCAtODYgLTE4MiAwCi0yIC0yNCAtNTQgLTU0IC0xMTYgLTI5IC02MiAtNzQgLTE1OCAtMTAwIC0yMTMgLTI2IC01NSAtNjIgLTEzMSAtODEgLTE3MAotMTggLTM4IC01MCAtMTA2IC03MSAtMTUwIC0yMCAtNDQgLTc2IC0xNjMgLTEyNCAtMjY1IC00OCAtMTAyIC0xMDYgLTIyMwotMTI4IC0yNzAgLTM4IC04MiAtMTAyIC0yMTggLTE2MiAtMzQ1IC02MSAtMTI4IC0xMTAgLTIzOCAtMTEwIC0yNDcgMCAtNCA4MwotNyAxODYgLTYgbDE4NiAzIDUwIDExMCBjMjcgNjEgNjkgMTUyIDk0IDIwMyAyNCA1MSA0NCA5NSA0NCA5OCAwIDIgMTQgMzMgMzEKNjkgbDMwIDY1IDQ4NSAwIGMzODAgMCA0ODQgLTMgNDg0IC0xMiAwIC0xMSA3OSAtMTkzIDIwMyAtNDcwIGwzMCAtNjggMTgzIDAKYzE1MCAwIDE4NCAzIDE4NCAxNCAwIDggLTE0IDQ1IC0zMSA4MiAtMTcgMzggLTQ2IDEwMyAtNjQgMTQ0IC0xOCA0MSAtNzUgMTY1Ci0xMjUgMjc1IC01MSAxMTAgLTk4IDIxNiAtMTA1IDIzNSAtNyAxOSAtMjkgNzAgLTQ5IDExMiAtMjAgNDIgLTM2IDc5IC0zNiA4MQowIDMgLTI1IDU3IC01NSAxMjEgLTMwIDY0IC01NSAxMTggLTU1IDEyMSAwIDIgLTE4IDQzIC00MCA5MCAtMjIgNDcgLTQwIDg3Ci00MCA5MCAwIDIgLTIyIDUyIC01MCAxMTAgLTI3IDU4IC01MCAxMDkgLTUwIDExMyAwIDQgLTkgMjQgLTIwIDQ0IC0xMSAyMAotMzkgODMgLTY0IDE0MCAtMjQgNTcgLTY5IDE1OSAtMTAxIDIyOCAtMzEgNjkgLTcxIDE1OCAtODggMTk3IGwtMzIgNzMgLTYzIDAKLTYzIDAgLTI4IC02MnogbTk1IC02MTAgYzMgLTEzIDE5IC01MCAzNSAtODMgMTUgLTMzIDU1IC0xMjMgODkgLTIwMCA3OCAtMTc4CjExMSAtMjUzIDE0OSAtMzM3IDE2IC0zNyAyNyAtNjkgMjMgLTcyIC0xMCAtNSAtNjMxIDAgLTYzNyA2IC0zIDMgMTEgNDAgMzEKODQgMjAgNDMgNDggMTA2IDYzIDEzOSAxNSAzMyA1NSAxMTkgODggMTkwIDM0IDcyIDc4IDE2NyA5OCAyMTMgMjEgNDUgNDEgODIKNDYgODIgNCAwIDExIC0xMCAxNSAtMjJ6Ii8+CjxwYXRoIGQ9Ik0zNzkyIDIyMjMgbDMgLTExMTcgMTczIC0xIDE3MiAwIDAgMTExOCAwIDExMTcgLTE3NSAwIC0xNzUgMCAyCi0xMTE3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2024/06/11164510/alliancebernstein-desktop-logo-dark-theme.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(6)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2017/03/28132616/KathyLai.jpg');"></div>
           <div class="icar-name">Kathy Lai</div>
-          <div class="icar-firm">HerMD · Lincoln International · Blackstone</div>
-          <div class="icar-tag">IB · Entrepreneurship · Venture Capital</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13101153/Blackstone-wordmark-logo.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/13093518/lincoln-international-1.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(7)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132718/Mateusz_Cieslak.jpg');"></div>
           <div class="icar-name">Mateusz Cieslak</div>
-          <div class="icar-firm">Morgan Stanley</div>
-          <div class="icar-tag">Leveraged Finance · Private Credit · Modeling</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13162348/morgan-stanley-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(8)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132720/Matthew_Lo.jpg');"></div>
           <div class="icar-name">Matthew Lo</div>
-          <div class="icar-firm">Credit Suisse · Morgan Stanley PE · HNA Group</div>
-          <div class="icar-tag">IB · PE · Startups</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13161859/credit-suisse-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/13162348/morgan-stanley-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(9)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132722/Robert_Monaco.png');"></div>
           <div class="icar-name">Rob Monaco</div>
-          <div class="icar-firm">Barclays · Westview Capital · Parthenon Capital</div>
-          <div class="icar-tag">IB · PE · Venture Capital</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13162316/barclays-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+Cjxzdmcgc3R5bGU9ImJhY2tncm91bmQ6dHJhbnNwYXJlbnQ7IiB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSI0ODAuMDAwMDAwcHQiIGhlaWdodD0iMjE3LjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgNDgwLjAwMDAwMCAyMTcuMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+CjxtZXRhZGF0YT4KQ3JlYXRlZCBieSBwb3RyYWNlIDEuMTYsIHdyaXR0ZW4gYnkgUGV0ZXIgU2VsaW5nZXIgMjAwMS0yMDE5CjwvbWV0YWRhdGE+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLDIxNy4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiNmZmZmZmYiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0yMjIwIDIxNTEgYy0yNjMgLTU2IC00ODEgLTIxNCAtNTg0IC00MjQgLTU4IC0xMTkgLTg3IC0yMzMgLTk0Ci0zNzQgbC01IC0xMTMgLTc2OCAwIGMtNzYyIDAgLTc2OSAwIC03NjkgLTIwIDAgLTIwIDcgLTIwIDI0MDAgLTIwIDIzOTMgMAoyNDAwIDAgMjQwMCAyMCAwIDIwIC03IDIwIC03NjkgMjAgbC03NjggMCAtNiAxMTggYy03IDE0NCAtMzIgMjQ1IC05NSAzNzIKLTgzIDE2OSAtMjQ0IDMwOCAtNDQwIDM4MCAtMTY0IDYwIC0zNDMgNzQgLTUwMiA0MXogbTQ0NSAtMjYwIGMxNDEgLTM4IDI1OQotNzIgMjYyIC03NCAyMyAtMjQgLTM3IC0yNyAtNTI3IC0yNyAtNDk1IDAgLTU1MCAzIC01MjYgMjcgNiA3IDUwMSAxNDEgNTIzCjE0MiA3IDEgMTI3IC0zMCAyNjggLTY4eiBtMjQzIC0xNjMgbC0zIC0yMyAtNTEwIDAgLTUxMCAwIC0zIDIzIC0zIDIyIDUxNiAwCjUxNiAwIC0zIC0yMnogbS05MjggLTEyMCBjMCAtMzUgMyAtOTMgNyAtMTMwIGw2IC02OCAtNDIgMCAtNDEgMCAwIDc4IGMwIDQyCjMgMTAxIDYgMTMwIDYgNDkgOCA1MiAzNSA1MiAyOSAwIDI5IDAgMjkgLTYyeiBtMTMwIC02OCBsMCAtMTMwIC0zNSAwIC0zNSAwCjAgMTMwIDAgMTMwIDM1IDAgMzUgMCAwIC0xMzB6IG0xMzAgMjMgYzAgLTYwIDMgLTExOCA2IC0xMzAgNiAtMjEgMyAtMjMgLTM1Ci0yMyBsLTQxIDAgMCAxMDggYzAgMTM3IDQgMTUyIDQxIDE1MiBsMjkgMCAwIC0xMDd6IG0xMzAgLTcgYzAgLTYzIDMgLTEyMSA2Ci0xMzAgNSAtMTMgLTIgLTE2IC0zNSAtMTYgbC00MSAwIDAgMTIzIGMwIDY4IDMgMTI3IDcgMTMwIDMgNCAxOSA3IDM1IDcgbDI4CjAgMCAtMTE0eiBtMTMwIDMwIGMwIC00NiAzIC0xMDQgNiAtMTMwIGw3IC00NiAtNDIgMCAtNDEgMCAwIDkzIGMwIDUwIDMgMTA5CjYgMTMwIDYgMzMgMTAgMzcgMzUgMzcgbDI5IDAgMCAtODR6IG0xMzAgLTQ2IGwwIC0xMzAgLTM1IDAgLTM1IDAgMCAxMzAgMAoxMzAgMzUgMCAzNSAwIDAgLTEzMHogbTEyMCAwIGwwIC0xMzAgLTM1IDAgLTM1IDAgMCAxMzAgMCAxMzAgMzUgMCAzNSAwIDAKLTEzMHogbTEzMCAwIGwwIC0xMzAgLTM1IDAgLTM1IDAgMCAxMzAgMCAxMzAgMzUgMCAzNSAwIDAgLTEzMHogbTMwIC0xOTAgYzAKLTIwIC03IC0yMCAtNTE1IC0yMCAtNTA4IDAgLTUxNSAwIC01MTUgMjAgMCAyMCA3IDIwIDUxNSAyMCA1MDggMCA1MTUgMCA1MTUKLTIweiBtNDAgLTg1IGwwIC0yNSAtNTUyIDIgLTU1MyAzIC0zIDIzIC0zIDIyIDU1NSAwIDU1NiAwIDAgLTI1eiIvPgo8cGF0aCBkPSJNNTQwIDg2MCBjLTc5IC0yMDkgLTEwMCAtMjQ5IC0xNDYgLTI3NyAtMTYgLTEwIC0zIC0xMiA3MSAtMTIgbDkwCi0xIC0yOSAyMyBjLTMxIDI1IC0zMiA0NCAtNyAxMTAgMTAgMjcgMTEgMjcgMTAxIDI3IGw5MSAwIDE1IC0zNiBjOCAtMTkgMTcKLTQ4IDIxIC02NCA1IC0yNiAxIC0zMSAtMjggLTQ0IC0zMSAtMTMgLTEzIC0xNCAyMTUgLTE1IDEzNyAtMSAyNDYgMiAyNDMgNQotNCA0IC0xNyAxMiAtMjkgMTggLTIxIDExIC0yMyAxOSAtMjYgMTEzIGwtMyAxMDEgMzggLTggYzQzIC0xMCA0OSAtMTggMTA0Ci0xMjAgNjMgLTExNyA1NSAtMTExIDE0NSAtMTA4IDcxIDMgNzYgNCA1MiAxNSAtMTggOCAtNDUgNDQgLTgyIDEwNSAtMzAgNTIKLTY0IDEwMiAtNzYgMTEzIGwtMjEgMTkgMzEgMTIgYzE2IDcgMzkgMjggNTAgNDYgNDQgNjkgMiAxNTUgLTg1IDE3NyAtNTAgMTIKLTMzNSAxNSAtMzM1IDMgMCAtNCAxNCAtMTMgMzAgLTE5IGwzMCAtMTEgMCAtMjExIDAgLTIxMSAtMjQgLTE1IGMtMzEgLTIxCi03MSAtMTEgLTk1IDI0IC0xMCAxNCAtNTYgMTI0IC0xMDEgMjQ0IGwtODMgMjE3IC0zNyAwIC0zNyAwIC04MyAtMjIweiBtNjcwCjE2NyBjNTEgLTI1IDU3IC0xMzEgOSAtMTY5IC0xMiAtMTAgLTM4IC0xOCAtNjAgLTE4IGwtMzkgMCAwIDEwMCAwIDEwMCAzMyAwCmMxNyAwIDQzIC02IDU3IC0xM3ogbS01NTEgLTE1NSBjMTcgLTQ2IDMxIC04OCAzMSAtOTMgMCAtNSAtMzEgLTkgLTcwIC05IC0zOAowIC03MCAxIC03MCAzIDAgNiA2MSAxNzEgNjcgMTgwIDcgMTIgOSAxMCA0MiAtODF6Ii8+CjxwYXRoIGQ9Ik0xNDUwIDEwNjQgYzAgLTYgLTMgLTMyIC02IC01OCAtOCAtNTMgNyAtNjIgMzAgLTE4IDE4IDM0IDU0IDUyIDEwNgo1MiBsNDAgMCAwIC0yMDYgYzAgLTIwNCAtNiAtMjQ0IC0zNSAtMjQ0IC03IDAgLTE3IC00IC0yMCAtMTAgLTQgLTYgMzcgLTEwCjExNyAtMTAgbDEyMyAwIC0zMiAyMCAtMzMgMjAgMCAyMTUgMCAyMTUgNDQgMCBjMzMgMCA1MiAtNyA3NSAtMjYgMTcgLTE0IDMxCi0zMiAzMSAtNDAgMCAtOCA1IC0xNCAxMCAtMTQgNiAwIDEwIDI2IDEwIDU4IGwwIDU3IC0yMzAgMCBjLTE2MiAwIC0yMzAgLTMKLTIzMCAtMTF6Ii8+CjxwYXRoIGQ9Ik0zODUwIDEwNzEgYy01MCAtMTYgLTg4IC00MSAtMTI3IC04NSAtODYgLTk4IC04NiAtMjQ0IDAgLTM0MiA1MgotNTkgMTA3IC04NiAxODcgLTkyIDEyMiAtOCAyMjMgNDIgMjcyIDEzNyAyMyA0NCAyOCA2NiAyOCAxMjYgMCA2MCAtNSA4MiAtMjgKMTI2IC0zMCA1OSAtOTUgMTExIC0xNjAgMTI5IC00MiAxMSAtMTM1IDEyIC0xNzIgMXogbTE1OCAtNDEgYzU1IC0zNCA3NyAtOTYKNzcgLTIxNSAwIC0xNTUgLTQwIC0yMjIgLTEzOCAtMjMyIC02MSAtNiAtMTA1IDIwIC0xMzcgODIgLTIyIDQzIC0yNSA2MiAtMjUKMTUwIDEgODQgNSAxMDggMjQgMTQ5IDE0IDI3IDM3IDU2IDU1IDY3IDQxIDI1IDEwMiAyNCAxNDQgLTF6Ii8+CjxwYXRoIGQ9Ik0xMCAxMDYyIGMwIC00IDE0IC0xMyAzMCAtMTkgbDMwIC0xMSAtMiAtMjE0IC0zIC0yMTMgLTMwIC0xNSAtMzAKLTE1IDYzIC0zIGMzNCAtMiA5MCAtMiAxMjUgMCBsNjIgMyAtMzAgMTUgYy0zMCAxNSAtMzAgMTYgLTMzIDEwNiBsLTMgOTEgNzUKNSBjMTE3IDggMTc5IDU2IDE3OSAxNDIgMCA1NyAtMjMgOTIgLTc2IDExNyAtMzUgMTYgLTY3IDE5IC0xOTkgMTkgLTg3IDAKLTE1OCAtNCAtMTU4IC04eiBtMjgxIC01MSBjMjUgLTI1IDI5IC0zNyAyOSAtODEgMCAtNDQgLTQgLTU2IC0yOSAtODEgLTIyCi0yMSAtMzkgLTI5IC02NSAtMjkgbC0zNiAwIDAgMTEwIDAgMTEwIDM2IDAgYzI2IDAgNDMgLTggNjUgLTI5eiIvPgo8cGF0aCBkPSJNMTk2MCAxMDYwIGMwIC01IDYgLTEwIDE0IC0xMCA4IDAgMjIgLTcgMzAgLTE2IDE0IC0xMyAxNiAtNDcgMTYKLTIxOSBsMCAtMjA0IC0zMiAtMTggLTMzIC0xOCA2MyAtMyBjMzQgLTIgOTAgLTIgMTI1IDAgbDYyIDMgLTMwIDE1IC0zMCAxNQotMyAxMDMgLTMgMTAyIDEyMSAwIDEyMCAwIDAgLTg2IGMwIC05NSAtOCAtMTE3IC00OCAtMTM4IC0yNSAtMTQgLTE4IC0xNSA5OAotMTUgMTExIDAgMTIzIDEgMTA1IDE0IC0xMSA4IC0yNiAxOSAtMzIgMjUgLTEwIDggLTEzIDYyIC0xMyAyMDUgMCAyMTAgLTEKMjA3IDU2IDI0MiAxNSA5IC02IDEyIC0xMTEgMTIgLTEwNSAwIC0xMjYgLTMgLTExMSAtMTIgNTEgLTMyIDU2IC00NCA1NiAtMTI3CmwwIC04MCAtMTIwIDAgLTEyMCAwIDAgOTAgYzAgODkgMCA5MCAzMCAxMDUgMTcgOSAzMCAxOCAzMCAyMCAwIDMgLTU0IDUgLTEyMAo1IC03MyAwIC0xMjAgLTQgLTEyMCAtMTB6Ii8+CjxwYXRoIGQ9Ik0yNjMwIDEwNjIgYzAgLTQgMTQgLTEzIDMwIC0xOSBsMzAgLTExIC0yIC0yMTMgYy0zIC0yMTEgLTMgLTIxNAotMjYgLTIyNSAtMTIgLTYgLTI1IC0xNCAtMjkgLTE4IC0zIC0zIDgyIC02IDE4OSAtNiBsMTk1IDAgNiA1NyBjNiA1NCAwIDg0Ci0xMSA1NSAtMiAtOCAtMTggLTI5IC0zNCAtNDggLTI4IC0zMSAtMzUgLTM0IC04NyAtMzQgLTMxIDAgLTYyIDUgLTY5IDEyIC04CjggLTEyIDQ1IC0xMiAxMDAgbDAgODggNTkgMCBjNjEgMCA5MSAtMTUgOTEgLTQ2IDAgLTggNSAtMTQgMTAgLTE0IDYgMCAxMCAzNAo5IDgzIDAgNjcgLTIgNzkgLTEyIDY0IC0zMSAtNDkgLTM1IC01MSAtOTYgLTU1IGwtNjEgLTQgMCAxMDYgMCAxMDYgNjUgMCBjNTcKMCA2OSAtMyA5MCAtMjUgMTQgLTEzIDI1IC0zMSAyNSAtNDAgMCAtOCA1IC0xNSAxMCAtMTUgNiAwIDEwIDI1IDEwIDU1IGwwIDU1Ci0xOTAgMCBjLTEwNCAwIC0xOTAgLTQgLTE5MCAtOHoiLz4KPHBhdGggZD0iTTMwOTAgMTA2MyBjMSAtNSAxNSAtMTcgMzMgLTI4IGwzMiAtMjAgMyAtMTcwIGM0IC0yMTAgMCAtMjMwIC00MQotMjU1IGwtMzIgLTIwIDk1IDEgYzkxIDEgOTQgMSA2MiAxNSAtMTggOCAtMzcgMjYgLTQzIDQwIC01IDE1IC04IDk2IC03IDE4MgpsMyAxNTYgMTc5IC0yMDAgYzk4IC0xMDkgMTgzIC0xOTkgMTg4IC0xOTkgNSAwIDEwIDkwIDExIDIyMSAyIDIwMyA0IDIyNCAyMQoyNDMgMTEgMTIgMjcgMjEgMzggMjEgMTAgMCAxOCA1IDE4IDEwIDAgNiAtMzUgMTAgLTg1IDEwIC04NyAwIC0xMDQgLTggLTYxCi0yOCAzMiAtMTQgMzggLTQ3IDM0IC0xOTAgbC0zIC0xMTMgLTE0NCAxNjYgLTE0NSAxNjUgLTc4IDAgYy00MyAwIC03OCAtMwotNzggLTd6Ii8+CjxwYXRoIGQ9Ik00MjYzIDEwMzkgbDM3IC0zMCAwIC0xODUgYzAgLTEwOCAtNCAtMTkzIC0xMCAtMjA0IC02IC0xMSAtMjMgLTI2Ci0zOCAtMzQgLTI1IC0xNCAtMjEgLTE1IDY4IC0xNSBsOTUgMCAtMzUgMTcgLTM1IDE3IC0zIDE3OCAtMiAxNzggMTc3IC0xOTgKYzk3IC0xMDkgMTgzIC0xOTkgMTkwIC0yMDEgMTAgLTMgMTMgNDEgMTMgMjI2IDAgMjA5IDIgMjMwIDE4IDI0NSAxMCAxMCAyNgoxNyAzNSAxNyA5IDAgMTcgNSAxNyAxMCAwIDYgLTM1IDEwIC04NSAxMCAtNTAgMCAtODUgLTQgLTg1IC0xMCAwIC01IDcgLTEwCjE1IC0xMCA4IDAgMjIgLTExIDMwIC0yNCAxMyAtMTkgMTUgLTQ5IDEzIC0xNTQgbC0zIC0xMzAgLTE0NCAxNjQgLTE0NCAxNjQKLTgxIDAgLTgxIDAgMzggLTMxeiIvPgo8cGF0aCBkPSJNMjU0MCA0MDEgYzAgLTI4IDUgLTUxIDEwIC01MSA2IDAgMTAgNiAxMCAxNCAwIDI2IDQyIDQ2IDk3IDQ2IGw1MwowIDAgLTE3NyBjMCAtOTggLTQgLTE4MyAtOCAtMTg5IC00IC02IC0xNiAtMTYgLTI3IC0yMiAtMTYgLTkgLTQgLTExIDY0IC0xMgpsODQgMCAtMjcgMjUgLTI2IDI0IDAgMTc2IDAgMTc1IDYxIDAgYzU1IDAgNjQgLTMgOTAgLTMxIGwyOSAtMzEgMCA1MiBjMCA0OQotMSA1MSAtMjIgNDMgLTEzIC00IC05NSAtOCAtMTgzIC04IC04OCAwIC0xNzAgNCAtMTgyIDggLTIyIDggLTIzIDYgLTIzIC00MnoiLz4KPHBhdGggZD0iTTExNDAgNDEyIGMtNzYgLTM5IC0xMTMgLTEwMCAtMTE4IC0xOTEgLTMgLTU1IDEgLTc0IDIxIC0xMTEgNjUKLTEyMiAyNTkgLTE0OCAzNTYgLTQ4IDE3IDE4IDMxIDM5IDMxIDQ3IC0xIDExIC03IDggLTIzIC0xMCAtNTMgLTY0IC0xNTAgLTg5Ci0yMTYgLTU0IC0xMTIgNTggLTEzNyAyNDcgLTQ0IDMzNyAzMCAyOSA0MSAzMyAxMDIgMzYgNjUgNCA3MCAzIDEwNSAtMjggMjAKLTE4IDM5IC00MyA0MiAtNTYgMTEgLTQ1IDI0IC0yNCAyNCAzOSBsMCA2MiAtMTEzIDMgYy0xMDggMyAtMTE2IDEgLTE2NyAtMjZ6Ii8+CjxwYXRoIGQ9Ik0xNTc1IDI0OSBjLTM4IC0xMDYgLTc0IC0xOTYgLTgwIC0yMDEgLTUgLTUgLTE5IC0xNSAtMzAgLTIzIC0xOAotMTMgLTE0IC0xNCA0NSAtMTQgNjQgLTEgNjUgMCA0MiAxNyBsLTIzIDE4IDIzIDY3IDIyIDY4IDc1IC0zIDc0IC0zIDIzIC02NwoyMiAtNjcgLTIxIC0xNSBjLTIwIC0xNCAtMTYgLTE1IDYzIC0xNSBsODUgLTEgLTMxIDE5IGMtMjcgMTYgLTM5IDQxIC0xMDEKMjEyIC02MyAxNzUgLTczIDE5NCAtOTQgMTk3IC0yMyAzIC0yOCAtOCAtOTQgLTE4OXogbTEwOSAzNCBsMjYgLTczIC02MSAwCmMtNDUgMCAtNjAgMyAtNTcgMTMgMyA2IDE1IDQzIDI4IDgwIDEyIDM4IDI2IDY1IDMwIDYwIDQgLTQgMjAgLTQxIDM0IC04MHoiLz4KPHBhdGggZD0iTTMwNjAgMzIzIGMtODggLTI0MyAtMTAxIC0yNzIgLTEyOCAtMjkyIGwtMjcgLTIwIDY0IC0xIGM2MyAwIDYzIDAKNDEgMTggbC0yMyAxOCAyMiA2NyAyMyA2NyA3MiAwIDczIDAgMjIgLTU5IGMyNyAtNzMgMjYgLTg1IC0xIC05OSAtMTggLTggLTUKLTExIDY3IC0xMSA4NCAxIDg4IDEgNTkgMTQgLTI2IDEyIC0zNSAyNiAtNTkgOTIgLTEwNiAyOTkgLTExNiAzMjMgLTE0MCAzMjMKLTIwIDAgLTI4IC0xNCAtNjUgLTExN3ogbTk2IC04OCBjNiAtMjUgNSAtMjUgLTUwIC0yNSAtMzEgMCAtNTYgMyAtNTYgOCAwIDQKMTIgNDIgMjcgODUgbDI3IDc5IDIzIC02MSBjMTIgLTMzIDI1IC03MiAyOSAtODZ6Ii8+CjxwYXRoIGQ9Ik0xOTQwIDQxNyBsMjUgLTEzIDMgLTE4MSAyIC0xODIgLTI3IC0xNSBjLTI3IC0xNCAtMjQgLTE1IDYyIC0xNSA4NQowIDg5IDEgNjMgMTUgLTI3IDE0IC0yOCAxNyAtMjggOTcgbDAgODMgNDAgLTQgYzUzIC01IDEyOSAxNCAxNTcgNDAgNTMgNDkgMzIKMTMyIC00MSAxNjggLTM1IDE3IC02MiAyMCAtMTYyIDIwIC0xMDIgMCAtMTE2IC0yIC05NCAtMTN6IG0yMzEgLTM2IGMzNyAtMzgKMzkgLTg4IDUgLTEyNyAtMjAgLTI0IC0zMSAtMjggLTc3IC0yOSBsLTU0IDAgLTMgOTMgLTMgOTIgNTEgMCBjNDQgMCA1NiAtNQo4MSAtMjl6Ii8+CjxwYXRoIGQ9Ik0yMzQwIDQxNyBsMjUgLTEzIDMgLTE4MSAyIC0xODIgLTI3IC0xNSBjLTI3IC0xNCAtMjQgLTE1IDYyIC0xNSA4NgowIDg5IDEgNjIgMTUgbC0yNyAxNSAyIDE4MiAzIDE4MSAyNSAxMyBjMjIgMTEgMTQgMTMgLTY1IDEzIC03OSAwIC04NyAtMiAtNjUKLTEzeiIvPgo8cGF0aCBkPSJNMzQwMCA0MTcgYzMzIC0xNyAzNiAtMzkgMzAgLTIyNCAtNSAtMTUyIC01IC0xNTUgLTMwIC0xNjggLTIyIC0xMwotNSAtMTQgMTQ2IC0xNSBsMTcyIDAgNiAyNyBjNCAxNiA5IDM2IDEyIDQ2IDkgMjggLTEwIDE5IC0yNCAtMTIgLTE1IC0zNCAtMzUKLTQxIC0xMTkgLTQxIC05OSAwIC05MyAtMTMgLTkzIDE5MSBsMCAxNzggMjggMTUgYzI2IDE0IDIyIDE1IC02MyAxNSAtNzkgMQotODcgLTEgLTY1IC0xMnoiLz4KPC9nPgo8L3N2Zz4K" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(10)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2026/05/04132724/Rohan_Shukla.jpg');"></div>
           <div class="icar-name">Rohan Shukla</div>
-          <div class="icar-firm">Main Street Capital · TPG Growth · Morgan Stanley</div>
-          <div class="icar-tag">IB · PE · Growth Equity · Tech</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2024/05/30141809/TPG_Capital_logo.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="https://media.wallstreetprep.com/uploads/2022/07/13162348/morgan-stanley-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
         <div class="icar-card" onclick="openCoachModal(11)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2023/06/26131132/Headshot-Tim-Geoffrion.jpeg');"></div>
           <div class="icar-name">Tim Geoffrion</div>
-          <div class="icar-firm">Norwest Equity Partners · JPMorgan</div>
-          <div class="icar-tag">IB · M&amp;A · PE · Consumer</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:4px;"><img src="https://media.wallstreetprep.com/uploads/2022/07/13162336/jpmorgan-2.svg" alt="" style="height:18px;max-width:72px;object-fit:contain;"/><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+Cjxzdmcgc3R5bGU9ImJhY2tncm91bmQ6dHJhbnNwYXJlbnQ7IiB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSIyMDAuMDAwMDAwcHQiIGhlaWdodD0iOTUuMDAwMDAwcHQiIHZpZXdCb3g9IjAgMCAyMDAuMDAwMDAwIDk1LjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgo8bWV0YWRhdGE+CkNyZWF0ZWQgYnkgcG90cmFjZSAxLjE2LCB3cml0dGVuIGJ5IFBldGVyIFNlbGluZ2VyIDIwMDEtMjAxOQo8L21ldGFkYXRhPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCw5NS4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiNmZmZmZmYiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik00MjAgMzI1IGwwIC0yNTUgNTUgMCA1NCAwIDMgMTUxIDMgMTUyIDExNSAtMTQ5IDExNSAtMTQ5IDQ4IC0zIGM0MAotMyA0NyAwIDQ3IDE1IDEgMTUgMSA0MzQgMCA0ODEgMCA5IC0xNSAxMiAtNTIgMTAgbC01MyAtMyAtNSAtMTQ3IC01IC0xNDYKLTExNCAxNDkgLTExNCAxNDkgLTQ5IDAgLTQ4IDAgMCAtMjU1eiIvPgo8cGF0aCBkPSJNOTkwIDMyNSBsMCAtMjU1IDE4NSAwIDE4NSAwIDAgNTUgMCA1NSAtMTMwIDAgLTEzMCAwIDAgNTAgMCA1MCAxMDAKMCAxMDAgMCAwIDUwIDAgNTAgLTEwMCAwIC0xMDAgMCAwIDQ1IDAgNDUgMTMxIDAgMTMwIDAgLTMgNTMgLTMgNTIgLTE4MiAzCi0xODMgMiAwIC0yNTV6Ii8+CjxwYXRoIGQ9Ik0xNDU1IDU2OCBjLTMgLTcgLTQgLTEyMSAtMyAtMjUzIGwzIC0yNDAgNTIgLTMgNTIgLTMgMyA4MyAzIDgzIDg3CjUgYzkzIDYgMTIxIDE4IDE2MiA3MyAzMSA0MiAzMyAxMzIgNCAxODEgLTM4IDY0IC04MSA4MCAtMjMwIDg1IC0xMDIgMiAtMTI5CjAgLTEzMyAtMTF6IG0yNTUgLTExOCBjNTIgLTUyIDQgLTExMCAtOTEgLTExMCBsLTU5IDAgMCA2NSAwIDY1IDY1IDAgYzUyIDAKNjkgLTQgODUgLTIweiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" style="height:18px;max-width:72px;object-fit:contain;"/></div>
           <div class="icar-cta">View Bio ›</div>
         </div>
 
-      </div>
     </div>
-    <div style="text-align:center;margin-top:18px;font-size:13px;color:#8a9bb0;font-style:italic;">+ 100 additional coaches covering all finance sectors &amp; groups</div>
+    <div style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;">
+      <span style="font-size:22px;font-weight:800;color:#72ffab;">100+</span>
+      <span style="width:1px;height:28px;background:rgba(255,255,255,.2);"></span>
+      <span style="font-size:14px;color:white;font-weight:700;">Additional coaches covering all finance sectors &amp; groups</span>
+    </div>
   </div>
 </section>
 
@@ -2112,21 +2096,6 @@ footer {
     <div class="packages-grid">
       <div class="packages-split">
         <div>
-          <span class="packages-col-label" style="background:rgba(124,58,237,.08);color:#7c3aed;">One-time session</span>
-          <div class="pkg-card" style="border-color:#a78bfa;border-width:2px;">
-            <div class="pkg-badge" style="background:rgba(124,58,237,.1);color:#7c3aed;">Flat rate</div>
-            <div class="pkg-title">The Polisher</div>
-            <div class="pkg-price" style="color:#7c3aed;">$500<span style="font-size:14px;font-weight:400;color:var(--text-muted);"> flat</span></div>
-            <div class="pkg-price-sub" style="line-height:1.5;">Resume review &amp; feedback<br>+ 1-hr mock interview &amp; debrief</div>
-            <div class="pkg-desc">A focused mock interview session with sharp, actionable feedback before the real thing.</div>
-          </div>
-        </div>
-        <div class="packages-split-divider">
-          <div class="packages-split-divider-line"></div>
-          <div class="packages-split-divider-label">vs</div>
-          <div class="packages-split-divider-line"></div>
-        </div>
-        <div>
           <span class="packages-col-label" style="background:#eaf3fb;color:#185FA5;">Hourly coaching packages</span>
           <div class="packages-hourly">
             <div class="pkg-card"><div class="pkg-title">Quick Support</div><div class="pkg-price">$400<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">1–3 hours</div><div class="pkg-desc">Best for a focused session or two. Fast, targeted coaching with immediate impact.</div></div>
@@ -2135,33 +2104,40 @@ footer {
             <div class="pkg-card"><div class="pkg-title">Mastery Track</div><div class="pkg-price">$330<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">20+ hours</div><div class="pkg-desc">For professionals committed to a transformational outcome.</div></div>
           </div>
         </div>
+        <div class="packages-split-divider">
+          <div class="packages-split-divider-line"></div>
+          <div class="packages-split-divider-line"></div>
+        </div>
+        <div>
+          <span class="packages-col-label" style="background:rgba(124,58,237,.08);color:#7c3aed;">One-time session</span>
+          <div class="packages-hourly" style="grid-template-columns:1fr;flex:1;">
+            <div class="pkg-card" style="border-color:#a78bfa;border-width:2px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#7c3aed;margin-bottom:2px;">The Polisher</div>
+              <div class="pkg-title" style="margin-bottom:4px;">Resume &amp; Mock Interview</div>
+              <div class="pkg-price" style="color:#7c3aed;margin-bottom:4px;">$500<span style="font-size:14px;font-weight:400;color:var(--text-muted);"> flat</span></div>
+              <div class="pkg-price-sub" style="line-height:1.5;margin-bottom:8px;">
+                <div style="display:flex;align-items:flex-start;gap:6px;"><span style="color:#7c3aed;font-weight:700;flex-shrink:0;">·</span>Resume review &amp; feedback</div>
+                <div style="display:flex;align-items:flex-start;gap:6px;"><span style="color:#7c3aed;font-weight:700;flex-shrink:0;">·</span>1-hr mock interview &amp; debrief</div>
+              </div>
+              <div class="pkg-desc">A focused mock interview session with sharp, actionable feedback before the real thing.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WSP DARK BREAK (matches live site mid-page navy callout) -->
+<!-- WSP DARK BREAK -->
 <section style="background:radial-gradient(ellipse 110% 50% at 50% 72%, #2a5a8c 0%, #1e4470 30%, #112d55 55%, #0d1b2e 80%);padding:72px 32px;border-top:none;border-bottom:none;">
-  <div style="max-width:960px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:36px;">
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#72ffab;margin-bottom:14px;">Trusted by the world's top firms</div>
-        <h2 style="font-size:clamp(20px,2.4vw,30px);font-weight:800;color:#ffffff;line-height:1.25;letter-spacing:-.3px;margin:0;">The same standard used to train analysts at Goldman, KKR &amp; Evercore.</h2>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">Wall Street Prep is the finance industry's most trusted training provider. Our private coaching is a direct extension of that same practitioner-led standard, adapted for your exact goals and delivered by coaches who've done the job.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-          <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Book a Coach &rarr;<span class="book-btn-sub">Continues to steps 1–4</span></button>
-          <a href="#pricing-overview" onclick="event.preventDefault();document.getElementById('pricing-overview').scrollIntoView({behavior:'smooth'})" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:13px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">View pricing</a>
-        </div>
-      </div>
-    </div>
-    <div style="padding:20px 0;">
-      <div style="background:rgba(255,255,255,.55);border-radius:10px;padding:20px 24px;backdrop-filter:blur(6px);">
-        <object type="image/svg+xml" data="https://media.wallstreetprep.com/wspimage/Client-Logos-CL-3dck.svg" style="width:100%;height:auto;display:block;min-height:120px;" aria-label="Client logos">
-          <img src="https://media.wallstreetprep.com/wspimage/Client-Logos-CL-3dck.svg" alt="Client logos" style="width:100%;height:auto;display:block;">
-        </object>
-      </div>
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#72ffab;margin-bottom:14px;">Trusted by the world's top firms</div>
+    <h2 style="font-size:clamp(20px,2.4vw,30px);font-weight:800;color:#ffffff;line-height:1.25;letter-spacing:-.3px;margin:0 0 12px;">The same standard used to train analysts at Goldman, KKR &amp; Evercore.</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin:0 0 36px;max-width:780px;">Wall Street Prep is the finance industry's most trusted training provider. Our private coaching is a direct extension of that same practitioner-led standard, adapted for your exact goals and delivered by coaches who've done the job.</p>
+    <div style="background:rgba(255,255,255,.55);border-radius:10px;padding:20px 24px;backdrop-filter:blur(6px);">
+      <object type="image/svg+xml" data="https://media.wallstreetprep.com/wspimage/Client-Logos-CL-3dck.svg" style="width:100%;height:auto;display:block;min-height:120px;" aria-label="Client logos">
+        <img src="https://media.wallstreetprep.com/wspimage/Client-Logos-CL-3dck.svg" alt="Client logos" style="width:100%;height:auto;display:block;">
+      </object>
     </div>
   </div>
 </section>
@@ -2174,34 +2150,26 @@ footer {
     <p class="section-sub">WSP has spent 20+ years training analysts at the world's top investment banks, private equity firms, and hedge funds. Our private coaching is a direct extension of that same standard — practitioner-led, rigorously vetted, and built for real-world impact.</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px;">
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:24px 20px;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
-        </div>
+      <div style="background:white;border:none;border-radius:12px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);">
+        <img src="https://media.wallstreetprep.com/wspimage/wsp-icon-2t-assign.svg" width="48" height="48" alt="" style="margin:0 auto 14px;display:block;"/>
         <div style="font-size:13px;font-weight:800;color:#1a2535;margin-bottom:8px;">Practitioners, Not Instructors</div>
         <div style="font-size:12px;color:#5a6a7e;line-height:1.6;">Every WSP coach is a vetted practitioner with hands-on experience at bulge bracket banks, mega-fund PE firms, and top hedge funds — not career academics.</div>
       </div>
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:24px 20px;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2-3.8-3.7 5.3-.8z"/></svg>
-        </div>
+      <div style="background:white;border:none;border-radius:12px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);">
+        <img src="https://wspicon.s3.amazonaws.com/icon21-tuneup.svg" width="48" height="48" alt="" style="margin:0 auto 14px;display:block;"/>
         <div style="font-size:13px;font-weight:800;color:#1a2535;margin-bottom:8px;">Rigorous Vetting Process</div>
         <div style="font-size:12px;color:#5a6a7e;line-height:1.6;">Coaches are selected through a multi-stage interview and quality review process. Only the top candidates join our network — ensuring consistent, high-caliber coaching.</div>
       </div>
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:24px 20px;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14M10 3l7 7-7 7"/></svg>
-        </div>
+      <div style="background:white;border:none;border-radius:12px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);">
+        <img src="https://wspicon.s3.amazonaws.com/icon21-teach-board.svg" width="48" height="48" alt="" style="margin:0 auto 14px;display:block;"/>
         <div style="font-size:13px;font-weight:800;color:#1a2535;margin-bottom:8px;">Proven, Real-World Curriculum</div>
         <div style="font-size:12px;color:#5a6a7e;line-height:1.6;">Our coaching is grounded in the same curriculum used to train analysts at Goldman Sachs, KKR, and Evercore — adapted for your individual goals and learning pace.</div>
       </div>
 
-      <div style="background:white;border:1px solid #dde3ec;border-radius:12px;padding:24px 20px;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0d1b2e,#0f4e7a);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z"/><path d="M10 6v4l3 3"/></svg>
-        </div>
+      <div style="background:white;border:none;border-radius:12px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);">
+        <img src="https://wspicon.s3.amazonaws.com/icon21-cal.svg" width="48" height="48" alt="" style="margin:0 auto 14px;display:block;"/>
         <div style="font-size:13px;font-weight:800;color:#1a2535;margin-bottom:8px;">Matched Within 48 Hours</div>
         <div style="font-size:12px;color:#5a6a7e;line-height:1.6;">Our Coaching Concierge team reviews your profile and personally introduces you to your coach — often in under 24 hours, and guaranteed within 48.</div>
       </div>
@@ -2338,16 +2306,16 @@ footer {
       </a>
     </div>
     <div style="display:flex;gap:24px;justify-content:center;flex-wrap:nowrap;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);overflow:hidden;">
-      <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
+      <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l4 4 8-8"/></svg>Coach intro within 48 hours
       </div>
-      <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
+      <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l4 4 8-8"/></svg>100+ vetted coaches
       </div>
-      <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
+      <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l4 4 8-8"/></svg>4.83★ average rating
       </div>
-      <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
+      <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#72ffab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l4 4 8-8"/></svg>Satisfaction guarantee
       </div>
     </div>
@@ -2406,8 +2374,8 @@ footer {
     <div class="fnav-item" onclick="floatScroll('who-is-this-for')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2"/><path d="M3 12c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>Who Is This For?</div>
     <div class="fnav-item" onclick="floatScroll('how-it-works')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4v3.5l2 2"/></svg>How It Works</div>
     <div class="fnav-item" onclick="floatScroll('tracks')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h10M2 7h7M2 10h4"/></svg>Coaching Tracks</div>
-    <div class="fnav-item" data-target="customizations" onclick="floatScroll('customizations')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M9 4l3 3-3 3"/></svg>Step 2: Customize</div>
-    <div class="fnav-item" data-target="packages" onclick="floatScroll('packages')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="2"/><path d="M5 7h4M7 5v4"/></svg>Step 3: Packages</div>
+    <div class="fnav-item" data-target="customizations" onclick="floatScroll('customizations')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M9 4l3 3-3 3"/></svg>Book a Coach: About You</div>
+    <div class="fnav-item" data-target="packages" onclick="floatScroll('packages')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="2"/><path d="M5 7h4M7 5v4"/></svg>Book a Coach: Hours</div>
     <div class="fnav-item" onclick="floatScroll('instructors')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2"/><path d="M3 12c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>Our Coaches</div>
     <div class="fnav-item" onclick="floatScroll('pricing-overview')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v.5M7 9v.5M5.5 6a1.5 1.5 0 013 0c0 1-1.5 1.5-1.5 2.5"/></svg>Pricing</div>
     <div class="fnav-item" onclick="floatScroll('why-wsp')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2l1.5 3 3.5.5-2.5 2.5.5 3.5L7 10l-3 1.5.5-3.5L2 5.5l3.5-.5z"/></svg>Why WSP?</div>
