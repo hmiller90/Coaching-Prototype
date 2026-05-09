@@ -477,10 +477,10 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .faq-q-text{font-size:14.5px;font-weight:600;color:#1a3a5c;line-height:1.4;transition:color .15s;}
 .faq-q:hover .faq-q-text{font-size:14.5px;font-weight:600;color:#1a3a5c;line-height:1.4;transition:color .15s;}
 .faq-icon{width:18px;height:18px;flex-shrink:0;stroke:#5a7a99;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;}
-.faq-item.open .faq-icon{width:18px;height:18px;flex-shrink:0;stroke:#5a7a99;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
 .faq-a{display:none;font-size:14px;color:#2d4a6a;line-height:1.7;padding:14px 18px;background:#f7fafd;border-top:0.5px solid #d4e3f0;}
 .faq-item.open .faq-q-text{color:#0f4e7a;}
-.faq-item.open .faq-a{display:none;font-size:14px;color:#2d4a6a;line-height:1.7;padding:14px 18px;background:#f7fafd;border-top:0.5px solid #d4e3f0;}
+.faq-item.open .faq-a{display:block;}
 .faq-consult-card{background:linear-gradient(135deg,#0d1b2e 0%,#1a3a5c 50%,#0f4e7a 100%);border-radius:10px;padding:22px;margin-top:20px;}
 
 /* ─── NAV DROPDOWN ─── */
@@ -590,7 +590,7 @@ footer {
 .icar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}
 
 /* ─── TESTIMONIAL CAROUSEL ─── */
-.tcar-card{flex:0 0 calc(33.333% - 14px);background:#f5f7fa;border:1px solid #dde3ec;border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;gap:10px;}
+.tcar-card{flex:0 0 calc(33.333% - 14px);min-width:calc(33.333% - 14px);background:#f5f7fa;border:1px solid #dde3ec;border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;gap:10px;}
 .tcar-stars{color:#f5a623;font-size:13px;letter-spacing:2px;}
 .tcar-head{font-size:14px;font-weight:700;color:#1a2535;line-height:1.3;}
 .tcar-body{font-size:13px;color:#5a6a7e;line-height:1.7;flex:1;margin:0;}
@@ -714,10 +714,10 @@ footer {
   #customizer-topic-grid{grid-template-columns:repeat(2,1fr) !important;}
 
   /* ── Coach carousel ── */
-  .icar-grid{grid-template-columns:repeat(2,1fr) !important;}
+  .icar-grid{grid-template-columns:repeat(3,200px) !important;justify-content:center;}
 
   /* ── Testimonials carousel ── */
-  .tcar-card{flex:0 0 calc(100% - 0px);}
+  
 
   /* ── Form ── */
   .form-wrap{padding:24px 18px;margin:20px auto 0;border-radius:10px;}
@@ -866,7 +866,9 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .section-hidden{display:none;}
 .section-reveal{animation:revealSection .5s ease forwards;}
 @keyframes revealSection{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-</style>
+
+.tcar-dot{width:8px;height:8px;border-radius:50%;background:#dde3ec;border:none;cursor:pointer;transition:all .2s;padding:0;flex-shrink:0;}
+.tcar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}</style>
 </head>
 <body>
 
@@ -1316,7 +1318,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
             <div style="margin-top:auto;padding-top:16px;">
               <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;gap:0;">
-                  <button class="book-btn" style="width:100%;opacity:.4;cursor:not-allowed;filter:grayscale(.4);font-style:italic;" id="cust-book-btn" onclick="custBookNow()" disabled>Select 3+ topics to continue</button>
+                  <button class="book-btn cust-book-btn-el" style="width:100%;opacity:.4;cursor:not-allowed;filter:grayscale(.4);font-style:italic;" onclick="custBookNow()" disabled>Select at least one topic to continue</button>
                   <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});setTimeout(function(){faqSelectRow(8);},400);" style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-decoration:none;transition:all .2s;padding:2px 0;margin-top:8px;" title="Learn about same-day coach matching" onmouseover="this.style.gap='8px';this.querySelector('span').style.borderBottomColor='#3ecf8e';this.querySelector('span').style.color='#0d1b2e';" onmouseout="this.style.gap='5px';this.querySelector('span').style.borderBottomColor='rgba(62,207,142,.4)';this.querySelector('span').style.color='#3ecf8e';">
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v3l1.5 1.5"/></svg>
                 <span style="font-size:12px;font-weight:700;color:#3ecf8e;border-bottom:1px dashed rgba(62,207,142,.4);transition:all .2s;">Same-day matching available*</span>
@@ -1382,95 +1384,138 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
       <div style="position:absolute;inset:-2px;border-radius:13px;box-shadow:0 0 20px rgba(114,255,171,.25), 0 0 50px rgba(114,255,171,.15);pointer-events:none;z-index:0;"></div>
       <div class="form-wrap" style="position:relative;z-index:1;margin:0;">
       <div class="form-progress" id="form-progress"></div>
+
       <div class="form-step active" id="fstep-1">
         <div class="form-step-body">
-        <div class="form-q">Is this coaching for you or someone else?</div>
-        <div class="form-hint">This helps us personalize the experience for the learner.</div>
-        <div class="btn-group">
-          <button class="choice-btn" onclick="selectChoice(this,'forWho','me');toggleLearnerFields('me')">Myself</button>
-          <button class="choice-btn" onclick="selectChoice(this,'forWho','someone');toggleLearnerFields('someone')">Someone else</button>
-        </div>
-        <div class="learner-fields" id="learner-fields">
-          <div class="form-row">
-            <div class="form-field"><label class="form-label">First name</label><input class="form-input" type="text" placeholder="First name"/></div>
-            <div class="form-field"><label class="form-label">Last name</label><input class="form-input" type="text" placeholder="Last name"/></div>
+          <div class="form-q">Is this coaching for you or someone else?</div>
+          <div class="form-hint">This helps us personalize the experience for the learner.</div>
+          <div class="btn-group">
+            <button class="choice-btn" onclick="selectChoice(this,'forWho','me');toggleLearnerFields('me')">Myself</button>
+            <button class="choice-btn" onclick="selectChoice(this,'forWho','someone');toggleLearnerFields('someone')">Someone else</button>
           </div>
-          <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="you@email.com"/></div>
-        </div>
+          <div class="learner-fields" id="learner-fields">
+            <div class="form-row">
+              <div class="form-field"><label class="form-label">First name</label><input class="form-input" type="text" placeholder="First name"/></div>
+              <div class="form-field"><label class="form-label">Last name</label><input class="form-input" type="text" placeholder="Last name"/></div>
+            </div>
+            <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="you@email.com"/></div>
+          </div>
         </div>
       </div>
-      <div class="form-step" id="fstep-2"><div class="form-step-body">
-        <div class="form-q">What is your current career level?</div>
-        <select class="form-select"><option value="">Select career level...</option><option>Undergraduate Student</option><option>Graduate Student</option><option>Early Career</option><option>Mid-Career</option><option>Established Professional</option></select>
-      </div></div>
-      <div class="form-step" id="fstep-3"><div class="form-step-body">
-        <div class="form-q">Your Background &amp; Starting Point:</div>
-        <textarea class="form-input" id="q3-input" maxlength="3000" placeholder="e.g. I'm a junior at a non-target school targeting IB roles..."></textarea>
-        <div style="text-align:right;font-size:12px;color:var(--text-muted);margin-top:6px;" id="q3-count">0 / 500 words</div>
-      </div></div>
-      <div class="form-step" id="fstep-4"><div class="form-step-body">
-        <div class="form-q">Your Goals &amp; Target Outcome:</div>
-        <textarea class="form-input" id="q4-input" maxlength="3000" placeholder="e.g. I want to land a summer analyst offer..."></textarea>
-        <div style="text-align:right;font-size:12px;color:var(--text-muted);margin-top:6px;" id="q4-count">0 / 500 words</div>
-      </div></div>
-      <div class="form-step" id="fstep-5"><div class="form-step-body">
-        <div class="form-q">Where are you located?</div>
-        <div class="form-field"><label class="form-label">Country</label>
-          <select class="form-select" id="country-select" onchange="updateTimezones()">
-            <option value="">Select country...</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="CA">Canada</option><option value="AU">Australia</option><option value="SG">Singapore</option><option value="HK">Hong Kong</option><option value="JP">Japan</option><option value="IN">India</option><option value="UAE">United Arab Emirates</option><option value="OTHER">Other</option>
+
+      <div class="form-step" id="fstep-2">
+        <div class="form-step-body">
+          <div class="form-q">How soon would you like to start coaching?</div>
+          <select class="form-select" id="form-timing-select" onchange="toggleDatePicker(this);toggleUrgentNotice(this)">
+            <option value="">Select timing...</option>
+            <option value="urgent">Urgent — as soon as possible</option>
+            <option value="soon">Very soon — within 1–2 days</option>
+            <option value="week">Flexible — within 1–2 weeks</option>
+            <option value="month">No rush — 1–2 months out</option>
+            <option value="date">A specific date</option>
+          </select>
+          <div id="urgent-notice" style="display:none;margin-top:12px;padding:12px 14px;background:#fffbe6;border:1.5px solid #f5c842;border-radius:8px;">
+            <span style="font-size:13px;color:#7a5200;line-height:1.55;">Same-day matching requests must be submitted by <strong>3:00 PM ET on business days</strong>.</span>
+          </div>
+          <div class="date-picker" id="date-picker">
+            <label class="form-label" style="margin-top:12px;display:block;">Preferred start date</label>
+            <input class="form-input" type="date" style="max-width:240px;margin-top:6px;"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="fstep-3">
+        <div class="form-step-body">
+          <div class="form-q">What is your current career level?</div>
+          <select class="form-select" id="form-career-select">
+            <option value="">Select career level...</option>
+            <option>Undergraduate Student</option>
+            <option>Graduate Student</option>
+            <option>Early Career (0–3 years)</option>
+            <option>Mid-Career (3–8 years)</option>
+            <option>Established Professional (8+ years)</option>
           </select>
         </div>
-        <div class="form-field" style="margin-top:12px;"><label class="form-label">Timezone</label>
-          <select class="form-select" id="timezone-select"><option value="">Select country first...</option></select>
-        </div>
-      </div></div>
-      <div class="form-step" id="fstep-6"><div class="form-step-body">
-        <div class="form-q">When would you like to start coaching sessions?</div>
-        <select class="form-select" onchange="toggleDatePicker(this);toggleUrgentNotice(this)">
-          <option value="">Select timing...</option><option value="urgent">Urgent: immediately</option><option value="soon">Very Soon: 1-2 days</option><option value="week">Flexible: 1-2 weeks</option><option value="month">No Rush: 1-2 months</option><option value="date">Specific date</option>
-        </select>
-        <div id="urgent-notice" style="display:none;margin-top:12px;padding:12px 14px;background:#fffbe6;border:1.5px solid #f5c842;border-radius:8px;">
-          <span style="font-size:13px;color:#7a5200;line-height:1.55;">Same-day requests must be submitted by <strong>3:00 PM ET on business days</strong>.</span>
-        </div>
-        <div class="date-picker" id="date-picker">
-          <label class="form-label" style="margin-top:12px;display:block;">Select your preferred start date</label>
-          <input class="form-input" type="date" style="max-width:240px;margin-top:6px;"/>
-        </div>
-      </div></div>
-      <div class="form-step" id="fstep-7"><div class="form-step-body">
-        <div class="form-q">What is your availability for coaching?</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;">
-          <div><div class="avail-col-title">Day — general</div>
-            <div class="avail-check"><input type="checkbox" id="d1"><label for="d1">Any / Flexible</label></div>
-            <div class="avail-check"><input type="checkbox" id="d2"><label for="d2">Weekdays</label></div>
-            <div class="avail-check"><input type="checkbox" id="d3"><label for="d3">Weekends</label></div>
+      </div>
+
+      <div class="form-step" id="fstep-4">
+        <div class="form-step-body">
+          <div class="form-q">Where are you located?</div>
+          <div class="form-field">
+            <label class="form-label">Country</label>
+            <select class="form-select" id="country-select" onchange="updateTimezones()">
+              <option value="">Select country...</option>
+              <option value="US">United States</option><option value="GB">United Kingdom</option>
+              <option value="CA">Canada</option><option value="AU">Australia</option>
+              <option value="SG">Singapore</option><option value="HK">Hong Kong</option>
+              <option value="JP">Japan</option><option value="IN">India</option>
+              <option value="UAE">United Arab Emirates</option><option value="OTHER">Other</option>
+            </select>
           </div>
-          <div><div class="avail-col-title">Day — specific</div>
-            <div class="avail-check"><input type="checkbox" id="d4"><label for="d4">Monday</label></div>
-            <div class="avail-check"><input type="checkbox" id="d5"><label for="d5">Tuesday</label></div>
-            <div class="avail-check"><input type="checkbox" id="d6"><label for="d6">Wednesday</label></div>
-            <div class="avail-check"><input type="checkbox" id="d7"><label for="d7">Thursday</label></div>
-            <div class="avail-check"><input type="checkbox" id="d8"><label for="d8">Friday</label></div>
-          </div>
-          <div><div class="avail-col-title">Time preferences</div>
-            <div class="avail-check"><input type="checkbox" id="t0"><label for="t0">Any / Flexible</label></div>
-            <div class="avail-check"><input type="checkbox" id="t1"><label for="t1">Morning</label></div>
-            <div class="avail-check"><input type="checkbox" id="t2"><label for="t2">Mid-Day</label></div>
-            <div class="avail-check"><input type="checkbox" id="t3"><label for="t3">Afternoon</label></div>
-            <div class="avail-check"><input type="checkbox" id="t4"><label for="t4">Evening</label></div>
+          <div class="form-field" style="margin-top:12px;">
+            <label class="form-label">Timezone</label>
+            <select class="form-select" id="timezone-select"><option value="">Select country first...</option></select>
           </div>
         </div>
-      </div></div>
-      <div class="form-step" id="fstep-8"><div class="form-step-body">
-        <div class="form-q">You're almost done!</div>
-        <div class="form-hint">Review your answers before proceeding. Click <strong>Go Back</strong> to make changes.</div>
-        <div id="summary-list"></div>
-      </div></div>
+      </div>
+
+      <div class="form-step" id="fstep-5">
+        <div class="form-step-body">
+          <div class="form-q">What is your availability for coaching?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;">
+            <div>
+              <div class="avail-col-title">Day — general</div>
+              <div class="avail-check"><input type="checkbox" id="d1"><label for="d1">Any / Flexible</label></div>
+              <div class="avail-check"><input type="checkbox" id="d2"><label for="d2">Weekdays</label></div>
+              <div class="avail-check"><input type="checkbox" id="d3"><label for="d3">Weekends</label></div>
+            </div>
+            <div>
+              <div class="avail-col-title">Day — specific</div>
+              <div class="avail-check"><input type="checkbox" id="d4"><label for="d4">Monday</label></div>
+              <div class="avail-check"><input type="checkbox" id="d5"><label for="d5">Tuesday</label></div>
+              <div class="avail-check"><input type="checkbox" id="d6"><label for="d6">Wednesday</label></div>
+              <div class="avail-check"><input type="checkbox" id="d7"><label for="d7">Thursday</label></div>
+              <div class="avail-check"><input type="checkbox" id="d8"><label for="d8">Friday</label></div>
+            </div>
+            <div>
+              <div class="avail-col-title">Time</div>
+              <div class="avail-check"><input type="checkbox" id="t0"><label for="t0">Any / Flexible</label></div>
+              <div class="avail-check"><input type="checkbox" id="t1"><label for="t1">Morning</label></div>
+              <div class="avail-check"><input type="checkbox" id="t2"><label for="t2">Mid-Day</label></div>
+              <div class="avail-check"><input type="checkbox" id="t3"><label for="t3">Afternoon</label></div>
+              <div class="avail-check"><input type="checkbox" id="t4"><label for="t4">Evening</label></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="fstep-6">
+        <div class="form-step-body">
+          <div class="form-q">A bit about you</div>
+          <div class="form-hint">Answer both questions below — they help us match you with the right coach.</div>
+          <div class="form-field">
+            <label class="form-label">Your background &amp; starting point</label>
+            <textarea class="form-input" id="q3-input" maxlength="3000" rows="3" style="min-height:80px;" placeholder="e.g. I'm a junior at a non-target school targeting IB roles, currently preparing for superday interviews..."></textarea>
+          </div>
+          <div class="form-field" style="margin-top:10px;">
+            <label class="form-label">Your goals &amp; target outcome</label>
+            <textarea class="form-input" id="q4-input" maxlength="3000" rows="3" style="min-height:80px;" placeholder="e.g. I want to land a summer analyst offer at a bulge bracket by next recruiting cycle..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="fstep-7">
+        <div class="form-step-body">
+          <div class="form-q">Review your answers</div>
+          <div class="form-hint">Everything look good? Click <strong>Submit</strong> to continue to choose your package.</div>
+          <div id="summary-list" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;"></div>
+        </div>
+      </div>
       <div class="form-nav">
-        <div><span class="step-counter" id="step-counter">Step 1 of 8</span><div class="next-preview" id="next-preview"></div></div>
+        <div><span class="step-counter" id="form-step-counter">Step 1 of 7</span></div>
         <div style="display:flex;gap:10px;">
-          <button class="btn-back" id="btn-back" onclick="formBack()" style="display:none;">Go Back</button>
-          <button class="btn-next" id="btn-next" onclick="formNext()">Next</button>
+          <button class="btn-back" id="form-btn-back" style="display:none;" onclick="formBack()">Go Back</button>
+          <button class="btn-next" id="form-btn-next" onclick="formNext()">Next</button>
         </div>
       </div>
       </div>
@@ -1527,30 +1572,47 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <div style="width:20%;flex-shrink:0;">
       <section class="step4-section" id="what-to-expect" data-step="4">
   <div class="section-inner">
-    <div class="section-eyebrow">Book a Coach</div>
-    <h2 class="section-title">What Happens Next</h2>
-    <div class="step4-card">
-      <div class="step4-icon"><svg viewBox="0 0 26 26" fill="none" stroke="var(--wsp-green-dark)" stroke-width="2"><circle cx="13" cy="13" r="10"/><path d="M9 13l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="step4-intro">Thank you for your purchase! We've kicked off the instructor pairing process and our Coaching Concierge is already working to match you with the best coach for your goals.</div>
-      <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;">Here's what happens from here:</p>
-      <ul class="step4-items">
-        <li><div class="step4-bullet"><span>1</span></div><div class="step4-item-text"><strong>Check your inbox:</strong> You'll receive an email with instructions to set up your online learning portal.</div></li>
-        <li><div class="step4-bullet"><span>2</span></div><div class="step4-item-text"><strong>Access your portal:</strong> Log in and begin exploring your curated learning journeys and bonus courses.</div></li>
-        <li><div class="step4-bullet"><span>3</span></div><div class="step4-item-text"><strong>Coach introduction (within 48 hours):</strong> Our team will email you an introduction to your coach.</div></li>
-        <li><div class="step4-bullet"><span>4</span></div><div class="step4-item-text"><strong>Schedule your intro call:</strong> Book a complimentary 10-minute call to align on your goals and schedule your first session.</div></li>
-      </ul>
-      <div style="margin-top:20px;padding:14px 18px;background:rgba(26,127,193,.05);border-left:3px solid var(--wsp-blue);border-radius:0 6px 6px 0;">
-        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Questions? Reach out anytime at <a href="mailto:coaching@wallstreetprep.com" style="color:var(--wsp-blue);">coaching@wallstreetprep.com</a></p>
+    <div style="background:#f5f7fa;border:1px solid #dde3ec;border-radius:10px;padding:24px 28px;max-width:860px;margin:0 auto;">
+
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(62,207,142,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M4.5 7l2 2 3-3"/></svg>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#1a2535;line-height:1.2;">You're all set — here's what happens next</div>
+          <div style="font-size:13px;color:#5a6a7e;margin-top:3px;">Our Coaching Concierge is already working to find your best-fit coach.</div>
+        </div>
       </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div style="background:white;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">1</div>
+          <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:3px;">Check your inbox</div><div style="font-size:12px;color:#5a6a7e;line-height:1.55;">You'll receive an email with instructions to set up your online learning portal.</div></div>
+        </div>
+        <div style="background:white;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">2</div>
+          <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:3px;">Access your portal</div><div style="font-size:12px;color:#5a6a7e;line-height:1.55;">Log in and begin exploring your curated learning journeys and bonus courses.</div></div>
+        </div>
+        <div style="background:white;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">3</div>
+          <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:3px;">Coach introduction</div><div style="font-size:12px;color:#5a6a7e;line-height:1.55;">Our team will email you an introduction to your coach within 48 hours of purchase.</div></div>
+        </div>
+        <div style="background:white;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#72ffab;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#0d1b2e;flex-shrink:0;">4</div>
+          <div><div style="font-size:13px;font-weight:700;color:#1a2535;margin-bottom:3px;">Schedule your intro call</div><div style="font-size:12px;color:#5a6a7e;line-height:1.55;">Book a complimentary 10-minute call to align on goals and schedule your first session.</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:14px;border-top:1px solid #eef1f5;">
+        <div style="font-size:12px;color:#8a9bb0;">Questions? <a href="mailto:coaching@wallstreetprep.com" style="color:#1a7fc1;">coaching@wallstreetprep.com</a></div>
+        <button onclick="bookingGoTo(0)" style="display:inline-flex;align-items:center;gap:7px;background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:500;color:#5a6a7e;cursor:pointer;transition:all .2s;font-family:inherit;" onmouseover="this.style.borderColor='#1a7fc1';this.style.color='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec';this.style.color='#5a6a7e'">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+          Back to coaching tracks
+        </button>
+      </div>
+
     </div>
   </div>
-
-    <div style="max-width:740px;margin:20px auto 0;text-align:center;">
-      <button onclick="bookingGoTo(0)" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:10px 22px;font-size:14px;font-weight:500;color:#5a6a7e;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='#1a7fc1';this.style.color='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec';this.style.color='#5a6a7e'">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
-        Back to coaching tracks
-      </button>
-    </div>
 </section>
     </div>
 
@@ -1565,69 +1627,137 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
       <div style="position:absolute;inset:-2px;border-radius:13px;box-shadow:0 0 20px rgba(114,255,171,.25);pointer-events:none;z-index:0;"></div>
       <div class="form-wrap" style="position:relative;z-index:1;margin:0;">
       <div class="form-progress" id="consult-progress"></div>
-      <div class="form-step active" id="cfstep-1"><div class="form-step-body">
-        <div class="form-q">Is this coaching for you or someone else?</div>
-        <div class="btn-group">
-          <button class="choice-btn" onclick="consultSelectChoice(this,'forWho','me');consultToggleLearnerFields('me')">Myself</button>
-          <button class="choice-btn" onclick="consultSelectChoice(this,'forWho','someone');consultToggleLearnerFields('someone')">Someone else</button>
-        </div>
-        <div class="learner-fields" id="consult-learner-fields">
-          <div class="form-row">
-            <div class="form-field"><label class="form-label">First name</label><input class="form-input" type="text" placeholder="First name"/></div>
-            <div class="form-field"><label class="form-label">Last name</label><input class="form-input" type="text" placeholder="Last name"/></div>
+
+      <div class="form-step active" id="cfstep-1">
+        <div class="form-step-body">
+          <div class="form-q">Is this coaching for you or someone else?</div>
+          <div class="form-hint">This helps us personalize the experience for the learner.</div>
+          <div class="btn-group">
+            <button class="choice-btn" onclick="consultSelectChoice(this,'forWho','me');consultToggleLearnerFields('me')">Myself</button>
+            <button class="choice-btn" onclick="consultSelectChoice(this,'forWho','someone');consultToggleLearnerFields('someone')">Someone else</button>
           </div>
-          <div class="form-field"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="you@email.com"/></div>
-        </div>
-      </div></div>
-      <div class="form-step" id="cfstep-2"><div class="form-step-body">
-        <div class="form-q">What is your current career level?</div>
-        <select class="form-select"><option value="">Select career level...</option><option>Undergraduate Student</option><option>Graduate Student</option><option>Early Career</option><option>Mid-Career</option><option>Established Professional</option></select>
-      </div></div>
-      <div class="form-step" id="cfstep-3"><div class="form-step-body">
-        <div class="form-q">Your Background &amp; Starting Point</div>
-        <textarea class="form-input" id="cq3-input" maxlength="3000" placeholder="Tell us about your background..."></textarea>
-      </div></div>
-      <div class="form-step" id="cfstep-4"><div class="form-step-body">
-        <div class="form-q">Your Goals &amp; Target Outcome</div>
-        <textarea class="form-input" id="cq4-input" maxlength="3000" placeholder="What does success look like for you?"></textarea>
-      </div></div>
-      <div class="form-step" id="cfstep-5"><div class="form-step-body">
-        <div class="form-q">Where are you located?</div>
-        <select class="form-select" id="consult-country-select" onchange="consultUpdateTimezones()">
-          <option value="">Select country...</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="CA">Canada</option><option value="AU">Australia</option><option value="OTHER">Other</option>
-        </select>
-        <select class="form-select" id="consult-timezone-select" style="margin-top:12px;"><option value="">Select country first...</option></select>
-      </div></div>
-      <div class="form-step" id="cfstep-6"><div class="form-step-body">
-        <div class="form-q">When would you like to start?</div>
-        <select class="form-select" onchange="consultToggleDatePicker(this);consultToggleUrgentNotice(this)">
-          <option value="">Select timing...</option><option value="urgent">Urgent</option><option value="soon">1-2 days</option><option value="week">1-2 weeks</option><option value="month">1-2 months</option><option value="date">Specific date</option>
-        </select>
-        <div id="consult-urgent-notice" style="display:none;margin-top:12px;padding:12px;background:#fffbe6;border:1.5px solid #f5c842;border-radius:8px;"><span style="font-size:13px;color:#7a5200;">Same-day requests by <strong>3:00 PM ET</strong>.</span></div>
-        <div class="date-picker" id="consult-date-picker"><input class="form-input" type="date" style="max-width:240px;margin-top:12px;"/></div>
-      </div></div>
-      <div class="form-step" id="cfstep-7"><div class="form-step-body">
-        <div class="form-q">What is your availability?</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;">
-          <div><div class="avail-col-title">Day</div>
-            <div class="avail-check"><input type="checkbox" id="cd1"><label for="cd1">Weekdays</label></div>
-            <div class="avail-check"><input type="checkbox" id="cd2"><label for="cd2">Weekends</label></div>
-          </div>
-          <div><div class="avail-col-title">Time</div>
-            <div class="avail-check"><input type="checkbox" id="ct1"><label for="ct1">Morning</label></div>
-            <div class="avail-check"><input type="checkbox" id="ct2"><label for="ct2">Afternoon</label></div>
-            <div class="avail-check"><input type="checkbox" id="ct3"><label for="ct3">Evening</label></div>
+          <div class="learner-fields" id="consult-learner-fields">
+            <div class="form-row">
+              <div class="form-field"><label class="form-label">First name</label><input class="form-input" type="text" placeholder="First name"/></div>
+              <div class="form-field"><label class="form-label">Last name</label><input class="form-input" type="text" placeholder="Last name"/></div>
+            </div>
+            <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="you@email.com"/></div>
           </div>
         </div>
-      </div></div>
-      <div class="form-step" id="cfstep-8"><div class="form-step-body">
-        <div class="form-q">Almost done!</div>
-        <div id="consult-summary-list"></div>
-      </div></div>
+      </div>
+
+      <div class="form-step" id="cfstep-2">
+        <div class="form-step-body">
+          <div class="form-q">How soon would you like to start coaching?</div>
+          <select class="form-select" id="consult-timing-select" onchange="consultToggleDatePicker(this);consultToggleUrgentNotice(this)">
+            <option value="">Select timing...</option>
+            <option value="urgent">Urgent — as soon as possible</option>
+            <option value="soon">Very soon — within 1–2 days</option>
+            <option value="week">Flexible — within 1–2 weeks</option>
+            <option value="month">No rush — 1–2 months out</option>
+            <option value="date">A specific date</option>
+          </select>
+          <div id="consult-urgent-notice" style="display:none;margin-top:12px;padding:12px 14px;background:#fffbe6;border:1.5px solid #f5c842;border-radius:8px;">
+            <span style="font-size:13px;color:#7a5200;line-height:1.55;">Same-day matching requests must be submitted by <strong>3:00 PM ET on business days</strong>.</span>
+          </div>
+          <div class="date-picker" id="consult-date-picker">
+            <label class="form-label" style="margin-top:12px;display:block;">Preferred start date</label>
+            <input class="form-input" type="date" style="max-width:240px;margin-top:6px;"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="cfstep-3">
+        <div class="form-step-body">
+          <div class="form-q">What is your current career level?</div>
+          <select class="form-select" id="consult-career-select">
+            <option value="">Select career level...</option>
+            <option>Undergraduate Student</option>
+            <option>Graduate Student</option>
+            <option>Early Career (0–3 years)</option>
+            <option>Mid-Career (3–8 years)</option>
+            <option>Established Professional (8+ years)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-step" id="cfstep-4">
+        <div class="form-step-body">
+          <div class="form-q">Where are you located?</div>
+          <div class="form-field">
+            <label class="form-label">Country</label>
+            <select class="form-select" id="consult-country-select" onchange="consultUpdateTimezones()">
+              <option value="">Select country...</option>
+              <option value="US">United States</option><option value="GB">United Kingdom</option>
+              <option value="CA">Canada</option><option value="AU">Australia</option>
+              <option value="SG">Singapore</option><option value="HK">Hong Kong</option>
+              <option value="JP">Japan</option><option value="IN">India</option>
+              <option value="UAE">United Arab Emirates</option><option value="OTHER">Other</option>
+            </select>
+          </div>
+          <div class="form-field" style="margin-top:12px;">
+            <label class="form-label">Timezone</label>
+            <select class="form-select" id="consult-timezone-select"><option value="">Select country first...</option></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="cfstep-5">
+        <div class="form-step-body">
+          <div class="form-q">What is your availability for coaching?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;">
+            <div>
+              <div class="avail-col-title">Day — general</div>
+              <div class="avail-check"><input type="checkbox" id="cd1"><label for="cd1">Any / Flexible</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd2"><label for="cd2">Weekdays</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd3"><label for="cd3">Weekends</label></div>
+            </div>
+            <div>
+              <div class="avail-col-title">Day — specific</div>
+              <div class="avail-check"><input type="checkbox" id="cd4"><label for="cd4">Monday</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd5"><label for="cd5">Tuesday</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd6"><label for="cd6">Wednesday</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd7"><label for="cd7">Thursday</label></div>
+              <div class="avail-check"><input type="checkbox" id="cd8"><label for="cd8">Friday</label></div>
+            </div>
+            <div>
+              <div class="avail-col-title">Time</div>
+              <div class="avail-check"><input type="checkbox" id="ct0"><label for="ct0">Any / Flexible</label></div>
+              <div class="avail-check"><input type="checkbox" id="ct1"><label for="ct1">Morning</label></div>
+              <div class="avail-check"><input type="checkbox" id="ct2"><label for="ct2">Mid-Day</label></div>
+              <div class="avail-check"><input type="checkbox" id="ct3"><label for="ct3">Afternoon</label></div>
+              <div class="avail-check"><input type="checkbox" id="ct4"><label for="ct4">Evening</label></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="cfstep-6">
+        <div class="form-step-body">
+          <div class="form-q">A bit about you</div>
+          <div class="form-hint">Answer both questions — they help us recommend the right coaching track for you.</div>
+          <div class="form-field">
+            <label class="form-label">Your background &amp; starting point</label>
+            <textarea class="form-input" id="cq3-input" maxlength="3000" rows="3" style="min-height:80px;" placeholder="e.g. I'm a junior at a non-target school targeting IB roles..."></textarea>
+          </div>
+          <div class="form-field" style="margin-top:10px;">
+            <label class="form-label">Your goals &amp; target outcome</label>
+            <textarea class="form-input" id="cq4-input" maxlength="3000" rows="3" style="min-height:80px;" placeholder="e.g. I want to land a summer analyst offer at a bulge bracket..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-step" id="cfstep-7">
+        <div class="form-step-body">
+          <div class="form-q">Review your answers</div>
+          <div class="form-hint">Everything look good? Click <strong>Submit</strong> to book your free consultation.</div>
+          <div id="consult-summary-list" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;"></div>
+        </div>
+      </div>
       <div class="form-nav">
-        <div><span class="step-counter" id="consult-step-counter">Step 1 of 8</span></div>
+        <div><span class="step-counter" id="consult-step-counter">Step 1 of 7</span></div>
         <div style="display:flex;gap:10px;">
-          <button class="btn-back" id="consult-btn-back" onclick="consultFormBack()" style="display:none;">Go Back</button>
+          <button class="btn-back" id="consult-btn-back" style="display:none;" onclick="consultFormBack()">Go Back</button>
           <button class="btn-next" id="consult-btn-next" onclick="consultFormNext()">Next</button>
         </div>
       </div>
@@ -1638,7 +1768,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     </div>
 
   </div>
-</div>
+
 
 <section class="instructors-section" id="instructors">
   <div class="section-inner">
@@ -1647,7 +1777,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
         <h2 class="section-title" style="margin-bottom:8px;color:white;">Learn from Wall Street's Most Sought After Instructors</h2>
         <p class="section-sub" style="margin:0;color:rgba(255,255,255,.6);max-width:100%;">Our coaches are experienced investment bankers, private equity and investment professionals with an insider's perspective of what it takes to break into and succeed in a career in finance. You will be paired with the finance expert that best matches your individualized learning goals.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;">
+    <div style="display:grid;grid-template-columns:repeat(3,200px);gap:10px;justify-content:center;">
 
         <div class="icar-card" onclick="openCoachModal(0)">
           <div class="icar-avatar" style="background-image:url('https://media.wallstreetprep.com/uploads/2023/07/31082534/Headshot-Aaliyah-Ameer.jpg');"></div>
@@ -1734,9 +1864,9 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
         </div>
 
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;">
+    <div style="border-top:1px solid white;margin-top:18px;padding-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;max-width:620px;margin-left:auto;margin-right:auto;">
       <span style="font-size:22px;font-weight:800;color:#72ffab;">100+</span>
-      <span style="width:1px;height:28px;background:rgba(255,255,255,.2);"></span>
+      <span style="width:1px;height:28px;background:white;"></span>
       <span style="font-size:14px;color:white;font-weight:700;">Additional coaches covering all finance sectors &amp; groups</span>
     </div>
   </div>
@@ -1854,19 +1984,49 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 </section>
 
 <!-- WSP TESTIMONIALS (matches "From Our Customers" on live site) -->
-<section style="background:#ffffff;border-top:1px solid #dde3ec;padding:72px 32px;">
-  <div style="max-width:1200px;margin:0 auto;">
+<section style="background:#ffffff;border-top:1px solid #dde3ec;padding:72px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
     <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1a7fc1;margin-bottom:10px;">From our customers</div>
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:20px;flex-wrap:wrap;">
       <h2 style="font-size:clamp(24px,2.8vw,36px);font-weight:800;color:#1a2535;line-height:1.2;letter-spacing:-.3px;margin:0;">What Our Coaching Clients Say</h2>
-      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-        <button class="tcar-btn" id="tcar-prev" onclick="tcarSlide(-1)" aria-label="Previous">&#8249;</button>
-        <div id="tcar-dots" style="display:flex;gap:5px;align-items:center;"></div>
-        <button class="tcar-btn" id="tcar-next" onclick="tcarSlide(1)" aria-label="Next">&#8250;</button>
-      </div>
     </div>
-    <div style="overflow:hidden;">
-      <div id="tcar-track" style="display:flex;gap:20px;transition:transform .4s cubic-bezier(.4,0,.2,1);">
+  </div>
+
+  <!-- Carousel viewport -->
+  <div style="position:relative;display:flex;align-items:center;gap:0;max-width:1100px;margin:0 auto;padding:0 32px;">
+
+    <!-- Left arrow -->
+    <button id="tcar-prev" onclick="tcarSlide(-1)" aria-label="Previous"
+      style="position:absolute;left:12px;z-index:10;width:44px;height:44px;border-radius:50%;border:1.5px solid #dde3ec;background:white;cursor:pointer;font-size:22px;color:#1a7fc1;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;box-shadow:0 2px 12px rgba(26,58,92,.12);"
+      onmouseover="this.style.background='#1a7fc1';this.style.color='white';this.style.borderColor='#1a7fc1'"
+      onmouseout="this.style.background='white';this.style.color='#1a7fc1';this.style.borderColor='#dde3ec'">&#8249;</button>
+
+    <!-- Fade masks -->
+    <div style="position:absolute;left:0;top:0;bottom:0;width:120px;background:linear-gradient(to right,white 0%,rgba(255,255,255,0) 100%);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:120px;background:linear-gradient(to left,white 0%,rgba(255,255,255,0) 100%);z-index:2;pointer-events:none;"></div>
+
+    <!-- Track viewport -->
+    <div style="overflow:hidden;width:100%;padding:8px 0;">
+      <div id="tcar-track" style="display:flex;gap:20px;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform;">
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;One of the Best Decisions I Made&rdquo;</div>
+          <p class="tcar-body">Working with Wall Street Prep was one of the best decisions I made during my investment banking recruiting process.</p>
+        </div>
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;A Coach Who Truly Cares&rdquo;</div>
+          <p class="tcar-body">My coach was deeply invested in my success — knowledgeable, supportive, and genuinely committed to helping me improve.</p>
+        </div>
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;An Investment in Your Career&rdquo;</div>
+          <p class="tcar-body">1:1 coaching isn&rsquo;t just helpful — it&rsquo;s a true investment in your long-term success.</p>
+        </div>
+        
         <!-- Card 1 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
@@ -1874,6 +2034,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <p class="tcar-body">Working with my coach was a game-changer. He provided a clear framework for interviews and shared insights from his experience at top firms.</p>
           <div class="tcar-result">Result: Secured a full-time offer at a bulge bracket investment bank</div>
         </div>
+        
         <!-- Card 2 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
@@ -1881,6 +2042,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <p class="tcar-body">The combination of structured resources and personalized coaching gave me a major competitive edge. I was able to catch up to—and surpass—peers with more experience.</p>
           <div class="tcar-result">Result: Secured a Summer Analyst position</div>
         </div>
+        
         <!-- Card 3 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
@@ -1888,6 +2050,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <p class="tcar-body">Before coaching, I lacked direction in my recruiting process. With structured guidance and detailed feedback, I built confidence and sharpened both technical and behavioral skills.</p>
           <div class="tcar-result">Result: Received a Summer Analyst offer at Houlihan Lokey</div>
         </div>
+        
         <!-- Card 4 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
@@ -1895,30 +2058,35 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <p class="tcar-body">Despite starting the recruiting process later than most, the coaching helped me refine every aspect of my candidacy — from technicals to Superday prep.</p>
           <div class="tcar-result">Result: Successfully landed an investment banking role</div>
         </div>
+        
         <!-- Card 5 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;Better Than Any Online Course&rdquo;</div>
           <p class="tcar-body">The 1-on-1 approach was far more effective than online tutorials — we focused on both the &ldquo;why&rdquo; and the &ldquo;how,&rdquo; turning theory into practical, real-world skills.</p>
         </div>
+        
         <!-- Card 6 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;Focused on What Actually Matters&rdquo;</div>
           <p class="tcar-body">My coach simplified complex concepts and focused on the skills most relevant to my role and long-term career growth.</p>
         </div>
+        
         <!-- Card 7 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;Built a Clear Framework for Interviews&rdquo;</div>
           <p class="tcar-body">Coaching helped me develop structured, logical answers and dramatically improve my confidence in interviews.</p>
         </div>
+        
         <!-- Card 8 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;Clear, Concise, and Prepared&rdquo;</div>
           <p class="tcar-body">I learned how to deliver concise answers, tackle technical questions, and communicate my thinking effectively under pressure.</p>
         </div>
+        
         <!-- Card 9 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
@@ -1926,42 +2094,144 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <p class="tcar-body">The structured approach made every session efficient and impactful.</p>
           <div class="tcar-result">Result: Achieved more progress in two weeks than I could have on my own</div>
         </div>
+        
         <!-- Card 10 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;One of the Best Decisions I Made&rdquo;</div>
           <p class="tcar-body">Working with Wall Street Prep was one of the best decisions I made during my investment banking recruiting process.</p>
         </div>
+        
         <!-- Card 11 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;A Coach Who Truly Cares&rdquo;</div>
           <p class="tcar-body">My coach was deeply invested in my success — knowledgeable, supportive, and genuinely committed to helping me improve.</p>
         </div>
+        
         <!-- Card 12 -->
         <div class="tcar-card">
           <div class="tcar-stars">★★★★★</div>
           <div class="tcar-head">&ldquo;An Investment in Your Career&rdquo;</div>
           <p class="tcar-body">1:1 coaching isn&rsquo;t just helpful — it&rsquo;s a true investment in your long-term success.</p>
         </div>
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;Landed a Bulge Bracket Offer&rdquo;</div>
+          <p class="tcar-body">Working with my coach was a game-changer. He provided a clear framework for interviews and shared insights from his experience at top firms.</p>
+          <div class="tcar-result">Result: Secured a full-time offer at a bulge bracket investment bank</div>
+        </div>
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;Surpassed My Peers in Half the Time&rdquo;</div>
+          <p class="tcar-body">The combination of structured resources and personalized coaching gave me a major competitive edge. I was able to catch up to—and surpass—peers with more experience.</p>
+          <div class="tcar-result">Result: Secured a Summer Analyst position</div>
+        </div>
+        
+        <div class="tcar-card tcar-clone">
+          <div class="tcar-stars">★★★★★</div>
+          <div class="tcar-head">&ldquo;From Uncertainty to Offer&rdquo;</div>
+          <p class="tcar-body">Before coaching, I lacked direction in my recruiting process. With structured guidance and detailed feedback, I built confidence and sharpened both technical and behavioral skills.</p>
+          <div class="tcar-result">Result: Received a Summer Analyst offer at Houlihan Lokey</div>
+        </div>
+        
       </div>
     </div>
+
+    <!-- Right arrow -->
+    <button id="tcar-next" onclick="tcarSlide(1)" aria-label="Next"
+      style="position:absolute;right:12px;z-index:10;width:44px;height:44px;border-radius:50%;border:1.5px solid #dde3ec;background:white;cursor:pointer;font-size:22px;color:#1a7fc1;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;box-shadow:0 2px 12px rgba(26,58,92,.12);"
+      onmouseover="this.style.background='#1a7fc1';this.style.color='white';this.style.borderColor='#1a7fc1'"
+      onmouseout="this.style.background='white';this.style.color='#1a7fc1';this.style.borderColor='#dde3ec'">&#8250;</button>
+
   </div>
+
+  <!-- Dots below -->
+  <div id="tcar-dots" style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:28px;"></div>
+
 </section>
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
-  <div class="section-inner">
+  <div class="section-inner" style="max-width:860px;">
     <div class="section-eyebrow">Got questions?</div>
     <h2 class="section-title">Frequently Asked Questions</h2>
-    <div style="border:1px solid #c8d5e8;border-radius:10px;overflow:hidden;background:white;margin-top:28px;">
-      <div style="background:rgba(13,27,46,.04);padding:14px;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:start;">
-        <div id="faq-question-list" style="display:flex;flex-direction:column;gap:5px;"></div>
-        <div id="faq-answer-panel" style="background:white;border:1px solid #dde3ec;border-radius:10px;padding:18px 16px;min-height:120px;">
-          <div id="faq-answer-title" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0d1b2e;margin-bottom:10px;"></div>
-          <div id="faq-answer-body" style="font-size:13px;color:#3a4a5c;line-height:1.7;"></div>
+    <div class="faq-list" style="margin-top:28px;">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How does the coach matching process work?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
         </div>
+        <div class="faq-a">After you complete your purchase, our Coaching Concierge team reviews your profile, selected track, and customization notes to identify the best-fit coach from our network. You'll receive an email introduction to your coach within 48 hours — often sooner.</div>
       </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I switch coaches if it's not a good fit?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">Absolutely. We want you to feel confident in your match. If after your intro call you'd prefer a different coach, simply reach out to our team at coaching@wallstreetprep.com and we'll work to find a better fit at no additional cost.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How do I access the online learning portal?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">After your purchase, you'll receive an email with account setup instructions. Once logged in, you'll have access to curated learning journeys and bonus courses relevant to your coaching track.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What's the difference between the coaching packages?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">The packages differ in total hours and price per hour. Quick Support (1–3 hrs at $400/hr) is best for targeted questions. Skill Building (4–9 hrs at $350/hr) is ideal for focused skill development. Performance Accelerator (10–19 hrs at $340/hr) is for intensive preparation. The Mastery Track (20+ hrs at $330/hr) provides the deepest engagement. The Polisher ($500 flat) is a 1-hour mock interview session with immediate feedback.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Are sessions conducted live or asynchronously?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">Most coaching is conducted live via video call (Zoom or similar platforms). The Resume &amp; Mock Interview track also includes asynchronous email-based feedback.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you offer refunds?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">We offer a satisfaction guarantee on unused hours. If you've completed your intro call but haven't yet started your first full session, you may request a full refund on unused hours. After coaching begins, refunds are prorated based on unused hours.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How experienced are WSP coaches?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">All Wall Street Prep coaches are vetted practitioners with real-world experience at leading firms including bulge bracket investment banks, mega-fund private equity firms, and top hedge funds.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does it take to be paired with a coach?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">You can typically expect a coach introduction within 24–48 hours after purchase, with most matches completed in under 24 hours.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I be matched faster than 24 hours?</span>
+          <svg class="faq-icon" viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+        </div>
+        <div class="faq-a">During checkout, you'll be asked how quickly you'd like to begin — select "urgent" if you need expedited matching. In many cases we can introduce you to a coach in as little as 4 hours. <strong>For same-day matching, requests must be submitted by 3:00 PM ET on business days.</strong> Same-day matching is not guaranteed and depends on coach availability.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1973,7 +2243,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <h2 style="font-size:clamp(26px,3vw,42px);font-weight:800;color:white;line-height:1.2;letter-spacing:-.4px;margin-bottom:16px;">Your next career move starts with the right coach.</h2>
     <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;max-width:540px;margin:0 auto 36px;">Join the thousands of finance professionals who've accelerated their careers with Wall Street Prep private coaching.</p>
     <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;">
-      <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;font-size:15px;padding:14px 32px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book a Coach &rarr;</span><span class="book-btn-sub">Takes ~2 min</span></button>
+      <button class="book-btn" onclick="document.getElementById('tracks').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;font-size:15px;padding:14px 32px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book a Coach &rarr;</span></button>
       <div style="width:1px;height:40px;background:rgba(255,255,255,.2);flex-shrink:0;"></div>
       <a onclick="openConsult()" style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:14px 24px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
         <svg viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>
@@ -2053,23 +2323,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
   </div>
 </div>
 
-
 <!-- STICKY TRACK CTA BAR -->
-
-<script>
-(function() {
-  document.addEventListener('DOMContentLoaded', function() {
-    var chipContent = document.getElementById('cust-chip-content');
-    if(chipContent) chipContent.innerHTML='<span style="font-size:11px;font-style:italic;color:rgba(13,27,46,.3);">Select a topic to see its subtopics</span>';
-    showStep(1);
-    consultShowStep(1);
-  });
-
-  var floatingNav = null;
-})();
-</script>
-
-</div>
 
 
 <!-- Polisher What's Included Modal -->
@@ -2127,7 +2381,33 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 </div>
 
 <!-- Upskiller Topics Modal -->
-<div 
+<div id="upskiller-modal" onclick="if(event.target===this)this.style.display='none';" style="display:none;position:fixed;inset:0;background:rgba(13,27,46,.65);z-index:500;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:white;border-radius:16px;padding:32px;max-width:760px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a7fc1;margin-bottom:6px;">The Upskiller &nbsp;·&nbsp; Technical &amp; On-the-Job</div>
+    <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:4px;">Explore Popular Coaching Topics</h3>
+    <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:20px;">Topics listed are provided as a guide — all sessions are tailored<br>to your specific goals. You'll add more details in the next step.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
+      <div style="border-right:1px solid #dde3ec;">
+        <div id="um-row-0" onclick="umSelect(0)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;background:#1a3a5c;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#72ffab;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:700;color:white;">Performance &amp; Execution</span><span style="font-size:11px;color:rgba(255,255,255,.6);">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-1" onclick="umSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Technical Skills</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-2" onclick="umSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Modeling &amp; Valuation</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-3" onclick="umSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">FP&amp;A / Strategic Finance</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-4" onclick="umSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Adv. Deals &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+      </div>
+      <div style="padding:20px;min-height:200px;">
+        <div id="um-panel-0"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Performance &amp; Execution</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Real-world project support</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model review &amp; optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Workflow optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Stakeholder-focused analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Presentation &amp; Formatting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deadlines &amp; Deliverables</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>"What good looks like"</li></ul></div>
+        <div id="um-panel-1" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Technical Skills</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Advanced modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Scenario &amp; sensitivity analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Advanced Excel</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model building &amp; auditing</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Industry modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Applied valuation deep dives</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>AI tools in financial workflows</li></ul></div>
+        <div id="um-panel-2" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Modeling &amp; Valuation</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Modeling deep dive</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Accretion / dilution analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial forecasting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Scenario &amp; sensitivity analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Modeling Best Practices</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model Auditing &amp; QC</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Valuation Fundamentals</li></ul></div>
+        <div id="um-panel-3" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">FP&amp;A / Strategic Finance</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial statement analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Working capital management</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Revenue &amp; expense modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Budgeting &amp; forecasting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Variance analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>KPI dashboards &amp; reporting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Strategic decision support</li></ul></div>
+        <div id="um-panel-4" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Adv. Deals &amp; Investing</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deal analysis &amp; evaluation</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Due diligence support</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Capital structure analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Return analysis &amp; IRR</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Portfolio monitoring</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Exit analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Real-world Case Studies</li></ul></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-top:20px;border-top:1px solid #e8edf3;margin-top:20px;">
+      <button onclick="document.getElementById('upskiller-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
+      <button class="book-btn" onclick="document.getElementById('upskiller-modal').style.display='none';scrollToForm(2);" style="font-size:13px;padding:10px 24px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
+    </div>
+    <button onclick="document.getElementById('upskiller-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
+  </div>
 </div>
 
 <!-- Customizer Topics Modal -->
@@ -2163,17 +2443,66 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
       <div style="font-size:12px;color:#8a9bb0;" id="cm-topic-counter">0 subtopics selected</div>
       <div style="display:flex;gap:10px;">
         <button onclick="document.getElementById('customizer-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-        <button id="cust-modal-book-btn" class="book-btn" onclick="document.getElementById('customizer-modal').style.display='none';custBookNow();" style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;" disabled><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
+        <button id="cust-modal-book-btn" class="book-btn cust-book-btn-el" onclick="document.getElementById('customizer-modal').style.display='none';custBookNow();" disabled style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;" disabled><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
       </div>
     </div>
     <button onclick="document.getElementById('customizer-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
   </div>
 </div>
+
+<!-- CART MODAL -->
+<div class="cart-overlay" id="cart-overlay">
+  <div class="cart-modal">
+    <button class="cart-close" onclick="closeCart()">×</button>
+    <div class="cart-title">Complete your purchase</div>
+    <div class="cart-subtitle">Review your order and enter billing details below.</div>
+    <div class="cart-pkg-name" id="cart-pkg-name">Skill Building — $350/hr</div>
+    <div class="cart-qty" id="cart-qty-row">
+      <div class="cart-qty-label">Number of hours</div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="adjustQty(-1)">−</button>
+        <input class="qty-val" id="qty-val" type="number" value="4" min="1"/>
+        <button class="qty-btn" onclick="adjustQty(1)">+</button>
       </div>
+      <div class="cart-total" id="cart-total">$1,400</div>
     </div>
-    <button onclick="document.getElementById('customizer-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
+    <div id="cart-flat-label" style="display:none;padding:10px 0 4px;font-size:20px;font-weight:800;color:var(--wsp-blue);">$500 <span style="font-size:13px;font-weight:500;color:var(--text-muted);">— flat rate</span></div>
+    <div id="max-tooltip" style="display:none;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff8e6;border:1.5px solid #f5c842;border-radius:7px;margin-bottom:4px;">
+      <span class="tooltip-msg" style="font-size:13px;color:#7a5000;line-height:1.55;"></span>
+    </div>
+    <div class="cart-divider"></div>
+    <div class="cart-section-title">Contact information</div>
+    <div class="cart-row">
+      <div class="cart-field"><label class="cart-label">First name</label><input class="cart-input" type="text" placeholder="Jane"/></div>
+      <div class="cart-field"><label class="cart-label">Last name</label><input class="cart-input" type="text" placeholder="Smith"/></div>
+    </div>
+    <div class="cart-field"><label class="cart-label">Email address</label><input class="cart-input" type="email" placeholder="jane@email.com"/></div>
+    <div class="cart-field"><label class="cart-label">Phone number</label><input class="cart-input" type="tel" placeholder="+1 (555) 000-0000"/></div>
+    <div class="cart-divider"></div>
+    <div class="cart-section-title">Billing address</div>
+    <div class="cart-field"><label class="cart-label">Street address</label><input class="cart-input" type="text" placeholder="123 Main Street"/></div>
+    <div class="cart-row">
+      <div class="cart-field"><label class="cart-label">City</label><input class="cart-input" type="text" placeholder="New York"/></div>
+      <div class="cart-field"><label class="cart-label">State / Province</label><input class="cart-input" type="text" placeholder="NY"/></div>
+    </div>
+    <div class="cart-row">
+      <div class="cart-field"><label class="cart-label">ZIP / Postal code</label><input class="cart-input" type="text" placeholder="10001"/></div>
+      <div class="cart-field"><label class="cart-label">Country</label><input class="cart-input" type="text" placeholder="United States"/></div>
+    </div>
+    <div class="cart-divider"></div>
+    <div class="cart-section-title">Payment information</div>
+    <div class="cart-field"><label class="cart-label">Cardholder name</label><input class="cart-input" type="text" placeholder="Jane Smith"/></div>
+    <div class="cart-field"><label class="cart-label">Card number</label><input class="cart-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19"/></div>
+    <div class="cc-row">
+      <div class="cart-field"><label class="cart-label">Expiry</label><input class="cart-input" type="text" placeholder="MM / YY" maxlength="7"/></div>
+      <div class="cart-field"><label class="cart-label">CVV</label><input class="cart-input" type="text" placeholder="123" maxlength="4"/></div>
+      <div></div>
+    </div>
+    <button class="complete-btn" onclick="completePurchase()">Complete purchase</button>
   </div>
 </div>
+
+
 
 <script>
 function pmSelect(idx){
@@ -2300,36 +2629,25 @@ function cmSubClick(topicIdx, subIdx, el){
     el.dataset.sel = '1';
   }
   if(arr.length === 0) delete _cmSubSel[topicIdx];
-  var chip = document.getElementById('cmc-'+topicIdx);
-  var badge = chip.querySelector('.cmc-badge');
-  var isActive = _cmActiveTopic === topicIdx;
-  if(count > 0){
-    chip.style.background = isActive ? '#1a3a5c' : 'white';
-    label.style.color = isActive ? 'white' : '#1a2535';
-    dot.style.background = '#3ecf8e';
-    dot.style.border = 'none';
-    badge.textContent = count;
-    badge.style.display = 'inline';
-    badge.style.background = isActive ? 'rgba(255,255,255,.15)' : '#e1f5ee';
-    badge.style.color = isActive ? 'white' : '#0f6e56';
-  } else {
-    chip.style.background = isActive ? '#1a3a5c' : 'white';
-    label.style.color = isActive ? 'white' : '#1a2535';
-    dot.style.background = 'transparent';
-    dot.style.border = isActive ? '1.5px solid rgba(255,255,255,.5)' : '1.5px solid #aab4c0';
-    badge.style.display = 'none';
-  }
-  var btn = document.getElementById('cust-book-btn');
-  var modalBtn = document.getElementById('cust-modal-book-btn');
-  var remaining = Math.max(0,3-total);
-  if(counter) counter.textContent = total+' subtopic'+(total===1?'':'s')+' selected'+(total>=3?' \u2014 you\'re good to go!':' ('+remaining+' more to unlock)');
-  if(total>=3){
-    if(btn){btn.disabled=false;btn.style.opacity='1';btn.style.cursor='pointer';btn.style.filter='none';btn.style.fontStyle='normal';btn.textContent='Book Now →';}
-    if(modalBtn){modalBtn.disabled=false;modalBtn.style.opacity='1';modalBtn.style.cursor='pointer';}
-  } else {
-    if(btn){btn.disabled=true;btn.style.opacity='.4';btn.style.cursor='not-allowed';btn.style.filter='grayscale(.4)';btn.style.fontStyle='italic';btn.textContent=total>0?'Select '+remaining+' more subtopic'+(remaining===1?'':'s')+' to continue':'Select 3+ topics to continue';}
-    if(modalBtn){modalBtn.disabled=true;modalBtn.style.opacity='.5';modalBtn.style.cursor='not-allowed';}
-  }
+  cmExpand(topicIdx);
+  var total = 0;
+  Object.keys(_cmSubSel).forEach(function(k){ total += _cmSubSel[k].length; });
+  var counter = document.getElementById('cm-topic-counter');
+  if(counter) counter.textContent = total + ' subtopic' + (total !== 1 ? 's' : '') + ' selected';
+  document.querySelectorAll('.cust-book-btn-el').forEach(function(btn){
+    if(total >= 1){
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      btn.style.filter = 'none';
+      btn.style.fontStyle = 'normal';
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '.4';
+      btn.style.cursor = 'not-allowed';
+      btn.style.filter = 'grayscale(.4)';
+    }
+  });
 }
 
 
@@ -2355,125 +2673,24 @@ function updateWizardProgress(){
 }
 function scrollToForm(trackIdx) {
   _isConsultFlow = false;
+  _isCustomizerFlow = (trackIdx === 3);
+  _formStep = 1;
+  updateFormProgress();
+  // Reset to step 1
+  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
+  var first = document.getElementById('fstep-1');
+  if (first) first.classList.add('active');
+  var nextBtn = document.getElementById('form-btn-next');
+  if (nextBtn) nextBtn.textContent = 'Next';
   bookingNavigateTo(1);
 }
 
 </script>
-      </div>
-      <div style="padding:20px;min-height:200px;">
-        <div id="pm-panel-0"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Modeling &amp; Valuation</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial Statements</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Valuation Fundamentals</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>3-Statement Modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>LBO</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>DCF</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Forecasting</li></ul></div>
-        <div id="pm-panel-1" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Excel &amp; Accounting</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Accounting Fundamentals</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Excel Shortcuts</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Excel for Modeling</li></ul></div>
-        <div id="pm-panel-2" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">IB &amp; Deal Process</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Transaction Process</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Due Diligence</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deal Analysis</li></ul></div>
-        <div id="pm-panel-3" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">PE &amp; Investing</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>PE Deal Modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Return Analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>IRR Calculations</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Capital Structures</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Exit Analysis</li></ul></div>
-        <div id="pm-panel-4" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Finance Interview</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Technical Interviews</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Behavioral Interviews</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Case Studies</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Modeling Tests</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Resume Review</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Networking Strategy</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Career Positioning</li></ul></div>
-      </div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-top:20px;border-top:1px solid #e8edf3;margin-top:20px;">
-      <button onclick="document.getElementById('prepper-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-      <button class="book-btn" onclick="document.getElementById('prepper-modal').style.display='none';scrollToForm(1);" style="font-size:13px;padding:10px 24px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
-    </div>
-    <button onclick="document.getElementById('prepper-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
-  </div>
-</div>
-
-<!-- Upskiller Topics Modal -->
-<div id="upskiller-modal" onclick="if(event.target===this)this.style.display='none';" style="display:none;position:fixed;inset:0;background:rgba(13,27,46,.65);z-index:500;align-items:center;justify-content:center;padding:20px;">
-  <div style="background:white;border-radius:16px;padding:32px;max-width:760px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto;">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a7fc1;margin-bottom:6px;">The Upskiller &nbsp;·&nbsp; Technical &amp; On-the-Job</div>
-    <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:4px;">Explore Popular Coaching Topics</h3>
-    <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:20px;">Topics listed are provided as a guide — all sessions are tailored<br>to your specific goals. You'll add more details in the next step.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
-      <div style="border-right:1px solid #dde3ec;">
-        <div id="um-row-0" onclick="umSelect(0)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;background:#1a3a5c;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#72ffab;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:700;color:white;">Performance &amp; Execution</span><span style="font-size:11px;color:rgba(255,255,255,.6);">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-1" onclick="umSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Technical Skills</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-2" onclick="umSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Modeling &amp; Valuation</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-3" onclick="umSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">FP&amp;A / Strategic Finance</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-4" onclick="umSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Adv. Deals &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-      </div>
-      <div style="padding:20px;min-height:200px;">
-        <div id="um-panel-0"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Performance &amp; Execution</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Real-world project support</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model review &amp; optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Workflow optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Stakeholder-focused analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Presentation &amp; Formatting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deadlines &amp; Deliverables</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>"What good looks like"</li></ul></div>
-        <div id="um-panel-1" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Technical Skills</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Advanced modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Scenario &amp; sensitivity analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Advanced Excel</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model building &amp; auditing</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Industry modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Applied valuation deep dives</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>AI tools in financial workflows</li></ul></div>
-        <div id="um-panel-2" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Modeling &amp; Valuation</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Modeling deep dive</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Accretion / dilution analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial forecasting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Scenario &amp; sensitivity analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Modeling Best Practices</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model Auditing &amp; QC</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Valuation Fundamentals</li></ul></div>
-        <div id="um-panel-3" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">FP&amp;A / Strategic Finance</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial statement analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Working capital management</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Revenue &amp; expense modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Budgeting &amp; forecasting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Variance analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>KPI dashboards &amp; reporting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Strategic decision support</li></ul></div>
-        <div id="um-panel-4" style="display:none;"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Adv. Deals &amp; Investing</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deal analysis &amp; evaluation</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Due diligence support</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Capital structure analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Return analysis &amp; IRR</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Portfolio monitoring</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Exit analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Real-world Case Studies</li></ul></div>
-      </div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-top:20px;border-top:1px solid #e8edf3;margin-top:20px;">
-      <button onclick="document.getElementById('upskiller-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-      <button class="book-btn" onclick="document.getElementById('upskiller-modal').style.display='none';scrollToForm(2);" style="font-size:13px;padding:10px 24px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
-    </div>
-    <button onclick="document.getElementById('upskiller-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
-  </div>
-</div>
-
-<!-- Customizer Topics Modal -->
-
-<!-- CART MODAL -->
-<div class="cart-overlay" id="cart-overlay">
-  <div class="cart-modal">
-    <button class="cart-close" onclick="closeCart()">×</button>
-    <div class="cart-title">Complete your purchase</div>
-    <div class="cart-subtitle">Review your order and enter billing details below.</div>
-    <div class="cart-pkg-name" id="cart-pkg-name">Skill Building — $350/hr</div>
-    <div class="cart-qty" id="cart-qty-row">
-      <div class="cart-qty-label">Number of hours</div>
-      <div class="qty-ctrl">
-        <button class="qty-btn" onclick="adjustQty(-1)">−</button>
-        <input class="qty-val" id="qty-val" type="number" value="4" min="1"/>
-        <button class="qty-btn" onclick="adjustQty(1)">+</button>
-      </div>
-      <div class="cart-total" id="cart-total">$1,400</div>
-    </div>
-    <div id="cart-flat-label" style="display:none;padding:10px 0 4px;font-size:20px;font-weight:800;color:var(--wsp-blue);">$500 <span style="font-size:13px;font-weight:500;color:var(--text-muted);">— flat rate</span></div>
-    <div id="max-tooltip" style="display:none;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff8e6;border:1.5px solid #f5c842;border-radius:7px;margin-bottom:4px;">
-      <span class="tooltip-msg" style="font-size:13px;color:#7a5000;line-height:1.55;"></span>
-    </div>
-    <div class="cart-divider"></div>
-    <div class="cart-section-title">Contact information</div>
-    <div class="cart-row">
-      <div class="cart-field"><label class="cart-label">First name</label><input class="cart-input" type="text" placeholder="Jane"/></div>
-      <div class="cart-field"><label class="cart-label">Last name</label><input class="cart-input" type="text" placeholder="Smith"/></div>
-    </div>
-    <div class="cart-field"><label class="cart-label">Email address</label><input class="cart-input" type="email" placeholder="jane@email.com"/></div>
-    <div class="cart-field"><label class="cart-label">Phone number</label><input class="cart-input" type="tel" placeholder="+1 (555) 000-0000"/></div>
-    <div class="cart-divider"></div>
-    <div class="cart-section-title">Billing address</div>
-    <div class="cart-field"><label class="cart-label">Street address</label><input class="cart-input" type="text" placeholder="123 Main Street"/></div>
-    <div class="cart-row">
-      <div class="cart-field"><label class="cart-label">City</label><input class="cart-input" type="text" placeholder="New York"/></div>
-      <div class="cart-field"><label class="cart-label">State / Province</label><input class="cart-input" type="text" placeholder="NY"/></div>
-    </div>
-    <div class="cart-row">
-      <div class="cart-field"><label class="cart-label">ZIP / Postal code</label><input class="cart-input" type="text" placeholder="10001"/></div>
-      <div class="cart-field"><label class="cart-label">Country</label><input class="cart-input" type="text" placeholder="United States"/></div>
-    </div>
-    <div class="cart-divider"></div>
-    <div class="cart-section-title">Payment information</div>
-    <div class="cart-field"><label class="cart-label">Cardholder name</label><input class="cart-input" type="text" placeholder="Jane Smith"/></div>
-    <div class="cart-field"><label class="cart-label">Card number</label><input class="cart-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19"/></div>
-    <div class="cc-row">
-      <div class="cart-field"><label class="cart-label">Expiry</label><input class="cart-input" type="text" placeholder="MM / YY" maxlength="7"/></div>
-      <div class="cart-field"><label class="cart-label">CVV</label><input class="cart-input" type="text" placeholder="123" maxlength="4"/></div>
-      <div></div>
-    </div>
-    <button class="complete-btn" onclick="completePurchase()">Complete purchase</button>
-  </div>
-</div>
-
-<!-- CAL OVERLAY -->
-<div class="cal-overlay" id="cal-overlay" onclick="if(event.target===this)closeCal()">
-  <div class="cal-modal">
-    <div class="cal-modal-header">
-      <span class="cal-modal-title">Book a free coaching strategy call</span>
-      <button class="cal-close" onclick="closeCal()">×</button>
-    </div>
-    <iframe class="cal-iframe" id="cal-iframe" src="" loading="lazy" allow="camera; microphone; fullscreen"></iframe>
-  </div>
-</div>
 
 <script>
 // ── Booking state ─────────────────────────────────────────────────────────
 var _bookingSlide = 0;
+var _isCustomizerFlow = false;
 var _bookingHistory = [0];
 var _isConsultFlow = false;
 
@@ -2530,6 +2747,15 @@ function updateBookingProgress(n) {
 // ── scrollToForm / openConsult entry points ────────────────────────────
 function scrollToForm(trackIdx) {
   _isConsultFlow = false;
+  _isCustomizerFlow = (trackIdx === 3);
+  _formStep = 1;
+  updateFormProgress();
+  // Reset to step 1
+  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
+  var first = document.getElementById('fstep-1');
+  if (first) first.classList.add('active');
+  var nextBtn = document.getElementById('form-btn-next');
+  if (nextBtn) nextBtn.textContent = 'Next';
   bookingNavigateTo(1);
 }
 
@@ -2614,32 +2840,35 @@ function closeCal() {
 }
 
 // ── Form (customizations) ─────────────────────────────────────────────────
-var _formStep = 1, _formTotalSteps = 8, _formData = {};
+var _formStep = 1, _formTotalSteps = 7, _formData = {};
 
 function formNext() {
   if (_formStep < _formTotalSteps) {
-    document.getElementById('fstep-' + _formStep).classList.remove('active');
     _formStep++;
-    document.getElementById('fstep-' + _formStep).classList.add('active');
+    if (_formStep === _formTotalSteps) buildFormSummary();
+    showFormStep(_formStep);
     updateFormProgress();
+    var nextBtn = document.getElementById('form-btn-next');
+    if (nextBtn) nextBtn.textContent = _formStep === _formTotalSteps ? 'Submit' : 'Next';
   } else {
     unlockPackages();
   }
 }
 function formBack() {
   if (_formStep > 1) {
-    document.getElementById('fstep-' + _formStep).classList.remove('active');
     _formStep--;
-    document.getElementById('fstep-' + _formStep).classList.add('active');
+    showFormStep(_formStep);
     updateFormProgress();
+    var nextBtn = document.getElementById('form-btn-next');
+    if (nextBtn) nextBtn.textContent = _formStep === _formTotalSteps ? 'Submit' : 'Next';
   }
 }
 function updateFormProgress() {
   var bar = document.getElementById('form-progress');
   if (bar) bar.innerHTML = '<div class="form-progress-bar" style="width:' + Math.round((_formStep/_formTotalSteps)*100) + '%;"></div>';
-  var counter = document.getElementById('step-counter');
+  var counter = document.getElementById('form-step-counter');
   if (counter) counter.textContent = 'Step ' + _formStep + ' of ' + _formTotalSteps;
-  var back = document.getElementById('btn-back');
+  var back = document.getElementById('form-btn-back');
   if (back) back.style.display = _formStep > 1 ? 'inline-block' : 'none';
 }
 function selectChoice(el, key, val) {
@@ -2675,14 +2904,18 @@ function updateTimezones() {
 }
 
 // ── Consult form ──────────────────────────────────────────────────────────
-var _consultStep = 1, _consultTotalSteps = 8;
+var _consultStep = 1, _consultTotalSteps = 7;
 
 function consultFormNext() {
   if (_consultStep < _consultTotalSteps) {
     document.getElementById('cfstep-' + _consultStep).classList.remove('active');
     _consultStep++;
-    document.getElementById('cfstep-' + _consultStep).classList.add('active');
+    if (_consultStep === _consultTotalSteps) buildConsultSummary();
+    var next = document.getElementById('cfstep-' + _consultStep);
+    if (next) next.classList.add('active');
     updateConsultProgress();
+    var nextBtn = document.getElementById('consult-btn-next');
+    if (nextBtn) nextBtn.textContent = _consultStep === _consultTotalSteps ? 'Submit' : 'Next';
   } else {
     unlockWhatToExpect();
   }
@@ -2702,6 +2935,8 @@ function updateConsultProgress() {
   if (counter) counter.textContent = 'Step ' + _consultStep + ' of ' + _consultTotalSteps;
   var back = document.getElementById('consult-btn-back');
   if (back) back.style.display = _consultStep > 1 ? 'inline-block' : 'none';
+  var nextBtn = document.getElementById('consult-btn-next');
+  if (nextBtn) nextBtn.textContent = _consultStep === _consultTotalSteps ? 'Submit' : 'Next';
 }
 function consultSelectChoice(el, key, val) {
   el.closest('.btn-group').querySelectorAll('.choice-btn').forEach(function(b){ b.classList.remove('selected'); });
@@ -2722,13 +2957,40 @@ function consultToggleUrgentNotice(sel) {
 function consultUpdateTimezones() {}
 
 // ── Coach modal ───────────────────────────────────────────────────────────
+var coachData = [
+  {name:"Aaliyah Ameer", firm:"Former Goldman Sachs · Investment Banking", tag:"Recruiting & Interviews", avatar:"https://media.wallstreetprep.com/uploads/2023/07/31082534/Headshot-Aaliyah-Ameer.jpg", bio:"Aaliyah is a former Goldman Sachs investment banking analyst with deep expertise in the full-cycle recruiting process. She has helped hundreds of candidates land offers at bulge bracket and elite boutique firms, specializing in technical interview prep, behavioral coaching, and resume strategy."},
+  {name:"Amit Vyas", firm:"Former Morgan Stanley · Equity Research", tag:"Modeling & Valuation", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132711/Amit_Vyas.jpg", bio:"Amit spent years covering technology and software at Morgan Stanley as an equity research analyst. He brings deep expertise in financial modeling, DCF and comparable company analysis, and investment thesis development. He is particularly skilled at helping candidates prepare for technical modeling tests."},
+  {name:"Graham Smith", firm:"Former KKR · Private Equity", tag:"PE & LBO Modeling", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132713/Graham_Smith.jpg", bio:"Graham is a former KKR private equity professional with extensive experience in leveraged buyout modeling, deal structuring, and portfolio company management. He coaches candidates targeting mega-fund and upper-middle-market PE roles, with a focus on LBO modeling and case study preparation."},
+  {name:"Hadi Harake", firm:"Former Barclays · Investment Banking", tag:"IB & Deal Skills", avatar:"https://media.wallstreetprep.com/uploads/2023/06/02111808/Headshot-Hadi-Harake-scaled.jpg", bio:"Hadi is a former Barclays investment banker with transaction experience across M&A, leveraged finance, and capital markets. He works with candidates at all levels — from students breaking into banking to associates targeting senior promotions — on technical skills, deal knowledge, and interview readiness."},
+  {name:"Heather Wachtler", firm:"Former JPMorgan · Corporate Finance", tag:"FP&A & Corp Finance", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132716/Heather_Wachtler.jpg", bio:"Heather brings deep corporate finance and FP&A experience from her time at JPMorgan. She specializes in coaching professionals looking to sharpen their financial planning, budgeting, and strategic analysis skills, as well as those transitioning from banking into corporate roles."},
+  {name:"Jen Liang", firm:"Former Blackstone · Private Equity", tag:"PE & Real Assets", avatar:"https://media.wallstreetprep.com/uploads/2023/07/31095425/Headshot_Jen-Liang-scaled.jpg", bio:"Jen is a former Blackstone real estate and private equity professional with hands-on experience in acquisitions, asset management, and fund operations. She coaches candidates targeting real estate PE, infrastructure, and alternative asset management roles."},
+  {name:"Kathy Lai", firm:"Former Citi · Investment Banking", tag:"Modeling & Technicals", avatar:"https://media.wallstreetprep.com/uploads/2017/03/28132616/KathyLai.jpg", bio:"Kathy is a former Citigroup investment banker with a strong track record of helping candidates master financial modeling and technical interview skills. She has coached professionals across banking, consulting, and corporate finance and is known for her clear, structured teaching style."},
+  {name:"Mateusz Cieslak", firm:"Former Rothschild · M&A Advisory", tag:"M&A & Restructuring", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132718/Mateusz_Cieslak.jpg", bio:"Mateusz brings M&A advisory experience from Rothschild & Co, with a focus on cross-border transactions and restructuring. He coaches candidates on complex modeling scenarios, deal mechanics, and the nuances of working in advisory roles at elite boutiques."},
+  {name:"Matthew Lo", firm:"Former UBS · Equity Capital Markets", tag:"ECM & Structuring", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132720/Matthew_Lo.jpg", bio:"Matthew spent several years at UBS in equity capital markets, with experience across IPOs, follow-on offerings, and convertible bonds. He helps candidates develop a strong command of capital markets concepts and prepares them for both technical interviews and on-the-job execution."},
+  {name:"Rob Monaco", firm:"Former Apollo · Credit & Distressed", tag:"Credit & Distressed Debt", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132722/Robert_Monaco.png", bio:"Rob is a former Apollo credit professional with experience in distressed debt, high-yield analysis, and credit underwriting. He coaches candidates targeting credit-focused roles at hedge funds, credit funds, and direct lending platforms, with deep expertise in debt modeling and credit analysis."},
+  {name:"Rohan Shukla", firm:"Former Lazard · Healthcare Banking", tag:"Healthcare & Life Sciences", avatar:"https://media.wallstreetprep.com/uploads/2026/05/04132724/Rohan_Shukla.jpg", bio:"Rohan brings healthcare investment banking experience from Lazard, with a background in biopharma, medtech, and healthcare services M&A. He is a go-to coach for candidates targeting healthcare-focused roles, helping them develop sector knowledge, technical skills, and recruiting strategy."},
+  {name:"Tim Geoffrion", firm:"Former Credit Suisse · Leveraged Finance", tag:"Leveraged Finance & LBO", avatar:"https://media.wallstreetprep.com/uploads/2023/06/26131132/Headshot-Tim-Geoffrion.jpeg", bio:"Tim is a former Credit Suisse leveraged finance professional with deep expertise in high-yield bond analysis, loan structuring, and LBO modeling. He coaches candidates targeting leveraged finance, direct lending, and PE roles, with particular strength in debt and credit modeling."}
+];
+
 function openCoachModal(idx) {
+  var d = coachData[idx];
+  if (!d) return;
+  document.getElementById('modal-name').textContent = d.name;
+  document.getElementById('modal-firm').textContent = d.firm;
+  document.getElementById('modal-tag').textContent = d.tag;
+  document.getElementById('modal-bio').textContent = d.bio;
+  var av = document.getElementById('modal-avatar');
+  av.style.backgroundImage = "url('" + d.avatar + "')";
+  av.style.backgroundSize = 'cover';
+  av.style.backgroundPosition = 'center top';
+  av.textContent = '';
   var modal = document.getElementById('coach-modal-overlay');
-  if (modal) modal.classList.add('open');
+  if (modal) { modal.style.display = 'flex'; }
 }
+
 function closeCoachModal() {
   var modal = document.getElementById('coach-modal-overlay');
-  if (modal) modal.classList.remove('open');
+  if (modal) modal.style.display = 'none';
 }
 
 // ── Track tabs ────────────────────────────────────────────────────────────
@@ -2754,14 +3016,7 @@ function faqSelectRow(idx) {
 }
 
 // ── Testimonial carousel ──────────────────────────────────────────────────
-var tcarIdx = 0;
-function tcarSlide(dir) {
-  var cards = document.querySelectorAll('.tcar-card');
-  if (!cards.length) return;
-  tcarIdx = (tcarIdx + dir + cards.length) % cards.length;
-  var track = document.querySelector('.tcar-track');
-  if (track) track.style.transform = 'translateX(-' + (tcarIdx * (100/3)) + '%)';
-}
+
 
 // ── Floating nav ─────────────────────────────────────────────────────────
 window.addEventListener('scroll', function() {
@@ -2819,13 +3074,7 @@ function umSelect(el) {
   el.closest('.um-rows').querySelectorAll('.um-row').forEach(function(r){ r.classList.remove('active'); });
   el.classList.add('active');
 }
-function showStep(n){
-  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
-  var target = document.getElementById('fstep-' + n);
-  if (target) target.classList.add('active');
-  _formStep = n;
-  updateFormProgress();
-}
+function showStep(n){ _formStep = n; showFormStep(n); updateFormProgress(); }
 function consultShowStep(n){
   document.querySelectorAll('[id^="cfstep-"]').forEach(function(el){ el.classList.remove('active'); });
   var target = document.getElementById('cfstep-' + n);
@@ -2833,6 +3082,155 @@ function consultShowStep(n){
   _consultStep = n;
   updateConsultProgress();
 }
+
+function buildFormSummary() {
+  var items = [
+    { label: 'Coaching for', val: (function(){ var b = document.querySelector('#customizations .choice-btn.selected'); return b ? b.textContent : '—'; })() },
+    { label: 'Start timing', val: (function(){ var s = document.getElementById('form-timing-select'); return s && s.value ? s.options[s.selectedIndex].text : '—'; })() },
+    { label: 'Career level', val: (function(){ var s = document.getElementById('form-career-select'); return s && s.value ? s.options[s.selectedIndex].text : '—'; })() },
+    { label: 'Location', val: (function(){ var c = document.getElementById('country-select'); var t = document.getElementById('timezone-select'); return (c && c.value ? c.options[c.selectedIndex].text : '') + (t && t.value ? ' · ' + t.value : '') || '—'; })() },
+    { label: 'Availability', val: (function(){ var checked = []; document.querySelectorAll('#customizations .avail-check input:checked').forEach(function(el){ checked.push(el.nextElementSibling.textContent); }); return checked.length ? checked.join(', ') : '—'; })() },
+    { label: 'Background', val: (function(){ var el = document.getElementById('q3-input'); return el && el.value.trim() ? el.value.trim().substring(0,120) + (el.value.length > 120 ? '…' : '') : '—'; })() },
+    { label: 'Goals', val: (function(){ var el = document.getElementById('q4-input'); return el && el.value.trim() ? el.value.trim().substring(0,120) + (el.value.length > 120 ? '…' : '') : '—'; })() },
+  ];
+  var html = items.map(function(item){
+    return '<div style="padding:10px 14px;background:#f5f7fa;border-radius:8px;border:1px solid #e0e6ed;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#8a9bb0;margin-bottom:3px;">' + item.label + '</div><div style="font-size:14px;color:#1a2535;">' + item.val + '</div></div>';
+  }).join('');
+  var el = document.getElementById('summary-list');
+  if (el) el.innerHTML = html;
+}
+
+function buildConsultSummary() {
+  var items = [
+    { label: 'Coaching for', val: (function(){ var b = document.querySelector('#consult-form .choice-btn.selected'); return b ? b.textContent : '—'; })() },
+    { label: 'Start timing', val: (function(){ var s = document.getElementById('consult-timing-select'); return s && s.value ? s.options[s.selectedIndex].text : '—'; })() },
+    { label: 'Career level', val: (function(){ var s = document.getElementById('consult-career-select'); return s && s.value ? s.options[s.selectedIndex].text : '—'; })() },
+    { label: 'Location', val: (function(){ var c = document.getElementById('consult-country-select'); var t = document.getElementById('consult-timezone-select'); return (c && c.value ? c.options[c.selectedIndex].text : '') + (t && t.value ? ' · ' + t.value : '') || '—'; })() },
+    { label: 'Availability', val: (function(){ var checked = []; document.querySelectorAll('#consult-form .avail-check input:checked').forEach(function(el){ checked.push(el.nextElementSibling.textContent); }); return checked.length ? checked.join(', ') : '—'; })() },
+    { label: 'Background', val: (function(){ var el = document.getElementById('cq3-input'); return el && el.value.trim() ? el.value.trim().substring(0,120) + (el.value.length > 120 ? '…' : '') : '—'; })() },
+    { label: 'Goals', val: (function(){ var el = document.getElementById('cq4-input'); return el && el.value.trim() ? el.value.trim().substring(0,120) + (el.value.length > 120 ? '…' : '') : '—'; })() },
+  ];
+  var html = items.map(function(item){
+    return '<div style="padding:10px 14px;background:#f5f7fa;border-radius:8px;border:1px solid #e0e6ed;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#8a9bb0;margin-bottom:3px;">' + item.label + '</div><div style="font-size:14px;color:#1a2535;">' + item.val + '</div></div>';
+  }).join('');
+  var el = document.getElementById('consult-summary-list');
+  if (el) el.innerHTML = html;
+}
+
+// Step display order maps (1-indexed, value = fstep ID to show)
+var _standardStepOrder  = [1, 2, 3, 4, 5, 6, 7];
+var _customizerStepOrder = [1, 2, 6, 3, 4, 5, 7]; // bg+goals moved to position 3
+
+function getStepId(position) {
+  var order = _isCustomizerFlow ? _customizerStepOrder : _standardStepOrder;
+  return order[position - 1]; // position is 1-indexed
+}
+
+function showFormStep(position) {
+  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
+  var stepId = getStepId(position);
+  var el = document.getElementById('fstep-' + stepId);
+  if (el) el.classList.add('active');
+}
+
+function custBookNow(){
+  // Close the customizer modal
+  var modal = document.getElementById('customizer-modal');
+  if(modal) modal.style.display = 'none';
+  // Set customizer flow flag and navigate to form
+  scrollToForm(3);
+}
+
+
+
+// ── TESTIMONIAL CAROUSEL (infinite loop) ──────────────────────────────────
+(function(){
+  var track = document.getElementById('tcar-track');
+  var dotsEl = document.getElementById('tcar-dots');
+  if (!track) return;
+
+  var allCards = track.querySelectorAll('.tcar-card');
+  var total = 12; // real cards only
+  var clonesPerSide = 3;
+  var perPage = 3;
+  var cur = 0; // 0-indexed real card index
+  var isTransitioning = false;
+
+  // Build dots
+  if (dotsEl) {
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement('button');
+      d.className = 'tcar-dot' + (i === 0 ? ' on' : '');
+      d.setAttribute('aria-label', 'Go to review ' + (i + 1));
+      (function(idx){ d.onclick = function(){ goTo(idx); }; })(i);
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function getCardWidth() {
+    var card = allCards[clonesPerSide]; // first real card
+    if (!card) return 0;
+    return card.offsetWidth + 20; // 20 = gap
+  }
+
+  function setPosition(idx, animate) {
+    // Position in track: clones at start, so real card 0 is at index clonesPerSide
+    var trackPos = (idx + clonesPerSide) * getCardWidth();
+    if (!animate) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform .45s cubic-bezier(.4,0,.2,1)';
+    }
+    track.style.transform = 'translateX(-' + trackPos + 'px)';
+  }
+
+  function updateDots(idx) {
+    if (!dotsEl) return;
+    dotsEl.querySelectorAll('.tcar-dot').forEach(function(d, i) {
+      d.classList.toggle('on', i === idx);
+    });
+  }
+
+  function goTo(idx, animate) {
+    if (animate === undefined) animate = true;
+    cur = ((idx % total) + total) % total;
+    setPosition(cur, animate);
+    updateDots(cur);
+  }
+
+  // Handle infinite loop via transitionend
+  track.addEventListener('transitionend', function() {
+    // If we slid to a clone, jump silently to the real card
+    if (cur < 0) {
+      cur = total - 1;
+      setPosition(cur, false);
+    } else if (cur >= total) {
+      cur = 0;
+      setPosition(cur, false);
+    }
+    isTransitioning = false;
+  });
+
+  window.tcarSlide = function(dir) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    var next = cur + dir;
+    // Allow going into clone territory — transitionend will snap back
+    var trackPos = (next + clonesPerSide) * getCardWidth();
+    track.style.transition = 'transform .45s cubic-bezier(.4,0,.2,1)';
+    track.style.transform = 'translateX(-' + trackPos + 'px)';
+    cur = ((next % total) + total) % total;
+    updateDots(cur);
+  };
+
+  // Init at position 0 without animation
+  window.addEventListener('load', function() {
+    setPosition(0, false);
+  });
+  // Fallback immediate init
+  setTimeout(function() { setPosition(0, false); }, 50);
+})();
 </script>
+
 </body>
 </html>
