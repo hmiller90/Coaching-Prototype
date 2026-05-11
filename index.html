@@ -310,47 +310,6 @@ section{padding:72px 32px;}
 /* ─── FORM SECTION ─── */
 .form-section{background:#0d1b2e;border-top:none;}
 .form-wrap{background:white;border:none;box-shadow:0 8px 40px rgba(0,0,0,.35);border-radius:12px;padding:28px 36px 24px;max-width:700px;margin:36px auto 0;}
-.form-step-body{height:310px;overflow-y:auto;}
-.form-progress{height:4px;background:#eef1f5;border-radius:100px;margin-bottom:24px;overflow:hidden;}
-.form-progress-bar{height:100%;background:linear-gradient(90deg,#1a7fc1,#3ecf8e);border-radius:100px;transition:width .3s ease;}
-
-.form-step{display:none;}
-.form-step.active{display:block;}
-.form-q{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.3;}
-.form-hint{font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.6;}
-.btn-group{display:flex;gap:10px;flex-wrap:wrap;}
-.choice-btn{padding:10px 26px;border:1.5px solid var(--border);border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;background:white;color:var(--text);transition:all .2s;}
-.choice-btn:hover,.choice-btn.selected{border-color:var(--wsp-blue);background:rgba(26,127,193,.05);color:var(--wsp-blue);}
-.form-input{width:100%;border:1.5px solid var(--border);border-radius:6px;padding:11px 13px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);transition:border .2s;outline:none;}
-.form-input:focus{border-color:var(--wsp-blue);}
-.form-select{width:100%;border:1.5px solid var(--border);border-radius:6px;padding:11px 13px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") right 13px center/12px no-repeat;appearance:none;cursor:pointer;outline:none;transition:border .2s;}
-.form-select:focus{border-color:var(--wsp-blue);}
-textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
-.form-field{margin-bottom:14px;}
-.form-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;display:block;}
-.learner-fields{display:none;margin-top:18px;padding:18px;background:var(--off-white);border-radius:8px;border:1px solid var(--border);}
-.learner-fields.visible{display:block;}
-
-.avail-col-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:10px;}
-.avail-check{display:flex;align-items:center;gap:8px;padding:6px 0;}
-.avail-check input{accent-color:var(--wsp-blue);}
-.avail-check label{font-size:14px;color:var(--text);cursor:pointer;}
-.form-nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
-.btn-back{padding:10px 22px;border:1.5px solid var(--border);border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;background:white;color:var(--text);transition:all .2s;}
-.btn-back:hover{border-color:var(--text);color:var(--text);}
-.btn-next{background:var(--wsp-blue);color:white;padding:10px 26px;border-radius:6px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:background .2s;}
-.btn-next:hover{background:var(--wsp-blue-dark);}
-.step-counter{font-size:13px;color:var(--text-muted);}
-.next-preview{font-size:12px;color:var(--text-muted);margin-top:4px;}
-.next-preview span{color:var(--text);font-weight:500;}
-.summary-item{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-bottom:1px solid var(--border);}
-.summary-item:first-child{border-top:1px solid var(--border);}
-.summary-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);}
-.summary-value{font-size:14px;color:var(--text);line-height:1.55;}
-.summary-empty{font-size:13px;color:var(--mid-gray);font-style:italic;}
-.date-picker{display:none;margin-top:12px;}
-.date-picker.visible{display:block;}
 
 .outcome-list{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px;}
 .outcome-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-muted);line-height:1.45;}
@@ -401,12 +360,9 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .packages-hourly{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1;}
 .pkg-card{background:white;border:1.5px solid var(--border);border-radius:10px;padding:18px 22px 18px;display:flex;flex-direction:column;transition:all .2s;height:100%;box-sizing:border-box;justify-content:space-between;}
 .pkg-card:hover{border-color:var(--wsp-blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,127,193,.12);}
-.pkg-card.featured{border-color:var(--wsp-blue);border-width:2px;transform:translateY(-10px);animation:pkgGlow 3s ease-in-out infinite;}
-@keyframes pkgGlow{
-  0%{box-shadow:0 10px 28px rgba(26,127,193,.25),0 0 0 3px rgba(26,127,193,.12);}
-  50%{box-shadow:0 10px 28px rgba(62,207,142,.25),0 0 0 3px rgba(62,207,142,.12);}
-  100%{box-shadow:0 10px 28px rgba(26,127,193,.25),0 0 0 3px rgba(26,127,193,.12);}
-}
+.pkg-card.featured{border:none;box-shadow:none;}
+.pkg-shimmer-wrap{display:flex;flex-direction:column;border-radius:11px;padding:2px;background:linear-gradient(90deg,#0d1b2e,#1a7fc1,#3ecf8e,#0d1b2e);background-size:300% 100%;animation:pkgShimmer 8.5s linear infinite;box-shadow:0 10px 28px rgba(26,127,193,.18);height:100%;}
+@keyframes pkgShimmer{0%{background-position:100% 0}100%{background-position:-200% 0}}
 .pkg-badge{display:inline-block;background:rgba(26,127,193,.1);color:var(--wsp-blue);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:12px;}
 .pkg-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px;}
 .pkg-price{font-size:26px;font-weight:800;color:var(--wsp-blue);margin-bottom:2px;}
@@ -742,37 +698,19 @@ footer {
   .footer-cols{grid-template-columns:1fr !important;}
 }
 
-/* Slide wizard */
-#booking-wizard{overflow:hidden;position:relative;}
-.wizard-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;}
-.wizard-slide{min-width:100%;flex-shrink:0;box-sizing:border-box;}
-.wizard-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;}
-.wizard-back{background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:10px 20px;font-size:13px;font-weight:600;color:#5a6a7e;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;}
-.wizard-back:hover{border-color:#1a7fc1;color:#1a7fc1;}
-.wizard-back svg{transition:transform .2s;}
-.wizard-back:hover svg{transform:translateX(-3px);}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
-@keyframes slideInRight{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:translateX(0);}}
-.slide-in-left{animation:slideInLeft .35s ease;}
-.slide-in-right{animation:slideInRight .35s ease;}
-
 /* Booking slide system */
 #tracks-slider{overflow:hidden;position:relative;}
 #tracks-slider-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);}
 .tracks-slide{min-width:100%;flex-shrink:0;box-sizing:border-box;}
-.booking-step-card{background:white;border-radius:10px;padding:32px 36px;box-shadow:0 4px 24px rgba(0,0,0,.08);}
-.wizard-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid #eef1f5;}
-.wizard-back-btn{display:flex;align-items:center;gap:6px;background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:9px 18px;font-size:13px;font-weight:600;color:#5a6a7e;cursor:pointer;transition:all .2s;}
-.wizard-back-btn:hover{border-color:#1a7fc1;color:#1a7fc1;}
-.wizard-back-btn:hover svg{transform:translateX(-3px);}
-.wizard-back-btn svg{transition:transform .2s;}
 
 /* ─── FORM SECTION ─── */
 .form-section{background:#0d1b2e;border-top:none;}
 .form-wrap{background:white;border:none;box-shadow:0 8px 40px rgba(0,0,0,.35);border-radius:12px;padding:28px 36px 24px;max-width:700px;margin:36px auto 0;}
 .form-step-body{height:310px;overflow-y:auto;}
-.form-progress{height:4px;background:#eef1f5;border-radius:100px;margin-bottom:24px;overflow:hidden;}
-.form-progress-bar{height:100%;background:linear-gradient(90deg,#1a7fc1,#3ecf8e);border-radius:100px;transition:width .3s ease;}
+.form-progress{height:6px;background:#eef1f5;border-radius:100px;margin-bottom:24px;overflow:hidden;}
+.form-progress-bar{height:100%;background:linear-gradient(90deg,#0d1b2e,#1a7fc1,#3ecf8e,#0d1b2e);background-size:300% 100%;border-radius:100px;transition:width .4s ease;animation:progressSweep 3.5s linear infinite;}
+@keyframes progressSweep{0%{background-position:100% 0}100%{background-position:-200% 0}}
+@keyframes shimmerText{0%{background-position:100% 0}100%{background-position:-200% 0}}
 .form-step{display:none;} .form-step.active{display:block;}
 .form-q{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.3;}
 .form-hint{font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.6;}
@@ -800,21 +738,6 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .step-counter{font-size:13px;color:var(--text-muted);}
 .date-picker{display:none;margin-top:12px;}
 .date-picker.visible{display:block;}
-
-/* ─── PACKAGES ─── */
-.packages-section{background:#f5f7fa;border-top:1px solid #dde3ec;}
-.pkg-card{background:white;border:1.5px solid var(--border);border-radius:10px;padding:18px 22px 18px;display:flex;flex-direction:column;transition:all .2s;height:100%;box-sizing:border-box;justify-content:space-between;}
-.pkg-card:hover{border-color:var(--wsp-blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,127,193,.12);}
-.pkg-card.featured{border-color:var(--wsp-blue);border-width:2px;animation:pkgGlow 3s ease-in-out infinite;}
-@keyframes pkgGlow{0%{box-shadow:0 10px 28px rgba(26,127,193,.25);}50%{box-shadow:0 10px 28px rgba(62,207,142,.25);}100%{box-shadow:0 10px 28px rgba(26,127,193,.25);}}
-.pkg-badge{display:inline-block;background:rgba(26,127,193,.1);color:var(--wsp-blue);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:12px;}
-.pkg-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px;}
-.pkg-price{font-size:26px;font-weight:800;color:var(--wsp-blue);margin-bottom:2px;}
-.pkg-price-sub{font-size:13px;color:var(--text-muted);margin-bottom:14px;}
-.pkg-desc{font-size:13.5px;color:var(--text-muted);line-height:1.6;flex:1;margin-bottom:20px;}
-.pkg-btn{background:var(--wsp-blue);color:white;padding:11px 0;border-radius:6px;font-size:14px;font-weight:600;border:none;cursor:pointer;width:100%;transition:background .2s;}
-.pkg-btn:hover{background:var(--wsp-blue-dark);}
-.pkg-card.featured .pkg-btn{background:var(--wsp-green);color:var(--navy-dark);}
 
 /* ─── CART ─── */
 .cart-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,46,.65);z-index:200;align-items:center;justify-content:center;}
@@ -861,11 +784,6 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 .cal-modal-title{font-size:15px;font-weight:700;color:var(--text);}
 .cal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);}
 .cal-iframe{flex:1;border:none;width:100%;}
-
-/* ─── SECTION HIDDEN/REVEAL ─── */
-.section-hidden{display:none;}
-.section-reveal{animation:revealSection .5s ease forwards;}
-@keyframes revealSection{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 
 .tcar-dot{width:8px;height:8px;border-radius:50%;background:#dde3ec;border:none;cursor:pointer;transition:all .2s;padding:0;flex-shrink:0;}
 .tcar-dot.on{background:#1a7fc1;width:18px;border-radius:3px;}</style>
@@ -1148,31 +1066,6 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 <!-- BOOKING FLOW SLIDER -->
 <div id="booking-slider-wrap" style="overflow:hidden;width:100%;">
 
-  <!-- Progress bar (hidden on slide 0) -->
-  <div id="booking-progress-bar" style="display:none;background:#0d1b2e;padding:14px 32px 0;border-bottom:1px solid rgba(255,255,255,.08);">
-    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:0;">
-      <button onclick="bookingGoTo(_bookingHistory.length>1?(_bookingHistory.pop(),_bookingHistory[_bookingHistory.length-1]):0)" id="booking-back-btn" onclick="bookingSliderBack()" style="display:none;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;padding:0 24px 0 0;white-space:nowrap;transition:color .2s;font-family:inherit;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.55)'">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
-      </button>
-      <div style="display:flex;align-items:center;gap:0;flex:1;">
-        <div class="bstep" data-step="0" style="display:flex;align-items:center;gap:8px;padding:8px 20px 12px;border-bottom:2px solid transparent;opacity:.4;">
-          <div class="bstep-circle" style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">1</div>
-          <span style="font-size:12px;font-weight:600;color:white;white-space:nowrap;">About You</span>
-        </div>
-        <div style="width:20px;height:1px;background:rgba(255,255,255,.15);flex-shrink:0;"></div>
-        <div class="bstep" data-step="1" style="display:flex;align-items:center;gap:8px;padding:8px 20px 12px;border-bottom:2px solid transparent;opacity:.4;">
-          <div class="bstep-circle" style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">2</div>
-          <span style="font-size:12px;font-weight:600;color:white;white-space:nowrap;">Choose Your Hours</span>
-        </div>
-        <div style="width:20px;height:1px;background:rgba(255,255,255,.15);flex-shrink:0;"></div>
-        <div class="bstep" data-step="2" style="display:flex;align-items:center;gap:8px;padding:8px 20px 12px;border-bottom:2px solid transparent;opacity:.4;">
-          <div class="bstep-circle" style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;">3</div>
-          <span style="font-size:12px;font-weight:600;color:white;white-space:nowrap;">What Happens Next</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Slider track: 5 slides × 20% each = 100% of 500% width -->
   <div id="booking-slider-track" style="display:flex;width:500%;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform;">
 
@@ -1222,7 +1115,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
             <div style="margin-top:auto;padding-top:16px;">
               <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;gap:0;">
-                  <button class="book-btn" style="width:100%;" onclick="scrollToForm(0)"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
+                  <button class="book-btn" style="width:100%;" onclick="scrollToFormPolisher()"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
                   <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});setTimeout(function(){faqSelectRow(8);},400);" style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-decoration:none;transition:all .2s;padding:2px 0;margin-top:8px;" title="Learn about same-day coach matching" onmouseover="this.style.gap='8px';this.querySelector('span').style.borderBottomColor='#3ecf8e';this.querySelector('span').style.color='#0d1b2e';" onmouseout="this.style.gap='5px';this.querySelector('span').style.borderBottomColor='rgba(62,207,142,.4)';this.querySelector('span').style.color='#3ecf8e';">
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v3l1.5 1.5"/></svg>
                 <span style="font-size:12px;font-weight:700;color:#3ecf8e;border-bottom:1px dashed rgba(62,207,142,.4);transition:all .2s;">Same-day matching available*</span>
@@ -1318,7 +1211,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
             <div style="margin-top:auto;padding-top:16px;">
               <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;gap:0;">
-                  <button class="book-btn cust-book-btn-el" style="width:100%;opacity:.4;cursor:not-allowed;filter:grayscale(.4);font-style:italic;" onclick="custBookNow()" disabled>Select at least one topic to continue</button>
+                  <button class="book-btn cust-book-btn-el" style="width:100%;opacity:.4;cursor:not-allowed;filter:grayscale(.4);font-style:italic;" onclick="custBookNow()" disabled>Select topics to continue</button>
                   <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});setTimeout(function(){faqSelectRow(8);},400);" style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-decoration:none;transition:all .2s;padding:2px 0;margin-top:8px;" title="Learn about same-day coach matching" onmouseover="this.style.gap='8px';this.querySelector('span').style.borderBottomColor='#3ecf8e';this.querySelector('span').style.color='#0d1b2e';" onmouseout="this.style.gap='5px';this.querySelector('span').style.borderBottomColor='rgba(62,207,142,.4)';this.querySelector('span').style.color='#3ecf8e';">
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M7 4.5v3l1.5 1.5"/></svg>
                 <span style="font-size:12px;font-weight:700;color:#3ecf8e;border-bottom:1px dashed rgba(62,207,142,.4);transition:all .2s;">Same-day matching available*</span>
@@ -1382,8 +1275,23 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <h2 class="section-title" style="color:#ffffff;">Tell Us About You</h2>
     <div style="position:relative;max-width:700px;margin:36px auto 0;">
       <div style="position:absolute;inset:-2px;border-radius:13px;box-shadow:0 0 20px rgba(114,255,171,.25), 0 0 50px rgba(114,255,171,.15);pointer-events:none;z-index:0;"></div>
-      <div class="form-wrap" style="position:relative;z-index:1;margin:0;">
-      <div class="form-progress" id="form-progress"></div>
+      <div class="form-wrap" style="position:relative;z-index:1;margin:0;padding:0;">
+      <div style="background:#fafbfc;border-radius:12px 12px 0 0;border-bottom:1px solid #f0f3f7;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span class="bstep" data-step="0" style="font-size:11px;font-weight:600;color:#aab4c0;white-space:nowrap;transition:color .2s;">About You</span>
+          <span style="font-size:10px;color:#dde3ec;">›</span>
+          <span class="bstep" data-step="1" style="font-size:11px;font-weight:600;color:#aab4c0;white-space:nowrap;transition:color .2s;">Choose Your Hours</span>
+          <span style="font-size:10px;color:#dde3ec;">›</span>
+          <span class="bstep" data-step="2" style="font-size:11px;font-weight:600;color:#aab4c0;white-space:nowrap;transition:color .2s;">What Happens Next</span>
+        </div>
+        <button id="booking-back-btn" onclick="bookingSliderBack()" style="display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;color:#8a9bb0;font-size:11px;font-weight:600;padding:0;white-space:nowrap;transition:color .2s;font-family:inherit;" onmouseover="this.style.color='#1a7fc1'" onmouseout="this.style.color='#8a9bb0'">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
+        </button>
+      </div>
+      <div style="height:3px;background:#eef1f5;overflow:hidden;">
+        <div id="booking-bar-fill" style="height:100%;width:33%;background:linear-gradient(90deg,#0d1b2e,#1a7fc1,#72ffab,#0d1b2e);background-size:300% 100%;animation:progressSweep 3.5s linear infinite;transition:width .4s ease;"></div>
+      </div>
+      <div style="padding:28px 36px 24px;">
 
       <div class="form-step active" id="fstep-1">
         <div class="form-step-body">
@@ -1518,7 +1426,8 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <button class="btn-next" id="form-btn-next" onclick="formNext()">Next</button>
         </div>
       </div>
-      </div>
+      </div><!-- /inner padding -->
+      </div><!-- /form-wrap -->
     </div>
   </div>
 </section>
@@ -1526,10 +1435,26 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 
     <!-- Slide 2: Choose Your Hours (packages) -->
     <div style="width:20%;flex-shrink:0;">
-      <section class="packages-section" id="packages" data-step="3">
-  <div class="section-inner">
-    <div class="section-eyebrow">Book a Coach</div>
-    <h2 class="section-title">Choose Your Hours</h2>
+      <section class="packages-section" id="packages" data-step="3" style="padding:0;">
+  <div style="background:#0d1b2e;padding:28px 32px 0;">
+    <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-eyebrow" style="color:#72ffab;">Book a Coach</div>
+    <h2 class="section-title" style="color:#ffffff;">Choose Your Hours</h2>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 0;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="bstep" data-dark="true" data-step="0" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">About You</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
+        <span class="bstep" data-dark="true" data-step="1" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">Choose Your Hours</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
+        <span class="bstep" data-dark="true" data-step="2" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">What Happens Next</span>
+      </div>
+      <button onclick="bookingSliderBack()" style="display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:11px;font-weight:600;padding:0 0 10px;white-space:nowrap;font-family:inherit;transition:color .2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
+      </button>
+    </div>
+    </div>
+  </div>
+  <div class="section-inner" style="padding:40px 32px 72px;">
     <p class="section-sub">Choose the number of hours that best fits your timeline, goals, and budget.</p>
     <div class="packages-grid" style="margin-top:40px;">
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
@@ -1540,6 +1465,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <div class="pkg-desc">Best for a focused session or two. Fast, targeted coaching with immediate impact.</div>
           <button class="pkg-btn" onclick="openCart('Quick Support','$400/hr','400',1,3)">Select this package</button>
         </div>
+        <div class="pkg-shimmer-wrap">
         <div class="pkg-card featured">
           <div class="pkg-badge">Most popular</div>
           <div class="pkg-title">Skill Building</div>
@@ -1547,6 +1473,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <div class="pkg-price-sub">4–9 hours</div>
           <div class="pkg-desc">Ideal for candidates who want to make real progress across a handful of sessions.</div>
           <button class="pkg-btn" onclick="openCart('Skill Building','$350/hr','350',4,9)">Select this package</button>
+        </div>
         </div>
         <div class="pkg-card">
           <div class="pkg-title">Performance Accelerator</div>
@@ -1570,8 +1497,26 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 
     <!-- Slide 3: What Happens Next -->
     <div style="width:20%;flex-shrink:0;">
-      <section class="step4-section" id="what-to-expect" data-step="4">
-  <div class="section-inner">
+      <section class="step4-section" id="what-to-expect" data-step="4" style="padding:0;">
+  <div style="background:#0d1b2e;padding:28px 32px 0;">
+    <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-eyebrow" style="color:#72ffab;">Book a Coach</div>
+    <h2 class="section-title" style="color:#ffffff;">What Happens Next</h2>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 0;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="bstep" data-dark="true" data-step="0" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">About You</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
+        <span class="bstep" data-dark="true" data-step="1" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">Choose Your Hours</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
+        <span class="bstep" data-dark="true" data-step="2" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">What Happens Next</span>
+      </div>
+      <button onclick="bookingSliderBack()" style="display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:11px;font-weight:600;padding:0 0 10px;white-space:nowrap;font-family:inherit;transition:color .2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
+      </button>
+    </div>
+    </div>
+  </div>
+  <div class="section-inner" style="padding:40px 32px 72px;">
     <div style="background:#f5f7fa;border:1px solid #dde3ec;border-radius:10px;padding:24px 28px;max-width:860px;margin:0 auto;">
 
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
@@ -1904,7 +1849,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
           <span class="packages-col-label" style="background:#eaf3fb;color:#185FA5;">Hourly coaching packages</span>
           <div class="packages-hourly">
             <div class="pkg-card"><div class="pkg-title">Quick Support</div><div class="pkg-price">$400<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">1–3 hours</div><div class="pkg-desc">Best for a focused session or two. Fast, targeted coaching with immediate impact.</div></div>
-            <div class="pkg-card featured"><div class="pkg-badge">Most popular</div><div class="pkg-title">Skill Building</div><div class="pkg-price">$350<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">4–9 hours</div><div class="pkg-desc">Ideal for candidates who want to make real progress across a handful of sessions.</div></div>
+            <div class="pkg-shimmer-wrap"><div class="pkg-card featured"><div class="pkg-badge">Most popular</div><div class="pkg-title">Skill Building</div><div class="pkg-price">$350<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">4–9 hours</div><div class="pkg-desc">Ideal for candidates who want to make real progress across a handful of sessions.</div></div></div>
             <div class="pkg-card"><div class="pkg-title">Performance Accelerator</div><div class="pkg-price">$340<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">10–19 hours</div><div class="pkg-desc">A serious, structured coaching engagement for intensive preparation.</div></div>
             <div class="pkg-card"><div class="pkg-title">Mastery Track</div><div class="pkg-price">$330<span style="font-size:16px;font-weight:400;">/hr</span></div><div class="pkg-price-sub">20+ hours</div><div class="pkg-desc">For professionals committed to a transformational outcome.</div></div>
           </div>
@@ -2333,17 +2278,17 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:6px;">What to Expect After Coach Intro</h3>
     <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:20px;">We'll match you with a coach within 48 hours of booking —<br>here's what you can expect once you've been introduced.</p>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-      <div style="display:flex;gap:14px;align-items:flex-start;border:1px solid #e8edf3;border-radius:10px;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Intro call (10 min)</strong> — Quick alignment call to share your goals and target roles.</span></div>
-      <div style="display:flex;gap:14px;align-items:flex-start;border:1px solid #e8edf3;border-radius:10px;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Resume submission</strong> — Submit your resume to your instructor before the session.</span></div>
-      <div style="display:flex;gap:14px;align-items:flex-start;border:1px solid #e8edf3;border-radius:10px;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Written feedback (within 72 hrs)</strong> — In-depth notes with suggested edits and rewrites.</span></div>
-      <div style="display:flex;gap:14px;align-items:flex-start;border:1px solid #e8edf3;border-radius:10px;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Implement &amp; schedule</strong> — Apply the feedback and book your live session.</span></div>
-      <div style="display:flex;gap:14px;align-items:flex-start;border:1px solid #e8edf3;border-radius:10px;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Live coaching session (1 hr)</strong> — Mock interview with real-time feedback and development walkthrough.</span></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#eaf3fb;border-left:3px solid #0d1b2e;border-radius:0 8px 8px 0;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Intro call (10 min)</strong> — Quick alignment call to share your goals and target roles.</span></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#eaf3fb;border-left:3px solid #0d1b2e;border-radius:0 8px 8px 0;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Resume submission</strong> — Submit your resume to your instructor before the session.</span></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#eaf3fb;border-left:3px solid #0d1b2e;border-radius:0 8px 8px 0;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Written feedback (within 72 hrs)</strong> — In-depth notes with suggested edits and rewrites.</span></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#eaf3fb;border-left:3px solid #0d1b2e;border-radius:0 8px 8px 0;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Implement &amp; schedule</strong> — Apply the feedback and book your live session.</span></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#eaf3fb;border-left:3px solid #0d1b2e;border-radius:0 8px 8px 0;padding:14px 16px;"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#1a3a5c;font-size:11px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:13px;color:#1a2535;line-height:1.5;"><strong>Live coaching session (1 hr)</strong> — Mock interview with real-time feedback and development walkthrough.</span></div>
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid #e8edf3;">
-      <div style="font-size:13px;color:#5a6a7e;">$500 flat &nbsp;·&nbsp; 2 hrs total</div>
+      <div style="font-size:13px;color:#5a6a7e;">$500 flat &nbsp;·&nbsp; one-time session</div>
       <div style="display:flex;gap:10px;">
         <button onclick="document.getElementById('polisher-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-        <button class="book-btn" onclick="document.getElementById('polisher-modal').style.display='none';scrollToForm(0);" style="font-size:13px;padding:10px 24px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
+        <button class="book-btn" onclick="document.getElementById('polisher-modal').style.display='none';scrollToFormPolisher();" style="font-size:13px;padding:10px 24px;"><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
       </div>
     </div>
     <button onclick="document.getElementById('polisher-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
@@ -2359,10 +2304,10 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
       <div style="border-right:1px solid #dde3ec;">
         <div id="pm-row-0" class="pm-row" onclick="pmSelect(0)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;background:#1a3a5c;border-bottom:1px solid #dde3ec;" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#72ffab;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:700;color:white;" class="pm-count">Modeling &amp; Valuation</span><span style="font-size:11px;color:rgba(255,255,255,.6);">6 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="pm-row-1" class="pm-row" onclick="pmSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">Excel &amp; Accounting</span><span style="font-size:11px;color:#aab4c0;">3 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="pm-row-2" class="pm-row" onclick="pmSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">IB &amp; Deal Process</span><span style="font-size:11px;color:#aab4c0;">3 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="pm-row-3" class="pm-row" onclick="pmSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">PE &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">5 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="pm-row-4" class="pm-row" onclick="pmSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">Finance Interview</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="pm-row-1" class="pm-row" onclick="pmSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">Excel &amp; Accounting</span><span style="font-size:11px;color:#aab4c0;">3 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="pm-row-2" class="pm-row" onclick="pmSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">IB &amp; Deal Process</span><span style="font-size:11px;color:#aab4c0;">3 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="pm-row-3" class="pm-row" onclick="pmSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">PE &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">5 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="pm-row-4" class="pm-row" onclick="pmSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;" class="pm-name" class="pm-count"><div style="display:flex;align-items:center;gap:8px;" class="pm-name" class="pm-count"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="pm-dot" class="pm-name" class="pm-count"></span><span style="font-size:13px;font-weight:600;color:#1a2535;" class="pm-count">Finance Interview</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
       </div>
       <div style="padding:20px;min-height:200px;">
         <div id="pm-panel-0"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Modeling &amp; Valuation</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Financial Statements</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Valuation Fundamentals</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>3-Statement Modeling</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>LBO</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>DCF</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Forecasting</li></ul></div>
@@ -2389,10 +2334,10 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
       <div style="border-right:1px solid #dde3ec;">
         <div id="um-row-0" onclick="umSelect(0)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;background:#1a3a5c;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#72ffab;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:700;color:white;">Performance &amp; Execution</span><span style="font-size:11px;color:rgba(255,255,255,.6);">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-1" onclick="umSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Technical Skills</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-2" onclick="umSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Modeling &amp; Valuation</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-3" onclick="umSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">FP&amp;A / Strategic Finance</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
-        <div id="um-row-4" onclick="umSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;" onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Adv. Deals &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-1" onclick="umSelect(1)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Technical Skills</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-2" onclick="umSelect(2)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Modeling &amp; Valuation</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-3" onclick="umSelect(3)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid #dde3ec;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">FP&amp;A / Strategic Finance</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
+        <div id="um-row-4" onclick="umSelect(4)" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#1a7fc1;flex-shrink:0;display:inline-block;" class="um-dot"></span><span style="font-size:13px;font-weight:600;color:#1a2535;">Adv. Deals &amp; Investing</span><span style="font-size:11px;color:#aab4c0;">7 topics</span></div><svg width="14" height="14" viewBox="0 0 16 16" stroke="#aab4c0" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,4 10,8 6,12"/></svg></div>
       </div>
       <div style="padding:20px;min-height:200px;">
         <div id="um-panel-0"><div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;">Performance &amp; Execution</div><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;"><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Real-world project support</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Model review &amp; optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Workflow optimization</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Stakeholder-focused analysis</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Presentation &amp; Formatting</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>Deadlines &amp; Deliverables</li><li style="font-size:13px;color:#3a4a5c;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#1a7fc1;flex-shrink:0;"></span>"What good looks like"</li></ul></div>
@@ -2443,7 +2388,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
       <div style="font-size:12px;color:#8a9bb0;" id="cm-topic-counter">0 subtopics selected</div>
       <div style="display:flex;gap:10px;">
         <button onclick="document.getElementById('customizer-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-        <button id="cust-modal-book-btn" class="book-btn cust-book-btn-el" onclick="document.getElementById('customizer-modal').style.display='none';custBookNow();" disabled style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;" disabled><span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span></button>
+        <button id="cust-modal-book-btn" class="book-btn cust-book-btn-el" onclick="document.getElementById('customizer-modal').style.display='none';custBookNow();" disabled style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;" disabled>Select 1+ topics to continue</button>
       </div>
     </div>
     <button onclick="document.getElementById('customizer-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
@@ -2510,26 +2455,24 @@ function pmSelect(idx){
     var row=document.getElementById('pm-row-'+i);
     var panel=document.getElementById('pm-panel-'+i);
     if(!row||!panel) continue;
+    var inner=row.querySelector('div');
+    var dot=inner?inner.querySelector('span'):null;
+    var spans=inner?inner.querySelectorAll('span'):[];
+    var nameSpan=spans[1]||null;
+    var countSpan=spans[2]||null;
+    var arrow=row.querySelector('svg');
     if(i===idx){
-      row.style.background='#1a3a5c';
-      var nameSpan=row.querySelector('.pm-name');
-      var countSpan=row.querySelector('.pm-count');
-      var dot=row.querySelector('.pm-dot');
-      var arrow=row.querySelector('svg');
-      if(nameSpan) nameSpan.style.color='white';
+      row.style.background='#0d1b2e';
+      if(dot) dot.style.background='#72ffab';
+      if(nameSpan){ nameSpan.style.color='white'; nameSpan.style.fontWeight='700'; }
       if(countSpan) countSpan.style.color='rgba(255,255,255,.6)';
-      if(dot){dot.style.background='#72ffab';}
       if(arrow) arrow.setAttribute('stroke','white');
       panel.style.display='block';
     } else {
       row.style.background='white';
-      var nameSpan=row.querySelector('.pm-name');
-      var countSpan=row.querySelector('.pm-count');
-      var dot=row.querySelector('.pm-dot');
-      var arrow=row.querySelector('svg');
-      if(nameSpan) nameSpan.style.color='#1a2535';
+      if(dot) dot.style.background='#1a7fc1';
+      if(nameSpan){ nameSpan.style.color='#1a2535'; nameSpan.style.fontWeight='600'; }
       if(countSpan) countSpan.style.color='#aab4c0';
-      if(dot){dot.style.background='#1a7fc1';}
       if(arrow) arrow.setAttribute('stroke','#aab4c0');
       panel.style.display='none';
     }
@@ -2539,11 +2482,26 @@ function umSelect(idx){
   for(var i=0;i<5;i++){
     var row=document.getElementById('um-row-'+i);
     var panel=document.getElementById('um-panel-'+i);
+    if(!row) continue;
+    var inner=row.querySelector('div');
+    var dot=inner?inner.querySelector('span'):null;
+    var spans=inner?inner.querySelectorAll('span'):[];
+    var nameSpan=spans[1]||null;
+    var countSpan=spans[2]||null;
+    var arrow=row.querySelector('svg');
     if(i===idx){
-      row.style.background='#1a3a5c';
+      row.style.background='#0d1b2e';
+      if(dot) dot.style.background='#72ffab';
+      if(nameSpan){ nameSpan.style.color='white'; nameSpan.style.fontWeight='700'; }
+      if(countSpan) countSpan.style.color='rgba(255,255,255,.6)';
+      if(arrow) arrow.setAttribute('stroke','white');
       if(panel) panel.style.display='block';
     } else {
       row.style.background='white';
+      if(dot) dot.style.background='#1a7fc1';
+      if(nameSpan){ nameSpan.style.color='#1a2535'; nameSpan.style.fontWeight='600'; }
+      if(countSpan) countSpan.style.color='#aab4c0';
+      if(arrow) arrow.setAttribute('stroke','#aab4c0');
       if(panel) panel.style.display='none';
     }
   }
@@ -2641,48 +2599,15 @@ function cmSubClick(topicIdx, subIdx, el){
       btn.style.cursor = 'pointer';
       btn.style.filter = 'none';
       btn.style.fontStyle = 'normal';
+      if(btn.id === 'cust-modal-book-btn') btn.innerHTML = '<span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now \u2192</span>';
     } else {
       btn.disabled = true;
       btn.style.opacity = '.4';
       btn.style.cursor = 'not-allowed';
       btn.style.filter = 'grayscale(.4)';
+      if(btn.id === 'cust-modal-book-btn') btn.innerHTML = 'Select 1+ topics to continue';
     }
   });
-}
-
-
-// Booking Wizard
-var _wizardStep = 1;
-var _wizardTotal = 3;
-function wizardGoTo(step, dir){
-  var track = document.getElementById('wizard-track');
-  track.style.transform = 'translateX(-'+((step-1)*100)+'%)';
-  _wizardStep = step;
-  updateWizardProgress();
-}
-function wizardNext(){
-  if(_wizardStep < _wizardTotal) wizardGoTo(_wizardStep + 1, 'forward');
-}
-function wizardBack(){
-  if(_wizardStep > 1) wizardGoTo(_wizardStep - 1, 'back');
-}
-function updateWizardProgress(){
-  var bar = document.getElementById('wizard-progress');
-  if(bar) bar.innerHTML = '';
-  // Update existing progress bar if present
-}
-function scrollToForm(trackIdx) {
-  _isConsultFlow = false;
-  _isCustomizerFlow = (trackIdx === 3);
-  _formStep = 1;
-  updateFormProgress();
-  // Reset to step 1
-  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
-  var first = document.getElementById('fstep-1');
-  if (first) first.classList.add('active');
-  var nextBtn = document.getElementById('form-btn-next');
-  if (nextBtn) nextBtn.textContent = 'Next';
-  bookingNavigateTo(1);
 }
 
 </script>
@@ -2693,24 +2618,17 @@ var _bookingSlide = 0;
 var _isCustomizerFlow = false;
 var _bookingHistory = [0];
 var _isConsultFlow = false;
+var _isPolisherFlow = false;
 
 // Slide order: 0=tracks, 1=customizations, 1b=consult, 2=packages, 3=what-to-expect
-var _slideOrder = [0, 1, 2, 3]; // normal flow
-var _consultOrder = [0, 4, 3];  // consult flow: tracks → consult-form → what-to-expect
 
 function bookingGoTo(n) {
   var track = document.getElementById('booking-slider-track');
   if (!track) return;
-  var slides = track.querySelectorAll('.booking-slide');
   _bookingSlide = n;
   track.style.transform = 'translateX(-' + (n * 20) + '%)';
   updateBookingProgress(n);
-  var backBtn = document.getElementById('booking-back-btn');
-  var progBar = document.getElementById('booking-progress-bar');
-  if (backBtn) backBtn.style.display = n > 0 ? 'inline-flex' : 'none';
-  if (progBar) progBar.style.display = n > 0 ? 'block' : 'none';
   if (n === 0) _bookingHistory = [0];
-  // scroll to top of slider
   var wrap = document.getElementById('booking-slider-wrap');
   if (wrap) setTimeout(function(){ wrap.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);
 }
@@ -2728,18 +2646,37 @@ function bookingNavigateTo(n) {
 }
 
 function updateBookingProgress(n) {
-  // Map slide index to step: 0=tracks(hidden), 1=customizations, 2=packages, 3=what-to-expect, 4=consult
-  var stepMap = { 0: -1, 1: 0, 2: 1, 3: 2, 4: 0 }; // -1 = progress hidden
+  var stepMap = { 0: -1, 1: 0, 2: 1, 3: 2, 4: 0 };
   var stepNum = n in stepMap ? stepMap[n] : 0;
-  document.querySelectorAll('.bstep').forEach(function(el, i) {
-    var isActive = i === stepNum;
-    var isPast = i < stepNum;
-    el.style.opacity = (isActive || isPast) ? '1' : '0.4';
-    el.style.borderBottom = isActive ? '2px solid #72ffab' : (isPast ? '2px solid rgba(114,255,171,.4)' : '2px solid transparent');
-    var circle = el.querySelector('.bstep-circle');
-    if (circle) {
-      circle.style.background = (isActive || isPast) ? '#72ffab' : 'rgba(255,255,255,.15)';
-      circle.style.color = (isActive || isPast) ? '#0d1b2e' : 'white';
+  var widths = ['33%', '66%', '100%'];
+  var fill = document.getElementById('booking-bar-fill');
+  if (fill && stepNum > 0) fill.style.width = widths[stepNum] || '33%';
+  document.querySelectorAll('.bstep').forEach(function(el) {
+    var elStep = parseInt(el.getAttribute('data-step'));
+    var isActive = elStep === stepNum;
+    var isPast = elStep < stepNum;
+    var isDark = el.getAttribute('data-dark') === 'true';
+    if (isActive) {
+      el.style.background = 'linear-gradient(90deg,#0d1b2e,#1a7fc1,#72ffab,#0d1b2e)';
+      el.style.backgroundSize = '300% 100%';
+      el.style.animation = 'shimmerText 3.5s linear infinite';
+      el.style.webkitBackgroundClip = 'text';
+      el.style.backgroundClip = 'text';
+      el.style.webkitTextFillColor = 'transparent';
+      el.style.fontWeight = '700';
+    } else {
+      el.style.background = 'none';
+      el.style.animation = 'none';
+      el.style.webkitBackgroundClip = 'unset';
+      el.style.backgroundClip = 'unset';
+      if (isDark) {
+        el.style.webkitTextFillColor = isPast ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
+        el.style.color = isPast ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
+      } else {
+        el.style.webkitTextFillColor = isPast ? '#0d1b2e' : '#aab4c0';
+        el.style.color = isPast ? '#0d1b2e' : '#aab4c0';
+      }
+      el.style.fontWeight = '600';
     }
   });
 }
@@ -2747,6 +2684,7 @@ function updateBookingProgress(n) {
 // ── scrollToForm / openConsult entry points ────────────────────────────
 function scrollToForm(trackIdx) {
   _isConsultFlow = false;
+  _isPolisherFlow = false;
   _isCustomizerFlow = (trackIdx === 3);
   _formStep = 1;
   updateFormProgress();
@@ -2759,13 +2697,23 @@ function scrollToForm(trackIdx) {
   bookingNavigateTo(1);
 }
 
+function scrollToFormPolisher() {
+  scrollToForm(0);
+  _isPolisherFlow = true; // set after scrollToForm so it isn't cleared
+}
+
 function openConsult() {
   _isConsultFlow = true;
   bookingNavigateTo(4);
 }
 
-function revealSection(id) { }
-function unlockPackages() { bookingNavigateTo(2); }
+function unlockPackages() {
+  if (_isPolisherFlow) {
+    openCart('The Polisher', '$500 flat', '500', 1, 1);
+  } else {
+    bookingNavigateTo(2);
+  }
+}
 function unlockWhatToExpect() { bookingNavigateTo(3); }
 
 // ── Cart ─────────────────────────────────────────────────────────────────
@@ -2865,7 +2813,10 @@ function formBack() {
 }
 function updateFormProgress() {
   var bar = document.getElementById('form-progress');
-  if (bar) bar.innerHTML = '<div class="form-progress-bar" style="width:' + Math.round((_formStep/_formTotalSteps)*100) + '%;"></div>';
+  var pct = 30 + Math.round(((_formStep - 1) / (_formTotalSteps - 1)) * 70);
+  if (bar) bar.innerHTML = '<div class="form-progress-bar" style="width:' + pct + '%;"></div>';
+  var fill = document.getElementById('booking-bar-fill');
+  if (fill) fill.style.width = pct + '%';
   var counter = document.getElementById('form-step-counter');
   if (counter) counter.textContent = 'Step ' + _formStep + ' of ' + _formTotalSteps;
   var back = document.getElementById('form-btn-back');
@@ -2878,7 +2829,7 @@ function selectChoice(el, key, val) {
 }
 function toggleLearnerFields(v) {
   var lf = document.getElementById('learner-fields');
-  if (lf) lf.classList.toggle('visible', v === 'someone');
+  if (lf) lf.classList.toggle('visible', v === 'someone' || v === 'me');
 }
 function toggleDatePicker(sel) {
   var dp = document.getElementById('date-picker');
@@ -2930,7 +2881,8 @@ function consultFormBack() {
 }
 function updateConsultProgress() {
   var bar = document.getElementById('consult-progress');
-  if (bar) bar.innerHTML = '<div class="form-progress-bar" style="width:' + Math.round((_consultStep/_consultTotalSteps)*100) + '%;"></div>';
+  var pct = 30 + Math.round(((_consultStep - 1) / (_consultTotalSteps - 1)) * 70);
+  if (bar) bar.innerHTML = '<div class="form-progress-bar" style="width:' + pct + '%;"></div>';
   var counter = document.getElementById('consult-step-counter');
   if (counter) counter.textContent = 'Step ' + _consultStep + ' of ' + _consultTotalSteps;
   var back = document.getElementById('consult-btn-back');
@@ -2944,7 +2896,7 @@ function consultSelectChoice(el, key, val) {
 }
 function consultToggleLearnerFields(v) {
   var lf = document.getElementById('consult-learner-fields');
-  if (lf) lf.classList.toggle('visible', v === 'someone');
+  if (lf) lf.classList.toggle('visible', v === 'someone' || v === 'me');
 }
 function consultToggleDatePicker(sel) {
   var dp = document.getElementById('consult-date-picker');
@@ -2954,7 +2906,13 @@ function consultToggleUrgentNotice(sel) {
   var un = document.getElementById('consult-urgent-notice');
   if (un) un.style.display = sel.value === 'urgent' ? 'block' : 'none';
 }
-function consultUpdateTimezones() {}
+function consultUpdateTimezones() {
+  var country = document.getElementById('consult-country-select');
+  var tz = document.getElementById('consult-timezone-select');
+  if (!country || !tz) return;
+  var options = tzData[country.value] || ['Other timezone'];
+  tz.innerHTML = options.map(function(t){ return '<option>' + t + '</option>'; }).join('');
+}
 
 // ── Coach modal ───────────────────────────────────────────────────────────
 var coachData = [
@@ -3018,70 +2976,13 @@ function faqSelectRow(idx) {
 // ── Testimonial carousel ──────────────────────────────────────────────────
 
 
-// ── Floating nav ─────────────────────────────────────────────────────────
-window.addEventListener('scroll', function() {
-  var floatingNav = document.querySelector('.floating-nav');
-  if (!floatingNav) return;
-  floatingNav.classList.toggle('visible', window.scrollY > 300);
-});
-
 function heroScroll(e, id) {
   e.preventDefault();
   var el = document.getElementById(id);
   if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-// ── Polisher / prepper / upskiller modal openers ──────────────────────────
-function openPolisherModal() {
-  var m = document.getElementById('polisher-modal');
-  if (m) m.classList.add('open');
-}
-function closePolisherModal() {
-  var m = document.getElementById('polisher-modal');
-  if (m) m.classList.remove('open');
-}
-function openPrepperModal() {
-  var m = document.getElementById('prepper-modal');
-  if (m) m.classList.add('open');
-}
-function closePrepperModal() {
-  var m = document.getElementById('prepper-modal');
-  if (m) m.classList.remove('open');
-}
-function openUpskillerModal() {
-  var m = document.getElementById('upskiller-modal');
-  if (m) m.classList.add('open');
-}
-function closeUpskillerModal() {
-  var m = document.getElementById('upskiller-modal');
-  if (m) m.classList.remove('open');
-}
-function openCustomizerModal() {
-  var m = document.getElementById('customizer-modal');
-  if (m) m.classList.add('open');
-}
-function closeCustomizerModal() {
-  var m = document.getElementById('customizer-modal');
-  if (m) m.classList.remove('open');
-}
-
 // ── pmSelect / umSelect (modal topic selectors) ───────────────────────────
-function pmSelect(el) {
-  el.closest('.pm-rows').querySelectorAll('.pm-row').forEach(function(r){ r.classList.remove('active'); });
-  el.classList.add('active');
-}
-function umSelect(el) {
-  el.closest('.um-rows').querySelectorAll('.um-row').forEach(function(r){ r.classList.remove('active'); });
-  el.classList.add('active');
-}
-function showStep(n){ _formStep = n; showFormStep(n); updateFormProgress(); }
-function consultShowStep(n){
-  document.querySelectorAll('[id^="cfstep-"]').forEach(function(el){ el.classList.remove('active'); });
-  var target = document.getElementById('cfstep-' + n);
-  if (target) target.classList.add('active');
-  _consultStep = n;
-  updateConsultProgress();
-}
 
 function buildFormSummary() {
   var items = [
@@ -3141,8 +3042,6 @@ function custBookNow(){
   scrollToForm(3);
 }
 
-
-
 // ── TESTIMONIAL CAROUSEL (infinite loop) ──────────────────────────────────
 (function(){
   var track = document.getElementById('tcar-track');
@@ -3152,7 +3051,6 @@ function custBookNow(){
   var allCards = track.querySelectorAll('.tcar-card');
   var total = 12; // real cards only
   var clonesPerSide = 3;
-  var perPage = 3;
   var cur = 0; // 0-indexed real card index
   var isTransitioning = false;
 
