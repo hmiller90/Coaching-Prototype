@@ -1502,7 +1502,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
     <div style="max-width:1200px;margin:0 auto;">
     <div class="section-eyebrow" style="color:#72ffab;">Book a Coach</div>
     <h2 class="section-title" style="color:#ffffff;">What Happens Next</h2>
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 0;">
+    <div style="padding:10px 0 12px;">
       <div style="display:flex;align-items:center;gap:6px;">
         <span class="bstep" data-dark="true" data-step="0" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">About You</span>
         <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
@@ -1510,9 +1510,6 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
         <span style="font-size:10px;color:rgba(255,255,255,.2);">›</span>
         <span class="bstep" data-dark="true" data-step="2" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;">What Happens Next</span>
       </div>
-      <button onclick="bookingSliderBack()" style="display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:11px;font-weight:600;padding:0 0 10px;white-space:nowrap;font-family:inherit;transition:color .2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
-        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
-      </button>
     </div>
     </div>
   </div>
@@ -1550,7 +1547,7 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:14px;border-top:1px solid #eef1f5;">
         <div style="font-size:12px;color:#8a9bb0;">Questions? <a href="mailto:coaching@wallstreetprep.com" style="color:#1a7fc1;">coaching@wallstreetprep.com</a></div>
-        <button onclick="bookingGoTo(0)" style="display:inline-flex;align-items:center;gap:7px;background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:500;color:#5a6a7e;cursor:pointer;transition:all .2s;font-family:inherit;" onmouseover="this.style.borderColor='#1a7fc1';this.style.color='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec';this.style.color='#5a6a7e'">
+        <button onclick="resetAndGoHome()" style="display:inline-flex;align-items:center;gap:7px;background:none;border:1.5px solid #dde3ec;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:500;color:#5a6a7e;cursor:pointer;transition:all .2s;font-family:inherit;" onmouseover="this.style.borderColor='#1a7fc1';this.style.color='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec';this.style.color='#5a6a7e'">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
           Back to coaching tracks
         </button>
@@ -2357,41 +2354,76 @@ textarea.form-input{resize:vertical;min-height:100px;line-height:1.6;}
 
 <!-- Customizer Topics Modal -->
 <div id="customizer-modal" onclick="if(event.target===this)this.style.display='none';" style="display:none;position:fixed;inset:0;background:rgba(13,27,46,.65);z-index:500;align-items:center;justify-content:center;padding:20px;">
-  <div style="background:white;border-radius:14px;padding:28px 32px;max-width:840px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3);">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a7fc1;margin-bottom:4px;">The Customizer &nbsp;·&nbsp; Fully Custom Coaching</div>
-    <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:4px;">Select Your Coaching Topics</h3>
-    <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:16px;">Click to expand and select topics. Don't see what you need? Don't worry—<br>all sessions are tailored to you! You'll share more details in the next step.</p>
-    <div style="border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
-      <div id="cm-main-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px 16px;border-bottom:1.5px solid #dde3ec;background:#f0f3f7;">
-        <div class="cm-chip" id="cmc-0" onclick="cmExpand(0)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Modeling &amp; Valuation</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-4" onclick="cmExpand(4)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">PE &amp; Investing</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-8" onclick="cmExpand(8)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Industry-Specific Modeling</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-1" onclick="cmExpand(1)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Accounting &amp; Financials</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-5" onclick="cmExpand(5)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Real Estate &amp; Project Finance</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-9" onclick="cmExpand(9)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">AI &amp; Data</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-2" onclick="cmExpand(2)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Excel &amp; Technical Skills</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-6" onclick="cmExpand(6)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Corporate Finance &amp; FP&amp;A</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-10" onclick="cmExpand(10)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Advanced / Niche Topics</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-3" onclick="cmExpand(3)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">IB &amp; Deal Skills</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-7" onclick="cmExpand(7)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Equity Research &amp; Markets</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-        <div class="cm-chip" id="cmc-11" onclick="cmExpand(11)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Career &amp; Interview Prep</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
-      </div>
-      <div id="cm-sub-area" style="padding:14px 16px;min-height:120px;background:white;border-top:1.5px solid #dde3ec;">
-        <div id="cm-sub-hint" style="font-size:12px;color:#aab4c0;font-style:italic;padding-top:8px;">← Select a topic above to see subtopics</div>
-        <div id="cm-sub-wrap" style="display:none;">
-          <div id="cm-sub-title" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;"></div>
-          <div id="cm-sub-chips" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+  <div style="background:white;border-radius:14px;max-width:840px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;">
+
+    <!-- Slider track -->
+    <div id="cm-slider-track" style="display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+
+      <!-- Panel 1: Topic Selection -->
+      <div style="min-width:100%;padding:28px 32px 24px;box-sizing:border-box;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a7fc1;margin-bottom:4px;">The Customizer &nbsp;·&nbsp; Fully Custom Coaching</div>
+        <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:4px;">Select Your Coaching Topics</h3>
+        <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:16px;">Click to expand and select topics. Don't see what you need? Don't worry—<br>all sessions are tailored to you! You'll share more details in the next step.</p>
+        <div style="border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
+          <div id="cm-main-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px 16px;border-bottom:1.5px solid #dde3ec;background:#f0f3f7;">
+            <div class="cm-chip" id="cmc-0" onclick="cmExpand(0)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Modeling &amp; Valuation</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-4" onclick="cmExpand(4)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">PE &amp; Investing</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-8" onclick="cmExpand(8)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Industry-Specific Modeling</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-1" onclick="cmExpand(1)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Accounting &amp; Financials</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-5" onclick="cmExpand(5)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Real Estate &amp; Project Finance</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-9" onclick="cmExpand(9)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">AI &amp; Data</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-2" onclick="cmExpand(2)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Excel &amp; Technical Skills</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-6" onclick="cmExpand(6)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Corporate Finance &amp; FP&amp;A</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-10" onclick="cmExpand(10)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Advanced / Niche Topics</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-3" onclick="cmExpand(3)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">IB &amp; Deal Skills</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-7" onclick="cmExpand(7)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Equity Research &amp; Markets</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+            <div class="cm-chip" id="cmc-11" onclick="cmExpand(11)" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2535;transition:all .15s;background:white;border:1px solid #dde3ec;border-radius:8px;"><div style="display:flex;align-items:center;gap:7px;"><span class="cmc-dot" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #aab4c0;flex-shrink:0;display:inline-block;"></span><span class="cmc-label">Career &amp; Interview Prep</span></div><span class="cmc-badge" style="display:none;font-size:10px;font-weight:700;color:#0f6e56;background:#e1f5ee;border-radius:100px;padding:1px 7px;"></span></div>
+          </div>
+          <div id="cm-sub-area" style="padding:14px 16px;min-height:120px;background:white;border-top:1.5px solid #dde3ec;">
+            <div id="cm-sub-hint" style="font-size:12px;color:#aab4c0;font-style:italic;padding-top:8px;">← Select a topic above to see subtopics</div>
+            <div id="cm-sub-wrap" style="display:none;">
+              <div id="cm-sub-title" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a2535;margin-bottom:10px;"></div>
+              <div id="cm-sub-chips" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;margin-top:14px;border-top:1px solid #e8edf3;">
+          <div style="font-size:12px;color:#8a9bb0;" id="cm-topic-counter">0 subtopics selected</div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="document.getElementById('customizer-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
+            <button id="cust-modal-book-btn" class="book-btn cust-book-btn-el" onclick="cmSlideToNeeds();" disabled style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;">Select 1+ topics to continue</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;margin-top:14px;border-top:1px solid #e8edf3;">
-      <div style="font-size:12px;color:#8a9bb0;" id="cm-topic-counter">0 subtopics selected</div>
-      <div style="display:flex;gap:10px;">
-        <button onclick="document.getElementById('customizer-modal').style.display='none';" style="padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">Close</button>
-        <button id="cust-modal-book-btn" class="book-btn cust-book-btn-el" onclick="document.getElementById('customizer-modal').style.display='none';custBookNow();" disabled style="font-size:13px;padding:10px 24px;opacity:.5;cursor:not-allowed;" disabled>Select 1+ topics to continue</button>
+
+      <!-- Panel 2: Tell us more -->
+      <div style="min-width:100%;padding:28px 32px 24px;box-sizing:border-box;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a7fc1;margin-bottom:4px;">The Customizer &nbsp;·&nbsp; Fully Custom Coaching</div>
+        <h3 style="font-size:22px;font-weight:800;color:#1a2535;margin-bottom:4px;">Tell us more about your coaching needs</h3>
+        <p style="font-size:11px;font-style:italic;color:#6b7a8d;margin-bottom:20px;">These help us match you with the right coach. You can edit your answers later.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="font-size:13px;font-weight:600;color:#1a2535;display:block;margin-bottom:6px;">Your background &amp; starting point</label>
+            <textarea id="cm-q3" class="form-input" rows="4" style="min-height:90px;" placeholder="e.g. I'm a junior at a non-target school targeting IB roles, currently preparing for superday interviews..."></textarea>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:#1a2535;display:block;margin-bottom:6px;">Your goals &amp; target outcome</label>
+            <textarea id="cm-q4" class="form-input" rows="4" style="min-height:90px;" placeholder="e.g. I want to land a summer analyst offer at a bulge bracket by next recruiting cycle..."></textarea>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;margin-top:14px;border-top:1px solid #e8edf3;">
+          <button onclick="cmSlideBack();" style="display:inline-flex;align-items:center;gap:5px;padding:10px 20px;border:1.5px solid #dde3ec;border-radius:6px;background:white;font-size:13px;font-weight:600;color:#3a4a5c;cursor:pointer;" onmouseover="this.style.borderColor='#1a7fc1'" onmouseout="this.style.borderColor='#dde3ec'">
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg> Back
+          </button>
+          <button class="book-btn" onclick="cmBookNowFromNeeds();" style="font-size:13px;padding:10px 24px;">
+            <span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now &rarr;</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <button onclick="document.getElementById('customizer-modal').style.display='none';" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
+
+    </div><!-- /slider track -->
+
+    <button onclick="document.getElementById('customizer-modal').style.display='none';cmResetSlider();" style="position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:1.5px solid #dde3ec;background:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a6a7e;">×</button>
   </div>
 </div>
 
@@ -2599,7 +2631,7 @@ function cmSubClick(topicIdx, subIdx, el){
       btn.style.cursor = 'pointer';
       btn.style.filter = 'none';
       btn.style.fontStyle = 'normal';
-      if(btn.id === 'cust-modal-book-btn') btn.innerHTML = '<span style="display:flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 2v2M11 2v2M2 7h12M6 10l1.5 1.5 3-3"/></svg> Book Now \u2192</span>';
+      if(btn.id === 'cust-modal-book-btn') btn.innerHTML = '<span style="display:flex;align-items:center;gap:6px;">Continue <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,3 11,8 6,13"/></svg></span>';
     } else {
       btn.disabled = true;
       btn.style.opacity = '.4';
@@ -2762,7 +2794,15 @@ function updateCartTotal() {
 
 function showMaxTooltip() {
   var tt = document.getElementById('max-tooltip');
-  if (tt) { tt.style.display = 'flex'; tt.querySelector('.tooltip-msg').textContent = 'Maximum for this package is ' + _cartMax + ' hours. For 20+ hours, select the Mastery Track.'; }
+  if (!tt) return;
+  var msgs = {
+    3:  'Maximum for this package is 3 hours. For 4+ hours, select the Skill Building.',
+    9:  'Maximum for this package is 9 hours. For 10+ hours, select the Performance Accelerator.',
+    19: 'Maximum for this package is 19 hours. For 20+ hours, select the Mastery Track.',
+  };
+  var msg = msgs[_cartMax] || ('Maximum for this package is ' + _cartMax + ' hours.');
+  tt.style.display = 'flex';
+  tt.querySelector('.tooltip-msg').textContent = msg;
 }
 function hideMaxTooltip() {
   var tt = document.getElementById('max-tooltip');
@@ -2976,6 +3016,12 @@ function faqSelectRow(idx) {
 // ── Testimonial carousel ──────────────────────────────────────────────────
 
 
+// ── Sticky nav ────────────────────────────────────────────────────────────
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('sticky-nav');
+  if (nav) nav.classList.toggle('visible', window.scrollY > 300);
+});
+
 function heroScroll(e, id) {
   e.preventDefault();
   var el = document.getElementById(id);
@@ -3034,11 +3080,134 @@ function showFormStep(position) {
   if (el) el.classList.add('active');
 }
 
+function cmSlideToNeeds() {
+  var track = document.getElementById('cm-slider-track');
+  if (track) track.style.transform = 'translateX(-100%)';
+  // Pre-populate with any existing values
+  var q3 = document.getElementById('cm-q3');
+  var q4 = document.getElementById('cm-q4');
+  var mainQ3 = document.getElementById('q3-input');
+  var mainQ4 = document.getElementById('q4-input');
+  if (q3 && mainQ3 && mainQ3.value && !q3.value) q3.value = mainQ3.value;
+  if (q4 && mainQ4 && mainQ4.value && !q4.value) q4.value = mainQ4.value;
+}
+function cmSlideBack() {
+  var track = document.getElementById('cm-slider-track');
+  if (track) track.style.transform = 'translateX(0)';
+}
+function cmResetSlider() {
+  var track = document.getElementById('cm-slider-track');
+  if (track) track.style.transform = 'translateX(0)';
+}
+function cmBookNowFromNeeds() {
+  // Copy responses into the main form fields
+  var q3Val = (document.getElementById('cm-q3') || {}).value || '';
+  var q4Val = (document.getElementById('cm-q4') || {}).value || '';
+  var mainQ3 = document.getElementById('q3-input');
+  var mainQ4 = document.getElementById('q4-input');
+  if (mainQ3) mainQ3.value = q3Val;
+  if (mainQ4) mainQ4.value = q4Val;
+  // Close modal and launch customizer checkout flow
+  var modal = document.getElementById('customizer-modal');
+  if (modal) modal.style.display = 'none';
+  cmResetSlider();
+  custBookNow();
+}
+function resetAndGoHome() {
+  // ── Text inputs & textareas ───────────────────────────────────────────────
+  document.querySelectorAll(
+    '#fstep-1 .form-input, #fstep-2 .form-input, #fstep-3 .form-input, ' +
+    '#fstep-4 .form-input, #fstep-5 .form-input, #fstep-6 .form-input, ' +
+    '#fstep-7 .form-input, #consult-form .form-input, ' +
+    '#cm-q3, #cm-q4'
+  ).forEach(function(el){ el.value = ''; });
+
+  // ── Selects ───────────────────────────────────────────────────────────────
+  ['form-timing-select','form-career-select','country-select','timezone-select',
+   'consult-timing-select','consult-career-select','consult-country-select','consult-timezone-select'
+  ].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.selectedIndex = 0;
+  });
+
+  // ── Choice buttons ────────────────────────────────────────────────────────
+  document.querySelectorAll('.choice-btn.selected').forEach(function(b){ b.classList.remove('selected'); });
+
+  // ── Checkboxes ────────────────────────────────────────────────────────────
+  document.querySelectorAll('.avail-check input[type="checkbox"]').forEach(function(cb){ cb.checked = false; });
+
+  // ── Learner fields ────────────────────────────────────────────────────────
+  document.querySelectorAll('.learner-fields.visible').forEach(function(el){ el.classList.remove('visible'); });
+
+  // ── Date picker ───────────────────────────────────────────────────────────
+  document.querySelectorAll('.date-picker.visible').forEach(function(el){ el.classList.remove('visible'); });
+  var urgentNotice = document.getElementById('urgent-notice');
+  if (urgentNotice) urgentNotice.style.display = 'none';
+
+  // ── Internal form data ────────────────────────────────────────────────────
+  _formData = {};
+  _formStep = 1;
+  _consultStep = 1;
+
+  // ── Customizer modal state ────────────────────────────────────────────────
+  _cmSubSel = {};
+  // Re-render all topic chip badges/dots
+  document.querySelectorAll('.cm-chip').forEach(function(chip){
+    var idx = parseInt(chip.id.replace('cmc-',''));
+    if (isNaN(idx)) return;
+    var dot = chip.querySelector('.cmc-dot');
+    var badge = chip.querySelector('.cmc-badge');
+    chip.style.background = 'white';
+    chip.style.borderColor = '#dde3ec';
+    chip.style.color = '#1a2535';
+    if (dot) { dot.style.background = ''; dot.style.borderColor = '#aab4c0'; }
+    if (badge) { badge.style.display = 'none'; badge.textContent = ''; }
+  });
+  // Clear sub-chips area
+  var subChips = document.getElementById('cm-sub-chips');
+  if (subChips) subChips.innerHTML = '';
+  var subHint = document.getElementById('cm-sub-hint');
+  var subWrap = document.getElementById('cm-sub-wrap');
+  if (subHint) subHint.style.display = 'block';
+  if (subWrap) subWrap.style.display = 'none';
+  var counter = document.getElementById('cm-topic-counter');
+  if (counter) counter.textContent = '0 subtopics selected';
+  // Reset continue button
+  var custBtn = document.getElementById('cust-modal-book-btn');
+  if (custBtn) {
+    custBtn.disabled = true;
+    custBtn.style.opacity = '.5';
+    custBtn.style.cursor = 'not-allowed';
+    custBtn.innerHTML = 'Select 1+ topics to continue';
+  }
+  // Reset modal slider and cm-q fields
+  cmResetSlider();
+  var cmQ3 = document.getElementById('cm-q3');
+  var cmQ4 = document.getElementById('cm-q4');
+  if (cmQ3) cmQ3.value = '';
+  if (cmQ4) cmQ4.value = '';
+
+  // ── Form steps UI ─────────────────────────────────────────────────────────
+  document.querySelectorAll('[id^="fstep-"]').forEach(function(el){ el.classList.remove('active'); });
+  var firstStep = document.getElementById('fstep-1');
+  if (firstStep) firstStep.classList.add('active');
+  var nextBtn = document.getElementById('form-btn-next');
+  if (nextBtn) nextBtn.textContent = 'Next';
+  var backBtn = document.getElementById('form-btn-back');
+  if (backBtn) backBtn.style.display = 'none';
+  updateFormProgress();
+
+  // ── Cart ──────────────────────────────────────────────────────────────────
+  var cart = document.getElementById('cart-modal');
+  if (cart) cart.style.display = 'none';
+
+  // ── Navigate home ─────────────────────────────────────────────────────────
+  bookingGoTo(0);
+}
+
 function custBookNow(){
-  // Close the customizer modal
   var modal = document.getElementById('customizer-modal');
   if(modal) modal.style.display = 'none';
-  // Set customizer flow flag and navigate to form
   scrollToForm(3);
 }
 
